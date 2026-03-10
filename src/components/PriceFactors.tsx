@@ -11,32 +11,32 @@ const factors: FactorSection[] = [
     id: "marca",
     title: "A marca",
     content: [
-      "A seleção da marca é um fator determinante no custo de um elevador residencial. Em Portugal, existem várias marcas de renome que se especializam em elevadores para moradias, incluindo TK (ThyssenKrupp), Aritco e Pollock.",
-      "É crucial solicitar orçamentos de diferentes marcas para realizar uma comparação abrangente, permitindo-lhe fazer uma escolha informada e adaptada às suas preferências e exigências financeiras.",
+      "A seleção da marca é um fator determinante no custo. Em Portugal, existem várias marcas de renome especializadas em elevadores para moradias, incluindo TK (ThyssenKrupp), Aritco e Pollock.",
+      "É crucial solicitar orçamentos de diferentes marcas para uma comparação abrangente.",
     ],
   },
   {
     id: "habitacao",
     title: "As especificações da habitação",
     content: [
-      "São as especificações da habitação que mais influenciam o custo. Fatores como o número de pisos a serem servidos, se a instalação requer ou não a construção de uma caixa de elevador, e as adaptações estruturais necessárias são elementos cruciais.",
-      "Moradias com requisitos mais complexos de instalação, como a necessidade de obras significativas, naturalmente resultam em custos mais elevados.",
+      "São as especificações da habitação que mais influenciam o custo. O número de pisos, a necessidade de construção de caixa de elevador e as adaptações estruturais são elementos cruciais.",
+      "Moradias com requisitos mais complexos resultam naturalmente em custos mais elevados.",
     ],
   },
   {
     id: "modelo",
     title: "O modelo escolhido",
     content: [
-      "Características personalizadas, como portas automáticas, dimensões específicas para acomodar cadeiras de rodas, ou acabamentos de luxo, são exemplos de como a personalização pode afetar o preço final.",
-      "A escolha dos materiais e das especificações técnicas do elevador também são fatores importantes, pois influenciam diretamente tanto a funcionalidade quanto o custo do equipamento.",
+      "Portas automáticas, dimensões para cadeiras de rodas ou acabamentos de luxo são exemplos de como a personalização afeta o preço final.",
+      "A escolha dos materiais e especificações técnicas influencia diretamente a funcionalidade e o custo.",
     ],
   },
   {
     id: "fornecedor",
     title: "A seleção do fornecedor",
     content: [
-      "O mercado de elevadores em Portugal é diversificado, com várias opções disponíveis, desde multinacionais reconhecidas como a Schindler, até empresas locais como a Levita Elevadores.",
-      "Uma pesquisa detalhada sobre os fabricantes e fornecedores disponíveis pode levar a economias significativas, além de minimizar riscos associados à qualidade e à entrega do projeto.",
+      "O mercado é diversificado, desde multinacionais como a Schindler até empresas locais como a Levita Elevadores.",
+      "Uma pesquisa detalhada pode levar a economias significativas e minimizar riscos de qualidade.",
     ],
   },
 ];
@@ -82,7 +82,7 @@ const PriceFactors = () => {
   return (
     <section className="section-spacing">
       <div className="content-width">
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl mb-16">
+        <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-14">
           Fatores que influenciam o preço
         </h2>
 
@@ -95,18 +95,17 @@ const PriceFactors = () => {
             />
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-16">
             {factors.map((factor, index) => (
               <div key={factor.id} className="relative">
-                {/* Dot on the plumb line */}
                 <div
                   className={`plumb-dot ${visibleDots.has(index) ? "visible" : ""}`}
-                  style={{ top: "8px" }}
+                  style={{ top: "6px" }}
                 />
                 <h3
                   data-factor-index={index}
-                  className={`font-heading font-semibold text-xl mb-4 transition-colors duration-300 ${
-                    visibleDots.has(index) ? "text-highlight" : ""
+                  className={`font-heading font-bold text-lg mb-3 transition-colors duration-300 ${
+                    visibleDots.has(index) ? "text-primary" : "text-foreground"
                   }`}
                 >
                   {factor.title}
@@ -114,7 +113,7 @@ const PriceFactors = () => {
                 {factor.content.map((paragraph, pIndex) => (
                   <p
                     key={pIndex}
-                    className="font-body text-base leading-relaxed text-muted-foreground mb-4 last:mb-0"
+                    className="font-body text-base leading-relaxed text-muted-foreground mb-3 last:mb-0"
                   >
                     {paragraph}
                   </p>

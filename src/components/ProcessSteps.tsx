@@ -1,45 +1,48 @@
 const ProcessSteps = () => {
   const steps = [
     {
-      number: "01",
+      number: "1",
       title: "Avaliação personalizada",
       description:
-        "Solicite uma visita de avaliação gratuita à sua casa, realizada por um dos nossos parceiros especializados. Esta etapa é crucial para entender as suas necessidades específicas e as características da sua habitação.",
+        "Solicite uma visita de avaliação gratuita à sua casa, realizada por parceiros especializados, para entender as suas necessidades e as características da habitação.",
     },
     {
-      number: "02",
+      number: "2",
       title: "Orçamento detalhado",
       description:
-        "Após a avaliação, receberá um orçamento detalhado e personalizado, que considera todos os aspectos da instalação do elevador residencial.",
+        "Receberá um orçamento detalhado e personalizado que considera todos os aspectos da instalação do elevador residencial.",
     },
     {
-      number: "03",
+      number: "3",
       title: "Instalação",
       description:
-        "Uma vez aceite o orçamento, pode agendar a instalação do seu novo elevador por técnicos especializados. Garantimos uma instalação rápida e sem transtornos.",
+        "Agende a instalação do seu novo elevador por técnicos especializados. Garantimos uma instalação rápida e sem transtornos.",
     },
   ];
 
   return (
-    <section className="bg-warm section-spacing">
+    <section className="bg-secondary section-spacing">
       <div className="content-width">
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl mb-12">
+        <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-12">
           Processo de compra em três passos
         </h2>
-        <div className="space-y-12">
+        <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step) => (
-            <div key={step.number} className="flex gap-6">
-              <span className="font-heading font-semibold text-3xl text-highlight shrink-0 leading-none pt-1">
-                {step.number}
-              </span>
-              <div>
-                <h3 className="font-heading font-semibold text-lg mb-3">
-                  {step.title}
-                </h3>
-                <p className="font-body text-base leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
+            <div
+              key={step.number}
+              className="bg-card rounded-xl p-6 border border-border shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-5">
+                <span className="font-heading font-bold text-sm text-primary-foreground">
+                  {step.number}
+                </span>
               </div>
+              <h3 className="font-heading font-bold text-base mb-3 text-foreground">
+                {step.title}
+              </h3>
+              <p className="font-body text-sm leading-relaxed text-muted-foreground">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>

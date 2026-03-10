@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,40 @@
 
 @layer base {
   :root {
-    --background: 40 14% 97%;
-    --foreground: 195 12% 19%;
+    --background: 0 0% 100%;
+    --foreground: 210 20% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 195 12% 19%;
+    --card-foreground: 210 20% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 195 12% 19%;
+    --popover-foreground: 210 20% 16%;
 
-    --primary: 203 100% 28%;
-    --primary-foreground: 40 14% 97%;
+    /* Deep teal — Indépendance Royale primary */
+    --primary: 187 100% 22%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 32 22% 90%;
-    --secondary-foreground: 195 12% 19%;
+    --secondary: 195 30% 95%;
+    --secondary-foreground: 210 20% 16%;
 
-    --muted: 32 22% 90%;
-    --muted-foreground: 195 8% 45%;
+    --muted: 200 20% 96%;
+    --muted-foreground: 210 10% 46%;
 
-    --accent: 32 22% 90%;
-    --accent-foreground: 195 12% 19%;
+    --accent: 195 30% 95%;
+    --accent-foreground: 210 20% 16%;
+
+    /* Coral/orange CTA */
+    --cta: 16 76% 60%;
+    --cta-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 32 15% 85%;
-    --input: 32 15% 85%;
-    --ring: 203 100% 28%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 187 100% 22%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,32 +50,34 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Lato', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 
-    --plumb-line: hsl(203 100% 28%);
+    --plumb-line: hsl(187 100% 22%);
   }
 
   .dark {
-    --background: 195 12% 10%;
-    --foreground: 40 14% 93%;
-    --card: 195 12% 12%;
-    --card-foreground: 40 14% 93%;
-    --popover: 195 12% 12%;
-    --popover-foreground: 40 14% 93%;
-    --primary: 203 80% 50%;
-    --primary-foreground: 195 12% 10%;
-    --secondary: 195 10% 20%;
-    --secondary-foreground: 40 14% 93%;
-    --muted: 195 10% 20%;
-    --muted-foreground: 195 8% 60%;
-    --accent: 195 10% 20%;
-    --accent-foreground: 40 14% 93%;
+    --background: 210 20% 8%;
+    --foreground: 0 0% 95%;
+    --card: 210 20% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 210 20% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 187 80% 40%;
+    --primary-foreground: 210 20% 8%;
+    --secondary: 210 15% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 210 15% 18%;
+    --accent-foreground: 0 0% 95%;
+    --cta: 16 76% 55%;
+    --cta-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 195 10% 20%;
-    --input: 195 10% 20%;
-    --ring: 203 80% 50%;
+    --border: 210 15% 18%;
+    --input: 210 15% 18%;
+    --ring: 187 80% 40%;
   }
 }
 
@@ -103,12 +110,19 @@
   }
 
   .section-spacing {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 
   .content-width {
-    max-width: 800px;
+    max-width: 880px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
@@ -117,11 +131,6 @@
 }
 
 /* Plumb line animation */
-@keyframes draw-line {
-  from { height: 0; }
-  to { height: 100%; }
-}
-
 .plumb-line {
   position: absolute;
   left: 0;
@@ -132,12 +141,12 @@
 }
 
 .plumb-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--plumb-line);
+  background: hsl(var(--cta));
   position: absolute;
-  left: -4px;
+  left: -5px;
   transform: scale(0);
   transition: transform 0.3s ease-out;
 }
