@@ -8,7 +8,7 @@ const BenefitsBar = () => {
   ];
 
   return (
-    <section className="bg-foreground py-5">
+    <section className="bg-primary/10 py-5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16">
           {benefits.map((benefit) => (
