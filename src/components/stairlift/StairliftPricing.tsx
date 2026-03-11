@@ -1,4 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { Stairs, Award, Building, Settings } from "lucide-react";
+
+const iconMap: Record<string, React.ElementType> = { Stairs, Award, Building, Settings };
+
+const ItemIcon = ({ name }: { name: string }) => {
+  const Icon = iconMap[name];
+  return <Icon className="w-4 h-4 text-primary shrink-0" />;
+};
 
 const StairliftPricing = () => {
   return (

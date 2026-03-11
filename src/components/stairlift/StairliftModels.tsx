@@ -1,6 +1,7 @@
 import straightImg from "@/assets/stairlift-straight.jpg";
 import curvedImg from "@/assets/stairlift-curved.jpg";
 import outdoorImg from "@/assets/stairlift-outdoor.jpg";
+import { CheckCircle as CheckIcon } from "lucide-react";
 
 const models = [
   {

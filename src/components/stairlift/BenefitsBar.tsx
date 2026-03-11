@@ -14,7 +14,7 @@ const BenefitsBar = () => {
           {benefits.map((benefit) => (
             <div key={benefit} className="flex items-center gap-2.5">
               <CheckCircle className="w-5 h-5 text-cta shrink-0" />
-              <span className="font-heading font-bold text-sm text-background">
+              <span className="font-heading font-bold text-sm text-foreground">
                 {benefit}
               </span>
             </div>
