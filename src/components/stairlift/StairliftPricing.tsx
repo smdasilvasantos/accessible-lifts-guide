@@ -35,11 +35,11 @@ const StairliftPricing = () => {
           No Vida Acessível, facilitamos esse processo por si.
         </p>
 
-        <div className="bg-primary rounded-2xl p-6 md:p-8 text-center">
-          <h3 className="font-heading font-bold text-xl text-primary-foreground mb-2">
+        <div className="bg-primary/10 rounded-2xl p-6 md:p-8 text-center border border-primary/20">
+          <h3 className="font-heading font-bold text-xl text-foreground mb-2">
             Receba orçamentos gratuitos e compare
           </h3>
-          <p className="font-body text-sm text-primary-foreground/75 mb-5">
+          <p className="font-body text-sm text-muted-foreground mb-5">
             A instalação está geralmente incluída no custo total.
           </p>
           <Button variant="cta" size="lg">
