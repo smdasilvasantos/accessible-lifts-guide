@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Stairs, Award, Building, Settings } from "lucide-react";
+import { ArrowUpDown, Award, Building, Settings } from "lucide-react";
 
-const iconMap: Record<string, React.ElementType> = { Stairs, Award, Building, Settings };
-
-const ItemIcon = ({ name }: { name: string }) => {
-  const Icon = iconMap[name];
-  return <Icon className="w-4 h-4 text-primary shrink-0" />;
-};
+const factors = [
+  { icon: ArrowUpDown, label: "Formato das escadas" },
+  { icon: Award, label: "Marca e modelos" },
+  { icon: Building, label: "Número de andares" },
+  { icon: Settings, label: "Opções e funcionalidades extra" },
+];
 
 const StairliftPricing = () => {
   return (
@@ -22,18 +22,13 @@ const StairliftPricing = () => {
           vários fatores que influenciam o custo final:
         </p>
         <ul className="grid sm:grid-cols-2 gap-3 mb-8">
-          {[
-            "Formato das escadas",
-            "Marca e modelos",
-            "Número de andares",
-            "Opções e funcionalidades extra",
-          ].map((item) => (
+          {factors.map((item) => (
             <li
-              key={item}
+              key={item.label}
               className="flex items-center gap-3 bg-secondary rounded-lg px-4 py-3"
             >
-              <span className="w-2 h-2 rounded-full bg-cta shrink-0" />
-              <span className="font-body text-sm text-foreground">{item}</span>
+              <item.icon className="w-4 h-4 text-primary shrink-0" />
+              <span className="font-body text-sm text-foreground">{item.label}</span>
             </li>
           ))}
         </ul>

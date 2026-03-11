@@ -1,4 +1,4 @@
-import { Sofa, ShieldCheck, Accessibility, Gamepad2, Zap, HeartHandshake, Wheelchair, TrendingDown, Cog } from "lucide-react";
+import { Armchair, ShieldCheck, Home, Gamepad2, Zap, HeartHandshake, UserRound, TrendingDown } from "lucide-react";
 
 const StairliftAbout = () => {
   return (
@@ -40,18 +40,18 @@ const StairliftAbout = () => {
             </h3>
             <ul className="space-y-2">
               {[
-                "Suba escadas com conforto e independência",
-                "Evite quedas nas escadas",
-                "Adaptados às especificidades de cada casa",
-                "Fácil de operar, com comandos acessíveis",
-                "Instalação rápida, em menos de um dia",
+                { icon: Armchair, text: "Suba escadas com conforto e independência" },
+                { icon: ShieldCheck, text: "Evite quedas nas escadas" },
+                { icon: Home, text: "Adaptados às especificidades de cada casa" },
+                { icon: Gamepad2, text: "Fácil de operar, com comandos acessíveis" },
+                { icon: Zap, text: "Instalação rápida, em menos de um dia" },
               ].map((item) => (
                 <li
-                  key={item}
+                  key={item.text}
                   className="flex items-center gap-2 font-body text-sm text-muted-foreground"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-cta shrink-0" />
-                  {item}
+                  <item.icon className="w-4 h-4 text-cta shrink-0" />
+                  {item.text}
                 </li>
               ))}
             </ul>
@@ -67,16 +67,16 @@ const StairliftAbout = () => {
             </p>
             <ul className="space-y-2">
               {[
-                "Tem mobilidade reduzida ou movimentos limitados",
-                "Utiliza cadeira de rodas ou auxílio para caminhar",
-                "Sente dificuldade ao subir escadas",
+                { icon: UserRound, text: "Tem mobilidade reduzida ou movimentos limitados" },
+                { icon: HeartHandshake, text: "Utiliza cadeira de rodas ou auxílio para caminhar" },
+                { icon: TrendingDown, text: "Sente dificuldade ao subir escadas" },
               ].map((item) => (
                 <li
-                  key={item}
+                  key={item.text}
                   className="flex items-center gap-2 font-body text-sm text-muted-foreground"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                  {item}
+                  <item.icon className="w-4 h-4 text-primary shrink-0" />
+                  {item.text}
                 </li>
               ))}
             </ul>
