@@ -1,3 +1,5 @@
+import { Sofa, ShieldCheck, Accessibility, Gamepad2, Zap, HeartHandshake, Wheelchair, TrendingDown, Cog } from "lucide-react";
+
 const StairliftAbout = () => {
   return (
     <section className="section-spacing">
