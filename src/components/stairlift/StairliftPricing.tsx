@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Stairs, Award, Home, Settings } from "lucide-react";
+import { ArrowUpDown, Award, Home, Settings } from "lucide-react";
 
 const factors = [
   { icon: Stairs, label: "Formato das escadas" },
