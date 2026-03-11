@@ -1,6 +1,7 @@
 import straightImg from "@/assets/stairlift-straight.jpg";
 import curvedImg from "@/assets/stairlift-curved.jpg";
 import outdoorImg from "@/assets/stairlift-outdoor.jpg";
+import { CheckCircle } from "lucide-react";
 
 const models = [
   {
@@ -84,7 +85,7 @@ const StairliftModels = () => {
                       key={feature}
                       className="font-body text-sm text-foreground flex items-center gap-2"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-cta shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-cta shrink-0" />
                       {feature}
                     </li>
                   ))}
