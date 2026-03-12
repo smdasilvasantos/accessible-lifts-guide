@@ -1,5 +1,6 @@
 import sensorImg from "@/assets/teste/feature-sensor.jpg";
 import swivelImg from "@/assets/teste/feature-swivel.jpg";
+import footrestImg from "@/assets/teste/feature-footrest.jpg";
 import railImg from "@/assets/teste/feature-rail.jpg";
 import remoteImg from "@/assets/teste/feature-remote.jpg";
 
