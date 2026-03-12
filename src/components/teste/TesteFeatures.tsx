@@ -11,9 +11,9 @@ const features = [
     description: "Interrompe automaticamente o movimento caso exista um obstáculo.",
   },
   {
-    image: swivelImg,
-    title: "Assento giratório",
-    description: "Facilita a entrada e saída da cadeira no topo da escada.",
+    image: footrestImg,
+    title: "Apoio de pés antiderrapante",
+    description: "Garante estabilidade durante o percurso.",
   },
   {
     image: railImg,

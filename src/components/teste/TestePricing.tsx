@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpDown, Building, Award, Settings } from "lucide-react";
 
 const factors = [
-  { icon: Stairs, label: "Tipo de escada" },
+  { icon: ArrowUpDown, label: "Tipo de escada" },
   { icon: Building, label: "Número de pisos" },
   { icon: Award, label: "Marca e modelo" },
   { icon: Settings, label: "Opções adicionais de conforto ou segurança" },

@@ -2,7 +2,7 @@ import { ArrowUpDown, AlertTriangle, DoorClosed } from "lucide-react";
 
 const problems = [
   {
-    icon: Stairs,
+    icon: ArrowUpDown,
     title: "Dificuldade em subir escadas",
     description: "As articulações ou a falta de força tornam o esforço cada vez maior.",
   },
