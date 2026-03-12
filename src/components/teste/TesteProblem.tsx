@@ -1,4 +1,4 @@
-import { Stairs, AlertTriangle, DoorClosed } from "lucide-react";
+import { ArrowUpDown, AlertTriangle, DoorClosed } from "lucide-react";
 
 const problems = [
   {
