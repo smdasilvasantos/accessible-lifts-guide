@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import ElevadoresEscadas from "./pages/ElevadoresEscadas.tsx";
+import ElevadoresEscadasPrecos from "./pages/ElevadoresEscadasPrecos.tsx";
 import Teste from "./pages/Teste.tsx";
 import Home from "./pages/Home.tsx";
 import NotFound from "./pages/NotFound.tsx";
