@@ -21,7 +21,7 @@ const factors: FactorSection[] = [
   {
     id: "escadas",
     title: "O Tipo de Escadas",
-    icon: Stairs,
+    icon: ArrowUpDown,
     content: [
       "As características específicas das escadas, sejam elas curvas ou retas, juntamente com a largura e comprimento, influenciam diretamente no preço.",
       "Escadas mais largas necessitam de um carril mais extenso, o que pode aumentar o custo do projeto.",
