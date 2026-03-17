@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Tag, Stairs, SlidersHorizontal } from "lucide-react";
+import { Tag, ArrowUpDown, SlidersHorizontal } from "lucide-react";
 
 interface FactorSection {
   id: string;
