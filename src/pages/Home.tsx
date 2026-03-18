@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import HomeHero from "@/components/home/HomeHero";
 import HomeGuide from "@/components/home/HomeGuide";
 import HomeSolutions from "@/components/home/HomeSolutions";
@@ -10,6 +11,7 @@ import SiteFooter from "@/components/SiteFooter";
 const Home = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <HomeHero />
       <HomeGuide />
       <HomeSolutions />

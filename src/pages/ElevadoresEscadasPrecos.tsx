@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import PrecosHero from "@/components/precos-escadas/PrecosHero";
 import PrecosOverview from "@/components/precos-escadas/PrecosOverview";
 import CatalogCTA from "@/components/CatalogCTA";
@@ -13,6 +14,7 @@ import SiteFooter from "@/components/SiteFooter";
 const ElevadoresEscadasPrecos = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <PrecosHero />
       <PrecosOverview />
       <CatalogCTA />

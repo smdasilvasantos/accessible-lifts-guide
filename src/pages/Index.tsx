@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import PriceOverview from "@/components/PriceOverview";
 import PriceShafts from "@/components/PriceShafts";
@@ -11,6 +12,7 @@ import SiteFooter from "@/components/SiteFooter";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <HeroSection />
       <PriceOverview />
       <PriceShafts />

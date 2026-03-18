@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import StairliftHero from "@/components/stairlift/StairliftHero";
 import BenefitsBar from "@/components/stairlift/BenefitsBar";
 import StairliftModels from "@/components/stairlift/StairliftModels";
@@ -12,6 +13,7 @@ import SiteFooter from "@/components/SiteFooter";
 const ElevadoresEscadas = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <StairliftHero />
       <BenefitsBar />
       <StairliftModels />
