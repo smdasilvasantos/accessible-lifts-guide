@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -14,6 +14,8 @@ const navLinks = [
 const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/home";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -79,17 +81,18 @@ const SiteHeader = () => {
         )}
       </header>
 
-      {/* Mobile sticky CTA — appears on scroll */}
-      {/* Mobile sticky CTA — bottom */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background/95 px-4 py-3 backdrop-blur transition-all duration-300 md:hidden ${
-          scrolled ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-        }`}
-      >
-        <Button variant="cta" size="lg" className="w-full" asChild>
-          <a href="#">Orçamento Gratuito</a>
-        </Button>
-      </div>
+      {/* Mobile sticky CTA — bottom, hidden on homepage */}
+      {!isHome && (
+        <div
+          className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background px-4 py-3 transition-all duration-300 md:hidden ${
+            scrolled ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+          }`}
+        >
+          <Button variant="cta" size="lg" className="w-full" asChild>
+            <a href="#">Orçamento Gratuito</a>
+          </Button>
+        </div>
+      )}
     </>
   );
 };
