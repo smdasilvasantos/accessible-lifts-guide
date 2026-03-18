@@ -14,6 +14,8 @@ const navLinks = [
 const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/home";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
