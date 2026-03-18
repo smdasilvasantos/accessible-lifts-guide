@@ -80,13 +80,14 @@ const SiteHeader = () => {
       </header>
 
       {/* Mobile sticky CTA — appears on scroll */}
+      {/* Mobile sticky CTA — bottom */}
       <div
-        className={`fixed left-0 right-0 top-16 z-40 border-b border-border/40 bg-background/95 px-4 py-2 backdrop-blur transition-all duration-300 md:hidden ${
-          scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background/95 px-4 py-3 backdrop-blur transition-all duration-300 md:hidden ${
+          scrolled ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
         <Button variant="cta" size="lg" className="w-full" asChild>
-          <a href="#">Pedir Orçamento Gratuito</a>
+          <a href="#">Orçamento Gratuito</a>
         </Button>
       </div>
     </>
