@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import PriceOverview from "@/components/PriceOverview";
 import PriceShafts from "@/components/PriceShafts";

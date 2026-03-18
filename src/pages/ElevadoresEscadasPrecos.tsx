@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import PrecosHero from "@/components/precos-escadas/PrecosHero";
 import PrecosOverview from "@/components/precos-escadas/PrecosOverview";
 import CatalogCTA from "@/components/CatalogCTA";

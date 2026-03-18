@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import TesteHero from "@/components/teste/TesteHero";
 import TesteProblem from "@/components/teste/TesteProblem";
 import TesteSolution from "@/components/teste/TesteSolution";

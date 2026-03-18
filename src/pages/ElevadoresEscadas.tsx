@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import StairliftHero from "@/components/stairlift/StairliftHero";
 import BenefitsBar from "@/components/stairlift/BenefitsBar";
 import StairliftModels from "@/components/stairlift/StairliftModels";

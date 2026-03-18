@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import HomeHero from "@/components/home/HomeHero";
 import HomeGuide from "@/components/home/HomeGuide";
 import HomeSolutions from "@/components/home/HomeSolutions";
