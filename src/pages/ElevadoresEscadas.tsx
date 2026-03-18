@@ -12,6 +12,7 @@ import SiteFooter from "@/components/SiteFooter";
 const ElevadoresEscadas = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <StairliftHero />
       <BenefitsBar />
       <StairliftModels />

@@ -13,6 +13,7 @@ import SiteFooter from "@/components/SiteFooter";
 const ElevadoresEscadasPrecos = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <PrecosHero />
       <PrecosOverview />
       <CatalogCTA />

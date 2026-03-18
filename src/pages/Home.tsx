@@ -10,6 +10,7 @@ import SiteFooter from "@/components/SiteFooter";
 const Home = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <HomeHero />
       <HomeGuide />
       <HomeSolutions />

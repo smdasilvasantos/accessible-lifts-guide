@@ -15,6 +15,7 @@ import SiteFooter from "@/components/SiteFooter";
 const Teste = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       <TesteHero />
       <TesteProblem />
       <TesteSolution />
