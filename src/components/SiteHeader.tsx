@@ -89,7 +89,7 @@ const SiteHeader = () => {
           }`}
         >
           <Button variant="cta" size="lg" className="w-full" asChild>
-            <a href="#">Orçamento Gratuito</a>
+            <a href="/pedir-orcamento">Orçamento Gratuito</a>
           </Button>
         </div>
       )}
