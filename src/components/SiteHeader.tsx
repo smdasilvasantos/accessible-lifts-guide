@@ -48,7 +48,7 @@ const SiteHeader = () => {
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <Button variant="cta" size="lg" asChild>
-              <a href="#">Pedir Orçamento Gratuito</a>
+              <a href="/pedir-orcamento">Pedir Orçamento Gratuito</a>
             </Button>
           </div>
 
