@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import ElevadoresEscadas from "./pages/ElevadoresEscadas.tsx";
 import ElevadoresEscadasPrecos from "./pages/ElevadoresEscadasPrecos.tsx";
+import ElevadoresResidenciais from "./pages/ElevadoresResidenciais.tsx";
 import PedirOrcamento from "./pages/PedirOrcamento.tsx";
 import Teste from "./pages/Teste.tsx";
 import Home from "./pages/Home.tsx";
