@@ -9,6 +9,7 @@ import ElevadoresEscadasPrecos from "./pages/ElevadoresEscadasPrecos.tsx";
 import PedirOrcamento from "./pages/PedirOrcamento.tsx";
 import Teste from "./pages/Teste.tsx";
 import Home from "./pages/Home.tsx";
+import ComoAjudamos from "./pages/ComoAjudamos.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/elevadores-de-escadas/precos" element={<ElevadoresEscadasPrecos />} />
           <Route path="/pedir-orcamento" element={<PedirOrcamento />} />
           <Route path="/teste" element={<Teste />} />
+          <Route path="/como-ajudamos" element={<ComoAjudamos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
