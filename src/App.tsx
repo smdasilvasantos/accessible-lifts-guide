@@ -9,6 +9,7 @@ import ElevadoresEscadasPrecos from "./pages/ElevadoresEscadasPrecos.tsx";
 import PedirOrcamento from "./pages/PedirOrcamento.tsx";
 import Teste from "./pages/Teste.tsx";
 import Home from "./pages/Home.tsx";
+import ComoAjudamos from "./pages/ComoAjudamos.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
