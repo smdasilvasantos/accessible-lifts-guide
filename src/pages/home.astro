@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomePage from '../_react_pages/Home';
+---
+
+<Layout
+  title="Vida Acessível — Soluções de Acessibilidade em Portugal"
+  description="Encontre elevadores de escadas, elevadores residenciais e plataformas elevatórias. Compare orçamentos gratuitos de instaladores certificados em Portugal."
+>
+  <HomePage client:only="react" />
+</Layout>

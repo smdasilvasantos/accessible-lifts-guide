@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader';
+import OrcamentoForm from '../components/OrcamentoForm';
+import SiteFooter from '../components/SiteFooter';
+---
+
+<Layout
+  title="Pedir Orçamento Gratuito — Vida Acessível"
+  description="Peça até 3 orçamentos gratuitos de instaladores certificados de elevadores de escadas, elevadores residenciais e plataformas elevatórias em Portugal."
+>
+  <div class="min-h-screen bg-background">
+    <SiteHeader client:load />
+    <OrcamentoForm client:only="react" />
+    <SiteFooter client:only="react" />
+  </div>
+</Layout>

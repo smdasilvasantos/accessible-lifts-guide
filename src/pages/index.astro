@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IndexPage from '../_react_pages/Index';
+---
+
+<Layout
+  title="Preços Elevadores de Escadas — Vida Acessível"
+  description="Saiba quanto custa um elevador de escadas em Portugal. Compare orçamentos gratuitos de instaladores certificados."
+>
+  <IndexPage client:only="react" />
+</Layout>
