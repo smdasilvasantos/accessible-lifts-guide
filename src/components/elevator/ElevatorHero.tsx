@@ -1,6 +1,5 @@
 import heroImage from "@/assets/hero-elevator-residencial.jpg";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const ElevatorHero = () => {
   return (

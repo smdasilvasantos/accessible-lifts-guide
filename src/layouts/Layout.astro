@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Vida Acessível — Soluções de Acessibilidade em Portugal',
+  description = 'Compare orçamentos gratuitos de elevadores de escadas, elevadores residenciais e plataformas elevatórias em Portugal.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_PT" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

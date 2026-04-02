@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Building2, Award, Home, Settings } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const factors = [
   { icon: Building2, label: "Número de pisos" },
@@ -52,7 +51,7 @@ const ElevatorPricing = () => {
             estimativas detalhadas.
           </p>
           <Button variant="cta" size="lg" asChild>
-            <Link to="/pedir-orcamento">Pedir orçamento</Link>
+            <a href="/pedir-orcamento">Pedir orçamento</a>
           </Button>
         </div>
       </div>

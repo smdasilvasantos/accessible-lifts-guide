@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Soluções", href: "#" },
-  { label: "Como Ajudamos", href: "#" },
+  { label: "Como Ajudamos", href: "/como-ajudamos" },
   { label: "Recursos", href: "#" },
   { label: "Contacto", href: "#" },
 ];
 
-const SiteHeader = () => {
+interface SiteHeaderProps {
+  isHome?: boolean;
+}
+
+const SiteHeader = ({ isHome = false }: SiteHeaderProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === "/home";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -28,9 +29,9 @@ const SiteHeader = () => {
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
           {/* Logo */}
-          <Link to="/home" className="flex-shrink-0">
-            <img src={logo} alt="Vida Acessível" className="h-9 w-auto" />
-          </Link>
+          <a href="/home" className="flex-shrink-0">
+            <img src={logo.src ?? logo} alt="Vida Acessível" className="h-9 w-auto" />
+          </a>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 md:flex">
