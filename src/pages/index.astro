@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AnimatedIcon from '../components/icons/AnimatedIcon.astro';
 import { getCollection } from 'astro:content';
 
 let recentPosts: any[] = [];
@@ -8,9 +9,7 @@ try {
   recentPosts = posts
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 3);
-} catch (e) {
-  // Content collection may not yet be populated
-}
+} catch (e) {}
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -23,6 +22,20 @@ const websiteSchema = {
     "query-input": "required name=search_term_string"
   }
 };
+
+const cities = [
+  "Lisboa", "Porto", "Braga", "Aveiro", "Coimbra",
+  "Setúbal", "Faro", "Leiria", "Viseu", "Évora",
+  "Guimarães", "Funchal"
+];
+
+const categoryColors: Record<string, string> = {
+  'Guias': 'bg-blue-100 text-blue-800',
+  'Preços': 'bg-green-100 text-green-800',
+  'Legislação': 'bg-purple-100 text-purple-800',
+  'Instalação': 'bg-orange-100 text-orange-800',
+  'Comparações': 'bg-rose-100 text-rose-800',
+};
 ---
 
 <Layout
@@ -32,33 +45,34 @@ const websiteSchema = {
   schema={websiteSchema}
 >
 
-  <!-- Hero -->
+  <!-- 1. HERO — problem-first, no form -->
   <section class="bg-secondary py-20 md:py-28 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6">
-            Soluções de Mobilidade em Portugal
+            Uma casa sem obstáculos
           </span>
           <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
-            Soluções de Acessibilidade para a Sua Casa
+            Soluções para viver em casa com liberdade e independência
           </h1>
           <p class="font-body text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-            Ajudamos a encontrar o equipamento certo e instaladores de confiança. Receba até 3 orçamentos gratuitos de instaladores certificados, sem compromisso.
+            Comparamos equipamentos e ligamos-o a instaladores certificados — de forma simples, gratuita e sem compromisso.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg shadow-cta/25 hover:shadow-xl transition-all">
-              Pedir Orçamento Gratuito
+            <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg shadow-cta/25 hover:shadow-xl transition-all group">
+              Ver preços
+              <AnimatedIcon name="arrow-right" class="w-4 h-4" color="white" />
             </a>
-            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">
-              Catálogo Grátis
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">
+              Pedir orçamento gratuito
             </a>
           </div>
           <p class="font-body text-sm text-muted-foreground mt-4">Grátis e sem compromisso — até 3 propostas comparáveis</p>
         </div>
         <div class="relative">
           <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[420px] flex items-center justify-center shadow-2xl shadow-primary/10"
-               data-image-description="Mulher idosa portuguesa, 70 anos, a entrar tranquilamente em casa moderna usando elevador de escadas, família ao fundo a sorrir, luz natural quente, fotografia documental realista, Sony A7R IV, WebP">
+               data-image-description="Mulher idosa portuguesa, 70 anos, a entrar tranquilamente em casa moderna usando elevador de escadas, família ao fundo a sorrir, luz natural quente, fotografia documental realista, WebP">
             <span class="text-muted-foreground text-sm">Imagem: família com elevador de escadas</span>
           </div>
         </div>
@@ -66,100 +80,133 @@ const websiteSchema = {
     </div>
   </section>
 
-  <!-- Como ajudamos -->
+  <!-- 2. COMO FUNCIONA — 3 steps with icons -->
   <section class="py-20 md:py-24 bg-background">
     <div class="max-w-[880px] mx-auto px-6 text-center">
-      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Como ajudamos</h2>
-      <p class="font-body text-muted-foreground mb-12 max-w-xl mx-auto">Três passos simples para encontrar a solução certa para a sua casa.</p>
-      <div class="grid sm:grid-cols-3 gap-8">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Como funciona</h2>
+      <p class="font-body text-muted-foreground mb-14 max-w-xl mx-auto">Três passos simples para encontrar a solução certa para a sua casa.</p>
+      <div class="grid sm:grid-cols-3 gap-10">
         {[
-          { step: "1", title: "Indique o que procura", desc: "Diga-nos o tipo de escada e equipamento que procura. Leva 2 minutos." },
-          { step: "2", title: "Receba até 3 propostas", desc: "Instaladores certificados na sua região contactam-no com orçamentos detalhados." },
-          { step: "3", title: "Compare e escolha", desc: "Compare preços, prazos e garantias. Só avança quando estiver seguro da escolha." },
-        ].map(({ step, title, desc }) => (
-          <div>
-            <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <span class="font-heading font-extrabold text-2xl text-primary">{step}</span>
+          {
+            icon: 'file-text' as const,
+            step: "1",
+            title: "Indique o que procura",
+            desc: "Diga-nos o tipo de escada e equipamento que precisa. Leva menos de 2 minutos."
+          },
+          {
+            icon: 'users' as const,
+            step: "2",
+            title: "Receba até 3 propostas",
+            desc: "Instaladores certificados na sua região enviam orçamentos detalhados sem pressão."
+          },
+          {
+            icon: 'check-circle' as const,
+            step: "3",
+            title: "Compare e escolha",
+            desc: "Compare preços, prazos e garantias. Só avança quando estiver seguro."
+          },
+        ].map(({ icon, step, title, desc }) => (
+          <div class="group flex flex-col items-center">
+            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name={icon} class="w-7 h-7" color="hsl(var(--primary))" />
+            </div>
+            <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center mx-auto mb-3">
+              <span class="font-heading font-extrabold text-xs text-white">{step}</span>
             </div>
             <h3 class="font-heading font-bold text-foreground mb-2">{title}</h3>
-            <p class="font-body text-sm text-muted-foreground">{desc}</p>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Soluções -->
+  <!-- 3. SOLUÇÕES — 3 product cards -->
   <section class="py-20 md:py-24 bg-secondary">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Equipamentos disponíveis</h2>
-        <p class="font-body text-muted-foreground max-w-xl mx-auto">Três categorias de solução para diferentes necessidades e tipos de habitação.</p>
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Soluções para cada situação</h2>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">Três categorias de solução — cada uma adaptada a uma necessidade diferente.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <a href="/equipamentos/elevadores-de-escadas/" class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group">
-          <div class="img-placeholder bg-primary/10 w-full h-[220px] flex items-center justify-center"
-               data-image-description="Elevador de escadas moderno e elegante numa casa portuguesa, assento branco, carril metálico, escada de madeira, luz natural quente, WebP">
-            <span class="text-muted-foreground text-sm">Imagem: elevador de escadas</span>
+          <div class="p-8 pb-4 flex justify-between items-start">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <AnimatedIcon name="stairs" class="w-7 h-7" color="hsl(var(--primary))" />
+            </div>
+            <span class="inline-block bg-primary/10 text-primary font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full">Mais popular</span>
           </div>
-          <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">Mais popular</span>
+          <div class="p-6 pt-2">
             <h3 class="font-heading font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">Elevadores de Escadas</h3>
-            <p class="font-body text-sm text-muted-foreground mb-4">Para escadas retas, curvas ou exteriores. Instalação em 1 dia, sem obras. A partir de €3.000.</p>
-            <span class="text-primary font-body text-sm font-medium">Ver soluções →</span>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">Para escadas retas, curvas ou exteriores. Instalação em 1 dia, sem obras. A sua escada fica tal como está.</p>
+            <p class="font-heading font-semibold text-primary text-sm mb-4">A partir de 2.500€</p>
+            <span class="inline-flex items-center gap-1 text-primary font-body text-sm font-medium group-hover:gap-2 transition-all">
+              Ver soluções
+              <AnimatedIcon name="arrow-right" class="w-4 h-4" color="hsl(var(--primary))" />
+            </span>
           </div>
         </a>
+
         <a href="/equipamentos/elevadores/" class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group">
-          <div class="img-placeholder bg-primary/10 w-full h-[220px] flex items-center justify-center"
-               data-image-description="Elevador residencial compacto e moderno numa moradia portuguesa contemporânea, portas de vidro abertas, design elegante, WebP">
-            <span class="text-muted-foreground text-sm">Imagem: elevador residencial</span>
+          <div class="p-8 pb-4 flex justify-between items-start">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <AnimatedIcon name="home" class="w-7 h-7" color="hsl(var(--primary))" />
+            </div>
+            <span class="inline-block bg-secondary text-foreground font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-border">Solução permanente</span>
           </div>
-          <div class="p-6">
-            <span class="inline-block bg-secondary text-foreground font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">Solução permanente</span>
+          <div class="p-6 pt-2">
             <h3 class="font-heading font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">Elevadores Residenciais</h3>
-            <p class="font-body text-sm text-muted-foreground mb-4">Para moradias com vários pisos. Discreto, duradouro e valoriza o imóvel. A partir de €8.000.</p>
-            <span class="text-primary font-body text-sm font-medium">Ver soluções →</span>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">Para moradias com vários pisos. Discreto, duradouro e valoriza o imóvel. Hidráulico, elétrico ou pneumático.</p>
+            <p class="font-heading font-semibold text-primary text-sm mb-4">A partir de 8.000€</p>
+            <span class="inline-flex items-center gap-1 text-primary font-body text-sm font-medium group-hover:gap-2 transition-all">
+              Ver soluções
+              <AnimatedIcon name="arrow-right" class="w-4 h-4" color="hsl(var(--primary))" />
+            </span>
           </div>
         </a>
+
         <a href="/equipamentos/plataformas-elevatorias/" class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group">
-          <div class="img-placeholder bg-primary/10 w-full h-[220px] flex items-center justify-center"
-               data-image-description="Plataforma elevatória numa escada de condomínio português, utilizador em cadeira de rodas, plataforma com bordas de segurança erguidas, WebP">
-            <span class="text-muted-foreground text-sm">Imagem: plataforma elevatória</span>
+          <div class="p-8 pb-4 flex justify-between items-start">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <AnimatedIcon name="wheelchair" class="w-7 h-7" color="hsl(var(--primary))" />
+            </div>
+            <span class="inline-block bg-secondary text-foreground font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-border">Para cadeira de rodas</span>
           </div>
-          <div class="p-6">
-            <span class="inline-block bg-secondary text-foreground font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">Para cadeira de rodas</span>
+          <div class="p-6 pt-2">
             <h3 class="font-heading font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">Plataformas Elevatórias</h3>
-            <p class="font-body text-sm text-muted-foreground mb-4">Para cadeira de rodas em casa ou condomínio. Norma EN 81-41. A partir de €5.000.</p>
-            <span class="text-primary font-body text-sm font-medium">Ver soluções →</span>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">Para quem usa cadeira de rodas. A plataforma sobe com o utilizador — sem sair da cadeira. Em casa ou condomínio.</p>
+            <p class="font-heading font-semibold text-primary text-sm mb-4">A partir de 4.000€</p>
+            <span class="inline-flex items-center gap-1 text-primary font-body text-sm font-medium group-hover:gap-2 transition-all">
+              Ver soluções
+              <AnimatedIcon name="arrow-right" class="w-4 h-4" color="hsl(var(--primary))" />
+            </span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Porquê Vida Acessível -->
+  <!-- 4. PORQUÊ VIDA ACESSÍVEL — 4 USPs -->
   <section class="py-20 md:py-24 bg-background">
     <div class="max-w-[880px] mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Porquê o Vida Acessível</h2>
-        <p class="font-body text-muted-foreground max-w-xl mx-auto">Um processo simples, transparente e sem pressão.</p>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">Um processo simples, transparente e sem pressão de qualquer tipo.</p>
       </div>
       <div class="grid sm:grid-cols-2 gap-6">
         {[
-          { d: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "Totalmente gratuito", desc: "O serviço de comparação de orçamentos é 100% gratuito para o utilizador. Sem taxas, sem comissões ocultas." },
-          { d: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Parceiros certificados", desc: "Verificamos as credenciais de todos os instaladores parceiros." },
-          { d: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z", title: "Sem compromisso", desc: "Receber orçamentos não cria qualquer obrigação. Decida ao seu ritmo." },
-          { d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", title: "Cobertura nacional", desc: "Instaladores certificados em todo o Portugal continental e ilhas." },
-        ].map(({ d, title, desc }) => (
-          <div class="flex gap-4 p-6 bg-card border border-border rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
-              </svg>
+          { icon: 'euro' as const, title: "Totalmente gratuito", desc: "O serviço de comparação de orçamentos é 100% gratuito. Sem taxas, sem comissões ocultas, sem letra pequena." },
+          { icon: 'shield' as const, title: "Instaladores certificados", desc: "Verificamos as credenciais de todos os parceiros. Só trabalha com técnicos com experiência comprovada." },
+          { icon: 'check-circle' as const, title: "Sem compromisso", desc: "Receber orçamentos não cria qualquer obrigação. Decida ao seu próprio ritmo, sem pressão de ninguém." },
+          { icon: 'map-pin' as const, title: "Cobertura nacional", desc: "Instaladores certificados em todo o Portugal continental, Açores e Madeira." },
+        ].map(({ icon, title, desc }) => (
+          <div class="flex gap-4 p-6 bg-card border border-border rounded-2xl group hover:border-primary/30 transition-colors">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name={icon} class="w-5 h-5" color="hsl(var(--primary))" />
             </div>
             <div>
               <h3 class="font-heading font-semibold text-foreground mb-1">{title}</h3>
-              <p class="font-body text-sm text-muted-foreground">{desc}</p>
+              <p class="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           </div>
         ))}
@@ -167,33 +214,47 @@ const websiteSchema = {
     </div>
   </section>
 
-  <!-- Coverage -->
-  <section class="py-16 bg-secondary">
+  <!-- 5. CIDADES — instaladores em todo Portugal -->
+  <section class="py-16 md:py-20 bg-secondary">
     <div class="max-w-[880px] mx-auto px-6 text-center">
-      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Parceiros em todo o país</h2>
-      <p class="font-body text-muted-foreground mb-8">Rede de instaladores certificados em todas as regiões de Portugal.</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        {["Porto", "Braga", "Viana do Castelo", "Vila Real", "Coimbra", "Viseu", "Aveiro", "Lisboa", "Setúbal", "Évora", "Faro", "Açores", "Madeira"].map(city => (
-          <span class="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-muted-foreground">{city}</span>
+      <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+        <AnimatedIcon name="map-pin" class="w-6 h-6" color="hsl(var(--primary))" />
+      </div>
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Instaladores certificados em todo o Portugal</h2>
+      <p class="font-body text-muted-foreground mb-8 max-w-lg mx-auto">A nossa rede cobre todo o país. Encontre o instalador certo para a sua zona.</p>
+      <div class="flex flex-wrap justify-center gap-2.5">
+        {cities.map(city => (
+          <a
+            href="#"
+            class="group bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground hover:border-primary hover:text-primary hover:bg-primary/5 transition-all inline-flex items-center gap-1.5"
+          >
+            <AnimatedIcon name="map-pin" class="w-3 h-3" color="hsl(var(--primary))" />
+            {city}
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Artigos recentes -->
+  <!-- 6. ARTIGOS RECENTES -->
   {recentPosts.length > 0 && (
     <section class="py-20 md:py-24 bg-background">
       <div class="max-w-[880px] mx-auto px-6">
         <div class="flex items-center justify-between mb-8">
           <h2 class="font-heading font-bold text-2xl text-foreground">Artigos recentes</h2>
-          <a href="/recursos/" class="text-primary font-body text-sm font-medium hover:underline">Ver todos →</a>
+          <a href="/recursos/" class="inline-flex items-center gap-1 text-primary font-body text-sm font-medium hover:underline group">
+            Ver todos
+            <AnimatedIcon name="arrow-right" class="w-4 h-4" color="hsl(var(--primary))" />
+          </a>
         </div>
         <div class="grid sm:grid-cols-3 gap-6">
           {recentPosts.map(post => (
             <a href={`/recursos/${post.slug}/`} class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
-              <span class="inline-block bg-primary/10 text-primary font-heading text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">{post.data.category}</span>
-              <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors mb-2">{post.data.title}</h3>
-              <p class="font-body text-xs text-muted-foreground">{post.data.description.slice(0, 90)}...</p>
+              <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold mb-3 ${categoryColors[post.data.category] ?? 'bg-secondary text-foreground'}`}>
+                {post.data.category}
+              </span>
+              <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors mb-2 leading-snug">{post.data.title}</h3>
+              <p class="font-body text-xs text-muted-foreground leading-relaxed">{post.data.description.slice(0, 90)}...</p>
             </a>
           ))}
         </div>
@@ -201,16 +262,21 @@ const websiteSchema = {
     </section>
   )}
 
-  <!-- CTA Banner -->
+  <!-- 7. CTA BANNER — form CTA lives here -->
   <section class="py-20 bg-primary text-white">
     <div class="max-w-[880px] mx-auto px-6 text-center">
+      <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-6">
+        <AnimatedIcon name="check-circle" class="w-6 h-6" color="white" />
+      </div>
       <h2 class="font-heading font-extrabold text-2xl md:text-3xl mb-3">Receba até 3 orçamentos gratuitos</h2>
       <p class="font-body text-white/80 mb-8 max-w-xl mx-auto">Compare propostas de instaladores certificados na sua região. Sem compromisso, resposta em 48 horas.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all group">
           Pedir Orçamento Gratuito
+          <AnimatedIcon name="send" class="w-4 h-4" color="white" />
         </a>
-        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-white text-white font-heading font-bold rounded-full hover:bg-white hover:text-primary transition-all">
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white text-white font-heading font-bold rounded-full hover:bg-white hover:text-primary transition-all group">
+          <AnimatedIcon name="file-text" class="w-4 h-4" color="currentColor" />
           Catálogo Grátis
         </a>
       </div>

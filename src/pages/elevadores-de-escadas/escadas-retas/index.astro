@@ -1,0 +1,162 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+import AnimatedIcon from '../../../components/icons/AnimatedIcon.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Um elevador de escadas retas é mais barato que para escadas curvas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, significativamente. Para escadas retas usa-se um carril standard, fabricado em série, o que reduz o custo e o prazo de instalação. A diferença pode ser de €2.000 a €6.000 em relação a um modelo para escadas curvas." } },
+    { "@type": "Question", "name": "Quanto tempo demora a instalação de um elevador de escadas retas?", "acceptedAnswer": { "@type": "Answer", "text": "A instalação de um elevador de escadas retas demora tipicamente meio dia a 1 dia. O carril é standard e a montagem é mais rápida do que em escadas curvas. Na maioria dos casos, o equipamento fica funcional no próprio dia da instalação." } },
+    { "@type": "Question", "name": "O elevador ocupa muito espaço na escada?", "acceptedAnswer": { "@type": "Answer", "text": "O carril é fixado junto à parede ou ao corrimão, ocupando apenas alguns centímetros de largura. O assento, apoio de pés e apoios de braço dobram automaticamente quando não está em uso, deixando a escada disponível para outros utilizadores." } },
+    { "@type": "Question", "name": "Qual a largura mínima da escada para instalar um elevador?", "acceptedAnswer": { "@type": "Answer", "text": "Para um modelo standard, é necessária uma largura útil mínima de 70-80 cm. Para escadas mais estreitas existem modelos compactos que funcionam a partir de 60 cm de largura útil. O instalador avalia na visita técnica gratuita." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador de Escadas Retas Portugal — Solução Simples e Económica | Vida Acessível"
+  description="Elevadores de escadas retas: a solução mais simples, mais rápida e mais económica. Instalação em 1 dia. Orçamentos gratuitos de instaladores certificados em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-de-escadas/escadas-retas/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores de Escadas", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Escadas Retas", url: "/elevadores-de-escadas/escadas-retas/" }]}
+>
+
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li>
+      <li><span>/</span></li>
+      <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-primary">Elevadores de Escadas</a></li>
+      <li><span>/</span></li>
+      <li class="text-foreground font-medium">Escadas Retas</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Solução Mais Económica</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">
+            Para a escada mais comum, a solução mais simples e mais económica.
+          </h1>
+          <p class="font-body text-muted-foreground text-lg mb-4">A escada reta é a situação mais frequente — e a que permite instalar um elevador de escadas de forma mais rápida, simples e acessível. Carril standard, instalação em 1 dia, sem necessidade de medições especiais.</p>
+          <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mt-2 mb-2">
+            <span class="font-heading font-semibold text-primary text-sm">Preço indicativo: desde 2.500€</span>
+            <span class="text-muted-foreground text-xs">instalação incluída</span>
+          </div>
+          <a href="/equipamentos/elevadores-de-escadas/preco/" class="block text-primary font-body text-sm font-medium hover:underline mt-1 mb-6">Ver tabela de preços completa →</a>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador de escadas numa escada reta clássica de moradia portuguesa, carril metálico junto à parede, assento dobrado, luz natural, acabamento branco elegante">
+          <span class="text-muted-foreground text-sm">Imagem: elevador escada reta</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Por que a escada reta é a opção mais vantajosa</h2>
+      <p class="font-body text-muted-foreground mb-4">Ao contrário das escadas curvas, que requerem um carril fabricado à medida com semanas de prazo, a escada reta utiliza um carril standard que pode ser cortado e ajustado no local. Isto reduz o custo, elimina o prazo de espera de produção e simplifica toda a instalação.</p>
+      <p class="font-body text-muted-foreground mb-8">O resultado é o mesmo: mobilidade independente entre pisos, com toda a segurança e conforto. A diferença está no processo — muito mais simples e direto quando a escada é reta.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Instalação em 1 dia</h3>
+          <p class="font-body text-sm text-muted-foreground">O carril é ajustado no local. Não há espera de produção. Na maioria dos casos, o equipamento fica funcional no próprio dia da instalação.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Carril standard</h3>
+          <p class="font-body text-sm text-muted-foreground">Fabricado em série e testado para milhares de instalações. Fiável, durável e com peças de substituição facilmente disponíveis.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Preço mais acessível</h3>
+          <p class="font-body text-sm text-muted-foreground">A simplicidade do processo reflete-se no preço. É a solução mais económica dentro dos elevadores de escadas.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-10">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Os elevadores para escadas retas têm um custo entre <strong class="text-foreground">€2.500 e €5.000</strong>, incluindo transporte e instalação.</p>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas Frequentes — Escadas Retas</h2>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Um elevador de escadas retas é mais barato que para escadas curvas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Sim, significativamente. Para escadas retas usa-se um carril standard, fabricado em série, o que reduz o custo e o prazo de instalação. A diferença pode ser de €2.000 a €6.000 em relação a um modelo para escadas curvas — mas o resultado final em termos de funcionalidade e segurança é idêntico.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Quanto tempo demora a instalação de um elevador de escadas retas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>A instalação demora tipicamente meio dia a 1 dia. O carril é standard e a montagem é muito mais rápida do que em escadas curvas. Na maioria dos casos, o equipamento fica completamente funcional no próprio dia da instalação.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>O elevador ocupa muito espaço na escada?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>O carril é fixado junto à parede ou ao corrimão, ocupando apenas alguns centímetros de largura. O assento, apoio de pés e apoios de braço dobram automaticamente quando não está em uso, deixando a escada totalmente disponível para outros utilizadores da família.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Qual a largura mínima da escada para instalar um elevador?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Para um modelo standard, é necessária uma largura útil mínima de 70-80 cm. Para escadas mais estreitas existem modelos compactos que funcionam a partir de 60 cm de largura útil. O instalador avalia a situação na visita técnica gratuita e indica a melhor solução para a sua escada específica.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador de escada reta" subheading="Receba propostas de instaladores certificados. Instalação rápida, sem esperas." />
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-semibold text-lg text-foreground mb-4">Veja também</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="/elevadores-de-escadas/escadas-curvas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Curvas</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Carril fabricado à medida</p>
+        </a>
+        <a href="/elevadores-de-escadas/escadas-exteriores/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Exteriores</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Resistente a todas as condições</p>
+        </a>
+        <a href="/elevadores-de-escadas/escadas-estreitas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Estreitas</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Para espaços com menos de 80 cm</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

@@ -1,0 +1,205 @@
+---
+/**
+ * Animated icon component — mimics itshover animation style.
+ * Wraps SVG with CSS hover animations (translate, scale, rotate).
+ * Usage: <AnimatedIcon name="home" class="w-8 h-8" />
+ */
+export interface Props {
+  name: 'home' | 'stairs' | 'wheelchair' | 'euro' | 'check-circle' | 'phone' | 'send' | 'clock' | 'shield' | 'star' | 'map-pin' | 'file-text' | 'arrow-right' | 'users' | 'settings' | 'zap' | 'arrow-up' | 'heart' | 'building' | 'tool';
+  class?: string;
+  color?: string;
+}
+
+const { name, class: cls = 'w-6 h-6', color = 'currentColor' } = Astro.props;
+
+const icons: Record<string, string> = {
+  home: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-roof" d="M3 9.5L12 3l9 6.5"/><path class="icon-door" d="M9 21v-6a2 2 0 014 0v6"/><path class="icon-house" d="M5 9.5V21h14V9.5"/></svg>`,
+  stairs: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-step1" d="M3 21h4v-4h4v-4h4v-4h4v-4h2"/><path class="icon-step2" d="M3 21V5"/></svg>`,
+  wheelchair: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><circle class="icon-wheel" cx="12" cy="19" r="3"/><path class="icon-body" d="M9 6h6l2 7H8l1-4.5"/><circle class="icon-head" cx="12" cy="3" r="1.5"/></svg>`,
+  euro: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-euro" d="M17 4.5A7 7 0 1017 19.5"/><path class="icon-bar1" d="M5 10h9"/><path class="icon-bar2" d="M5 14h9"/></svg>`,
+  'check-circle': `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><circle class="icon-circle" cx="12" cy="12" r="9"/><path class="icon-check" d="M8 12l3 3 5-5"/></svg>`,
+  phone: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-phone" d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>`,
+  send: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-send" d="M22 2L11 13"/><path class="icon-paper" d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><circle class="icon-face" cx="12" cy="12" r="9"/><polyline class="icon-hands" points="12 7 12 12 15 15"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-shield" d="M12 2l9 4v6c0 5.25-3.75 9.74-9 11-5.25-1.26-9-5.75-9-11V6l9-4z"/><path class="icon-tick" d="M9 12l2 2 4-4"/></svg>`,
+  star: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><polygon class="icon-star" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  'map-pin': `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-pin" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle class="icon-dot" cx="12" cy="10" r="3"/></svg>`,
+  'file-text': `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-page" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline class="icon-fold" points="14 2 14 8 20 8"/><line class="icon-line1" x1="16" y1="13" x2="8" y2="13"/><line class="icon-line2" x1="16" y1="17" x2="8" y2="17"/><polyline class="icon-line3" points="10 9 9 9 8 9"/></svg>`,
+  'arrow-right': `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon icon-arrow-right ${cls}" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>`,
+  users: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-person1" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle class="icon-head1" cx="9" cy="7" r="4"/><path class="icon-person2" d="M23 21v-2a4 4 0 00-3-3.87"/><path class="icon-head2" d="M16 3.13a4 4 0 010 7.75"/></svg>`,
+  settings: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><circle class="icon-center" cx="12" cy="12" r="3"/><path class="icon-gear" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>`,
+  zap: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><polygon class="icon-bolt" points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  'arrow-up': `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-arrow" d="M12 19V5"/><path class="icon-head" d="M5 12l7-7 7 7"/></svg>`,
+  heart: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-heart" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>`,
+  building: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><rect class="icon-building" x="3" y="3" width="18" height="18" rx="1"/><path class="icon-door" d="M9 21V12h6v9"/><path class="icon-windows" d="M9 7h.01M12 7h.01M15 7h.01M9 10h.01M12 10h.01M15 10h.01"/></svg>`,
+  tool: `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="animated-icon ${cls}" aria-hidden="true"><path class="icon-wrench" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+};
+
+const svg = icons[name] ?? icons['arrow-right'];
+---
+
+<span class="icon-wrapper inline-flex items-center justify-center" set:html={svg} />
+
+<style>
+  .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Arrow right — slides right on hover */
+  .group:hover .icon-arrow-right,
+  a:hover .icon-arrow-right,
+  button:hover .icon-arrow-right {
+    transform: translateX(3px);
+    transition: transform 0.2s ease;
+  }
+  .icon-arrow-right {
+    transition: transform 0.2s ease;
+  }
+
+  /* Home — roof lifts slightly */
+  .group:hover .animated-icon .icon-roof,
+  a:hover .animated-icon .icon-roof {
+    transform: translateY(-1.5px);
+    transition: transform 0.25s ease;
+  }
+  .animated-icon .icon-roof { transition: transform 0.25s ease; }
+
+  /* Map pin — bounce */
+  .group:hover .animated-icon .icon-pin,
+  a:hover .animated-icon .icon-pin {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-pin { transition: transform 0.2s ease; }
+
+  /* Star — rotate 15deg */
+  .group:hover .animated-icon .icon-star,
+  a:hover .animated-icon .icon-star {
+    transform: rotate(15deg);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+  .animated-icon .icon-star { transition: transform 0.25s ease; }
+
+  /* Shield check — scale up */
+  .group:hover .animated-icon .icon-tick,
+  a:hover .animated-icon .icon-tick {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s ease;
+  }
+
+  /* Clock hands — rotate */
+  .group:hover .animated-icon .icon-hands,
+  a:hover .animated-icon .icon-hands {
+    transform: rotate(45deg);
+    transform-origin: 12px 12px;
+    transition: transform 0.3s ease;
+  }
+  .animated-icon .icon-hands { transition: transform 0.3s ease; }
+
+  /* Zap — scale */
+  .group:hover .animated-icon .icon-bolt,
+  a:hover .animated-icon .icon-bolt {
+    transform: scale(1.1);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-bolt { transition: transform 0.2s ease; }
+
+  /* Arrow up — moves up */
+  .group:hover .animated-icon .icon-arrow,
+  a:hover .animated-icon .icon-arrow {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-arrow { transition: transform 0.2s ease; }
+
+  /* Send — translate diagonally */
+  .group:hover .animated-icon .icon-send,
+  a:hover .animated-icon .icon-send {
+    transform: translate(2px, -2px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-send { transition: transform 0.2s ease; }
+
+  /* Euro — scale */
+  .group:hover .animated-icon .icon-euro,
+  a:hover .animated-icon .icon-euro {
+    transform: scale(1.08);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-euro { transition: transform 0.2s ease; }
+
+  /* Heart — pulse */
+  .group:hover .animated-icon .icon-heart,
+  a:hover .animated-icon .icon-heart {
+    transform: scale(1.12);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-heart { transition: transform 0.2s ease; }
+
+  /* Phone — tilt */
+  .group:hover .animated-icon .icon-phone,
+  a:hover .animated-icon .icon-phone {
+    transform: rotate(-10deg);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-phone { transition: transform 0.2s ease; }
+
+  /* Settings gear — rotate */
+  .group:hover .animated-icon .icon-gear,
+  a:hover .animated-icon .icon-gear {
+    transform: rotate(30deg);
+    transform-origin: 12px 12px;
+    transition: transform 0.4s ease;
+  }
+  .animated-icon .icon-gear { transition: transform 0.4s ease; }
+
+  /* File-text — slide up slightly */
+  .group:hover .animated-icon .icon-page,
+  a:hover .animated-icon .icon-page {
+    transform: translateY(-1.5px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-page { transition: transform 0.2s ease; }
+
+  /* Users — scale */
+  .group:hover .animated-icon .icon-person1,
+  a:hover .animated-icon .icon-person1 {
+    transform: translateX(-1px);
+    transition: transform 0.2s ease;
+  }
+  .group:hover .animated-icon .icon-person2,
+  a:hover .animated-icon .icon-person2 {
+    transform: translateX(1px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-person1,
+  .animated-icon .icon-person2 { transition: transform 0.2s ease; }
+
+  /* Wheelchair — move right */
+  .group:hover .animated-icon .icon-wheel,
+  a:hover .animated-icon .icon-wheel {
+    transform: translateX(1.5px);
+    transition: transform 0.2s ease;
+  }
+  .animated-icon .icon-wheel { transition: transform 0.2s ease; }
+
+  /* Check circle — draws check */
+  .group:hover .animated-icon .icon-check,
+  a:hover .animated-icon .icon-check {
+    stroke-dasharray: 15;
+    stroke-dashoffset: 0;
+  }
+  .animated-icon .icon-check {
+    stroke-dasharray: 15;
+    stroke-dashoffset: 15;
+    transition: stroke-dashoffset 0.35s ease;
+  }
+</style>

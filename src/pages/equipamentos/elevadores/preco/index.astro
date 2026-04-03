@@ -1,131 +1,306 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import QuoteForm from '../../../../components/QuoteForm.astro';
+import AnimatedIcon from '../../../../components/icons/AnimatedIcon.astro';
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Por que os elevadores residenciais são mais caros que os de escadas?", "acceptedAnswer": { "@type": "Answer", "text": "Os elevadores residenciais são estruturas permanentes com cabina fechada, sistema de motor mais potente, poço ou estrutura autoportante, portas automáticas e sistemas de segurança mais complexos. A complexidade técnica e os materiais envolvidos são significativamente maiores." } },
-    { "@type": "Question", "name": "O preço do elevador residencial inclui manutenção?", "acceptedAnswer": { "@type": "Answer", "text": "Normalmente inclui a primeira revisão anual no preço base. Os anos seguintes, a manutenção preventiva anual custa entre €300 e €600 dependendo do modelo e do contrato. Alguns instaladores oferecem contratos plurianuais com desconto." } },
-    { "@type": "Question", "name": "Posso instalar elevador residencial em apartamento?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, mas requer autorização da assembleia de condóminos se for em espaço comum. Em fracção privada com duplex ou triplex, pode ser instalado sem aprovação do condomínio. A viabilidade técnica depende do espaço disponível." } },
-    { "@type": "Question", "name": "Quanto valoriza o imóvel com elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Estudos no mercado imobiliário apontam para uma valorização de 5% a 15% em moradias com elevador residencial, especialmente em moradia de 2+ pisos em zona urbana. O retorno é mais expressivo em imóveis destinados a residentes mais velhos ou com mobilidade condicionada." } }
+    { "@type": "Question", "name": "Quanto custa instalar um elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Um elevador residencial em Portugal custa entre 8.000€ e 25.000€, instalação incluída. Para a configuração mais procurada — homelift para 2 pisos — o preço começa nos 8.500€. O custo final depende do número de pisos, da tecnologia escolhida e das obras civis necessárias." } },
+    { "@type": "Question", "name": "É preciso licença de construção para instalar um elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Os homelifts (elevadores residenciais compactos) geralmente não requerem licença de construção, apenas uma comunicação prévia à câmara municipal. Os elevadores convencionais de maior porte podem necessitar de licença de obras, dependendo do município e da intervenção estrutural envolvida. O instalador orienta sempre neste processo." } },
+    { "@type": "Question", "name": "Qual é o elevador mais barato para uma moradia?", "acceptedAnswer": { "@type": "Answer", "text": "O elevador hidráulico ou o homelift pneumático são geralmente as opções mais económicas, com preços a partir de 8.000€–9.000€ para 2 pisos. A plataforma vertical é ainda mais económica (a partir de 7.000€) mas não tem cabina fechada." } },
+    { "@type": "Question", "name": "Quanto tempo demora a instalação de um elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do modelo: um elevador pneumático pode ser instalado em 1–2 dias. Os modelos hidráulico e elétrico demoram entre 3 e 7 dias. Se for necessário abrir laje ou fazer obras civis, o prazo total pode estender-se a 2–4 semanas." } },
+    { "@type": "Question", "name": "Preciso de fazer obras estruturais para instalar um elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do modelo escolhido. O elevador pneumático não requer poço nem abertura de laje — é instalado diretamente sobre o pavimento. Os modelos hidráulico e elétrico podem necessitar de um poço de 10–15 cm e, em casas existentes, pode ser preciso abrir a laje entre pisos. O custo adicional de obras civis situa-se entre 1.500€ e 5.000€." } },
+    { "@type": "Question", "name": "Qual a diferença entre elevador hidráulico e elétrico?", "acceptedAnswer": { "@type": "Answer", "text": "O elevador hidráulico usa um pistão de óleo — é mais silencioso, tem movimento suave e não necessita de casa de máquinas. O elétrico MRL (machine room less) é ligeiramente mais rápido, mais eficiente energeticamente e tem maior durabilidade a longo prazo. O custo inicial do elétrico tende a ser superior, mas os custos de operação são menores." } }
   ]
 };
 
 const aggregateOfferSchema = {
   "@context": "https://schema.org",
   "@type": "AggregateOffer",
-  "name": "Elevadores Residenciais em Portugal",
+  "name": "Elevadores Residenciais em Portugal — Preços 2025",
   "priceCurrency": "EUR",
   "lowPrice": "8000",
-  "highPrice": "35000",
-  "offerCount": "5"
+  "highPrice": "25000",
+  "offerCount": "4",
+  "description": "Preços de elevadores residenciais instalados em Portugal, por tecnologia e número de pisos. IVA não incluído, instalação incluída."
 };
 ---
 
 <Layout
-  title="Preço Elevadores Residenciais Portugal 2025 — Comparar Orçamentos | Vida Acessível"
-  description="Preços de elevadores residenciais em Portugal: sem poço €10k-€22k, hidráulicos €12k-€25k, pneumáticos €15k-€35k. Compare orçamentos gratuitos."
+  title="Quanto Custa um Elevador Residencial em Portugal? Preços 2025 | Vida Acessível"
+  description="Guia completo de preços de elevadores residenciais em Portugal 2025. Homelifts desde 8.500€ para 2 pisos. Compare orçamentos gratuitos de instaladores certificados."
   canonical="https://vidaacessivel.pt/equipamentos/elevadores/preco/"
   schema={[faqSchema, aggregateOfferSchema]}
-  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Preço", url: "/equipamentos/elevadores/preco/" }]}
+  breadcrumbs={[
+    { name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" },
+    { name: "Preço", url: "/equipamentos/elevadores/preco/" }
+  ]}
 >
+
   <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
-    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+    <ol class="flex items-center gap-2 text-xs text-muted-foreground">
       <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
       <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
       <li class="text-foreground font-medium">Preço</li>
     </ol>
   </nav>
 
-  <section class="bg-secondary py-16 md:py-20">
+  <!-- HERO + QUICK ANSWER -->
+  <section class="bg-secondary py-14 md:py-20">
     <div class="max-w-[880px] mx-auto px-6 text-center">
-      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-foreground leading-tight mb-5">Quanto Custa um Elevador Residencial em Portugal?</h1>
-      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">Guia completo de preços 2025 por tecnologia: sem poço, hidráulico e pneumático — com todos os factores que influenciam o custo final.</p>
-      <div class="inline-block bg-card border border-border rounded-2xl px-10 py-6">
-        <p class="font-heading font-extrabold text-5xl text-primary mb-2">€8.000 – €35.000</p>
-        <p class="font-body text-muted-foreground">Preço médio instalado, IVA incluído</p>
+      <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Guia de Preços 2025</span>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-foreground leading-tight mb-5">
+        Quanto custa um elevador residencial em Portugal?
+      </h1>
+      <p class="font-body text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">Preços 2025: por tecnologia, por número de pisos, fatores de custo, apoios do Estado e o que está incluído no orçamento.</p>
+
+      <!-- Quick answer box -->
+      <div class="bg-card border-2 border-primary/20 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto text-left">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <AnimatedIcon name="euro" class="w-5 h-5" color="hsl(var(--primary))" />
+          </div>
+          <span class="font-heading font-bold text-foreground">Resposta rápida</span>
+        </div>
+        <p class="font-body text-muted-foreground mb-4">Um elevador residencial em Portugal custa entre <strong class="text-foreground text-lg">8.000€ e 25.000€</strong>. Para a configuração mais procurada — homelift para 2 pisos — o preço começa nos 8.500€.</p>
+        <ul class="space-y-2 mb-4">
+          {[
+            ["2 pisos", "desde 8.500€"],
+            ["3 pisos", "desde 10.500€"],
+            ["4+ pisos", "desde 14.000€"],
+          ].map(([tipo, preco]) => (
+            <li class="flex items-center justify-between text-sm font-body">
+              <span class="flex items-center gap-2 text-foreground/80">
+                <span class="text-primary font-bold">•</span> {tipo}
+              </span>
+              <span class="font-heading font-semibold text-primary">{preco}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="font-body text-xs text-muted-foreground">IVA não incluído · valores indicativos · instalação incluída</p>
       </div>
+    </div>
+  </section>
+
+  <!-- O QUE INFLUENCIA O PREÇO -->
+  <section class="py-14 md:py-20 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8">O que influencia o preço</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          { icon: 'home' as const, title: "Número de pisos", desc: "Cada patamar adicional acrescenta 1.500€–3.000€ ao preço base. O fator com maior impacto no custo final." },
+          { icon: 'settings' as const, title: "Tecnologia", desc: "Hidráulico, elétrico MRL e pneumático têm faixas de preço distintas. O pneumático é geralmente mais caro mas não requer poço." },
+          { icon: 'tool' as const, title: "Obras civis", desc: "Em moradias existentes pode ser necessária abertura de laje. Custo adicional de 1.500€–5.000€ dependendo da complexidade." },
+          { icon: 'star' as const, title: "Acabamentos da cabina", desc: "Standard vs premium (vidro, inox, madeira) podem acrescentar 1.000€–5.000€ ao custo total." },
+        ].map(({ icon, title, desc }) => (
+          <div class="flex gap-4 bg-card border border-border rounded-2xl p-6 group hover:border-primary/30 transition-colors">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name={icon} class="w-5 h-5" color="hsl(var(--primary))" />
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-foreground mb-1">{title}</h3>
+              <p class="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TABELAS DE PREÇOS -->
+  <section class="py-14 md:py-20 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-2">Tabela de preços por tecnologia</h2>
+      <p class="font-body text-muted-foreground mb-8 text-sm">Valores indicativos · IVA não incluído · instalação incluída</p>
+      <div class="overflow-x-auto rounded-2xl border border-border bg-card mb-12">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary border-b border-border">
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Tipo</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Preço indicativo</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Ideal para</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { tipo: "Hidráulico", preco: "8.000€ – 20.000€", ideal: "Moradias 2–3 pisos", obs: "Silencioso, sem casa de máquinas" },
+              { tipo: "Elétrico MRL", preco: "10.000€ – 25.000€", ideal: "Moradias 2–4 pisos", obs: "Mais eficiente, mais duradouro" },
+              { tipo: "Pneumático", preco: "9.000€ – 18.000€", ideal: "Espaços reduzidos", obs: "Sem poço, instalação rápida" },
+              { tipo: "Plataforma vertical", preco: "7.000€ – 14.000€", ideal: "1–2 pisos", obs: "Mais económico, sem cabina fechada" },
+            ].map((row, i) => (
+              <tr class={i % 2 === 1 ? 'bg-secondary/40' : ''}>
+                <td class="px-5 py-3.5 border-b border-border font-body text-foreground font-medium">{row.tipo}</td>
+                <td class="px-5 py-3.5 border-b border-border font-heading font-semibold text-primary">{row.preco}</td>
+                <td class="px-5 py-3.5 border-b border-border font-body text-muted-foreground">{row.ideal}</td>
+                <td class="px-5 py-3.5 border-b border-border font-body text-muted-foreground text-xs">{row.obs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-2">Tabela de preços por número de pisos</h2>
+      <p class="font-body text-muted-foreground mb-8 text-sm">Valores indicativos · IVA não incluído · instalação incluída</p>
+      <div class="overflow-x-auto rounded-2xl border border-border bg-card mb-12">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary border-b border-border">
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Pisos</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Preço indicativo</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Tempo de instalação</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { pisos: "2 pisos", preco: "8.500€ – 16.000€", tempo: "3–5 dias" },
+              { pisos: "3 pisos", preco: "10.500€ – 22.000€", tempo: "4–7 dias" },
+              { pisos: "4+ pisos", preco: "14.000€ – 28.000€", tempo: "5–10 dias" },
+            ].map((row, i) => (
+              <tr class={i % 2 === 1 ? 'bg-secondary/40' : ''}>
+                <td class="px-5 py-3.5 border-b border-border font-body text-foreground font-medium">{row.pisos}</td>
+                <td class="px-5 py-3.5 border-b border-border font-heading font-semibold text-primary">{row.preco}</td>
+                <td class="px-5 py-3.5 border-b border-border font-body text-muted-foreground">{row.tempo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-2">Custos adicionais a considerar</h2>
+      <p class="font-body text-muted-foreground mb-6 text-sm">Custos recorrentes e pontuais após a compra</p>
+      <div class="overflow-x-auto rounded-2xl border border-border bg-card">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary border-b border-border">
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Componente</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Custo estimado</th>
+              <th class="text-left px-5 py-4 font-heading text-foreground font-semibold">Periodicidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ["Obra civil (moradia existente)", "1.500€ – 5.000€", "Única"],
+              ["Manutenção preventiva", "400€ – 800€", "Anual"],
+              ["Consumo elétrico", "80€ – 200€", "Anual"],
+              ["Inspeção obrigatória (EIIE)", "150€ – 300€", "Bienal"],
+            ].map(([comp, custo, per], i) => (
+              <tr class={i % 2 === 1 ? 'bg-secondary/40' : ''}>
+                <td class="px-5 py-3.5 border-b border-border font-body text-foreground">{comp}</td>
+                <td class="px-5 py-3.5 border-b border-border font-heading font-semibold text-foreground">{custo}</td>
+                <td class="px-5 py-3.5 border-b border-border font-body text-muted-foreground">{per}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="font-body text-xs text-muted-foreground mt-3">Ao contrário dos elevadores de escadas, os elevadores residenciais convencionais <strong>requerem inspeção periódica obrigatória</strong>.</p>
+    </div>
+  </section>
+
+  <!-- APOIOS À COMPRA -->
+  <section class="py-14 md:py-20 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8">Apoios à compra que reduzem o custo</h2>
+      <div class="space-y-4">
+        {[
+          { icon: 'shield' as const, title: "SAPA — Segurança Social", desc: "O SAPA (Sistema de Atribuição de Produtos de Apoio) apoia a aquisição de ajudas técnicas para pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e situação económica. A candidatura é feita no Centro Distrital da Segurança Social." },
+          { icon: 'euro' as const, title: "IVA a 6% (em vez de 23%)", desc: "A instalação em habitação própria e permanente beneficia de IVA reduzido a 6%. Num equipamento de 12.000€, a poupança é de cerca de 2.040€. Confirme sempre com o instalador antes de encomendar." },
+          { icon: 'check-circle' as const, title: "Financiamento em prestações", desc: "A maioria dos instaladores parceiros oferece planos de pagamento em prestações de 12 a 60 meses, tornando este investimento mais acessível mensalmente. Peça sempre as condições por escrito." },
+        ].map(({ icon, title, desc }) => (
+          <div class="flex gap-4 bg-primary/5 border border-primary/20 rounded-2xl p-6 group">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name={icon} class="w-5 h-5" color="hsl(var(--primary))" />
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-foreground mb-1">{title}</h3>
+              <p class="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALE A PENA? -->
+  <section class="py-14 md:py-20 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8">Vale a pena instalar um elevador residencial?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { icon: 'star' as const, title: "Valorização do imóvel", desc: "Moradias com elevador valorizam 5–15% acima da média. Um investimento que se reflete no preço de venda." },
+          { icon: 'heart' as const, title: "Autonomia a longo prazo", desc: "Um elevador residencial serve a família por décadas — não só para mobilidade reduzida, mas para qualquer pessoa que carregue compras ou tenha as mãos ocupadas." },
+          { icon: 'check-circle' as const, title: "Conforto diário", desc: "Não é preciso ter mobilidade reduzida para beneficiar. O conforto de não subir escadas todos os dias melhora a qualidade de vida de toda a família." },
+        ].map(({ icon, title, desc }) => (
+          <div class="bg-card border border-border rounded-2xl p-6 group hover:border-primary/30 transition-colors">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name={icon} class="w-5 h-5" color="hsl(var(--primary))" />
+            </div>
+            <h3 class="font-heading font-semibold text-foreground mb-2">{title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-14 md:py-20 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8">Perguntas sobre preços de elevadores residenciais</h2>
+      <div class="space-y-3">
+        {[
+          ["Quanto custa instalar um elevador residencial?", "Um elevador residencial em Portugal custa entre 8.000€ e 25.000€, instalação incluída. Para a configuração mais procurada — homelift para 2 pisos — o preço começa nos 8.500€. O custo final depende do número de pisos, da tecnologia e das obras civis necessárias."],
+          ["É preciso licença de construção?", "Os homelifts geralmente não requerem licença de construção — apenas comunicação prévia à câmara municipal. Os elevadores convencionais de maior porte podem necessitar de licença de obras, dependendo da intervenção estrutural e do município. O instalador orienta sempre neste processo."],
+          ["Qual é o elevador mais barato para uma moradia?", "O elevador hidráulico ou o homelift pneumático são geralmente as opções mais económicas, com preços a partir de 8.000€–9.000€ para 2 pisos. A plataforma vertical é ainda mais económica (desde 7.000€) mas não tem cabina fechada."],
+          ["Quanto tempo demora a instalação?", "Um elevador pneumático pode ser instalado em 1–2 dias. Os modelos hidráulico e elétrico demoram entre 3 e 7 dias. Se for necessária abertura de laje ou obras civis, o prazo total pode estender-se a 2–4 semanas."],
+          ["Preciso de fazer obras estruturais?", "Depende do modelo escolhido. O elevador pneumático não requer poço nem abertura de laje — instala-se diretamente sobre o pavimento. Os modelos hidráulico e elétrico podem necessitar de um poço de 10–15 cm e, em casas existentes, pode ser preciso abrir a laje entre pisos."],
+          ["Qual a diferença entre elevador hidráulico e elétrico?", "O elevador hidráulico usa um pistão de óleo — é mais silencioso, tem movimento suave e não necessita de casa de máquinas. O elétrico MRL é ligeiramente mais rápido, mais eficiente energeticamente e tem maior durabilidade. O custo inicial do elétrico tende a ser superior, mas os custos de operação são menores."],
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center gap-4" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5 text-muted-foreground font-body text-sm leading-relaxed"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE CTA -->
+  <section class="py-14 bg-primary text-white">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-5">
+        <AnimatedIcon name="euro" class="w-6 h-6" color="white" />
+      </div>
+      <h2 class="font-heading font-bold text-2xl md:text-3xl mb-3">Receba o preço para a sua moradia específica</h2>
+      <p class="font-body text-white/80 mb-8 max-w-xl mx-auto">O preço final depende da visita técnica. Peça orçamentos gratuitos a instaladores certificados — compare e escolha sem pressão.</p>
+      <a href="/pedir-orcamento/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all group">
+        Pedir orçamentos gratuitos
+        <AnimatedIcon name="send" class="w-4 h-4" color="white" />
+      </a>
     </div>
   </section>
 
   <section class="py-16 bg-background">
     <div class="max-w-[880px] mx-auto px-6">
-      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Preços por tecnologia</h2>
-      <div class="overflow-x-auto mb-10">
-        <table class="w-full text-sm border-collapse">
-          <thead>
-            <tr class="bg-secondary">
-              <th class="text-left p-3 font-heading text-foreground border border-border">Tipo</th>
-              <th class="text-left p-3 font-heading text-foreground border border-border">Preço (instalado)</th>
-              <th class="text-left p-3 font-heading text-foreground border border-border">Características</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/1-andar/" class="text-foreground font-medium hover:text-primary">Para 1 Andar (eléctrico)</a></td><td class="p-3 border border-border text-primary font-semibold">€8.000 – €18.000</td><td class="p-3 border border-border text-muted-foreground">Mais procurado, vários modelos</td></tr>
-            <tr class="bg-secondary/30"><td class="p-3 border border-border"><a href="/elevadores-residenciais/sem-poco/" class="text-foreground font-medium hover:text-primary">Sem Poço (autoportante)</a></td><td class="p-3 border border-border text-primary font-semibold">€10.000 – €22.000</td><td class="p-3 border border-border text-muted-foreground">Sem obras de escavação</td></tr>
-            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/compactos/" class="text-foreground font-medium hover:text-primary">Compacto</a></td><td class="p-3 border border-border text-primary font-semibold">€8.000 – €16.000</td><td class="p-3 border border-border text-muted-foreground">Para espaços reduzidos</td></tr>
-            <tr class="bg-secondary/30"><td class="p-3 border border-border"><a href="/elevadores-residenciais/hidraulicos/" class="text-foreground font-medium hover:text-primary">Hidráulico</a></td><td class="p-3 border border-border text-primary font-semibold">€12.000 – €25.000</td><td class="p-3 border border-border text-muted-foreground">Movimento suave, 20-30 anos vida útil</td></tr>
-            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/pneumaticos/" class="text-foreground font-medium hover:text-primary">Pneumático</a></td><td class="p-3 border border-border text-primary font-semibold">€15.000 – €35.000</td><td class="p-3 border border-border text-muted-foreground">Design distintivo, sem poço</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Factores que influenciam o preço</h2>
-      <div class="grid md:grid-cols-2 gap-4 mb-10">
-        {[
-          ["Número de paragens", "Cada paragem adicional aumenta o custo em €1.000 a €3.000, incluindo o landing e as portas de cada piso."],
-          ["Tecnologia (eléctrico / hidráulico / pneumático)", "O pneumático é o mais caro. O hidráulico tem custo médio-alto mas maior durabilidade. O eléctrico é o mais económico."],
-          ["Tamanho da cabina", "Cabinas maiores requerem motores mais potentes e estruturas mais robustas — custo proporcionalmente superior."],
-          ["Necessidade de poço", "Criar um poço implica obras de construção civil com custo de €1.500 a €5.000 adicionais, dependendo do tipo de piso."],
-          ["Acabamentos e personalização", "Revestimentos premium, espelhos, iluminação LED especial, portas de vidro e outras personalizações têm custo adicional."],
-          ["Localização em Portugal", "Custos de deslocação e mão de obra variam por região. Lisboa e Porto tendem a ter custos ligeiramente superiores."]
-        ].map(([factor, desc]) => (
-          <div class="bg-card border border-border rounded-xl p-5">
-            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">{factor}</h3>
-            <p class="font-body text-sm text-muted-foreground">{desc}</p>
-          </div>
-        ))}
-      </div>
-
-      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Apoios disponíveis</h2>
-      <div class="space-y-4 mb-10">
-        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">IVA a 6%</h3><p class="font-body text-sm text-muted-foreground">Para instalação em habitação própria e permanente. Numa instalação de €15.000, a poupança é de €2.550 comparado com a taxa normal de 23%.</p></div>
-        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">SAPA — Segurança Social</h3><p class="font-body text-sm text-muted-foreground">Apoio para aquisição de ajudas técnicas por pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e situação económica.</p></div>
-        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">Financiamento bancário</h3><p class="font-body text-sm text-muted-foreground">Obras de acessibilidade podem ser incluídas em crédito habitação ou em crédito pessoal para obras. Compare taxas antes de financiar.</p></div>
-      </div>
-
-      <div class="space-y-3">
-        {[
-          ["Por que os elevadores residenciais são mais caros que os de escadas?", "Os elevadores residenciais são estruturas permanentes com cabina fechada, motor mais potente, poço ou estrutura autoportante, portas automáticas e sistemas de segurança mais complexos. A engenharia envolvida é significativamente mais elaborada."],
-          ["O preço inclui manutenção?", "Normalmente inclui a primeira revisão anual. Os anos seguintes, a manutenção preventiva anual custa entre €300 e €600 por ano. Alguns instaladores oferecem contratos plurianuais com desconto."],
-          ["Posso instalar em apartamento?", "Em fracção privada com duplex ou triplex, sim, sem necessidade de aprovação do condomínio. Em espaço comum do condomínio, requer aprovação em assembleia de condóminos. A viabilidade técnica depende sempre do espaço disponível."],
-          ["Quanto valoriza o imóvel com elevador residencial?", "Estudos apontam para 5% a 15% de valorização em moradias de 2+ pisos em zona urbana. O retorno é mais expressivo em imóveis destinados a residentes mais velhos ou com mobilidade condicionada — um segmento crescente no mercado imobiliário português."]
-        ].map(([q, a]) => (
-          <div class="faq-item border border-border rounded-xl bg-card">
-            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
-              <span>{q}</span>
-              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
-          </div>
-        ))}
-      </div>
+      <QuoteForm
+        heading="Compare orçamentos para o seu elevador residencial"
+        subheading="Receba até 3 propostas de instaladores certificados. Sem compromisso."
+      />
     </div>
   </section>
 
-  <section class="py-12 bg-secondary">
-    <div class="max-w-[880px] mx-auto px-6">
-      <QuoteForm heading="Compare orçamentos para elevador residencial" subheading="Receba até 3 propostas de instaladores especializados para a sua moradia específica." />
-    </div>
-  </section>
 </Layout>
 
 <script>
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const answer = btn.nextElementSibling;
+    const answer = btn.nextElementSibling as HTMLElement;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
     answer.classList.toggle('hidden');

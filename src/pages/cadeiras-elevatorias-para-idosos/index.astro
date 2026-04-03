@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import QuoteForm from '../../components/QuoteForm.astro';
+import AnimatedIcon from '../../components/icons/AnimatedIcon.astro';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -83,9 +84,32 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- Price anchor -->
+  <section class="py-10 bg-primary/5 border-y border-primary/20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+          <AnimatedIcon name="euro" class="w-6 h-6" color="hsl(var(--primary))" />
+        </div>
+        <div class="flex-1">
+          <p class="font-heading font-bold text-foreground text-sm uppercase tracking-wide mb-1">Quanto custa aproximadamente</p>
+          <p class="font-body text-muted-foreground">Uma cadeira elevatória para idosos em Portugal custa entre <strong class="text-foreground">2.500€ e 8.000€</strong>, instalação incluída. O preço varia consoante o tipo de escada.</p>
+        </div>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center gap-1.5 text-primary font-heading font-semibold text-sm whitespace-nowrap hover:underline shrink-0">
+          Ver guia de preços completo
+          <AnimatedIcon name="arrow-right" class="w-4 h-4" color="hsl(var(--primary))" />
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="py-12 bg-secondary">
     <div class="max-w-[880px] mx-auto px-6">
-      <QuoteForm heading="Peça orçamento para cadeira elevatória" subheading="Compare propostas de instaladores certificados na sua região. Grátis e sem compromisso." />
+      <div class="text-center mb-8">
+        <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Diga-nos o seu caso — encontramos a solução certa</h2>
+        <p class="font-body text-muted-foreground">Receba até 3 orçamentos gratuitos de instaladores certificados. Sem compromisso.</p>
+      </div>
+      <QuoteForm heading="" subheading="" />
     </div>
   </section>
 </Layout>
