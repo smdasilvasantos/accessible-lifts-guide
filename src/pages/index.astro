@@ -50,14 +50,11 @@ const categoryColors: Record<string, string> = {
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6">
+          <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-4">
             Uma casa sem obstáculos
-          </span>
-          <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
-            Soluções para viver em casa com liberdade e independência
           </h1>
           <p class="font-body text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-            Comparamos equipamentos e ligamos-o a instaladores certificados — de forma simples, gratuita e sem compromisso.
+            Soluções para viver em casa com liberdade e independência. Comparamos equipamentos e ligamos-o a instaladores certificados — de forma simples, gratuita e sem compromisso.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg shadow-cta/25 hover:shadow-xl transition-all group">
@@ -262,7 +259,43 @@ const categoryColors: Record<string, string> = {
     </section>
   )}
 
-  <!-- 7. CTA BANNER — form CTA lives here -->
+  <!-- 7. PROFISSIONAIS -->
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="rounded-2xl border border-border bg-card overflow-hidden">
+        <div class="bg-primary/5 border-b border-border px-8 py-6">
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">Profissionais</span>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Tem um produto ou serviço para divulgar no nosso site?</h2>
+          <p class="font-body text-muted-foreground max-w-xl">Se tem uma empresa ou presta serviços na área de acessibilidade e mobilidade, pode juntar-se à rede Vida Acessível e apresentar os seus produtos a quem está à procura de soluções como as suas.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border">
+          <div class="p-8 group">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name="star" class="w-5 h-5" color="hsl(var(--primary))" />
+            </div>
+            <h3 class="font-heading font-semibold text-foreground mb-2">Aumente a visibilidade da sua empresa</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">Destaque-se num mercado específico e chegue a um público que valoriza qualidade e confiança.</p>
+          </div>
+          <div class="p-8 group">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <AnimatedIcon name="users" class="w-5 h-5" color="hsl(var(--primary))" />
+            </div>
+            <h3 class="font-heading font-semibold text-foreground mb-2">Divulgue e conecte-se com clientes</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">Apresente os seus serviços e estabeleça contacto direto com quem realmente precisa das suas soluções.</p>
+          </div>
+        </div>
+        <div class="px-8 py-5 border-t border-border bg-secondary/50 flex flex-col sm:flex-row sm:items-center gap-4">
+          <p class="font-body text-sm text-muted-foreground flex-1">Junte-se à rede Vida Acessível e faça crescer o seu negócio.</p>
+          <a href="/pedir-orcamento/" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary/90 transition-colors shrink-0 group">
+            Saber mais
+            <AnimatedIcon name="arrow-right" class="w-4 h-4" color="white" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA BANNER — form CTA lives here -->
   <section class="py-20 bg-primary text-white">
     <div class="max-w-[880px] mx-auto px-6 text-center">
       <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-6">
