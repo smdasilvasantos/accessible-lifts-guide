@@ -1,0 +1,263 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Que espaço mínimo preciso para instalar um elevador residencial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Para os modelos mais compactos sem poço, o mínimo é uma base de 0,80m x 0,80m. Modelos standard requerem cerca de 1,0m x 1,0m. Recomendamos uma visita técnica gratuita para avaliar a sua situação específica." }
+    },
+    {
+      "@type": "Question",
+      "name": "Um elevador residencial valoriza a habitação?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Estudos indicam uma valorização entre 5% e 15% do valor do imóvel, especialmente em moradias com vários andares. A valorização é maior em zonas urbanas e em imóveis destinados a residentes mais velhos." }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de licença de obras para um elevador residencial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depende do tipo de elevador e da câmara municipal. Os modelos sem poço geralmente não requerem licença. Para modelos com poço ou estrutura integrada, pode ser necessária comunicação prévia. O instalador certifica-se de todas as obrigações legais." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto custa a manutenção anual de um elevador residencial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A manutenção preventiva anual custa tipicamente entre €300 e €600, dependendo do modelo e do contrato. Inclui inspeção mecânica, lubrificação, verificação elétrica e certificação de segurança." }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Elevadores Residenciais em Portugal",
+  "description": "Fornecimento e instalação de elevadores residenciais em Portugal. Modelos compactos, sem poço, hidráulicos e pneumáticos para moradias.",
+  "provider": { "@type": "Organization", "name": "Vida Acessível", "url": "https://vidaacessivel.pt" },
+  "areaServed": { "@type": "Country", "name": "Portugal" },
+  "serviceType": "Instalação de Elevadores Residenciais"
+};
+---
+
+<Layout
+  title="Elevadores Residenciais Portugal — Compare Preços e Orçamentos | Vida Acessível"
+  description="Elevadores residenciais compactos sem poço, hidráulicos e pneumáticos. Compare orçamentos gratuitos de instaladores certificados em Portugal."
+  canonical="https://vidaacessivel.pt/equipamentos/elevadores/"
+  schema={[faqSchema, serviceSchema]}
+>
+
+  <section class="bg-primary text-white py-20 md:py-24">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <p class="font-body text-sm uppercase tracking-widest text-white/70 mb-3">Equipamentos de Acessibilidade</p>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl leading-tight mb-5">
+        Elevadores Residenciais: Conforto e Autonomia na Sua Casa
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/85 mb-8 max-w-2xl mx-auto">
+        Elevadores compactos para moradia — sem poço, hidráulicos ou pneumáticos. Peça orçamentos gratuitos de instaladores certificados em Portugal.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-heading font-bold rounded-full hover:bg-white hover:text-primary transition-all">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamentos para elevador residencial" subheading="Receba até 3 propostas de instaladores certificados na sua região, sem qualquer compromisso." />
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Escolha o Tipo de Elevador Residencial</h2>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">Cada moradia tem características únicas. Veja qual o modelo mais adequado para a sua situação.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/elevadores-residenciais/1-andar/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador residencial compacto entre rés do chão e primeiro andar, instalado numa moradia portuguesa moderna, acabamento branco elegante">
+            <span class="text-muted-foreground text-sm">Imagem: elevador 1 andar</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Para 1 Andar</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">A solução mais procurada. Ideal para moradia com rés do chão e 1.º andar.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/elevadores-residenciais/sem-poco/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador residencial sem poço com estrutura autoportante instalado numa moradia, sem obras de escavação, design moderno">
+            <span class="text-muted-foreground text-sm">Imagem: elevador sem poço</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Sem Poço</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Estrutura autoportante. Sem escavação, sem obras de construção civil pesadas.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/elevadores-residenciais/compactos/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador residencial compacto de pequenas dimensões instalado em moradia com espaço reduzido, demonstrando versatilidade">
+            <span class="text-muted-foreground text-sm">Imagem: elevador compacto</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Compactos</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Para espaços onde outros modelos não cabem. A partir de 0,70m².</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/elevadores-residenciais/hidraulicos/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador hidráulico residencial silencioso numa moradia de luxo portuguesa, cabina espaçosa com acabamentos premium">
+            <span class="text-muted-foreground text-sm">Imagem: elevador hidráulico</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Hidráulicos</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Movimento suave e silencioso. Requer casa de máquinas mas é a tecnologia mais fiável.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/elevadores-residenciais/pneumaticos/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador pneumático transparente com design futurista instalado numa moradia portuguesa contemporânea, vista do tubo transparente">
+            <span class="text-muted-foreground text-sm">Imagem: elevador pneumático</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Pneumáticos</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Tecnologia inovadora sem poço nem casa de máquinas. Design distintivo e elegante.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">O que é um elevador residencial?</h2>
+          <p class="font-body text-muted-foreground mb-4">Um elevador residencial é um equipamento de elevação instalado no interior de uma moradia, permitindo o acesso fácil entre pisos a pessoas com mobilidade reduzida, mas também tornando a deslocação de toda a família mais cómoda.</p>
+          <p class="font-body text-muted-foreground mb-4">Ao contrário dos elevadores de edifícios comerciais, os elevadores residenciais são dimensionados para o espaço de uma casa: cabinas mais pequenas, mecanismos mais silenciosos e designs que se integram na estética do interior. Existem soluções para praticamente qualquer tipo de moradia — desde casas antigas em granito até construções modernas abertas.</p>
+          <p class="font-body text-muted-foreground">A decisão de instalar um elevador residencial é frequentemente vista como um investimento duplo: melhora a qualidade de vida e valoriza o imóvel.</p>
+        </div>
+        <div>
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[300px] flex items-center justify-center" data-image-description="Interior de elevador residencial moderno numa moradia portuguesa, cabina com acabamentos elegantes, portas abertas a mostrar o interior confortável">
+            <span class="text-muted-foreground text-sm">Imagem: interior elevador residencial</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Para moradias</h3>
+          <p class="font-body text-sm text-muted-foreground">Especialmente concebidos para habitação unifamiliar. Integram-se discretamente no interior sem comprometer o espaço ou a estética.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Instalação em 1–3 dias</h3>
+          <p class="font-body text-sm text-muted-foreground">A maioria dos modelos sem poço é instalada em 1 a 3 dias sem obras de construção civil. Modelos com estrutura de poço podem requerer mais tempo.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Valoriza o imóvel</h3>
+          <p class="font-body text-sm text-muted-foreground">Um elevador residencial pode aumentar o valor de venda da moradia em 5% a 15%, tornando-o um investimento com retorno tanto para uso pessoal como para futuras transações.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-primary/5 border-y border-border">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Quanto custa um elevador residencial?</h2>
+      <p class="font-body text-muted-foreground mb-4 max-w-xl mx-auto">O custo varia consoante a tecnologia escolhida, o número de paragens, o tamanho da cabina e a complexidade da instalação.</p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-8 py-6 mb-6">
+        <p class="font-heading font-extrabold text-4xl text-primary mb-1">€8.000 – €35.000</p>
+        <p class="font-body text-sm text-muted-foreground">Preço médio instalado (IVA incluído)</p>
+      </div>
+      <div class="block">
+        <a href="/equipamentos/elevadores/preco/" class="inline-flex items-center gap-2 text-primary font-body font-medium hover:underline">
+          Ver guia completo de preços e comparação de tecnologias
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8 text-center">Perguntas Frequentes sobre Elevadores Residenciais</h2>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Que espaço mínimo preciso para instalar um elevador residencial?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Para os modelos mais compactos sem poço, o mínimo é uma base de 0,80m × 0,80m. Modelos standard requerem cerca de 1,0m × 1,0m. A altura útil deve ser suficiente para o utilizador entrar de pé. Uma visita técnica gratuita permite avaliar se o espaço disponível é adequado.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Um elevador residencial valoriza a habitação?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Sim, tipicamente entre 5% e 15%. A valorização é mais expressiva em moradias com vários pisos, em zonas urbanas e em imóveis destinados a residentes com mais de 60 anos. No mercado actual, a acessibilidade é cada vez mais valorizada pelos compradores.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Preciso de licença de obras para um elevador residencial?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Depende do tipo de elevador e da câmara municipal. Os modelos sem poço geralmente não requerem licença de obras. Para modelos que implicam abertura de poço ou alterações estruturais, pode ser necessária comunicação prévia ou licença de obras de construção civil. O instalador certifica-se do cumprimento de todas as obrigações legais.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Quanto custa a manutenção anual de um elevador residencial?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>A manutenção preventiva anual custa tipicamente entre €300 e €600, dependendo do modelo e do contrato com o instalador. Inclui inspeção dos sistemas mecânicos, lubrificação, verificação elétrica e certificação de segurança conforme exigido pela regulamentação portuguesa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Receba o catálogo completo de elevadores residenciais</h2>
+      <p class="font-body text-muted-foreground mb-6 max-w-lg mx-auto">Modelos, dimensões, tecnologias e preços indicativos — tudo num único documento gratuito.</p>
+      <a href="/catalogo-gratis/" class="inline-flex items-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Pedir Catálogo Gratuito</a>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-xl text-foreground mb-6">Artigos relacionados</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="/recursos/quanto-custa-elevador-de-escadas/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Preços</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Quanto custa instalar um elevador em Portugal</h3>
+        </a>
+        <a href="/recursos/iva-sapa-apoios-mobilidade/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Apoios</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">IVA 6%, SAPA e outros apoios disponíveis</h3>
+        </a>
+        <a href="/recursos/cadeira-elevatoria-vs-plataforma/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Comparação</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Cadeira elevatória ou plataforma elevatória?</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

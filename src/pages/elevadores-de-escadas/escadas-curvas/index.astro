@@ -1,0 +1,156 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Um elevador de escadas curvas é sempre mais caro?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, porque o carril tem de ser fabricado à medida específicamente para a geometria da sua escada. Isto implica uma visita técnica, levantamento rigoroso das medidas e produção em fábrica. O custo adicional pode ser de €2.000 a €6.000 comparado com um modelo para escadas retas." } },
+    { "@type": "Question", "name": "Quanto tempo demora a fabricar um carril curvo?", "acceptedAnswer": { "@type": "Answer", "text": "Após o levantamento das medidas, a produção do carril demora normalmente 3 a 6 semanas. Depois, a instalação em casa é concluída em 1 a 2 dias." } },
+    { "@type": "Question", "name": "O levantamento de medidas tem custo?", "acceptedAnswer": { "@type": "Answer", "text": "O levantamento técnico é geralmente gratuito e sem compromisso. O instalador visita a sua casa, mede a escada com precisão e elabora uma proposta específica para a sua situação." } },
+    { "@type": "Question", "name": "É possível instalar em escadas com patamar intermédio?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O carril pode ser fabricado para navegar patamares, curvas de 90° ou 180°, e qualquer combinação de ângulos. Esta é precisamente a vantagem do sistema de escadas curvas: adapta-se à geometria existente sem necessidade de obras na escada." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador de Escadas Curvas Portugal — Carril à Medida | Vida Acessível"
+  description="Elevadores de escadas curvas com carril fabricado à medida para a sua escada. Orçamentos gratuitos de instaladores certificados em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-de-escadas/escadas-curvas/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores de Escadas", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Escadas Curvas", url: "/elevadores-de-escadas/escadas-curvas/" }]}
+>
+
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li>
+      <li><span>/</span></li>
+      <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-primary">Elevadores de Escadas</a></li>
+      <li><span>/</span></li>
+      <li class="text-foreground font-medium">Escadas Curvas</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Solução à Medida</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">
+            Elevador de Escadas para Escadas Curvas: Solução à Medida
+          </h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">A escada curva apresenta o maior desafio técnico — cada curva é única. O carril é fabricado especificamente para a sua escada, garantindo uma solução perfeitamente adaptada.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador de escadas com carril curvo elegante numa moradia portuguesa, escada com curva suave e patamar intermédio, acabamento branco, luz natural quente">
+          <span class="text-muted-foreground text-sm">Imagem: elevador escada curva</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">O desafio das escadas curvas — e a solução</h2>
+      <p class="font-body text-muted-foreground mb-4">A escada curva é, de longe, o cenário mais complexo para instalar um elevador de escadas. Curvas de 45°, 90° ou 180°, patamares intermédios, variações no ângulo de inclinação — cada escada curva é completamente única. É impossível usar um carril standard: tem de ser desenhado e fabricado especificamente para a geometria da sua escada.</p>
+      <p class="font-body text-muted-foreground mb-8">O processo começa com uma visita técnica gratuita, onde o instalador mede com precisão cada segmento da escada e regista todas as curvas. Com esses dados, o carril é fabricado em fábrica e entregue nas semanas seguintes. A instalação em casa é então concluída em 1 a 2 dias.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Adaptação perfeita</h3>
+          <p class="font-body text-sm text-muted-foreground">O carril segue cada curva da sua escada com precisão milimétrica, garantindo uma deslocação suave sem solavancos ou paragens abruptas.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Sem alterações na escada</h3>
+          <p class="font-body text-sm text-muted-foreground">A escada não é modificada. O carril adapta-se à geometria existente. Se um dia quiser remover o elevador, a escada fica exactamente como estava.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Prazo de 3 a 6 semanas</h3>
+          <p class="font-body text-sm text-muted-foreground">Desde o levantamento de medidas até à instalação completa. A espera é o único inconveniente — o resultado final justifica cada dia.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-10">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Os elevadores para escadas curvas têm um custo entre <strong class="text-foreground">€6.000 e €12.000</strong>, incluindo fabricação do carril à medida, transporte e instalação.</p>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas Frequentes — Escadas Curvas</h2>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Um elevador de escadas curvas é sempre mais caro?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Sim, porque o carril tem de ser fabricado à medida específicamente para a geometria da sua escada. Isto implica uma visita técnica, levantamento rigoroso das medidas e produção em fábrica. O custo adicional pode ser de €2.000 a €6.000 comparado com um modelo para escadas retas — mas o resultado é um equipamento perfeitamente adaptado à sua escada específica.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Quanto tempo demora a fabricar um carril curvo?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Após o levantamento das medidas na sua casa, a produção do carril em fábrica demora normalmente 3 a 6 semanas, dependendo da complexidade da escada e do fabricante. Depois, a instalação em casa é concluída em 1 a 2 dias.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>O levantamento de medidas tem custo?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Não. O levantamento técnico é gratuito e sem qualquer compromisso. O instalador visita a sua casa, mede a escada com precisão e elabora uma proposta personalizada para a sua situação específica. Só avança para a produção do carril após a sua aprovação do orçamento.</p></div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>É possível instalar em escadas com patamar intermédio?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>Sim. O carril pode ser fabricado para navegar patamares, curvas de 90° ou 180°, e qualquer combinação de ângulos. O elevador percorre toda a extensão da escada sem interrupção, independentemente da geometria. Esta versatilidade é precisamente a grande vantagem dos sistemas para escadas curvas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador de escada curva" subheading="Um instalador certificado visita a sua casa gratuitamente e elabora uma proposta à medida." />
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-semibold text-lg text-foreground mb-4">Veja também</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="/elevadores-de-escadas/escadas-retas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Retas</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Solução mais simples e económica</p>
+        </a>
+        <a href="/elevadores-de-escadas/escadas-exteriores/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Exteriores</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Resistente a todas as condições</p>
+        </a>
+        <a href="/elevadores-de-escadas/escadas-estreitas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Escadas Estreitas</h3>
+          <p class="font-body text-xs text-muted-foreground mt-1">Para espaços com menos de 80 cm</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

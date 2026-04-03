@@ -1,0 +1,103 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Um elevador hidráulico é mais silencioso que o eléctrico?", "acceptedAnswer": { "@type": "Answer", "text": "O movimento de um elevador hidráulico é extremamente suave e silencioso durante a deslocação. A bomba hidráulica faz algum ruído ao arrancar, mas pode ser instalada numa casa de máquinas afastada da zona habitável para minimizar o impacto sonoro." } },
+    { "@type": "Question", "name": "Preciso de casa de máquinas para um elevador hidráulico?", "acceptedAnswer": { "@type": "Answer", "text": "Os modelos hidráulicos tradicionais requerem uma casa de máquinas onde fica o cilindro hidráulico e a unidade de potência. Existem modelos modernos com sistema hidráulico compacto que pode ser instalado junto ao poço sem necessitar de uma divisão separada." } },
+    { "@type": "Question", "name": "O fluido hidráulico apresenta risco ambiental?", "acceptedAnswer": { "@type": "Answer", "text": "Os elevadores modernos utilizam fluidos hidráulicos biodegradáveis de baixo impacto ambiental. O circuito é fechado e selado, sem risco de derrame em condições normais de funcionamento. A inspecção periódica verifica a integridade do circuito." } },
+    { "@type": "Question", "name": "Qual a longevidade de um elevador hidráulico residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Com manutenção regular, os elevadores hidráulicos têm uma vida útil de 20 a 30 anos — superior à maioria dos modelos eléctricos. O piston hidráulico é um componente extremamente durável quando bem mantido." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevadores Hidráulicos Residenciais Portugal — Suavidade e Fiabilidade | Vida Acessível"
+  description="Elevadores hidráulicos residenciais: movimento suave, silencioso e duradouro. Ideal para moradias de luxo. Compare orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-residenciais/hidraulicos/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Hidráulicos", url: "/elevadores-residenciais/hidraulicos/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
+      <li class="text-foreground font-medium">Hidráulicos</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Tecnologia Clássica</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevadores Hidráulicos Residenciais: Suavidade e Fiabilidade Comprovada</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">A tecnologia hidráulica é a mais utilizada em elevadores residenciais de qualidade. O movimento é excepcionalmente suave, o ruído é mínimo e a longevidade supera a maioria das alternativas — podendo chegar aos 30 anos com manutenção regular.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador hidráulico residencial numa moradia de alto padrão portuguesa, cabina espaçosa com acabamentos em madeira e espelho, portas de vidro, movimento suave">
+          <span class="text-muted-foreground text-sm">Imagem: elevador hidráulico</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Vantagens da tecnologia hidráulica</h2>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Movimento excepcionalmente suave</h3><p class="font-body text-sm text-muted-foreground">O fluido hidráulico proporciona uma aceleração e desaceleração progressivas, eliminando os solavancos típicos de alguns sistemas eléctricos.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Longevidade de 20-30 anos</h3><p class="font-body text-sm text-muted-foreground">Com manutenção preventiva regular, os sistemas hidráulicos duram décadas. O investimento inicial amortiza-se ao longo de toda a vida útil.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Cabinas mais espaçosas</h3><p class="font-body text-sm text-muted-foreground">A tecnologia hidráulica permite cabinas maiores com cargas mais elevadas, ideal para utilizadores de cadeira de rodas ou quando mais de uma pessoa utiliza o elevador.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Segurança por gravidade</h3><p class="font-body text-sm text-muted-foreground">Em caso de falha de energia, a cabina pode descer lentamente por gravidade controlada até ao piso mais próximo — um mecanismo de segurança passivo muito fiável.</p></div>
+      </div>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Elevadores hidráulicos residenciais custam tipicamente entre <strong class="text-foreground">€12.000 e €25.000</strong>, dependendo do tamanho da cabina, número de paragens e acabamentos.</p>
+        <a href="/equipamentos/elevadores/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Um elevador hidráulico é mais silencioso que o eléctrico?", "O movimento em si é silencioso e suave. A bomba hidráulica faz algum ruído ao arrancar, mas pode ser instalada numa casa de máquinas afastada da zona habitável para minimizar o impacto sonoro. O ruído percebido dentro da cabina é muito reduzido."],
+          ["Preciso de casa de máquinas para um elevador hidráulico?", "Os modelos hidráulicos tradicionais requerem uma divisão para a unidade de potência. Existem modelos modernos com sistema hidráulico compacto que pode ser instalado junto ao poço sem divisão separada, mas requerem espaço no piso inferior da instalação."],
+          ["O fluido hidráulico apresenta risco ambiental?", "Os elevadores modernos utilizam fluidos hidráulicos biodegradáveis de baixo impacto ambiental. O circuito é fechado e selado, sem risco de derrame em condições normais. A manutenção periódica inclui a verificação da integridade de todo o circuito hidráulico."],
+          ["Qual a longevidade de um elevador hidráulico residencial?", "Com manutenção regular, os elevadores hidráulicos têm uma vida útil de 20 a 30 anos — superior à maioria dos modelos eléctricos de tracção por cabos. O cilindro hidráulico é um componente extremamente durável quando bem mantido e com substituição periódica do fluido."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador hidráulico" subheading="Instaladores especializados em tecnologia hidráulica residencial em todo o Portugal." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

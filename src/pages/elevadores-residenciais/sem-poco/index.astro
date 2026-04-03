@@ -1,0 +1,123 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O que é exactamente um elevador residencial sem poço?", "acceptedAnswer": { "@type": "Answer", "text": "É um elevador com estrutura autoportante que não requer a criação de um poço no piso. A cabina é suportada por guias verticais fixadas à estrutura da casa. Elimina a necessidade de obras de escavação e pode ser instalado em poucos dias." } },
+    { "@type": "Question", "name": "O elevador sem poço ocupa muito espaço no rés do chão?", "acceptedAnswer": { "@type": "Answer", "text": "Quando parado no piso inferior, a estrutura de apoio ocupa algum espaço no rés do chão. Os modelos mais compactos ocupam uma área de 0,8m x 0,8m. Existe também a opção de colocar a paragem inferior noutro local estratégico." } },
+    { "@type": "Question", "name": "Um elevador sem poço é tão seguro quanto um com poço?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Os dois sistemas cumprem as mesmas normas de segurança europeias. A ausência de poço não compromete a segurança — os travões, limitadores de velocidade e sistemas de emergência são idênticos." } },
+    { "@type": "Question", "name": "Posso instalar em casa arrendada?", "acceptedAnswer": { "@type": "Answer", "text": "Com autorização do proprietário, sim. A grande vantagem dos modelos sem poço é que a instalação é menos invasiva — sem obras de construção civil — o que facilita a obtenção de autorização e a posterior desmontagem se necessário." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador Residencial Sem Poço — Instale Sem Obras de Construção | Vida Acessível"
+  description="Elevadores residenciais sem poço: estrutura autoportante sem escavação. Instalação em 1-2 dias sem obras de construção civil. Orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/elevadores-residenciais/sem-poco/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Sem Poço", url: "/elevadores-residenciais/sem-poco/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
+      <li class="text-foreground font-medium">Sem Poço</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Sem Obras Pesadas</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador Residencial Sem Poço: Instale Sem Obras de Construção Civil</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">A principal preocupação de muitas famílias é a ideia de ter de fazer obras profundas para criar um poço. Os elevadores sem poço eliminam completamente essa necessidade — funcionam com estrutura autoportante que não requer escavação.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador residencial sem poço com estrutura autoportante metálica instalado no canto de uma sala de moradia portuguesa, design moderno, portas de vidro, sem obras no pavimento">
+          <span class="text-muted-foreground text-sm">Imagem: elevador sem poço</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Como funciona um elevador sem poço?</h2>
+      <p class="font-body text-muted-foreground mb-4">Em vez de criar um poço no piso (que implica abrir o pavimento, cofragem e betão), o elevador sem poço usa guias verticais que são fixadas às paredes ou ao tecto da estrutura existente. A cabina move-se ao longo dessas guias, deslocando-se entre pisos sem necessidade de qualquer escavação.</p>
+      <p class="font-body text-muted-foreground mb-8">A instalação demora tipicamente 1 a 2 dias. Não é necessário parar a vida em casa durante semanas. O equipamento fica funcional no mesmo dia em que começa a instalação ou no dia seguinte.</p>
+
+      <div class="grid sm:grid-cols-2 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-3">✓ Sem escavação do pavimento</h3>
+          <p class="font-body text-sm text-muted-foreground">O piso fica intacto. Não há lajes a abrir, não há betão, não há poeira de obras durante semanas.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-3">✓ Instalação em 1-2 dias</h3>
+          <p class="font-body text-sm text-muted-foreground">A instalação é rápida. A sua rotina diária é minimamente perturbada durante o processo.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-3">✓ Reversível</h3>
+          <p class="font-body text-sm text-muted-foreground">Pode ser removido sem deixar marcas significativas na estrutura da casa — uma vantagem importante para quem arrenda.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-3">✓ Mesmas normas de segurança</h3>
+          <p class="font-body text-sm text-muted-foreground">Cumpre exactamente as mesmas normas europeias de segurança que os modelos com poço tradicional.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Elevadores sem poço custam tipicamente entre <strong class="text-foreground">€10.000 e €22.000</strong>, dependendo do modelo, número de paragens e acabamentos.</p>
+        <a href="/equipamentos/elevadores/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas sobre elevadores sem poço</h2>
+      <div class="space-y-3">
+        {[
+          ["O que é exactamente um elevador residencial sem poço?", "É um elevador com estrutura autoportante que não requer a criação de um poço no piso. A cabina é suportada por guias verticais fixadas à estrutura da casa (paredes ou tecto). Elimina a necessidade de obras de escavação e pode ser instalado em 1 a 2 dias."],
+          ["O elevador sem poço ocupa muito espaço no rés do chão?", "Quando parado no piso inferior, a estrutura de apoio ocupa algum espaço. Os modelos mais compactos ocupam uma área de 0,8m × 0,8m. Existe também a opção de posicionar a paragem inferior num local estratégico da casa que minimize o impacto no espaço útil."],
+          ["Um elevador sem poço é tão seguro quanto um com poço?", "Sim. Ambos os sistemas cumprem as mesmas normas de segurança europeias para elevadores residenciais. A ausência de poço não compromete a segurança em nenhum aspecto — os sistemas de travagem, limitadores de velocidade e mecanismos de emergência são idênticos."],
+          ["Posso instalar em casa arrendada com autorização do proprietário?", "Com autorização escrita do proprietário, sim. A grande vantagem dos modelos sem poço é que a instalação é menos invasiva — sem obras de construção civil — o que facilita a obtenção de autorização e permite uma eventual desmontagem futura sem deixar danos estruturais."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador sem poço" subheading="Compare propostas de instaladores especializados em elevadores sem necessidade de obras de escavação." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

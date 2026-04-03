@@ -1,0 +1,102 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Uma plataforma exterior resiste à chuva e a temperaturas extremas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. As plataformas exteriores têm classificação IP65 ou superior, protegendo todos os componentes eléctricos contra jatos de água. Os materiais estruturais são galvanizados ou revestidos com anti-corrosivo marinho para zonas costeiras." } },
+    { "@type": "Question", "name": "A plataforma exterior precisa de protecção adicional quando não está a ser usada?", "acceptedAnswer": { "@type": "Answer", "text": "Muitos modelos incluem coberturas automáticas ou manuais para proteção quando não está em uso. Não é obrigatório, mas prolonga a vida útil dos componentes, especialmente em zonas com exposição solar intensa ou próximas do mar." } },
+    { "@type": "Question", "name": "Qual a diferença entre plataforma exterior e interior em termos de manutenção?", "acceptedAnswer": { "@type": "Answer", "text": "As plataformas exteriores requerem revisão semestral em vez de anual. A lubrificação do carril e a verificação das vedações eléctricas são especialmente importantes. O custo de manutenção é ligeiramente superior." } },
+    { "@type": "Question", "name": "É necessária licença para instalar plataforma elevatória no exterior de edifício?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do tipo de instalação e da câmara municipal. Em fachadas de edifícios classificados ou em áreas históricas, pode ser necessária autorização específica. O instalador assessora no processo de licenciamento." } }
+  ]
+};
+---
+
+<Layout
+  title="Plataforma Elevatória Exterior Portugal — Acesso Total ao Exterior | Vida Acessível"
+  description="Plataformas elevatórias para uso exterior: entrada, jardim, acesso a edifícios. Protecção IP65. Compare orçamentos gratuitos de instaladores certificados."
+  canonical="https://vidaacessivel.pt/plataformas-elevatorias/exteriores/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Plataformas Elevatórias", url: "/equipamentos/plataformas-elevatorias/" }, { name: "Exteriores", url: "/plataformas-elevatorias/exteriores/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-primary">Plataformas Elevatórias</a></li><li>/</li>
+      <li class="text-foreground font-medium">Exteriores</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Para Uso Exterior</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Plataforma Elevatória para Exterior: Acesso Total ao Exterior da Casa</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">As plataformas elevatórias para exterior garantem que a entrada da casa, o jardim e os acessos exteriores nunca são um obstáculo para utilizadores de cadeira de rodas — em qualquer condição meteorológica.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Plataforma elevatória para cadeira de rodas na entrada exterior de uma moradia portuguesa, escada de pedra, equipamento com protecção anti-intempéries, utilizador a entrar na habitação">
+          <span class="text-muted-foreground text-sm">Imagem: plataforma elevatória exterior</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Concebida para o ambiente exterior português</h2>
+      <p class="font-body text-muted-foreground mb-6">As plataformas elevatórias exteriores têm de enfrentar condições muito diferentes das interiores: chuva, sol intenso, vento, sal marinho em zonas costeiras, e variações de temperatura ao longo do ano. Por isso, cada componente é especificamente dimensionado para uso exterior.</p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Protecção IP65+</h3><p class="font-body text-sm text-muted-foreground">Todos os componentes eléctricos e electrónicos protegidos contra poeira e jatos de água. Opções de protecção reforçada para zonas costeiras com exposição ao sal marinho.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Estrutura galvanizada</h3><p class="font-body text-sm text-muted-foreground">Carril e estrutura em aço galvanizado a quente ou alumínio anodizado. Resistência comprovada à corrosão ao longo de décadas de uso exterior.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Cobertura protectora</h3><p class="font-body text-sm text-muted-foreground">Opção de cobertura automática ou manual para proteger a plataforma quando não está em uso. Prolonga a vida útil e mantém o equipamento sempre pronto a usar.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Bateria de emergência</h3><p class="font-body text-sm text-muted-foreground">Funcionamento garantido mesmo em cortes de energia eléctrica — essencial num contexto exterior onde o utilizador pode ficar exposto às intempéries.</p></div>
+      </div>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Plataformas exteriores custam tipicamente entre <strong class="text-foreground">€7.000 e €20.000</strong> instaladas, dependendo da extensão da escada, complexidade e modelo.</p>
+        <a href="/equipamentos/plataformas-elevatorias/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+      <div class="space-y-3">
+        {[
+          ["Uma plataforma exterior resiste à chuva e a temperaturas extremas?", "Sim. As plataformas exteriores têm classificação IP65 ou superior, protegendo todos os componentes eléctricos contra jatos de água directos. Os materiais estruturais são galvanizados ou revestidos com anti-corrosivo para zonas costeiras. Funcionam entre -15°C e +50°C."],
+          ["A plataforma exterior precisa de protecção adicional quando não está a ser usada?", "Muitos modelos incluem coberturas automáticas ou manuais para proteção. Não é obrigatório mas prolonga a vida útil dos componentes, especialmente em zonas com exposição solar intensa ou próximas do mar onde o sal acelera a corrosão."],
+          ["Qual a diferença de manutenção entre plataforma exterior e interior?", "As plataformas exteriores requerem revisão semestral em vez de anual. A lubrificação do carril e a verificação das vedações eléctricas são especialmente importantes. O custo de manutenção anual é ligeiramente superior ao de modelos interiores."],
+          ["É necessária licença para instalar plataforma elevatória no exterior?", "Depende do tipo de instalação e da câmara municipal. Em fachadas de edifícios classificados ou em áreas históricas, pode ser necessária autorização específica. O instalador assessora no processo de licenciamento e garante que a instalação cumpre todas as obrigações legais."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para plataforma exterior" subheading="Receba propostas de instaladores com experiência em plataformas elevatórias para uso exterior em Portugal." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

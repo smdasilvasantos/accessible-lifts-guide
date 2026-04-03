@@ -1,0 +1,199 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('recursos');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const categoryColors: Record<string, string> = {
+  'Guias': 'bg-blue-100 text-blue-800',
+  'Preços': 'bg-green-100 text-green-800',
+  'Legislação': 'bg-purple-100 text-purple-800',
+  'Instalação': 'bg-orange-100 text-orange-800',
+  'Comparações': 'bg-rose-100 text-rose-800',
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "author": {
+    "@type": "Organization",
+    "name": post.data.author,
+    "url": "https://vidaacessivel.pt"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vida Acessível",
+    "url": "https://vidaacessivel.pt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vidaacessivel.pt/logo.png"
+    }
+  },
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "url": `https://vidaacessivel.pt/recursos/${post.slug}/`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://vidaacessivel.pt/recursos/${post.slug}/`
+  }
+};
+---
+
+<Layout
+  title={`${post.data.title} | Vida Acessível`}
+  description={post.data.description}
+  canonical={`https://vidaacessivel.pt/recursos/${post.slug}/`}
+  schema={articleSchema}
+  breadcrumbs={[
+    { name: 'Recursos', url: '/recursos/' },
+    { name: post.data.title, url: `/recursos/${post.slug}/` }
+  ]}
+>
+
+  <!-- Article header -->
+  <section class="bg-secondary py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="flex items-center gap-3 mb-6 text-sm text-muted-foreground">
+        <a href="/" class="hover:text-foreground transition-colors">Início</a>
+        <span>›</span>
+        <a href="/recursos/" class="hover:text-foreground transition-colors">Recursos</a>
+        <span>›</span>
+        <span class="text-foreground">{post.data.title}</span>
+      </div>
+      <div class="flex items-center gap-3 mb-4">
+        <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[post.data.category]}`}>
+          {post.data.category}
+        </span>
+      </div>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6">
+        {post.data.title}
+      </h1>
+      <p class="font-body text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+        {post.data.description}
+      </p>
+      <div class="flex items-center gap-2 text-sm text-muted-foreground">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </time>
+        <span>·</span>
+        <span>{post.data.author}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article content -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="grid lg:grid-cols-[1fr_300px] gap-12">
+
+        <!-- Main content -->
+        <article class="prose prose-lg prose-slate max-w-none
+          prose-headings:font-heading prose-headings:font-bold prose-headings:text-foreground
+          prose-p:font-body prose-p:text-foreground/80 prose-p:leading-relaxed
+          prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-foreground
+          prose-li:text-foreground/80
+          prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+        ">
+          <Content />
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="space-y-6">
+          <!-- Quote CTA -->
+          <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 sticky top-24">
+            <h3 class="font-heading font-bold text-lg text-foreground mb-3">
+              Receba Orçamentos Gratuitos
+            </h3>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">
+              Compare propostas de instaladores certificados em Portugal. Até 3 orçamentos, sem compromisso.
+            </p>
+            <a
+              href="/pedir-orcamento/"
+              class="block w-full text-center px-6 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-md hover:shadow-lg transition-shadow mb-3"
+            >
+              Pedir Orçamento
+            </a>
+            <a
+              href="/catalogo-gratis/"
+              class="block w-full text-center px-6 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary/5 transition-colors"
+            >
+              Catálogo Grátis
+            </a>
+          </div>
+
+          <!-- Related links -->
+          <div class="border border-border rounded-2xl p-6">
+            <h3 class="font-heading font-semibold text-base text-foreground mb-4">Soluções Relacionadas</h3>
+            <ul class="space-y-2.5">
+              <li>
+                <a href="/equipamentos/elevadores-de-escadas/" class="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
+                  <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Elevadores de Escadas
+                </a>
+              </li>
+              <li>
+                <a href="/equipamentos/elevadores/" class="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
+                  <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Elevadores Residenciais
+                </a>
+              </li>
+              <li>
+                <a href="/equipamentos/plataformas-elevatorias/" class="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
+                  <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Plataformas Elevatórias
+                </a>
+              </li>
+              <li>
+                <a href="/equipamentos/elevadores-de-escadas/preco/" class="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
+                  <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Preços de Elevadores
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to recursos -->
+  <section class="pb-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <a
+        href="/recursos/"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Ver todos os artigos
+      </a>
+    </div>
+  </section>
+
+</Layout>

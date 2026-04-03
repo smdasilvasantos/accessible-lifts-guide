@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Que avaliação é necessária antes de adaptar a casa?", "acceptedAnswer": { "@type": "Answer", "text": "Recomenda-se uma avaliação com terapeuta ocupacional que identifica as principais barreiras e prioridades. Para os equipamentos de elevação, os instaladores fazem visita técnica gratuita. A combinação dos dois permite um plano de adaptação completo e prioritizado." } },
+    { "@type": "Question", "name": "Qual a adaptação mais urgente na maioria das casas?", "acceptedAnswer": { "@type": "Answer", "text": "As escadas são o maior obstáculo na maioria dos lares portugueses. É o ponto de partida para a grande maioria dos projectos de adaptação. Uma vez resolvidas as escadas, a autonomia melhora imediatamente e de forma muito significativa." } },
+    { "@type": "Question", "name": "Posso fazer as adaptações por fases?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, e é a abordagem mais comum. Muitos clientes começam com a solução para as escadas — o impacto imediato é maior e o investimento é gerível. Outras adaptações (casa de banho, corrimãos, rampas) ficam para fases seguintes." } },
+    { "@type": "Question", "name": "Existe apoio municipal para adaptação de habitação?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Muitas câmaras municipais têm programas de apoio à adaptação de habitação para pessoas com deficiência ou idosas. Contacte os serviços sociais da sua câmara para verificar os apoios disponíveis na sua área de residência." } }
+  ]
+};
+---
+
+<Layout
+  title="Adaptar Casa para Mobilidade Reduzida — Guia Completo Portugal | Vida Acessível"
+  description="Como adaptar a sua casa para mobilidade reduzida em Portugal: prioridades, soluções para escadas, casa de banho e acessos. Orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/adaptar-casa-mobilidade-reduzida/"
+  schema={faqSchema}
+>
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Como Adaptar a Sua Casa para Mobilidade Reduzida: Guia Prático</h1>
+      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl">Adaptar uma casa às necessidades de uma pessoa com mobilidade reduzida não tem de ser uma obra complexa. Com a sequência certa e as soluções adequadas, é possível transformar a casa numa habitação verdadeiramente acessível sem disrupções desnecessárias.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Por onde começar: as prioridades na adaptação</h2>
+      <p class="font-body text-muted-foreground mb-8">O ponto de partida é sempre uma avaliação honesta das barreiras existentes na casa. As adaptações mais impactantes são, por ordem de prioridade típica:</p>
+      <div class="space-y-4 mb-10">
+        <div class="flex gap-4 p-5 bg-card border border-border rounded-xl">
+          <div class="w-10 h-10 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center shrink-0">1</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground mb-1">Escadas</h3>
+            <p class="font-body text-sm text-muted-foreground">A maior barreira na maioria dos lares portugueses. Elevador de escadas, plataforma elevatória ou elevador residencial — dependendo da situação. O impacto na autonomia diária é imediato e significativo.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 bg-card border border-border rounded-xl">
+          <div class="w-10 h-10 rounded-full bg-primary/60 text-white font-heading font-bold flex items-center justify-center shrink-0">2</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground mb-1">Casa de banho</h3>
+            <p class="font-body text-sm text-muted-foreground">Barras de apoio, base de duche acessível, banco de banho, alargamento de portas. O segundo espaço mais crítico para a segurança diária.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 bg-card border border-border rounded-xl">
+          <div class="w-10 h-10 rounded-full bg-primary/40 text-white font-heading font-bold flex items-center justify-center shrink-0">3</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground mb-1">Entradas e acessos</h3>
+            <p class="font-body text-sm text-muted-foreground">Corrimãos, rampas para degraus de entrada, alargamento de portas. Garantem que a pessoa consegue entrar e sair de casa com autonomia.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 bg-card border border-border rounded-xl">
+          <div class="w-10 h-10 rounded-full bg-primary/20 text-foreground font-heading font-bold flex items-center justify-center shrink-0">4</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground mb-1">Outras divisões</h3>
+            <p class="font-body text-sm text-muted-foreground">Cozinha adaptada, iluminação de emergência, sistemas de chamada de emergência, mobiliário a altura acessível. Melhorias complementares para conforto e segurança.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="font-heading font-bold text-xl text-foreground mb-4">Soluções para as escadas — ponto de partida</h2>
+      <p class="font-body text-muted-foreground mb-6">A Vida Acessível especializa-se em soluções para escadas. Se a sua casa tem uma ou mais escadas, estas são provavelmente a primeira adaptação a considerar:</p>
+      <div class="grid sm:grid-cols-3 gap-4 mb-10">
+        <a href="/equipamentos/elevadores-de-escadas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary mb-1">Elevadores de Escadas</h3>
+          <p class="font-body text-xs text-muted-foreground">A partir de €3.000. Para quem não usa cadeira de rodas.</p>
+        </a>
+        <a href="/equipamentos/plataformas-elevatorias/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary mb-1">Plataformas Elevatórias</h3>
+          <p class="font-body text-xs text-muted-foreground">A partir de €5.000. Para cadeira de rodas.</p>
+        </a>
+        <a href="/equipamentos/elevadores/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group">
+          <h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary mb-1">Elevadores Residenciais</h3>
+          <p class="font-body text-xs text-muted-foreground">A partir de €8.000. Solução permanente.</p>
+        </a>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Que avaliação é necessária antes de adaptar a casa?", "Recomenda-se uma avaliação com terapeuta ocupacional que identifica as principais barreiras e prioridades. Para os equipamentos de elevação, os instaladores fazem visita técnica gratuita. A combinação dos dois permite um plano de adaptação completo, prioritizado e com orçamento realista."],
+          ["Qual a adaptação mais urgente na maioria das casas?", "As escadas são o maior obstáculo na maioria dos lares portugueses. São o ponto de partida para a grande maioria dos projectos de adaptação. Uma vez resolvidas as escadas, a autonomia melhora imediatamente e de forma muito significativa na vida quotidiana."],
+          ["Posso fazer as adaptações por fases?", "Sim, e é a abordagem mais comum e mais sensata do ponto de vista financeiro. Muitos clientes começam com a solução para as escadas — o impacto imediato é maior — e planeiam outras adaptações para fases seguintes conforme o orçamento disponível."],
+          ["Existe apoio municipal para adaptação de habitação?", "Sim. Muitas câmaras municipais têm programas de apoio à adaptação de habitação para pessoas com deficiência ou idosas. Os serviços sociais municipais informam sobre os apoios disponíveis. Contacte a câmara da sua área de residência para verificar o que está disponível."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça ajuda para adaptar a sua casa" subheading="Orçamentos gratuitos para soluções de escadas. O primeiro passo para uma casa mais acessível." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

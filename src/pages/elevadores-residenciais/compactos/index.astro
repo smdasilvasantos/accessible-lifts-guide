@@ -1,0 +1,108 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Qual a área mínima para um elevador residencial compacto?", "acceptedAnswer": { "@type": "Answer", "text": "Os modelos mais compactos funcionam com uma área de cabina de apenas 0,70m × 0,70m. Para uma pessoa com mobilidade reduzida (sem cadeira de rodas), esta dimensão é suficiente. Modelos para cadeira de rodas requerem pelo menos 0,80m × 1,10m." } },
+    { "@type": "Question", "name": "Um elevador compacto é menos potente ou seguro?", "acceptedAnswer": { "@type": "Answer", "text": "Não. A carga máxima é tipicamente de 250 kg nos modelos compactos, suficiente para um utilizador e um acompanhante. As normas de segurança são as mesmas dos modelos maiores." } },
+    { "@type": "Question", "name": "É possível personalizar o acabamento de um elevador compacto?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Mesmo os modelos compactos oferecem opções de acabamento: portas de vidro, painéis espelhados, iluminação LED, revestimento das paredes da cabina. O resultado pode integrar-se de forma discreta e elegante no interior da casa." } },
+    { "@type": "Question", "name": "Um elevador compacto serve para 2 ou 3 andares?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, desde que o percurso total e a distância entre pisos sejam compatíveis com o modelo escolhido. A maioria dos elevadores compactos serve até 3 paragens com percurso até 10 metros." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevadores Residenciais Compactos Portugal — Para Espaços Reduzidos | Vida Acessível"
+  description="Elevadores residenciais compactos para moradias com espaço limitado. Cabinas a partir de 0,70m². Orçamentos gratuitos de instaladores certificados."
+  canonical="https://vidaacessivel.pt/elevadores-residenciais/compactos/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Compactos", url: "/elevadores-residenciais/compactos/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
+      <li class="text-foreground font-medium">Compactos</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Para Espaços Limitados</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevadores Residenciais Compactos: Quando o Espaço é Limitado</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">Não tem espaço para um elevador residencial standard? Os modelos compactos foram desenhados para moradias onde cada metro quadrado conta — cabinas a partir de 0,70m² que funcionam sem comprometer o espaço útil da casa.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador residencial compacto de pequenas dimensões instalado elegantemente num corredor de moradia portuguesa, portas de vidro, design minimalista branco">
+          <span class="text-muted-foreground text-sm">Imagem: elevador compacto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Dimensões dos modelos compactos</h2>
+      <p class="font-body text-muted-foreground mb-8">Os elevadores compactos oferecem flexibilidade de instalação em espaços onde os modelos standard não caberiam. A tabela abaixo ilustra as dimensões típicas por categoria:</p>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary">
+              <th class="text-left p-3 font-heading text-foreground border border-border">Categoria</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Cabina (mín.)</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Carga máx.</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Indicação de preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-3 border border-border font-body text-muted-foreground">Ultra-compacto</td><td class="p-3 border border-border font-body text-foreground">0,70 × 0,70 m</td><td class="p-3 border border-border font-body text-muted-foreground">225 kg</td><td class="p-3 border border-border font-body text-primary font-semibold">€8.000–€14.000</td></tr>
+            <tr class="bg-secondary/50"><td class="p-3 border border-border font-body text-muted-foreground">Compacto standard</td><td class="p-3 border border-border font-body text-foreground">0,80 × 0,90 m</td><td class="p-3 border border-border font-body text-muted-foreground">250 kg</td><td class="p-3 border border-border font-body text-primary font-semibold">€10.000–€18.000</td></tr>
+            <tr><td class="p-3 border border-border font-body text-muted-foreground">Compacto para cadeira</td><td class="p-3 border border-border font-body text-foreground">0,80 × 1,10 m</td><td class="p-3 border border-border font-body text-muted-foreground">300 kg</td><td class="p-3 border border-border font-body text-primary font-semibold">€12.000–€20.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="space-y-3">
+        {[
+          ["Qual a área mínima para um elevador residencial compacto?", "Os modelos mais compactos funcionam com uma área de cabina de apenas 0,70m × 0,70m. Para uma pessoa com mobilidade reduzida sem cadeira de rodas, esta dimensão é suficiente e confortável. Modelos para cadeira de rodas requerem pelo menos 0,80m × 1,10m."],
+          ["Um elevador compacto é menos potente ou seguro?", "Não. A carga máxima é tipicamente de 225 a 250 kg nos modelos compactos — suficiente para um utilizador e um acompanhante. As normas de segurança europeias aplicam-se exactamente da mesma forma que nos modelos de maiores dimensões."],
+          ["É possível personalizar o acabamento de um elevador compacto?", "Sim. Mesmo os modelos compactos oferecem opções de personalização: portas de vidro ou opacas, painéis espelhados, iluminação LED, diferentes revestimentos das paredes da cabina. O resultado pode integrar-se de forma discreta e elegante no interior da casa."],
+          ["Um elevador compacto serve para 2 ou 3 andares?", "Sim, desde que o percurso total seja compatível com o modelo escolhido. A maioria dos elevadores compactos serve até 3 paragens com um percurso total até 10 metros verticais — suficiente para a grande maioria das moradias portuguesas de 2 a 3 pisos."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador compacto" subheading="Receba propostas personalizadas com base nas dimensões disponíveis na sua moradia." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

@@ -1,0 +1,168 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import QuoteForm from '../../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O preço do elevador de escadas inclui a instalação?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, os orçamentos dos instaladores parceiros da Vida Acessível incluem sempre o equipamento, transporte, instalação completa, formação de utilização e garantia. Não há surpresas no final." } },
+    { "@type": "Question", "name": "Posso pagar um elevador de escadas em prestações?", "acceptedAnswer": { "@type": "Answer", "text": "A maioria dos instaladores parceiros oferece planos de financiamento sem juros de 12 a 48 meses, tornando o investimento mais acessível. Alguns bancos também oferecem crédito habitação para obras de acessibilidade." } },
+    { "@type": "Question", "name": "O IVA a 6% aplica-se a todos os elevadores de escadas?", "acceptedAnswer": { "@type": "Answer", "text": "O IVA reduzido de 6% aplica-se à instalação em habitação própria e permanente. Para segunda habitação, arrendamento ou condomínios aplica-se a taxa normal de 23%. É importante confirmar com o instalador antes de encomendar." } },
+    { "@type": "Question", "name": "Existe apoio do Estado SAPA para elevadores de escadas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O SAPA (Segurança Social) apoia a aquisição de ajudas técnicas por pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e da situação económica. A candidatura é feita no Centro Distrital da Segurança Social." } }
+  ]
+};
+
+const aggregateOfferSchema = {
+  "@context": "https://schema.org",
+  "@type": "AggregateOffer",
+  "name": "Elevadores de Escadas em Portugal",
+  "priceCurrency": "EUR",
+  "lowPrice": "3000",
+  "highPrice": "12000",
+  "offerCount": "4",
+  "description": "Preços de elevadores de escadas instalados em Portugal, incluindo modelos para escadas retas, curvas, exteriores e estreitas."
+};
+---
+
+<Layout
+  title="Preço Elevadores de Escadas 2025 — Quanto Custa em Portugal? | Vida Acessível"
+  description="Guia completo de preços de elevadores de escadas em Portugal 2025. Escadas retas €3.000-€5.500, curvas €6.000-€12.000. Compare orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/equipamentos/elevadores-de-escadas/preco/"
+  schema={[faqSchema, aggregateOfferSchema]}
+  breadcrumbs={[{ name: "Equipamentos", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Elevadores de Escadas", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Preço", url: "/equipamentos/elevadores-de-escadas/preco/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-primary">Elevadores de Escadas</a></li><li>/</li>
+      <li class="text-foreground font-medium">Preço</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-foreground leading-tight mb-5">
+        Quanto Custa um Elevador de Escadas em Portugal?
+      </h1>
+      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">Guia completo de preços 2025: por tipo de escada, fatores que influenciam o custo e apoios do Estado disponíveis.</p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-10 py-6">
+        <p class="font-heading font-extrabold text-5xl text-primary mb-2">€3.000 – €12.000</p>
+        <p class="font-body text-muted-foreground">Preço médio instalado, IVA incluído (taxa aplicável)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Preços por tipo de escada</h2>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary">
+              <th class="text-left p-3 font-heading text-foreground border border-border">Tipo de Escada</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Preço (instalado)</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Prazo Instalação</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Mais info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-3 border border-border font-body text-foreground font-medium">Escadas Retas</td><td class="p-3 border border-border font-body text-primary font-semibold">€3.000 – €5.500</td><td class="p-3 border border-border font-body text-muted-foreground">1 dia</td><td class="p-3 border border-border"><a href="/elevadores-de-escadas/escadas-retas/" class="text-primary text-xs hover:underline">Ver página →</a></td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border font-body text-foreground font-medium">Escadas Curvas</td><td class="p-3 border border-border font-body text-primary font-semibold">€6.000 – €12.000</td><td class="p-3 border border-border font-body text-muted-foreground">1–2 dias + 3–6 sem. fabrico</td><td class="p-3 border border-border"><a href="/elevadores-de-escadas/escadas-curvas/" class="text-primary text-xs hover:underline">Ver página →</a></td></tr>
+            <tr><td class="p-3 border border-border font-body text-foreground font-medium">Escadas Exteriores</td><td class="p-3 border border-border font-body text-primary font-semibold">€4.500 – €8.000</td><td class="p-3 border border-border font-body text-muted-foreground">1–2 dias</td><td class="p-3 border border-border"><a href="/elevadores-de-escadas/escadas-exteriores/" class="text-primary text-xs hover:underline">Ver página →</a></td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border font-body text-foreground font-medium">Escadas Estreitas</td><td class="p-3 border border-border font-body text-primary font-semibold">€3.500 – €6.000</td><td class="p-3 border border-border font-body text-muted-foreground">1 dia</td><td class="p-3 border border-border"><a href="/elevadores-de-escadas/escadas-estreitas/" class="text-primary text-xs hover:underline">Ver página →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">O que influencia o preço?</h2>
+      <div class="grid md:grid-cols-2 gap-4 mb-10">
+        {[
+          ["Tipo de escada", "Escada reta = preço base. Curva = carril à medida = custo adicional de €2.000 a €6.000."],
+          ["Comprimento do carril", "Escadas mais longas requerem mais carril e motor mais potente. Cada metro adicional acrescenta custo."],
+          ["Interior vs exterior", "Exterior requer tratamento anti-corrosão, protecção IP65 e materiais específicos — custo superior."],
+          ["Características do modelo", "Assento giratório, apoio extra, dobramento motorizado, telecomando remoto — cada adicional tem custo."],
+          ["Complexidade da instalação", "Paredes em pedra, espaço muito apertado, ângulos incomuns — podem aumentar o custo de mão de obra."],
+          ["Fabricante e garantia", "Marcas de referência têm preços superiores mas maior durabilidade e rede de suporte técnico nacional."]
+        ].map(([factor, desc]) => (
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">{factor}</h3>
+            <p class="font-body text-sm text-muted-foreground">{desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Custo do equipamento vs custo da instalação</h2>
+      <p class="font-body text-muted-foreground mb-6">Num orçamento típico para escada reta, a distribuição aproximada é:</p>
+      <div class="grid sm:grid-cols-3 gap-4 mb-10">
+        <div class="bg-card border border-border rounded-2xl p-5 text-center"><p class="font-heading font-bold text-2xl text-primary mb-1">60–70%</p><p class="font-body text-sm text-muted-foreground">Equipamento (cadeira + carril + motor + electrónica)</p></div>
+        <div class="bg-card border border-border rounded-2xl p-5 text-center"><p class="font-heading font-bold text-2xl text-primary mb-1">20–30%</p><p class="font-body text-sm text-muted-foreground">Mão de obra de instalação e configuração</p></div>
+        <div class="bg-card border border-border rounded-2xl p-5 text-center"><p class="font-heading font-bold text-2xl text-primary mb-1">5–10%</p><p class="font-body text-sm text-muted-foreground">Transporte, formação de utilização e garantia</p></div>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Apoios do Estado que reduzem o custo</h2>
+      <div class="space-y-4 mb-10">
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">IVA a 6% (em vez de 23%)</h3>
+          <p class="font-body text-sm text-muted-foreground">A instalação em habitação própria e permanente beneficia de IVA reduzido. Num equipamento de €5.000, a poupança é de cerca de €850.</p>
+        </div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">SAPA — Subsídio da Segurança Social</h3>
+          <p class="font-body text-sm text-muted-foreground">Apoio financeiro para pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e situação económica. Candidatura no Centro Distrital da Segurança Social.</p>
+        </div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Financiamento sem juros</h3>
+          <p class="font-body text-sm text-muted-foreground">Muitos instaladores parceiros oferecem planos de pagamento em prestações de 12 a 48 meses sem juros, tornando o investimento mais acessível mensalmente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-primary text-white">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl mb-3">Receba Orçamentos para Comparar — Grátis</h2>
+      <p class="font-body text-white/80 mb-8 max-w-xl mx-auto">A melhor forma de saber exactamente quanto vai custar é receber propostas de instaladores certificados para a sua situação específica.</p>
+      <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamentos Gratuitos</a>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Compare orçamentos para o seu elevador de escadas" subheading="Receba até 3 propostas de instaladores certificados. Sem compromisso." />
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas sobre preços de elevadores de escadas</h2>
+      <div class="space-y-3">
+        {[
+          ["O preço do elevador de escadas inclui a instalação?", "Sim, os orçamentos dos instaladores parceiros da Vida Acessível incluem sempre o equipamento, transporte, instalação completa, formação de utilização e garantia. Não há custos ocultos ou surpresas no final do projecto."],
+          ["Posso pagar um elevador de escadas em prestações?", "A maioria dos instaladores parceiros oferece planos de financiamento sem juros de 12 a 48 meses, tornando o investimento mais acessível mensalmente. Alguns produtos de crédito habitação bancário também cobrem obras de acessibilidade."],
+          ["O IVA a 6% aplica-se a todos os elevadores de escadas?", "O IVA reduzido de 6% aplica-se à instalação em habitação própria e permanente. Para segunda habitação, imóveis em arrendamento ou espaços comuns de condomínio aplica-se a taxa normal de 23%. Confirme sempre com o instalador antes de encomendar."],
+          ["Existe apoio do Estado SAPA para elevadores de escadas?", "Sim. O SAPA (Subsídio de Apoio — Segurança Social) apoia a aquisição de ajudas técnicas por pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e da situação económica familiar. A candidatura é feita no Centro Distrital da Segurança Social da área de residência."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Uma cadeira elevatória comum serve para cadeira de rodas?", "acceptedAnswer": { "@type": "Answer", "text": "Não. A cadeira elevatória standard transporta uma pessoa sentada no assento do equipamento — não é possível ficar na cadeira de rodas durante o percurso. Para utilizadores de cadeira de rodas, a solução correcta é a plataforma elevatória." } },
+    { "@type": "Question", "name": "Qual a dimensão mínima da plataforma para cadeira de rodas eléctrica?", "acceptedAnswer": { "@type": "Answer", "text": "As cadeiras de rodas eléctricas são maiores e mais pesadas do que as manuais. Recomenda-se uma plataforma com pelo menos 900mm × 1200mm e capacidade de carga de 300kg+ para acomodar cadeira eléctrica confortavelmente." } },
+    { "@type": "Question", "name": "As plataformas elevatórias têm bordas de segurança obrigatórias?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. A norma EN 81-41 exige bordas de segurança em todos os lados da plataforma, sensores de obstáculo e mecanismos de paragem de emergência. Estes são elementos obrigatórios, não opções adicionais." } },
+    { "@type": "Question", "name": "É possível usar a plataforma sozinho em cadeira de rodas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. A alavanca ou botão de comando é posicionado de forma acessível ao utilizador em cadeira de rodas. Também existe opção de telecomando sem fios que pode ser fixado à cadeira de rodas para máxima autonomia." } }
+  ]
+};
+---
+
+<Layout
+  title="Soluções para Cadeiras de Rodas — Plataformas Elevatórias Portugal | Vida Acessível"
+  description="Soluções de acessibilidade para utilizadores de cadeira de rodas em Portugal: plataformas elevatórias para escadas retas, curvas e exteriores. Orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/solucoes-para-cadeiras-de-rodas/"
+  schema={faqSchema}
+>
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Soluções de Acessibilidade para Utilizadores de Cadeira de Rodas</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">Nenhuma escada deve ser uma barreira intransponível. Para utilizadores de cadeira de rodas, a plataforma elevatória é a solução que garante acesso autónomo a todos os pisos da casa.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[300px] flex items-center justify-center" data-image-description="Utilizador jovem em cadeira de rodas eléctrica a utilizar plataforma elevatória numa escada interior de moradia portuguesa, expressão de autonomia e confiança, luz natural">
+          <span class="text-muted-foreground text-sm">Imagem: cadeira de rodas em plataforma elevatória</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Porque a cadeira elevatória standard não é suficiente</h2>
+      <p class="font-body text-muted-foreground mb-4">A cadeira elevatória standard — também chamada cadeira de escadas ou stairlift — transporta o utilizador sentado no assento do próprio equipamento. Para isso, o utilizador tem de conseguir transferir-se da cadeira de rodas para o assento elevatório, fazer o percurso, e transferir-se novamente para a cadeira no destino. Para muitos utilizadores de cadeira de rodas, esta transferência é difícil, dolorosa ou impossível.</p>
+      <p class="font-body text-muted-foreground mb-8">A plataforma elevatória resolve este problema: o utilizador permanece na sua cadeira de rodas durante todo o percurso. Não há transferências, não há risco de queda, não há necessidade de cuidador para ajudar nas transferências.</p>
+
+      <h2 class="font-heading font-bold text-xl text-foreground mb-6">Comparação: plataforma elevatória vs cadeira elevatória para cadeira de rodas</h2>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary"><th class="text-left p-3 font-heading text-foreground border border-border">Critério</th><th class="text-left p-3 font-heading text-foreground border border-border">Plataforma Elevatória</th><th class="text-left p-3 font-heading text-foreground border border-border">Cadeira Elevatória</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-3 border border-border font-body text-muted-foreground">Utilização em cadeira de rodas</td><td class="p-3 border border-border text-primary font-semibold">✓ Sim</td><td class="p-3 border border-border text-muted-foreground">✗ Não</td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border font-body text-muted-foreground">Transferência necessária</td><td class="p-3 border border-border text-primary font-semibold">✓ Não</td><td class="p-3 border border-border text-muted-foreground">✗ Sim</td></tr>
+            <tr><td class="p-3 border border-border font-body text-muted-foreground">Preço base</td><td class="p-3 border border-border font-body text-muted-foreground">€5.000 – €15.000</td><td class="p-3 border border-border font-body text-muted-foreground">€3.000 – €12.000</td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border font-body text-muted-foreground">Espaço ocupado</td><td class="p-3 border border-border font-body text-muted-foreground">Maior</td><td class="p-3 border border-border font-body text-muted-foreground">Menor</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Uma cadeira elevatória comum serve para cadeira de rodas?", "Não. A cadeira elevatória standard transporta a pessoa sentada no assento do próprio equipamento — não é possível ficar na cadeira de rodas durante o percurso. Para utilizadores de cadeira de rodas, a solução correcta é sempre a plataforma elevatória."],
+          ["Qual a dimensão mínima da plataforma para cadeira de rodas eléctrica?", "As cadeiras eléctricas são maiores e mais pesadas que as manuais. Para uma cadeira eléctrica standard, recomenda-se uma plataforma com pelo menos 900mm × 1200mm e capacidade de carga de 300kg ou mais. O instalador verifica as dimensões da sua cadeira específica."],
+          ["As plataformas elevatórias têm bordas de segurança obrigatórias?", "Sim. A norma europeia EN 81-41 exige bordas de segurança em todos os lados da plataforma, sensores de obstáculo e mecanismos de paragem de emergência. São elementos obrigatórios que garantem que a cadeira de rodas não escorrega da plataforma durante o percurso."],
+          ["É possível usar a plataforma sozinho em cadeira de rodas?", "Sim. O comando é posicionado de forma acessível ao utilizador em cadeira de rodas, sem necessidade de se inclinar ou forçar movimentos. Existe também opção de telecomando sem fios que pode ser adaptado à cadeira de rodas para máxima autonomia."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para plataforma elevatória" subheading="Descreva as dimensões da cadeira de rodas e receba propostas adequadas à sua situação." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

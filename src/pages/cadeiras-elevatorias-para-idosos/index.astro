@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Com que idade se começa a pensar numa cadeira elevatória?", "acceptedAnswer": { "@type": "Answer", "text": "Não há uma idade certa. O momento certo é quando a escada começa a ser um obstáculo — seja por dor, por cansaço, ou por medo de cair. Muitos clientes dizem que deveriam ter instalado mais cedo. Não é necessário esperar por uma queda ou por um acidente." } },
+    { "@type": "Question", "name": "A cadeira elevatória é difícil de usar para pessoas idosas?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O comando é uma alavanca simples ou dois botões: para cima, para baixo, parar. Em menos de 5 minutos, qualquer pessoa aprende a utilizar o equipamento. O instalador faz formação completa no dia da instalação." } },
+    { "@type": "Question", "name": "Posso levar a cadeira elevatória se mudar de casa?", "acceptedAnswer": { "@type": "Answer", "text": "Alguns modelos são amovíveis e podem ser reinstalados noutra habitação, especialmente para escadas retas (se a nova escada tiver dimensões compatíveis). Para escadas curvas, o carril é fabricado à medida e não é reutilizável." } },
+    { "@type": "Question", "name": "A instalação pode ser feita sem perturbar os vizinhos?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. A instalação não requer obras de construção civil, não faz barulho excessivo e não afecta os vizinhos. Os trabalhos decorrem exclusivamente no interior da sua habitação e ficam concluídos no mesmo dia." } }
+  ]
+};
+---
+
+<Layout
+  title="Cadeiras Elevatórias para Idosos Portugal — Independência em Casa | Vida Acessível"
+  description="Cadeiras elevatórias para idosos: mantenha a independência em casa com dignidade. Modelos para todas as escadas. Compare orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/cadeiras-elevatorias-para-idosos/"
+  schema={faqSchema}
+>
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Cadeiras Elevatórias para Idosos: Independência e Segurança em Casa</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">Envelhecer em casa, com autonomia e dignidade — é o que a maioria das pessoas quer. Uma cadeira elevatória permite continuar a viver na sua casa, nos seus termos, sem depender de terceiros para subir e descer as escadas.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[300px] flex items-center justify-center" data-image-description="Mulher idosa portuguesa, 75 anos, sentada com dignidade numa cadeira elevatória numa escada de madeira de casa antiga, expressão serena e tranquila, luz natural quente, ambiente doméstico acolhedor, Sony A7R IV style">
+          <span class="text-muted-foreground text-sm">Imagem: cadeira elevatória para idosos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Envelhecer em casa — o que a escada representa</h2>
+      <p class="font-body text-muted-foreground mb-4">Para muitas famílias, a escada torna-se o símbolo da perda de independência. A dificuldade cresce de forma gradual: primeiro cansa mais, depois dói, depois começa a dar medo. A queda na escada é um dos acidentes domésticos mais comuns e mais graves em pessoas com mais de 65 anos.</p>
+      <p class="font-body text-muted-foreground mb-8">Uma cadeira elevatória não é um sinal de fraqueza — é uma ferramenta de autonomia. Tal como os óculos não são sinal de fraqueza nos olhos, o elevador de escadas é simplesmente o equipamento certo para tornar a casa segura e confortável na melhor fase da vida.</p>
+
+      <h2 class="font-heading font-bold text-xl text-foreground mb-6">O que considerar na escolha</h2>
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-card border border-border rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Tipo de escada</h3>
+          <p class="font-body text-sm text-muted-foreground">Reta, curva, exterior, estreita — cada escada tem a sua solução. Uma visita técnica gratuita avalia qual o modelo mais adequado.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Capacidade de sentar/levantar</h3>
+          <p class="font-body text-sm text-muted-foreground">Se a pessoa consegue sentar-se e levantar-se com apoio, a cadeira elevatória é adequada. Se não consegue, a plataforma elevatória é a alternativa.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Conforto do assento</h3>
+          <p class="font-body text-sm text-muted-foreground">Assentos com almofada extra, apoios de braço almofadados, cintos de segurança ajustáveis — especialmente importantes para utilizações mais frequentes.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Facilidade do comando</h3>
+          <p class="font-body text-sm text-muted-foreground">Alavanca simples ou botões grandes. Telecomando opcional para chamar o equipamento de qualquer piso. Compatível com artrite ou tremores.</p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Com que idade se começa a pensar numa cadeira elevatória?", "Não há uma idade certa. O momento certo é quando a escada começa a ser um obstáculo — seja por dor, por cansaço, ou por medo de cair. Muitos clientes dizem que deveriam ter instalado mais cedo. Não é necessário esperar por uma queda."],
+          ["A cadeira elevatória é difícil de usar para pessoas idosas?", "Não. O comando é uma alavanca simples ou dois botões: para cima, para baixo, parar. Em menos de 5 minutos, qualquer pessoa aprende a utilizar o equipamento. O instalador faz uma formação completa no próprio dia da instalação."],
+          ["Posso levar a cadeira elevatória se mudar de casa?", "Alguns modelos para escadas retas são amovíveis e podem ser reinstalados noutra habitação com dimensões compatíveis. Para escadas curvas, o carril é fabricado à medida e não é reutilizável noutra escada."],
+          ["A instalação pode ser feita sem perturbar os vizinhos?", "Sim. A instalação não requer obras de construção civil, não faz barulho excessivo e não afecta os vizinhos. Os trabalhos decorrem exclusivamente no interior da sua habitação e ficam concluídos no mesmo dia."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para cadeira elevatória" subheading="Compare propostas de instaladores certificados na sua região. Grátis e sem compromisso." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

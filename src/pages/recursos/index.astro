@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('recursos');
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = ['Guias', 'Preços', 'Legislação', 'Instalação', 'Comparações'] as const;
+
+const categoryColors: Record<string, string> = {
+  'Guias': 'bg-blue-100 text-blue-800',
+  'Preços': 'bg-green-100 text-green-800',
+  'Legislação': 'bg-purple-100 text-purple-800',
+  'Instalação': 'bg-orange-100 text-orange-800',
+  'Comparações': 'bg-rose-100 text-rose-800',
+};
+
+const featuredPosts = posts.filter(p => p.data.featured);
+const regularPosts = posts.filter(p => !p.data.featured);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Recursos — Vida Acessível",
+  "url": "https://vidaacessivel.pt/recursos/",
+  "description": "Guias, artigos e informação sobre elevadores de escadas, plataformas elevatórias e soluções de acessibilidade em Portugal.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vida Acessível",
+    "url": "https://vidaacessivel.pt"
+  }
+};
+---
+
+<Layout
+  title="Recursos — Guias e Artigos sobre Acessibilidade | Vida Acessível"
+  description="Guias práticos, comparações e informação sobre preços de elevadores de escadas, plataformas elevatórias e soluções de mobilidade em Portugal."
+  canonical="https://vidaacessivel.pt/recursos/"
+  schema={schema}
+  breadcrumbs={[{ name: 'Recursos', url: '/recursos/' }]}
+>
+
+  <!-- Hero -->
+  <section class="bg-secondary py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="max-w-2xl">
+        <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6">
+          Base de Conhecimento
+        </span>
+        <h1 class="font-heading font-extrabold text-4xl md:text-5xl text-foreground leading-tight mb-6">
+          Recursos e Guias de Acessibilidade
+        </h1>
+        <p class="font-body text-lg text-muted-foreground leading-relaxed">
+          Tudo o que precisa de saber sobre elevadores de escadas, plataformas elevatórias e soluções de mobilidade — escrito de forma clara e prática.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category filters (visual only) -->
+  <section class="border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-4">
+      <div class="flex flex-wrap gap-2">
+        {categories.map(cat => (
+          <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[cat]}`}>
+            {cat}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured posts -->
+  {featuredPosts.length > 0 && (
+    <section class="py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Artigos em Destaque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredPosts.map(post => (
+            <a
+              href={`/recursos/${post.slug}/`}
+              class="group block bg-background border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="h-48 bg-secondary flex items-center justify-center">
+                <svg class="w-16 h-16 text-primary/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${categoryColors[post.data.category]}`}>
+                    {post.data.category}
+                  </span>
+                  <span class="text-xs text-muted-foreground">
+                    {post.data.pubDate.toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                  {post.data.title}
+                </h3>
+                <p class="font-body text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  {post.data.description}
+                </p>
+                <div class="mt-4 flex items-center gap-1 text-sm font-semibold text-primary">
+                  Ler artigo
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- All posts -->
+  {regularPosts.length > 0 && (
+    <section class="py-12 md:py-16 bg-secondary/30">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Todos os Artigos</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {regularPosts.map(post => (
+            <a
+              href={`/recursos/${post.slug}/`}
+              class="group block bg-background border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${categoryColors[post.data.category]}`}>
+                    {post.data.category}
+                  </span>
+                  <span class="text-xs text-muted-foreground">
+                    {post.data.pubDate.toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                  {post.data.title}
+                </h3>
+                <p class="font-body text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  {post.data.description}
+                </p>
+                <div class="mt-4 flex items-center gap-1 text-sm font-semibold text-primary">
+                  Ler artigo
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Empty state -->
+  {posts.length === 0 && (
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <svg class="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+        <p class="font-body text-muted-foreground">Em breve novos artigos.</p>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12 text-center">
+        <h2 class="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-4">
+          Pronto para Dar o Próximo Passo?
+        </h2>
+        <p class="font-body text-muted-foreground mb-8 max-w-xl mx-auto">
+          Receba orçamentos gratuitos de instaladores certificados em Portugal — sem compromisso.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3.5 bg-cta text-white font-heading font-bold rounded-full shadow-lg shadow-cta/25 hover:shadow-xl transition-all">
+            Pedir Orçamento Grátis
+          </a>
+          <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary/5 transition-colors">
+            Catálogo Grátis
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

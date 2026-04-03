@@ -1,0 +1,97 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Uma plataforma para escada curva é tecnicamente mais complexa?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O carril curvo para plataformas é ainda mais complexo do que para cadeiras elevatórias, porque a plataforma precisa de se manter horizontal durante toda a curva. O mecanismo de compensação é mais sofisticado e o carril é fabricado com tolerâncias muito apertadas." } },
+    { "@type": "Question", "name": "Quanto tempo demora a instalar uma plataforma para escada curva?", "acceptedAnswer": { "@type": "Answer", "text": "Desde o levantamento de medidas até à instalação completa, o processo demora 4 a 8 semanas. O fabrico do carril à medida e o mecanismo de compensação de horizontalidade requerem mais tempo de produção do que um sistema para escadas retas." } },
+    { "@type": "Question", "name": "A plataforma mantém-se horizontal nas curvas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Este é o principal desafio técnico de uma plataforma para escadas curvas. O mecanismo de compensação ajusta automaticamente a inclinação da plataforma durante as curvas, garantindo que a cadeira de rodas permanece horizontal e segura." } },
+    { "@type": "Question", "name": "O preço é muito superior ao de uma plataforma para escadas retas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, tipicamente 50% a 80% mais caro. O carril curvo fabricado à medida, o mecanismo de compensação e o processo de instalação mais complexo justificam o custo adicional." } }
+  ]
+};
+---
+
+<Layout
+  title="Plataforma Elevatória Escadas Curvas Portugal — Solução Personalizada | Vida Acessível"
+  description="Plataformas elevatórias para escadas curvas: carril à medida e mecanismo de compensação de horizontalidade. Orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/plataformas-elevatorias/escadas-curvas/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Plataformas Elevatórias", url: "/equipamentos/plataformas-elevatorias/" }, { name: "Escadas Curvas", url: "/plataformas-elevatorias/escadas-curvas/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-primary">Plataformas Elevatórias</a></li><li>/</li>
+      <li class="text-foreground font-medium">Escadas Curvas</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Solução Personalizada</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Plataforma Elevatória para Escadas Curvas: Cada Solução é Única</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">As escadas curvas são o maior desafio técnico para plataformas elevatórias. O carril é fabricado à medida e o mecanismo mantém a plataforma horizontal durante toda a curva, garantindo segurança total para a cadeira de rodas.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Plataforma elevatória para cadeira de rodas numa escada curva com carril personalizado, mecanismo de compensação de inclinação visível, cadeira de rodas posicionada na plataforma horizontal">
+          <span class="text-muted-foreground text-sm">Imagem: plataforma escada curva</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">O desafio das escadas curvas para plataformas elevatórias</h2>
+      <p class="font-body text-muted-foreground mb-4">O principal desafio de uma plataforma elevatória para escadas curvas é manter a plataforma horizontal durante toda a curva — algo que não se coloca nas cadeiras elevatórias onde o utilizador se adapta à inclinação. O mecanismo de compensação é o componente mais sofisticado deste tipo de solução.</p>
+      <p class="font-body text-muted-foreground mb-8">O carril é fabricado à medida após levantamento rigoroso das medidas da escada. O prazo total do processo (levantamento → produção → instalação) é de 4 a 8 semanas.</p>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Plataformas para escadas curvas custam tipicamente entre <strong class="text-foreground">€8.000 e €15.000</strong> instaladas.</p>
+        <a href="/equipamentos/plataformas-elevatorias/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+      <div class="space-y-3">
+        {[
+          ["Uma plataforma para escada curva é tecnicamente mais complexa?", "Sim. O carril curvo para plataformas é mais complexo do que para cadeiras elevatórias porque a plataforma precisa de se manter horizontal durante toda a curva. O mecanismo de compensação é sofisticado e o carril é fabricado com tolerâncias muito apertadas."],
+          ["Quanto tempo demora o processo completo?", "Desde o levantamento de medidas até à instalação, o processo demora 4 a 8 semanas. O fabrico do carril à medida e o mecanismo de compensação de horizontalidade requerem mais tempo de produção do que os sistemas para escadas retas."],
+          ["A plataforma mantém-se horizontal nas curvas?", "Sim — é o principal requisito técnico. O mecanismo de compensação ajusta automaticamente a inclinação da plataforma durante as curvas, garantindo que a cadeira de rodas permanece numa posição horizontal e segura durante todo o percurso."],
+          ["O preço é muito superior ao de uma plataforma para escadas retas?", "Sim, tipicamente 50% a 80% mais caro. O carril curvo fabricado à medida, o mecanismo de compensação de horizontalidade e o processo de instalação mais complexo justificam o custo adicional em relação às soluções para escadas retas."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça uma avaliação gratuita da sua escada" subheading="Um instalador especializado avalia a sua escada curva e apresenta a melhor solução." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

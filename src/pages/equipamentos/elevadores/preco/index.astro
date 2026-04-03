@@ -1,0 +1,135 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import QuoteForm from '../../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Por que os elevadores residenciais são mais caros que os de escadas?", "acceptedAnswer": { "@type": "Answer", "text": "Os elevadores residenciais são estruturas permanentes com cabina fechada, sistema de motor mais potente, poço ou estrutura autoportante, portas automáticas e sistemas de segurança mais complexos. A complexidade técnica e os materiais envolvidos são significativamente maiores." } },
+    { "@type": "Question", "name": "O preço do elevador residencial inclui manutenção?", "acceptedAnswer": { "@type": "Answer", "text": "Normalmente inclui a primeira revisão anual no preço base. Os anos seguintes, a manutenção preventiva anual custa entre €300 e €600 dependendo do modelo e do contrato. Alguns instaladores oferecem contratos plurianuais com desconto." } },
+    { "@type": "Question", "name": "Posso instalar elevador residencial em apartamento?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, mas requer autorização da assembleia de condóminos se for em espaço comum. Em fracção privada com duplex ou triplex, pode ser instalado sem aprovação do condomínio. A viabilidade técnica depende do espaço disponível." } },
+    { "@type": "Question", "name": "Quanto valoriza o imóvel com elevador residencial?", "acceptedAnswer": { "@type": "Answer", "text": "Estudos no mercado imobiliário apontam para uma valorização de 5% a 15% em moradias com elevador residencial, especialmente em moradia de 2+ pisos em zona urbana. O retorno é mais expressivo em imóveis destinados a residentes mais velhos ou com mobilidade condicionada." } }
+  ]
+};
+
+const aggregateOfferSchema = {
+  "@context": "https://schema.org",
+  "@type": "AggregateOffer",
+  "name": "Elevadores Residenciais em Portugal",
+  "priceCurrency": "EUR",
+  "lowPrice": "8000",
+  "highPrice": "35000",
+  "offerCount": "5"
+};
+---
+
+<Layout
+  title="Preço Elevadores Residenciais Portugal 2025 — Comparar Orçamentos | Vida Acessível"
+  description="Preços de elevadores residenciais em Portugal: sem poço €10k-€22k, hidráulicos €12k-€25k, pneumáticos €15k-€35k. Compare orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/equipamentos/elevadores/preco/"
+  schema={[faqSchema, aggregateOfferSchema]}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Preço", url: "/equipamentos/elevadores/preco/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
+      <li class="text-foreground font-medium">Preço</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-foreground leading-tight mb-5">Quanto Custa um Elevador Residencial em Portugal?</h1>
+      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">Guia completo de preços 2025 por tecnologia: sem poço, hidráulico e pneumático — com todos os factores que influenciam o custo final.</p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-10 py-6">
+        <p class="font-heading font-extrabold text-5xl text-primary mb-2">€8.000 – €35.000</p>
+        <p class="font-body text-muted-foreground">Preço médio instalado, IVA incluído</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Preços por tecnologia</h2>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary">
+              <th class="text-left p-3 font-heading text-foreground border border-border">Tipo</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Preço (instalado)</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Características</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/1-andar/" class="text-foreground font-medium hover:text-primary">Para 1 Andar (eléctrico)</a></td><td class="p-3 border border-border text-primary font-semibold">€8.000 – €18.000</td><td class="p-3 border border-border text-muted-foreground">Mais procurado, vários modelos</td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border"><a href="/elevadores-residenciais/sem-poco/" class="text-foreground font-medium hover:text-primary">Sem Poço (autoportante)</a></td><td class="p-3 border border-border text-primary font-semibold">€10.000 – €22.000</td><td class="p-3 border border-border text-muted-foreground">Sem obras de escavação</td></tr>
+            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/compactos/" class="text-foreground font-medium hover:text-primary">Compacto</a></td><td class="p-3 border border-border text-primary font-semibold">€8.000 – €16.000</td><td class="p-3 border border-border text-muted-foreground">Para espaços reduzidos</td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border"><a href="/elevadores-residenciais/hidraulicos/" class="text-foreground font-medium hover:text-primary">Hidráulico</a></td><td class="p-3 border border-border text-primary font-semibold">€12.000 – €25.000</td><td class="p-3 border border-border text-muted-foreground">Movimento suave, 20-30 anos vida útil</td></tr>
+            <tr><td class="p-3 border border-border"><a href="/elevadores-residenciais/pneumaticos/" class="text-foreground font-medium hover:text-primary">Pneumático</a></td><td class="p-3 border border-border text-primary font-semibold">€15.000 – €35.000</td><td class="p-3 border border-border text-muted-foreground">Design distintivo, sem poço</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Factores que influenciam o preço</h2>
+      <div class="grid md:grid-cols-2 gap-4 mb-10">
+        {[
+          ["Número de paragens", "Cada paragem adicional aumenta o custo em €1.000 a €3.000, incluindo o landing e as portas de cada piso."],
+          ["Tecnologia (eléctrico / hidráulico / pneumático)", "O pneumático é o mais caro. O hidráulico tem custo médio-alto mas maior durabilidade. O eléctrico é o mais económico."],
+          ["Tamanho da cabina", "Cabinas maiores requerem motores mais potentes e estruturas mais robustas — custo proporcionalmente superior."],
+          ["Necessidade de poço", "Criar um poço implica obras de construção civil com custo de €1.500 a €5.000 adicionais, dependendo do tipo de piso."],
+          ["Acabamentos e personalização", "Revestimentos premium, espelhos, iluminação LED especial, portas de vidro e outras personalizações têm custo adicional."],
+          ["Localização em Portugal", "Custos de deslocação e mão de obra variam por região. Lisboa e Porto tendem a ter custos ligeiramente superiores."]
+        ].map(([factor, desc]) => (
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">{factor}</h3>
+            <p class="font-body text-sm text-muted-foreground">{desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Apoios disponíveis</h2>
+      <div class="space-y-4 mb-10">
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">IVA a 6%</h3><p class="font-body text-sm text-muted-foreground">Para instalação em habitação própria e permanente. Numa instalação de €15.000, a poupança é de €2.550 comparado com a taxa normal de 23%.</p></div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">SAPA — Segurança Social</h3><p class="font-body text-sm text-muted-foreground">Apoio para aquisição de ajudas técnicas por pessoas com deficiência reconhecida. O valor depende do grau de incapacidade e situação económica.</p></div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">Financiamento bancário</h3><p class="font-body text-sm text-muted-foreground">Obras de acessibilidade podem ser incluídas em crédito habitação ou em crédito pessoal para obras. Compare taxas antes de financiar.</p></div>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Por que os elevadores residenciais são mais caros que os de escadas?", "Os elevadores residenciais são estruturas permanentes com cabina fechada, motor mais potente, poço ou estrutura autoportante, portas automáticas e sistemas de segurança mais complexos. A engenharia envolvida é significativamente mais elaborada."],
+          ["O preço inclui manutenção?", "Normalmente inclui a primeira revisão anual. Os anos seguintes, a manutenção preventiva anual custa entre €300 e €600 por ano. Alguns instaladores oferecem contratos plurianuais com desconto."],
+          ["Posso instalar em apartamento?", "Em fracção privada com duplex ou triplex, sim, sem necessidade de aprovação do condomínio. Em espaço comum do condomínio, requer aprovação em assembleia de condóminos. A viabilidade técnica depende sempre do espaço disponível."],
+          ["Quanto valoriza o imóvel com elevador residencial?", "Estudos apontam para 5% a 15% de valorização em moradias de 2+ pisos em zona urbana. O retorno é mais expressivo em imóveis destinados a residentes mais velhos ou com mobilidade condicionada — um segmento crescente no mercado imobiliário português."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Compare orçamentos para elevador residencial" subheading="Receba até 3 propostas de instaladores especializados para a sua moradia específica." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

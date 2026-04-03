@@ -1,0 +1,118 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Um elevador para 1 andar precisa de poço?", "acceptedAnswer": { "@type": "Answer", "text": "Não necessariamente. Os modelos sem poço para 1 andar são os mais procurados — a estrutura autoportante é instalada sem escavação. Existem também modelos com poço raso (20-30 cm) para quem prefere a estética de um elevador tradicional." } },
+    { "@type": "Question", "name": "Qual o consumo eléctrico de um elevador residencial para 1 andar?", "acceptedAnswer": { "@type": "Answer", "text": "O consumo é muito baixo — equivalente a ligar um ferro de engomar por 10 minutos por dia. A maioria dos elevadores residenciais consome entre 1 e 3 kWh por mês com uso doméstico normal." } },
+    { "@type": "Question", "name": "Posso instalar o elevador numa escada existente ou tem de ser num espaço novo?", "acceptedAnswer": { "@type": "Answer", "text": "Tanto um como outro. Muitos clientes instalam o elevador num armário existente ou num canto da sala. Outros aproveitam o vão da escada. A solução depende do espaço disponível — o instalador avalia as opções na visita técnica." } },
+    { "@type": "Question", "name": "O elevador para 1 andar pode ser ampliado para mais andares no futuro?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do modelo. Alguns sistemas modulares permitem acrescentar paragens adicionais no futuro. É uma questão a colocar ao instalador na fase de orçamentação." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador Residencial para 1 Andar — A Solução Mais Procurada | Vida Acessível"
+  description="Elevadores residenciais para 1 andar: sem poço, compactos ou hidráulicos. A solução mais instalada em Portugal. Compare orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/elevadores-residenciais/1-andar/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Para 1 Andar", url: "/elevadores-residenciais/1-andar/" }]}
+>
+
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li><span>/</span></li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li><span>/</span></li>
+      <li class="text-foreground font-medium">Para 1 Andar</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">O Mais Procurado</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador Residencial para 1 Andar: A Solução Mais Procurada em Portugal</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">O cenário mais comum: uma moradia com rés do chão e 1.º andar, e a necessidade de passar entre os dois pisos de forma autónoma e cómoda. A solução é um elevador residencial para 1 andar — a mais vendida no país.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador residencial elegante entre rés do chão e primeiro andar de moradia portuguesa moderna, portas abertas, interior com espelho e iluminação LED, acabamento branco">
+          <span class="text-muted-foreground text-sm">Imagem: elevador 1 andar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Opções para 1 andar — qual escolher?</h2>
+      <p class="font-body text-muted-foreground mb-6">Para uma moradia com 2 pisos, existem três tecnologias principais, cada uma com características e pontos de preço diferentes:</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Sem poço / Autoportante</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Estrutura independente, sem escavação. Instalação em 1-2 dias. A opção mais popular para 1 andar.</p>
+          <p class="font-heading text-sm font-bold text-primary">€10.000 – €18.000</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Eléctrico com poço</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Cabina mais espaçosa, poço raso (20-30 cm). Solução clássica com boa relação qualidade/preço.</p>
+          <p class="font-heading text-sm font-bold text-primary">€12.000 – €22.000</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Pneumático</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Tubo transparente, design distintivo, sem poço nem casa de máquinas. A escolha premium.</p>
+          <p class="font-heading text-sm font-bold text-primary">€18.000 – €30.000</p>
+        </div>
+      </div>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+        <p class="font-body text-muted-foreground">Não sabe qual escolher? Compare orçamentos para diferentes tecnologias e decida com informação completa. <a href="/pedir-orcamento/" class="text-primary font-medium hover:underline">Peça propostas gratuitas →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas frequentes — elevador para 1 andar</h2>
+      <div class="space-y-3">
+        {[
+          ["Um elevador para 1 andar precisa de poço?", "Não necessariamente. Os modelos sem poço (autoportantes) para 1 andar são os mais procurados — a estrutura instala-se sem escavação. Existem também modelos com poço raso (20-30 cm) para quem prefere a estética de um elevador tradicional. A escolha depende do espaço disponível e das preferências estéticas."],
+          ["Qual o consumo eléctrico de um elevador residencial para 1 andar?", "O consumo é muito baixo — equivalente a usar um ferro de engomar durante 10 minutos por dia. A maioria dos elevadores residenciais consome entre 1 e 3 kWh por mês com uso doméstico normal, o que representa um custo mensal de menos de €1 na factura de electricidade."],
+          ["Posso instalar o elevador numa escada existente ou tem de ser num espaço novo?", "Tanto um como outro. Muitos clientes instalam o elevador num armário existente, num canto da sala ou no vão da escada. A solução ideal depende do espaço disponível — o instalador avalia todas as opções durante a visita técnica gratuita."],
+          ["O elevador para 1 andar pode ser ampliado para mais andares no futuro?", "Depende do modelo escolhido. Alguns sistemas modulares permitem acrescentar paragens adicionais no futuro sem substituição do equipamento. É uma questão importante a colocar ao instalador na fase de orçamentação se prevê necessidades futuras."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Compare orçamentos para elevador de 1 andar" subheading="Receba até 3 propostas com diferentes tecnologias e preços. Sem compromisso." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

@@ -1,0 +1,133 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import QuoteForm from '../../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "As plataformas elevatórias são mais caras que as cadeiras elevatórias?", "acceptedAnswer": { "@type": "Answer", "text": "Geralmente sim, entre 30% e 100% mais caras, dependendo do tipo. A plataforma requer uma estrutura maior, mecanismo mais robusto para suportar o peso da cadeira de rodas e do utilizador, e bordas de segurança adicionais." } },
+    { "@type": "Question", "name": "Uma plataforma elevatória exterior tem custos de manutenção mais elevados?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, ligeiramente superiores. A exposição às intempéries requer revisão semestral (em vez de anual), lubrificação mais frequente e verificação das vedações eléctricas. O custo anual é tipicamente de €400 a €800 para modelos exteriores." } },
+    { "@type": "Question", "name": "Há apoios do Estado específicos para plataformas elevatórias?", "acceptedAnswer": { "@type": "Answer", "text": "Os mesmos apoios que para outros equipamentos de mobilidade: IVA a 6% em habitação própria permanente, SAPA da Segurança Social para pessoas com deficiência, e possível comparticipação municipal. Em condomínios, pode haver financiamento específico para obras de acessibilidade." } },
+    { "@type": "Question", "name": "O seguro de habitação cobre avarias na plataforma elevatória?", "acceptedAnswer": { "@type": "Answer", "text": "Depende da apólice. Alguns seguros multirriscos habitação cobrem avarias em equipamentos fixos incluindo elevadores e plataformas. Recomenda-se verificar com a seguradora antes da instalação e actualizar a apólice se necessário." } }
+  ]
+};
+
+const aggregateOfferSchema = {
+  "@context": "https://schema.org",
+  "@type": "AggregateOffer",
+  "name": "Plataformas Elevatórias em Portugal",
+  "priceCurrency": "EUR",
+  "lowPrice": "5000",
+  "highPrice": "20000",
+  "offerCount": "3"
+};
+---
+
+<Layout
+  title="Preço Plataformas Elevatórias Portugal 2025 — Orçamentos Gratuitos | Vida Acessível"
+  description="Preços de plataformas elevatórias em Portugal: escadas retas €5k-€10k, curvas €8k-€15k, exterior €7k-€20k. Compare orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/equipamentos/plataformas-elevatorias/preco/"
+  schema={[faqSchema, aggregateOfferSchema]}
+  breadcrumbs={[{ name: "Plataformas Elevatórias", url: "/equipamentos/plataformas-elevatorias/" }, { name: "Preço", url: "/equipamentos/plataformas-elevatorias/preco/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-primary">Plataformas Elevatórias</a></li><li>/</li>
+      <li class="text-foreground font-medium">Preço</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-foreground leading-tight mb-5">Quanto Custa uma Plataforma Elevatória em Portugal?</h1>
+      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">Guia completo de preços 2025 por tipo de escada, com os factores que determinam o custo e os apoios financeiros disponíveis.</p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-10 py-6">
+        <p class="font-heading font-extrabold text-5xl text-primary mb-2">€5.000 – €20.000</p>
+        <p class="font-body text-muted-foreground">Preço médio instalado, IVA incluído</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Preços por tipo de plataforma</h2>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-secondary">
+              <th class="text-left p-3 font-heading text-foreground border border-border">Tipo</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Preço (instalado)</th>
+              <th class="text-left p-3 font-heading text-foreground border border-border">Prazo instalação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-3 border border-border"><a href="/plataformas-elevatorias/escadas-retas/" class="text-foreground font-medium hover:text-primary">Escadas Retas</a></td><td class="p-3 border border-border text-primary font-semibold">€5.000 – €10.000</td><td class="p-3 border border-border text-muted-foreground">1–2 dias</td></tr>
+            <tr class="bg-secondary/30"><td class="p-3 border border-border"><a href="/plataformas-elevatorias/escadas-curvas/" class="text-foreground font-medium hover:text-primary">Escadas Curvas</a></td><td class="p-3 border border-border text-primary font-semibold">€8.000 – €15.000</td><td class="p-3 border border-border text-muted-foreground">4–8 sem. (carril à medida)</td></tr>
+            <tr><td class="p-3 border border-border"><a href="/plataformas-elevatorias/exteriores/" class="text-foreground font-medium hover:text-primary">Exterior</a></td><td class="p-3 border border-border text-primary font-semibold">€7.000 – €20.000</td><td class="p-3 border border-border text-muted-foreground">1–3 dias</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Factores específicos de custo nas plataformas</h2>
+      <div class="grid md:grid-cols-2 gap-4 mb-10">
+        {[
+          ["Dimensão da plataforma", "Plataformas maiores para cadeiras de rodas eléctricas (mais pesadas) requerem estrutura mais robusta — custo adicional de €500 a €2.000."],
+          ["Interior vs exterior", "Modelos exteriores têm tratamento anti-corrosão, vedações IP65 e materiais especiais — tipicamente €1.500 a €3.000 mais caros."],
+          ["Distância de percurso", "Escadas mais longas requerem carril mais extenso e motor mais potente. Cada metro adicional representa custo acrescido."],
+          ["Capacidade de carga", "Plataformas com capacidade superior a 300 kg (para cadeiras de rodas eléctricas pesadas) têm custo mais elevado."],
+          ["Carril curvo vs reto", "Carril fabricado à medida para escadas curvas representa o maior factor de custo — pode duplicar o preço base."],
+          ["Sistema de controlo", "Opções de telecomando, controlo remoto e sistemas de chamada adicionais têm custo acrescido mas melhoram a autonomia do utilizador."]
+        ].map(([factor, desc]) => (
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">{factor}</h3>
+            <p class="font-body text-sm text-muted-foreground">{desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Apoios financeiros disponíveis</h2>
+      <div class="space-y-4 mb-10">
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">IVA a 6%</h3><p class="font-body text-sm text-muted-foreground">Plataformas elevatórias para uso pessoal em habitação própria permanente beneficiam de IVA reduzido. Numa plataforma de €8.000, a poupança é de €1.360.</p></div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">SAPA</h3><p class="font-body text-sm text-muted-foreground">Apoio da Segurança Social para equipamentos de mobilidade. Especialmente relevante para utilizadores de cadeira de rodas com incapacidade reconhecida.</p></div>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-semibold text-foreground mb-2">Apoios municipais</h3><p class="font-body text-sm text-muted-foreground">Algumas câmaras municipais têm programas de apoio à adaptação de habitação para pessoas com deficiência. Contacte a sua câmara para verificar disponibilidade.</p></div>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["As plataformas elevatórias são mais caras que as cadeiras elevatórias?", "Geralmente entre 30% e 100% mais caras, dependendo do tipo. A plataforma requer estrutura maior, mecanismo mais robusto para suportar o peso da cadeira de rodas e do utilizador, bordas de segurança obrigatórias e plataforma com dimensões suficientes para a cadeira."],
+          ["Uma plataforma elevatória exterior tem custos de manutenção mais elevados?", "Sim, ligeiramente superiores. A exposição às intempéries requer revisão semestral (em vez de anual), lubrificação mais frequente e verificação das vedações eléctricas. O custo de manutenção anual é tipicamente de €400 a €800 para modelos exteriores."],
+          ["Há apoios do Estado específicos para plataformas elevatórias?", "Os mesmos apoios que para outros equipamentos de mobilidade: IVA a 6% em habitação própria permanente, SAPA da Segurança Social para pessoas com deficiência reconhecida, e possível comparticipação municipal. Em condomínios, pode haver financiamento específico para obras de acessibilidade."],
+          ["O seguro de habitação cobre avarias na plataforma elevatória?", "Depende da apólice de seguros. Alguns multirriscos habitação cobrem avarias em equipamentos fixos como elevadores e plataformas. Recomendamos verificar com a sua seguradora antes da instalação e actualizar a apólice se necessário."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Compare orçamentos para plataforma elevatória" subheading="Receba até 3 propostas de instaladores especializados para a sua situação específica." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

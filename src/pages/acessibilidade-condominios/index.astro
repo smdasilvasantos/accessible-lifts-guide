@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "É obrigatório por lei ter acessibilidade em condomínios?", "acceptedAnswer": { "@type": "Answer", "text": "O Decreto-Lei 163/2006 define as obrigações de acessibilidade para edifícios novos e para grandes reabilitações. Para edifícios existentes sem obras, a obrigação depende da data de construção e das condições específicas. A adaptação pode ser exigida quando um condómino com deficiência solicita e a assembleia aprova." } },
+    { "@type": "Question", "name": "Como aprovar a instalação de plataforma elevatória em assembleia de condóminos?", "acceptedAnswer": { "@type": "Answer", "text": "A instalação de equipamentos de acessibilidade requer aprovação por maioria simples dos votos na assembleia de condóminos, de acordo com o artigo 1422.º do Código Civil. O condómino que necessita pode apresentar a proposta com orçamento e argumentos técnicos." } },
+    { "@type": "Question", "name": "Quem paga a instalação em condomínio?", "acceptedAnswer": { "@type": "Answer", "text": "Depende da deliberação em assembleia. Pode ser pago integralmente pelo condómino que necessita, partilhado entre todos os condóminos, ou financiado pelo fundo de reserva do condomínio. A lei permite ao condómino necessitado fazer a instalação a expensas próprias se o condomínio não autorizar mas também não proibir." } },
+    { "@type": "Question", "name": "Uma plataforma elevatória em condomínio precisa de licença da câmara?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do tipo de instalação, do edifício e da câmara municipal. Instalações internas em escadas privadas normalmente não requerem licença. Em fachadas ou áreas externas, pode ser necessária comunicação prévia ou licença de obras. O instalador assessora no processo." } }
+  ]
+};
+---
+
+<Layout
+  title="Acessibilidade em Condomínios Portugal — Soluções e Obrigações Legais | Vida Acessível"
+  description="Acessibilidade em condomínios: plataformas elevatórias para escadas comuns, obrigações legais e processo de aprovação em assembleia. Orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/acessibilidade-condominios/"
+  schema={faqSchema}
+>
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Acessibilidade em Condomínios: Soluções para Espaços Comuns</h1>
+      <p class="font-body text-muted-foreground text-lg mb-8 max-w-2xl">As escadas comuns de condomínio são uma barreira frequente para condóminos com mobilidade reduzida. Existem soluções que podem ser instaladas sem obras pesadas e com um processo de aprovação em assembleia relativamente simples.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Soluções para escadas de condomínio</h2>
+      <p class="font-body text-muted-foreground mb-6">As escadas comuns de um condomínio podem receber os mesmos tipos de equipamentos que as escadas privadas. A escolha depende do tipo de escada, do número de utilizadores e do orçamento disponível:</p>
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Plataforma elevatória</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">A solução mais versátil para condomínios. Serve utilizadores de cadeira de rodas e pessoas com mobilidade muito reduzida. Pode ser utilizada por vários condóminos. Quando não está em uso, a plataforma dobra deixando a escada livre.</p>
+          <a href="/equipamentos/plataformas-elevatorias/" class="text-primary text-sm font-medium hover:underline">Ver plataformas elevatórias →</a>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Elevador de escadas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Para condóminos que não usam cadeira de rodas. Mais económico. O assento dobra quando não está em uso. Em condomínios com um único utilizador identificado, esta pode ser a opção mais adequada.</p>
+          <a href="/equipamentos/elevadores-de-escadas/" class="text-primary text-sm font-medium hover:underline">Ver elevadores de escadas →</a>
+        </div>
+      </div>
+
+      <h2 class="font-heading font-bold text-xl text-foreground mb-4">O processo de aprovação em condomínio</h2>
+      <div class="space-y-4 mb-10">
+        <div class="flex gap-4 p-4 bg-secondary rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center text-sm shrink-0">1</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">Obter orçamentos</h3>
+            <p class="font-body text-xs text-muted-foreground">Peça 2 a 3 orçamentos de instaladores para apresentar à assembleia. A Vida Acessível facilita este processo gratuitamente.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-4 bg-secondary rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center text-sm shrink-0">2</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">Apresentar à assembleia</h3>
+            <p class="font-body text-xs text-muted-foreground">Proponha o ponto de agenda com a documentação: orçamentos, descrição técnica e proposta de financiamento.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-4 bg-secondary rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center text-sm shrink-0">3</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">Aprovação por maioria simples</h3>
+            <p class="font-body text-xs text-muted-foreground">A lei exige maioria simples para equipamentos de acessibilidade. Com a documentação certa, a aprovação é geralmente facilitada.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-4 bg-secondary rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center text-sm shrink-0">4</div>
+          <div>
+            <h3 class="font-heading font-semibold text-foreground text-sm mb-1">Instalação</h3>
+            <p class="font-body text-xs text-muted-foreground">Com aprovação formalizada em acta, o instalador pode avançar. O processo de instalação é rápido e não perturba os outros condóminos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["É obrigatório por lei ter acessibilidade em condomínios?", "O Decreto-Lei 163/2006 define obrigações de acessibilidade para edifícios novos e grandes reabilitações. Para edifícios existentes sem obras em curso, a obrigação depende da data de construção e das condições específicas. A adaptação pode ser requerida por um condómino com deficiência e aprovada em assembleia."],
+          ["Como aprovar a instalação de plataforma elevatória em assembleia?", "A instalação de equipamentos de acessibilidade requer aprovação por maioria simples dos votos presentes em assembleia de condóminos, de acordo com o artigo 1422.º do Código Civil. O condómino que necessita pode apresentar a proposta com orçamento, descrição técnica e argumentos de conformidade legal."],
+          ["Quem paga a instalação em condomínio?", "Depende da deliberação em assembleia. Pode ser pago integralmente pelo condómino que necessita, partilhado proporcionalmente entre condóminos, ou financiado pelo fundo de reserva do condomínio. A lei permite ao condómino necessitado fazer a instalação a expensas próprias mesmo sem aprovação do condomínio, desde que não seja expressamente proibida."],
+          ["Uma plataforma elevatória em condomínio precisa de licença da câmara?", "Depende do tipo de instalação, do edifício e da câmara municipal. Instalações em escadas interiores normalmente não requerem licença. Em fachadas ou áreas externas, pode ser necessária comunicação prévia ou licença de obras menores. O instalador assessora em todo o processo de licenciamento."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamentos para o seu condomínio" subheading="Receba propostas para apresentar à assembleia de condóminos. Grátis e sem compromisso." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

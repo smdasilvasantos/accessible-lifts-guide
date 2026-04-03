@@ -1,0 +1,128 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Um elevador de escadas exterior resiste à chuva e ao sal marinho?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Os modelos exteriores têm classificação mínima IP65, resistindo a jatos de água. Para zonas costeiras, existem modelos com tratamento anti-corrosão salina adicional. Todos os componentes eléctricos são selados e protegidos." } },
+    { "@type": "Question", "name": "É necessária manutenção mais frequente num elevador exterior?", "acceptedAnswer": { "@type": "Answer", "text": "Recomenda-se uma revisão semestral (em vez de anual) para equipamentos exteriores, especialmente após o Inverno. A lubrificação do carril e a verificação das vedações são essenciais para prolongar a vida útil." } },
+    { "@type": "Question", "name": "O elevador exterior funciona com gelo ou temperaturas muito baixas?", "acceptedAnswer": { "@type": "Answer", "text": "A maioria dos modelos funciona entre -20°C e +50°C. Em climas com gelo frequente, existem opções com aquecimento de carril. Em Portugal, as temperaturas raramente representam um problema operacional." } },
+    { "@type": "Question", "name": "O elevador exterior precisa de cobertura para protecção?", "acceptedAnswer": { "@type": "Answer", "text": "Não é obrigatório, mas uma cobertura ou marquise prolonga a vida útil do equipamento. Os modelos IP65 suportam exposição directa à chuva, mas a protecção do sol intenso e da chuva constante é sempre benéfica." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador de Escadas Exterior Portugal — Resistente a Intempéries | Vida Acessível"
+  description="Elevadores de escadas para uso exterior: entrada da casa, jardim ou terraço. Resistência IP65 e anti-corrosão. Orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-de-escadas/escadas-exteriores/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores de Escadas", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Escadas Exteriores", url: "/elevadores-de-escadas/escadas-exteriores/" }]}
+>
+
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li><span>/</span></li>
+      <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-primary">Elevadores de Escadas</a></li><li><span>/</span></li>
+      <li class="text-foreground font-medium">Escadas Exteriores</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Para Uso Exterior</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador de Escadas para Exterior: Resistente a Todas as Condições</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">As escadas exteriores — na entrada de casa, no jardim ou na varanda — são frequentemente a maior barreira diária. Equipamentos especialmente concebidos para exterior resistem à chuva, sol e variações de temperatura.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador de escadas exterior instalado na entrada de uma moradia portuguesa, escada de pedra com corrimão metálico, equipamento com protecção IP65, dia com sol e nuvens">
+          <span class="text-muted-foreground text-sm">Imagem: elevador exterior</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Características específicas para uso exterior</h2>
+      <p class="font-body text-muted-foreground mb-6">Os elevadores de escadas para exterior não são apenas os modelos standard com um cover adicional — são concebidos de raiz para ambiente exterior. Os componentes eléctricos são selados e protegidos contra humidade. O carril recebe tratamento anti-oxidação. O assento e os apoios de braço são fabricados em materiais resistentes aos raios UV. O motor funciona fiável e silenciosamente em qualquer condição meteorológica típica de Portugal.</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Protecção IP65</h3>
+          <p class="font-body text-sm text-muted-foreground">Classificação de estanquidade que garante protecção total contra poeira e jatos de água directos em qualquer direcção.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Materiais resistentes</h3>
+          <p class="font-body text-sm text-muted-foreground">Carril em aço galvanizado ou alumínio anodizado. Assento em materiais resistentes a UV. Estrutura anti-corrosão.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <h3 class="font-heading font-semibold text-foreground mb-2">Cobertura automática</h3>
+          <p class="font-body text-sm text-muted-foreground">Capa de protecção para o assento quando não está em uso. Prolonga a vida útil dos materiais e mantém o equipamento pronto a usar.</p>
+        </div>
+      </div>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Elevadores para escadas exteriores custam tipicamente entre <strong class="text-foreground">€4.500 e €8.000</strong> instalados, dependendo da extensão da escada e do modelo.</p>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas sobre elevadores exteriores</h2>
+      <div class="space-y-3">
+        {[
+          ["Um elevador de escadas exterior resiste à chuva e ao sal marinho?", "Sim. Os modelos exteriores têm classificação mínima IP65, resistindo a jatos de água directos. Para zonas costeiras com exposição ao sal marinho, existem modelos com tratamento anti-corrosão salina adicional. Todos os componentes eléctricos são selados e protegidos contra a humidade."],
+          ["É necessária manutenção mais frequente num elevador exterior?", "Recomenda-se uma revisão semestral (em vez de anual) para equipamentos exteriores, especialmente após o Inverno. A lubrificação do carril e a verificação das vedações dos componentes eléctricos são essenciais para prolongar a vida útil do equipamento."],
+          ["O elevador exterior funciona com temperaturas muito baixas?", "A maioria dos modelos funciona entre -20°C e +50°C. Em climas com ocorrência frequente de gelo, existem opções com aquecimento de carril. Em Portugal continental e ilhas, as temperaturas raramente representam um problema operacional."],
+          ["O elevador exterior precisa de cobertura para protecção?", "Não é obrigatório — os modelos IP65 suportam exposição directa à chuva. No entanto, uma cobertura ou marquise prolonga a vida útil do equipamento e reduz os custos de manutenção a longo prazo. Muitos clientes optam por instalar uma pequena cobertura sobre a escada."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador exterior" subheading="Receba propostas de instaladores com experiência em equipamentos para uso exterior em Portugal." />
+    </div>
+  </section>
+
+  <section class="py-10 bg-background border-t border-border">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-semibold text-lg text-foreground mb-4">Veja também</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="/elevadores-de-escadas/escadas-retas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group"><h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary">Escadas Retas</h3><p class="font-body text-xs text-muted-foreground mt-1">A partir de €3.000</p></a>
+        <a href="/elevadores-de-escadas/escadas-curvas/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group"><h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary">Escadas Curvas</h3><p class="font-body text-xs text-muted-foreground mt-1">Carril fabricado à medida</p></a>
+        <a href="/plataformas-elevatorias/exteriores/" class="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow group"><h3 class="font-heading font-semibold text-sm text-foreground group-hover:text-primary">Plataformas Exteriores</h3><p class="font-body text-xs text-muted-foreground mt-1">Para utilizadores de cadeira de rodas</p></a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

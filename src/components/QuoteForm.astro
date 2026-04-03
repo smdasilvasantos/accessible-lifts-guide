@@ -1,0 +1,241 @@
+---
+export interface Props {
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  heading = 'Peça o seu orçamento gratuito',
+  subheading = 'Receba até 3 propostas de instaladores certificados sem qualquer compromisso.',
+} = Astro.props;
+---
+
+<section class="rounded-2xl border border-border bg-secondary p-6 md:p-8" aria-labelledby="quote-form-heading">
+  {heading && (
+    <h2 id="quote-form-heading" class="font-heading text-xl font-bold text-foreground mb-1">
+      {heading}
+    </h2>
+  )}
+  {subheading && (
+    <p class="font-body text-sm text-muted-foreground mb-6">{subheading}</p>
+  )}
+
+  <!-- Success state (hidden by default) -->
+  <div id="quote-success" class="hidden rounded-xl bg-primary/10 border border-primary/20 p-6 text-center" role="alert" aria-live="polite">
+    <svg class="mx-auto mb-3 h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <p class="font-heading font-bold text-foreground text-lg mb-1">Pedido enviado com sucesso!</p>
+    <p class="font-body text-sm text-muted-foreground">Entraremos em contacto em breve com as suas propostas.</p>
+  </div>
+
+  <!-- Error state (hidden by default) -->
+  <div id="quote-error" class="hidden rounded-xl bg-destructive/10 border border-destructive/20 p-4 mb-4" role="alert" aria-live="polite">
+    <p class="font-body text-sm text-destructive font-medium">
+      Ocorreu um erro ao enviar o pedido. Por favor tente novamente ou contacte-nos diretamente.
+    </p>
+  </div>
+
+  <form id="quote-form" novalidate aria-label="Formulário de pedido de orçamento">
+    <div class="grid gap-4 sm:grid-cols-2">
+
+      <!-- Nome -->
+      <div class="flex flex-col gap-1.5">
+        <label for="quote-nome" class="font-body text-sm font-medium text-foreground">
+          Nome <span class="text-destructive" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="quote-nome"
+          name="nome"
+          required
+          autocomplete="name"
+          placeholder="O seu nome"
+          class="rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+          aria-required="true"
+        />
+        <span class="hidden text-xs text-destructive" id="quote-nome-error" role="alert">Nome é obrigatório.</span>
+      </div>
+
+      <!-- Email -->
+      <div class="flex flex-col gap-1.5">
+        <label for="quote-email" class="font-body text-sm font-medium text-foreground">
+          Email <span class="text-destructive" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="quote-email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="email@exemplo.pt"
+          class="rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+          aria-required="true"
+        />
+        <span class="hidden text-xs text-destructive" id="quote-email-error" role="alert">Email válido é obrigatório.</span>
+      </div>
+
+      <!-- Telefone -->
+      <div class="flex flex-col gap-1.5">
+        <label for="quote-telefone" class="font-body text-sm font-medium text-foreground">
+          Telefone <span class="text-destructive" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="tel"
+          id="quote-telefone"
+          name="telefone"
+          required
+          autocomplete="tel"
+          placeholder="+351 912 345 678"
+          class="rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+          aria-required="true"
+        />
+        <span class="hidden text-xs text-destructive" id="quote-telefone-error" role="alert">Telefone é obrigatório.</span>
+      </div>
+
+      <!-- Tipo de equipamento -->
+      <div class="flex flex-col gap-1.5">
+        <label for="quote-tipo" class="font-body text-sm font-medium text-foreground">
+          Tipo de equipamento <span class="text-destructive" aria-hidden="true">*</span>
+        </label>
+        <select
+          id="quote-tipo"
+          name="tipo_equipamento"
+          required
+          class="rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+          aria-required="true"
+        >
+          <option value="">Selecione uma opção</option>
+          <option value="elevador-escadas">Elevador de Escadas</option>
+          <option value="elevador-residencial">Elevador Residencial</option>
+          <option value="plataforma-elevatoria">Plataforma Elevatória</option>
+          <option value="nao-sei">Não sei ainda</option>
+        </select>
+        <span class="hidden text-xs text-destructive" id="quote-tipo-error" role="alert">Por favor selecione um tipo de equipamento.</span>
+      </div>
+    </div>
+
+    <!-- Mensagem -->
+    <div class="mt-4 flex flex-col gap-1.5">
+      <label for="quote-mensagem" class="font-body text-sm font-medium text-foreground">
+        Mensagem <span class="text-muted-foreground font-normal">(opcional)</span>
+      </label>
+      <textarea
+        id="quote-mensagem"
+        name="mensagem"
+        rows="3"
+        placeholder="Descreva brevemente a sua situação: tipo de escada, número de degraus, utilizador..."
+        class="rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition resize-none"
+      ></textarea>
+    </div>
+
+    <!-- GDPR checkbox -->
+    <div class="mt-4 flex items-start gap-3">
+      <input
+        type="checkbox"
+        id="quote-gdpr"
+        name="gdpr"
+        required
+        class="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
+        aria-required="true"
+        aria-describedby="quote-gdpr-label"
+      />
+      <label id="quote-gdpr-label" for="quote-gdpr" class="font-body text-sm text-foreground/80 leading-snug cursor-pointer">
+        Li e aceito a
+        <a href="/politica-de-privacidade/" class="font-medium text-primary underline underline-offset-2 hover:text-primary/80" target="_blank" rel="noopener noreferrer">
+          Política de Privacidade
+        </a>
+        <span class="text-destructive" aria-hidden="true"> *</span>
+      </label>
+    </div>
+    <span class="hidden text-xs text-destructive mt-1" id="quote-gdpr-error" role="alert">É necessário aceitar a Política de Privacidade.</span>
+
+    <!-- Submit -->
+    <div class="mt-6">
+      <button
+        type="submit"
+        id="quote-submit"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(16_76%_60%)] px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[hsl(16_76%_54%)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(16_76%_60%)] focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        <span id="quote-submit-text">Pedir Orçamento Gratuito</span>
+        <svg id="quote-spinner" class="hidden h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('quote-submit') as HTMLButtonElement | null;
+  const submitText = document.getElementById('quote-submit-text');
+  const spinner = document.getElementById('quote-spinner');
+  const successEl = document.getElementById('quote-success');
+  const errorEl = document.getElementById('quote-error');
+
+  function showFieldError(id: string, show: boolean) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('hidden', !show);
+  }
+
+  function validateForm(data: FormData): boolean {
+    let valid = true;
+
+    const nome = (data.get('nome') as string)?.trim();
+    showFieldError('quote-nome-error', !nome);
+    if (!nome) valid = false;
+
+    const email = (data.get('email') as string)?.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email ?? '');
+    showFieldError('quote-email-error', !emailOk);
+    if (!emailOk) valid = false;
+
+    const telefone = (data.get('telefone') as string)?.trim();
+    showFieldError('quote-telefone-error', !telefone);
+    if (!telefone) valid = false;
+
+    const tipo = data.get('tipo_equipamento') as string;
+    showFieldError('quote-tipo-error', !tipo);
+    if (!tipo) valid = false;
+
+    const gdpr = data.get('gdpr');
+    showFieldError('quote-gdpr-error', !gdpr);
+    if (!gdpr) valid = false;
+
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    if (!validateForm(data)) return;
+
+    // Set loading state
+    if (submitBtn) submitBtn.disabled = true;
+    submitText?.classList.add('hidden');
+    spinner?.classList.remove('hidden');
+    errorEl?.classList.add('hidden');
+
+    try {
+      const response = await fetch('/api/orcamento', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(data)),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      // Show success
+      form.classList.add('hidden');
+      successEl?.classList.remove('hidden');
+    } catch {
+      errorEl?.classList.remove('hidden');
+      if (submitBtn) submitBtn.disabled = false;
+      submitText?.classList.remove('hidden');
+      spinner?.classList.add('hidden');
+    }
+  });
+</script>

@@ -1,0 +1,101 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Qual o tamanho mínimo da plataforma para uma cadeira de rodas?", "acceptedAnswer": { "@type": "Answer", "text": "Para uma cadeira de rodas manual standard, a plataforma mínima é de 800mm × 900mm. Para cadeiras de rodas eléctricas, que são maiores, recomenda-se uma plataforma de pelo menos 900mm × 1200mm. O instalador avalia as dimensões específicas na visita técnica." } },
+    { "@type": "Question", "name": "A plataforma bloqueia a escada quando está em uso?", "acceptedAnswer": { "@type": "Answer", "text": "Quando a plataforma está em movimento, ocupa toda a largura do carril. Ao chegar ao destino, a plataforma dobra contra a parede libertando a passagem. Em escadas largas (90cm+), é possível deixar uma passagem lateral mesmo com a plataforma em posição de uso." } },
+    { "@type": "Question", "name": "A instalação numa escada reta requer aprovação do condomínio?", "acceptedAnswer": { "@type": "Answer", "text": "Em moradia unifamiliar, não é necessária aprovação. Em condomínio, a instalação em escada de acesso comum requer aprovação em assembleia de condóminos. Em escada interior de fracção privada, não é necessária aprovação externa." } },
+    { "@type": "Question", "name": "Posso operar a plataforma remotamente para alguém que não se pode mover?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. As plataformas incluem controlos no cimo e base da escada para que terceiros possam chamar a plataforma. O utilizador pode também usar um telecomando sem fios." } }
+  ]
+};
+---
+
+<Layout
+  title="Plataforma Elevatória Escadas Retas Portugal — Para Cadeira de Rodas | Vida Acessível"
+  description="Plataformas elevatórias para escadas retas: solução mais acessível para utilizadores de cadeira de rodas. Instalação rápida. Orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/plataformas-elevatorias/escadas-retas/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Plataformas Elevatórias", url: "/equipamentos/plataformas-elevatorias/" }, { name: "Escadas Retas", url: "/plataformas-elevatorias/escadas-retas/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-primary">Plataformas Elevatórias</a></li><li>/</li>
+      <li class="text-foreground font-medium">Escadas Retas</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Para Cadeira de Rodas</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Plataforma Elevatória para Escadas Retas: Acessibilidade para Cadeira de Rodas</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">A plataforma elevatória para escadas retas é a solução mais acessível em termos de custo e instalação para utilizadores de cadeira de rodas. Carril standard, montagem em 1 a 2 dias, sem obras pesadas.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Plataforma elevatória para cadeira de rodas numa escada reta de moradia portuguesa, plataforma horizontal dobrada junto à parede, carril metálico fixo, ambiente doméstico acolhedor">
+          <span class="text-muted-foreground text-sm">Imagem: plataforma escadas retas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Características da plataforma para escadas retas</h2>
+      <p class="font-body text-muted-foreground mb-6">A plataforma elevatória para escadas retas segue o mesmo princípio do elevador de escadas — carril fixado aos degraus ou parede — mas em vez de um assento, transporta uma plataforma horizontal dimensionada para a cadeira de rodas. Quando não está em uso, a plataforma dobra verticalmente contra a parede, libertando a passagem na escada.</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Plataforma dobrável</h3><p class="font-body text-sm text-muted-foreground">Quando não está em uso, dobra contra a parede deixando a escada totalmente livre para outros utilizadores.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Bordas de segurança</h3><p class="font-body text-sm text-muted-foreground">Bordas laterais e frontal erguem-se automaticamente durante o movimento para garantir a segurança da cadeira de rodas.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Comando acessível</h3><p class="font-body text-sm text-muted-foreground">Alavanca ou botão de fácil acesso para o utilizador em cadeira de rodas, sem necessidade de se inclinar ou forçar posturas difíceis.</p></div>
+      </div>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Plataformas para escadas retas custam tipicamente entre <strong class="text-foreground">€5.000 e €10.000</strong> instaladas.</p>
+        <a href="/equipamentos/plataformas-elevatorias/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+      <div class="space-y-3">
+        {[
+          ["Qual o tamanho mínimo da plataforma para uma cadeira de rodas?", "Para cadeira de rodas manual standard, a plataforma mínima é de 800mm × 900mm. Para cadeiras de rodas eléctricas, que são maiores e mais pesadas, recomenda-se uma plataforma de pelo menos 900mm × 1200mm. O instalador avalia as dimensões da cadeira específica na visita técnica."],
+          ["A plataforma bloqueia a escada quando está em uso?", "Quando em movimento, a plataforma ocupa a largura do carril. Ao chegar ao destino, dobra contra a parede libertando a passagem. Em escadas com largura suficiente (90cm+), é possível manter uma passagem lateral mesmo com a plataforma em posição dobrada."],
+          ["A instalação requer aprovação do condomínio?", "Em moradia unifamiliar, não é necessária aprovação. Em condomínio, a instalação em escada de acesso comum requer aprovação em assembleia. Em escada interior de fracção privada, não é necessária aprovação externa — é uma decisão do proprietário."],
+          ["Posso operar a plataforma remotamente para chamar ao piso onde estou?", "Sim. As plataformas incluem controlos em cada paragem da escada (cimo e base) para que o utilizador possa chamar a plataforma para onde está. Também é possível controlo por telecomando sem fios."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para plataforma elevatória" subheading="Compare propostas de instaladores certificados para a sua escada reta." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

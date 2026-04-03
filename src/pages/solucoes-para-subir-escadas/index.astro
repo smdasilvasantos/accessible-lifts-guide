@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Qual a diferença entre elevador de escadas e plataforma elevatória?", "acceptedAnswer": { "@type": "Answer", "text": "O elevador de escadas (cadeira elevatória) transporta a pessoa sentada num assento que desliza ao longo da escada. A plataforma elevatória transporta uma plataforma horizontal onde o utilizador permanece na sua cadeira de rodas. Se não usa cadeira de rodas, a cadeira elevatória é normalmente mais adequada e mais económica." } },
+    { "@type": "Question", "name": "Consigo instalar uma solução sem fazer obras em casa?", "acceptedAnswer": { "@type": "Answer", "text": "Na maioria dos casos sim. Tanto os elevadores de escadas como os modelos sem poço de elevadores residenciais instalam-se sem obras de construção civil. Basta uma tomada eléctrica standard. Alguns modelos requerem apenas meio dia para a instalação completa." } },
+    { "@type": "Question", "name": "A minha escada é muito estreita — há solução?", "acceptedAnswer": { "@type": "Answer", "text": "Provavelmente sim. Existem modelos de elevador de escadas para escadas a partir de 60 cm de largura útil. O assento dobra em três quando não está em uso, deixando passagem livre a outros utilizadores da escada." } },
+    { "@type": "Question", "name": "Uma pessoa sozinha consegue usar o equipamento com segurança?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, os equipamentos são concebidos para uso autónomo. O comando é simples (alavanca ou botão) e o equipamento tem sensores de segurança que o param automaticamente se detectar qualquer obstáculo. A bateria de emergência garante funcionamento mesmo em cortes de energia." } }
+  ]
+};
+---
+
+<Layout
+  title="Soluções para Subir Escadas em Casa — Portugal | Vida Acessível"
+  description="Dificuldade em subir escadas? Descubra as melhores soluções para mobilidade reduzida em Portugal: elevadores de escadas, plataformas e elevadores residenciais."
+  canonical="https://vidaacessivel.pt/solucoes-para-subir-escadas/"
+  schema={faqSchema}
+>
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Tem Dificuldade em Subir as Escadas? Encontre a Solução Certa</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">Cada situação é única — e a solução também deve ser. Descubra qual o equipamento mais adequado para si ou para um familiar, sem obras desnecessárias e sem compromisso.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[300px] flex items-center justify-center" data-image-description="Pessoa idosa a parar no meio da escada interior de casa portuguesa, expressão de esforço mas determinada, luz natural quente, ambiente familiar e acolhedor">
+          <span class="text-muted-foreground text-sm">Imagem: dificuldade em subir escadas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Compreender o problema — sem pressão</h2>
+      <p class="font-body text-muted-foreground mb-4">Subir e descer escadas pode tornar-se progressivamente mais difícil: com a idade, após uma cirurgia ao joelho ou à anca, com artrose, com esclerose múltipla, com doença de Parkinson ou simplesmente com a deterioração natural da mobilidade. Não é uma questão de fraqueza — é uma questão prática que tem solução.</p>
+      <p class="font-body text-muted-foreground mb-8">Para muitas famílias, a conversa sobre instalar um elevador de escadas começa com hesitação. Preocupações com o custo, com a estética, com a ideia de "obras" em casa — tudo isso é compreensível. A boa notícia é que a maioria dessas preocupações não corresponde à realidade de uma instalação moderna.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Qual solução se adapta a si?</h2>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">Três categorias de equipamento, cada uma adequada a um perfil de necessidade diferente.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[140px] flex items-center justify-center mb-4" data-image-description="Cadeira elevatória num assento confortável a subir escada interior portuguesa, utilizador com expressão relaxada e confiante">
+            <span class="text-muted-foreground text-sm">Imagem: cadeira elevatória</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2">Elevador de Escadas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Ideal se consegue sentar-se e levantar-se de forma autónoma ou com apoio ligeiro. A solução mais rápida de instalar e a mais económica.</p>
+          <ul class="space-y-1 mb-4">
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Não usa cadeira de rodas</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> A partir de €3.000</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Instalação em 1 dia</li>
+          </ul>
+          <a href="/equipamentos/elevadores-de-escadas/" class="inline-flex text-primary font-body text-sm font-medium hover:underline">Ver soluções →</a>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 border-primary/30">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[140px] flex items-center justify-center mb-4" data-image-description="Plataforma elevatória com utilizador em cadeira de rodas a subir escada interior, plataforma horizontal com bordas de segurança erguidas">
+            <span class="text-muted-foreground text-sm">Imagem: plataforma elevatória</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2">Plataforma Elevatória</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Para utilizadores de cadeira de rodas ou quem não consegue sentar-se numa cadeira elevatória. Mantém-se na cadeira durante toda a deslocação.</p>
+          <ul class="space-y-1 mb-4">
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Ideal para cadeira de rodas</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> A partir de €5.000</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Sem necessidade de sair da cadeira</li>
+          </ul>
+          <a href="/equipamentos/plataformas-elevatorias/" class="inline-flex text-primary font-body text-sm font-medium hover:underline">Ver soluções →</a>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[140px] flex items-center justify-center mb-4" data-image-description="Elevador residencial compacto numa moradia portuguesa, portas abertas, interior moderno e discreto">
+            <span class="text-muted-foreground text-sm">Imagem: elevador residencial</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2">Elevador Residencial</h3>
+          <p class="font-body text-sm text-muted-foreground mb-3">Solução permanente e discreta. Valoriza o imóvel. Ideal para moradia com vários pisos onde a mobilidade é uma prioridade a longo prazo.</p>
+          <ul class="space-y-1 mb-4">
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Solução permanente</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> A partir de €8.000</li>
+            <li class="font-body text-xs text-muted-foreground flex items-center gap-2"><span class="text-primary">✓</span> Valoriza o imóvel 5-15%</li>
+          </ul>
+          <a href="/equipamentos/elevadores/" class="inline-flex text-primary font-body text-sm font-medium hover:underline">Ver soluções →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas frequentes</h2>
+      <div class="space-y-3">
+        {[
+          ["Qual a diferença entre elevador de escadas e plataforma elevatória?", "O elevador de escadas transporta a pessoa sentada num assento que desliza ao longo da escada. A plataforma elevatória transporta uma plataforma horizontal onde o utilizador permanece na sua cadeira de rodas. Se não usa cadeira de rodas, a cadeira elevatória é normalmente mais adequada e mais económica."],
+          ["Consigo instalar uma solução sem fazer obras em casa?", "Na maioria dos casos sim. Tanto os elevadores de escadas como os modelos sem poço de elevadores residenciais instalam-se sem obras de construção civil. Basta uma tomada eléctrica standard nas proximidades. Alguns modelos requerem apenas meio dia para a instalação completa."],
+          ["A minha escada é muito estreita — há solução?", "Provavelmente sim. Existem modelos de elevador de escadas para escadas a partir de 60 cm de largura útil. O assento dobra em três quando não está em uso, deixando passagem livre a outros utilizadores da escada. Recomendamos uma avaliação técnica gratuita."],
+          ["Uma pessoa sozinha consegue usar o equipamento com segurança?", "Sim, os equipamentos são concebidos para uso autónomo. O comando é simples — alavanca ou botão — e o equipamento tem sensores que o param automaticamente se detectar qualquer obstáculo. A bateria de emergência garante funcionamento mesmo em cortes de energia eléctrica."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça ajuda para escolher a solução certa" subheading="Descreva a sua situação e receba orçamentos de instaladores certificados que a ajudam a decidir." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

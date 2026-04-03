@@ -1,0 +1,118 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Qual a largura mínima absoluta para instalar um elevador de escadas?", "acceptedAnswer": { "@type": "Answer", "text": "Com modelos compactos especializados, é possível instalar em escadas com apenas 60 cm de largura útil. Nestes casos, o carril é fixado directamente nos degraus (sem corrimão) e o assento dobra automaticamente para deixar passagem livre." } },
+    { "@type": "Question", "name": "Com o elevador instalado, outras pessoas ainda podem usar a escada?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O assento, o apoio de pés e os apoios de braço dobram completamente quando não está em uso, deixando a escada disponível para outros membros da família. Mesmo com o equipamento recolhido, a passagem livre mínima é de 60 cm." } },
+    { "@type": "Question", "name": "O corrimão existente tem de ser removido para instalar o elevador?", "acceptedAnswer": { "@type": "Answer", "text": "Na maioria dos casos, não. O carril pode ser fixado ao corrimão existente ou directamente nos degraus, dependendo da estrutura da escada. A decisão é tomada na visita técnica gratuita." } },
+    { "@type": "Question", "name": "Existem modelos especialmente para escadas de casas antigas com dimensões não standard?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Casas antigas com escadas de pedra, madeira ou azulejo com dimensões irregulares são exactamente o cenário para modelos compactos e de carril slim. Muitos instaladores têm experiência específica em habitação antiga portuguesa." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevador de Escadas Estreitas Portugal — Cabe Onde Pensa que Não | Vida Acessível"
+  description="Elevadores de escadas compactos para escadas estreitas a partir de 60 cm. Não deixe a largura ser um obstáculo. Orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-de-escadas/escadas-estreitas/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores de Escadas", url: "/equipamentos/elevadores-de-escadas/" }, { name: "Escadas Estreitas", url: "/elevadores-de-escadas/escadas-estreitas/" }]}
+>
+
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li><span>/</span></li>
+      <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-primary">Elevadores de Escadas</a></li><li><span>/</span></li>
+      <li class="text-foreground font-medium">Escadas Estreitas</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Modelos Compactos</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador de Escadas para Escadas Estreitas: Cabe Onde Pensa que Não Cabe</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">Muitas pessoas descartam à partida a hipótese de instalar um elevador por acharem a escada demasiado estreita. Na maioria dos casos, isso não é verdade — existem modelos compactos que funcionam a partir de 60 cm de largura útil.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador de escadas compacto slim instalado numa escada estreita típica de casa antiga portuguesa, carril delgado junto à parede, assento dobrado a mostrar passagem livre">
+          <span class="text-muted-foreground text-sm">Imagem: elevador escada estreita</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">A solução para escadas que "são demasiado estreitas"</h2>
+      <p class="font-body text-muted-foreground mb-4">Em Portugal, há inúmeras casas com escadas construídas há décadas ou séculos, com larguras que hoje consideraríamos insuficientes. Escadas de pedra do Minho, escadas de madeira do Alentejo, escadas de azulejo das casas de Lisboa — muitas têm entre 60 e 80 cm de largura útil.</p>
+      <p class="font-body text-muted-foreground mb-8">Os modelos slim ou compactos foram desenvolvidos especificamente para estes cenários. O carril é mais estreito que o standard, o assento dobra em três para ocupar o mínimo de espaço, e a fixação pode ser feita directamente nos degraus sem necessidade de corrimão.</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6 text-center">
+          <p class="font-heading font-extrabold text-3xl text-primary mb-1">60 cm</p>
+          <p class="font-body text-sm text-muted-foreground">Largura mínima com modelos compactos</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 text-center">
+          <p class="font-heading font-extrabold text-3xl text-primary mb-1">3x</p>
+          <p class="font-body text-sm text-muted-foreground">O assento dobra em três — passagem livre máxima</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 text-center">
+          <p class="font-heading font-extrabold text-3xl text-primary mb-1">1 dia</p>
+          <p class="font-body text-sm text-muted-foreground">Instalação rápida mesmo em escadas de construção antiga</p>
+        </div>
+      </div>
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Modelos para escadas estreitas custam tipicamente entre <strong class="text-foreground">€3.500 e €6.000</strong> instalados.</p>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-8">Perguntas sobre escadas estreitas</h2>
+      <div class="space-y-3">
+        {[
+          ["Qual a largura mínima absoluta para instalar um elevador de escadas?", "Com modelos compactos especializados, é possível instalar em escadas com apenas 60 cm de largura útil. Nestes casos, o carril é fixado directamente nos degraus (sem necessidade de corrimão existente) e o assento dobra automaticamente para deixar passagem livre a outros utilizadores da escada."],
+          ["Com o elevador instalado, outras pessoas ainda podem usar a escada?", "Sim. O assento, o apoio de pés e os apoios de braço dobram completamente quando não está em uso, deixando a escada disponível para outros membros da família. Mesmo com o equipamento recolhido, a passagem livre é de pelo menos 60 cm nos modelos compactos."],
+          ["O corrimão existente tem de ser removido para instalar o elevador?", "Na maioria dos casos, não. O carril pode ser fixado ao corrimão existente (se for robusto o suficiente) ou directamente nos degraus com suportes específicos, dependendo da estrutura da escada. A decisão é tomada durante a visita técnica gratuita."],
+          ["Existem modelos para escadas de casas antigas com dimensões irregulares?", "Sim. Casas antigas com escadas de pedra, madeira ou azulejo com dimensões irregulares são exactamente o cenário para os modelos compactos e de carril slim. Muitos instaladores parceiros têm experiência específica em habitação antiga portuguesa e sabem adaptar a solução às características construtivas tradicionais."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="A sua escada cabe? Peça uma avaliação gratuita" subheading="Um instalador visita a sua casa e avalia se o equipamento é compatível — sem qualquer custo ou compromisso." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

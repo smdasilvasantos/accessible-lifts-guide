@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CatalogForm from '../../components/CatalogForm.astro';
+---
+
+<Layout
+  title="Catálogo Gratuito de Elevadores e Plataformas | Vida Acessível"
+  description="Receba gratuitamente o catálogo completo com modelos, especificações e preços indicativos de elevadores de escadas, residenciais e plataformas elevatórias."
+  canonical="https://vidaacessivel.pt/catalogo-gratis/"
+>
+  <section class="py-16 md:py-20 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">
+            Catálogo Gratuito de Equipamentos de Acessibilidade
+          </h1>
+          <p class="font-body text-muted-foreground text-lg mb-6">Receba por email o catálogo completo com todos os modelos disponíveis em Portugal, especificações técnicas, dimensões e preços indicativos.</p>
+          <h2 class="font-heading font-semibold text-foreground mb-3">O que inclui o catálogo:</h2>
+          <ul class="space-y-2 mb-6">
+            {[
+              "Modelos de elevadores de escadas para retas e curvas",
+              "Elevadores residenciais: comparação de tecnologias",
+              "Plataformas elevatórias: guia completo",
+              "Preços indicativos por categoria",
+              "Guia de instalação e manutenção",
+              "Apoios do Estado disponíveis",
+            ].map(item => (
+              <li class="flex items-start gap-2 font-body text-sm text-muted-foreground">
+                <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div class="bg-card border border-border rounded-2xl p-6 shadow-lg">
+            <h2 class="font-heading font-bold text-xl text-foreground mb-5">Receber Catálogo Gratuito</h2>
+            <CatalogForm />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

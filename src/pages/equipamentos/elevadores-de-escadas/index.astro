@@ -1,0 +1,321 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto tempo demora a instalação de um elevador de escadas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para escadas retas, a instalação é geralmente concluída num único dia (4 a 8 horas). Para escadas curvas, o processo demora 1 a 2 dias, uma vez que o carril é fabricado à medida e a montagem é mais complexa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de obras para instalar um elevador de escadas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na maioria dos casos, não. O elevador de escadas é fixado ao corrimão, à parede ou diretamente nos degraus com suportes específicos, sem necessidade de obras de construção civil. Basta uma tomada elétrica standard nas proximidades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O elevador de escadas funciona em caso de corte de corrente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Todos os modelos modernos incluem bateria de emergência que garante vários ciclos de utilização mesmo sem corrente elétrica. A bateria carrega automaticamente quando o equipamento está ligado à tomada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que garantia tem um elevador de escadas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A garantia mínima legal é de 2 anos, mas a maioria dos fabricantes oferece 3 a 5 anos em peças e mão de obra. Contratos de manutenção preventiva anual estão disponíveis para garantir o funcionamento ao longo dos anos."
+      }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Elevadores de Escadas em Portugal",
+  "description": "Fornecimento e instalação de elevadores de escadas para residências em Portugal. Modelos para escadas retas, curvas, exteriores e estreitas.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Vida Acessível",
+    "url": "https://vidaacessivel.pt"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Portugal"
+  },
+  "serviceType": "Instalação de Elevadores de Escadas"
+};
+---
+
+<Layout
+  title="Elevadores de Escadas em Portugal — Orçamentos Gratuitos | Vida Acessível"
+  description="Compare orçamentos gratuitos de elevadores de escadas em Portugal. Modelos para escadas retas, curvas e exteriores. Instalação por técnicos certificados."
+  canonical="https://vidaacessivel.pt/equipamentos/elevadores-de-escadas/"
+  schema={[faqSchema, serviceSchema]}
+>
+
+  <!-- Hero -->
+  <section class="bg-primary text-white py-20 md:py-24">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <p class="font-body text-sm uppercase tracking-widest text-white/70 mb-3">Equipamentos de Acessibilidade</p>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl leading-tight mb-5">
+        Elevadores de Escadas: Compare Orçamentos Gratuitos em Portugal
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/85 mb-8 max-w-2xl mx-auto">
+        Soluções de qualidade para escadas retas, curvas e exteriores — instalação profissional em todo o país.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-cta-foreground font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">
+          Pedir Orçamento Gratuito
+        </a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-heading font-bold rounded-full hover:bg-white hover:text-primary transition-all">
+          Catálogo Grátis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Form -->
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm
+        heading="Peça orçamentos gratuitos para elevador de escadas"
+        subheading="Receba até 3 propostas de instaladores certificados na sua região, sem compromisso."
+      />
+    </div>
+  </section>
+
+  <!-- Sub-type cards -->
+  <section class="py-20 md:py-24 bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+          Escolha o Tipo de Escada
+        </h2>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">
+          Cada escada tem características únicas. Encontre a solução ideal para a sua situação.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Escadas Retas -->
+        <a href="/elevadores-de-escadas/escadas-retas/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador de escadas instalado numa escada reta interior de uma moradia portuguesa, com assento branco e carril metálico ao longo dos degraus">
+            <span class="text-muted-foreground text-sm">Imagem: escada reta</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Retas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">A solução mais simples e rápida. Instalação em 1 dia a partir de €3.000.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+
+        <!-- Escadas Curvas -->
+        <a href="/elevadores-de-escadas/escadas-curvas/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador de escadas com carril curvo adaptado a uma escada em espiral numa moradia, mostrando o mecanismo de curva do carril">
+            <span class="text-muted-foreground text-sm">Imagem: escada curva</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Curvas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Carril fabricado à medida para escadas com curvas ou patamares.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+
+        <!-- Escadas Exteriores -->
+        <a href="/elevadores-de-escadas/escadas-exteriores/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador de escadas para exterior instalado na entrada de uma moradia portuguesa, com proteção anti-intempéries e acabamento resistente à chuva">
+            <span class="text-muted-foreground text-sm">Imagem: escada exterior</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Exteriores</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Resistente a chuva, sol e variações de temperatura. Proteção IP65.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+
+        <!-- Escadas Estreitas -->
+        <a href="/elevadores-de-escadas/escadas-estreitas/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Elevador de escadas compacto instalado numa escada estreita de uma casa antiga, demonstrando como o equipamento permite passagem a pedestres">
+            <span class="text-muted-foreground text-sm">Imagem: escada estreita</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Estreitas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Modelos compactos para escadas a partir de 60 cm de largura útil.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational section -->
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">
+            O que é um elevador de escadas?
+          </h2>
+          <p class="font-body text-muted-foreground mb-4">
+            Um elevador de escadas — também chamado de cadeira elevatória ou stairlift — é um equipamento que transporta uma pessoa sentada ou de pé ao longo de um carril fixado nos degraus ou na parede da escada. O utilizador senta-se ou posiciona-se na plataforma, acciona um comando e o motor elétrico faz o resto.
+          </p>
+          <p class="font-body text-muted-foreground mb-4">
+            Ao contrário de um elevador tradicional, não é necessário criar um poço nem realizar obras profundas. O equipamento adapta-se à escada existente, seja ela reta, curva ou exterior. A instalação é reversível — pode ser removido quando deixar de ser necessário sem deixar marcas significativas.
+          </p>
+          <p class="font-body text-muted-foreground">
+            Existem modelos com assento dobrado (para que a escada continue a ser utilizada por outros membros da família) e modelos com plataforma para cadeira de rodas — as chamadas plataformas elevatórias. A autonomia com bateria garante funcionamento mesmo durante cortes de energia.
+          </p>
+        </div>
+        <div>
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[300px] flex items-center justify-center" data-image-description="Pessoa idosa a utilizar um elevador de escadas em casa, sentada confortavelmente no assento com o comando na mão, a subir uma escada reta interior">
+            <span class="text-muted-foreground text-sm">Imagem: utilização elevador de escadas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Para quem é?</h3>
+          <p class="font-body text-sm text-muted-foreground">Pessoas idosas, em recuperação pós-cirúrgica, com mobilidade reduzida ou problemas articulares que tornam a subida e descida de escadas difícil ou dolorosa.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Como funciona?</h3>
+          <p class="font-body text-sm text-muted-foreground">Um motor elétrico silencioso move o assento ao longo do carril instalado na escada. O comando pode ser activado pela alavanca no assento ou por telecomando. O sistema para automaticamente se detectar obstáculo.</p>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-foreground mb-2">Quanto tempo demora?</h3>
+          <p class="font-body text-sm text-muted-foreground">A instalação de um elevador para escada reta demora um dia. Para escadas curvas, 1 a 2 dias. O equipamento fica pronto a usar imediatamente após a instalação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price anchor -->
+  <section class="py-14 bg-primary/5 border-y border-border">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Quanto custa um elevador de escadas?</h2>
+      <p class="font-body text-muted-foreground mb-4 max-w-xl mx-auto">
+        Os preços variam consoante o tipo de escada, o modelo escolhido e a complexidade da instalação. Como referência geral:
+      </p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-8 py-6 mb-6">
+        <p class="font-heading font-extrabold text-4xl text-primary mb-1">€3.000 – €12.000</p>
+        <p class="font-body text-sm text-muted-foreground">Preço médio instalado (IVA incluído)</p>
+      </div>
+      <div class="block">
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center gap-2 text-primary font-body font-medium hover:underline">
+          Ver guia completo de preços e fatores que influenciam o custo
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8 text-center">
+        Perguntas Frequentes sobre Elevadores de Escadas
+      </h2>
+
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Quanto tempo demora a instalação de um elevador de escadas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Para escadas retas, a instalação é geralmente concluída num único dia (4 a 8 horas). Para escadas curvas, o processo demora 1 a 2 dias, uma vez que o carril é fabricado à medida e a montagem é mais complexa. Em ambos os casos, o equipamento fica pronto a usar imediatamente após a instalação.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Preciso de obras para instalar um elevador de escadas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Na maioria dos casos, não. O elevador de escadas é fixado ao corrimão, à parede ou diretamente nos degraus com suportes específicos, sem necessidade de obras de construção civil. Basta ter uma tomada elétrica standard (220V) nas proximidades da escada. Em apartamentos em condomínio, a instalação é igualmente possível sem intervenção em estruturas comuns.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>O elevador de escadas funciona em caso de corte de corrente?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Sim. Todos os modelos modernos incluem bateria de emergência integrada que garante vários ciclos de utilização mesmo sem corrente elétrica. A bateria carrega automaticamente quando o equipamento está ligado à tomada e tem autonomia suficiente para que o utilizador nunca fique preso a meio da escada.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Que garantia tem um elevador de escadas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>A garantia mínima legal é de 2 anos, mas a maioria dos fabricantes de referência oferece 3 a 5 anos em peças e mão de obra. Contratos de manutenção preventiva anual estão disponíveis junto dos instaladores certificados para garantir o funcionamento fiável ao longo de toda a vida útil do equipamento, que pode ultrapassar os 15 anos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalogue CTA -->
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Receba o catálogo completo grátis</h2>
+      <p class="font-body text-muted-foreground mb-6 max-w-lg mx-auto">
+        Consulte todos os modelos disponíveis em Portugal com especificações técnicas, dimensões e indicações de preço.
+      </p>
+      <a href="/catalogo-gratis/" class="inline-flex items-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">
+        Pedir Catálogo Gratuito
+      </a>
+    </div>
+  </section>
+
+  <!-- Related articles -->
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-xl text-foreground mb-6">Artigos relacionados</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="/recursos/guia-elevadores-de-escadas/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Guia</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Guia completo: tudo sobre elevadores de escadas</h3>
+        </a>
+        <a href="/recursos/como-escolher-elevador-escadas/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Conselho</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Como escolher o modelo certo para a sua escada</h3>
+        </a>
+        <a href="/recursos/apoios-financeiros-acessibilidade/" class="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-shadow group">
+          <p class="font-body text-xs text-muted-foreground mb-2 uppercase tracking-wide">Financiamento</p>
+          <h3 class="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Apoios financeiros disponíveis para acessibilidade em Portugal</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    btn.querySelector('.faq-chevron').style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

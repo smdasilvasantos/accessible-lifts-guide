@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Sobre Nós — Vida Acessível: Soluções de Mobilidade em Portugal"
+  description="Conheça a Vida Acessível — a plataforma portuguesa que simplifica a escolha de elevadores de escadas, residenciais e plataformas elevatórias com orçamentos gratuitos."
+  canonical="https://vidaacessivel.pt/sobre/"
+>
+  <section class="py-16 md:py-20 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Sobre o Vida Acessível — A Nossa Missão</h1>
+      <p class="font-body text-muted-foreground text-lg max-w-2xl">Acreditamos que a mobilidade reduzida não deve limitar a vida em casa. A Vida Acessível existe para simplificar o processo de encontrar a solução certa — com informação clara, orçamentos comparáveis, e sem pressão.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="font-heading font-bold text-2xl text-foreground mb-4">O que fazemos</h2>
+          <p class="font-body text-muted-foreground mb-4">A Vida Acessível é uma plataforma digital que liga pessoas com necessidade de equipamentos de acessibilidade a instaladores certificados em todo o Portugal continental e ilhas.</p>
+          <p class="font-body text-muted-foreground mb-4">Recebemos o pedido de orçamento, identificamos os parceiros mais adequados na região do solicitante, e facilitamos o processo de comparação de propostas. O utilizador nunca paga nada — o serviço é inteiramente gratuito.</p>
+          <p class="font-body text-muted-foreground">O nosso compromisso é com a transparência: nunca recomendamos um parceiro por razões comerciais sem base técnica. A qualidade do instalador e a adequação da solução são os critérios que contam.</p>
+        </div>
+        <div>
+          <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Os nossos valores</h2>
+          <div class="space-y-4">
+            {[
+              ["Transparência", "Informação clara sobre custos reais, sem exageros nem omissões. Não escondemos nada."],
+              ["Sem pressão", "O utilizador decide ao seu ritmo. Receber orçamentos não cria qualquer obrigação."],
+              ["Orientação calorosa", "Falamos com pessoas, não com clientes. A escuta e o cuidado fazem parte do serviço."],
+              ["Parceiros certificados", "Verificamos as credenciais e qualificações de todos os instaladores parceiros."],
+            ].map(([titulo, desc]) => (
+              <div class="flex gap-3">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div>
+                  <p class="font-heading font-semibold text-foreground text-sm">{titulo}</p>
+                  <p class="font-body text-sm text-muted-foreground">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Cobertura em todo o Portugal</h2>
+      <p class="font-body text-muted-foreground mb-6">A rede de instaladores parceiros da Vida Acessível cobre todo o Portugal: Norte, Centro, Lisboa e Vale do Tejo, Alentejo, Algarve, Açores e Madeira.</p>
+      <div class="grid sm:grid-cols-3 md:grid-cols-6 gap-4">
+        {["Norte", "Centro", "Lisboa", "Alentejo", "Algarve", "Ilhas"].map(region => (
+          <div class="bg-card border border-border rounded-xl px-4 py-3 text-center">
+            <p class="font-heading font-semibold text-foreground text-sm">{region}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-primary text-white">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl mb-3">Pronto para encontrar a solução certa?</h2>
+      <p class="font-body text-white/80 mb-6">Receba até 3 orçamentos gratuitos de instaladores certificados na sua região.</p>
+      <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+    </div>
+  </section>
+</Layout>

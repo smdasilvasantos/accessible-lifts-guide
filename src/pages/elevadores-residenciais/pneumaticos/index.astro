@@ -1,0 +1,103 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Como funciona um elevador pneumático?", "acceptedAnswer": { "@type": "Answer", "text": "O elevador pneumático funciona por diferença de pressão de ar. Para subir, cria-se uma zona de baixa pressão acima da cabina — o ar empurra a cabina para cima. Para descer, a pressão é equalizada e a cabina desce por gravidade controlada. Não há cabos, pistões hidráulicos nem casa de máquinas." } },
+    { "@type": "Question", "name": "O tubo transparente é obrigatório ou existe em opaco?", "acceptedAnswer": { "@type": "Answer", "text": "Os primeiros modelos eram todos em tubo transparente, mas hoje existem versões com painéis opacos ou semi-opacos para quem prefere maior privacidade ou uma integração mais discreta no interior." } },
+    { "@type": "Question", "name": "Um elevador pneumático é mais caro de manter?", "acceptedAnswer": { "@type": "Answer", "text": "A manutenção de um elevador pneumático é relativamente simples porque tem muito menos componentes mecânicos do que os sistemas tradicionais. Não há óleo hidráulico para mudar, não há cabos para verificar. O principal componente são as vedações do tubo." } },
+    { "@type": "Question", "name": "O elevador pneumático faz muito barulho?", "acceptedAnswer": { "@type": "Answer", "text": "Faz um som característico de aspiração ao subir — comparável a um aspirador doméstico a funcionar. Ao descer é praticamente silencioso. Este som é diferente dos outros sistemas, mas a maioria dos utilizadores habituam-se rapidamente." } }
+  ]
+};
+---
+
+<Layout
+  title="Elevadores Pneumáticos Residenciais Portugal — Tecnologia Inovadora | Vida Acessível"
+  description="Elevadores pneumáticos residenciais sem poço nem casa de máquinas. Design de tubo único, instalação simples. Compare orçamentos gratuitos em Portugal."
+  canonical="https://vidaacessivel.pt/elevadores-residenciais/pneumaticos/"
+  schema={faqSchema}
+  breadcrumbs={[{ name: "Elevadores Residenciais", url: "/equipamentos/elevadores/" }, { name: "Pneumáticos", url: "/elevadores-residenciais/pneumaticos/" }]}
+>
+  <nav aria-label="Breadcrumb" class="py-3 max-w-7xl mx-auto px-4 md:px-8">
+    <ol class="flex items-center gap-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary">Início</a></li><li>/</li>
+      <li><a href="/equipamentos/elevadores/" class="hover:text-primary">Elevadores Residenciais</a></li><li>/</li>
+      <li class="text-foreground font-medium">Pneumáticos</li>
+    </ol>
+  </nav>
+
+  <section class="bg-secondary py-16 md:py-20">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Inovação Tecnológica</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevadores Pneumáticos Residenciais: Tecnologia sem Poço nem Casa de Máquinas</h1>
+          <p class="font-body text-muted-foreground text-lg mb-8">O elevador pneumático é a solução mais inovadora no mercado residencial. Funciona por diferença de pressão de ar — sem cabos, sem óleo, sem poço. O tubo auto-suportante instala-se em qualquer divisão da casa.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento</a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Catálogo Grátis</a>
+          </div>
+        </div>
+        <div class="img-placeholder bg-primary/10 rounded-2xl w-full h-[320px] flex items-center justify-center" data-image-description="Elevador pneumático transparente instalado numa sala de moradia contemporânea portuguesa, tubo cilíndrico de vidro com cabina moderna no interior, design futurista e elegante">
+          <span class="text-muted-foreground text-sm">Imagem: elevador pneumático</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">O que torna o elevador pneumático único</h2>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Sem poço — sem obras de escavação</h3><p class="font-body text-sm text-muted-foreground">O tubo cilíndrico é auto-suportante. Não precisa de poço no piso inferior nem de casa de máquinas. Pode ser instalado num fim de semana.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Design distintivo</h3><p class="font-body text-sm text-muted-foreground">O tubo transparente torna-se um elemento decorativo da casa. Muitos clientes colocam-no como ponto focal da sala ou hall de entrada.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Segurança de emergência passiva</h3><p class="font-body text-sm text-muted-foreground">Em caso de corte de energia, a cabina desce lentamente por gravidade controlada até ao piso inferior — sem acção do utilizador.</p></div>
+        <div class="bg-card border border-border rounded-2xl p-6"><h3 class="font-heading font-semibold text-foreground mb-2">Baixa manutenção</h3><p class="font-body text-sm text-muted-foreground">Sem óleo hidráulico, sem cabos de tracção, sem contrapesos. Os componentes são poucos e a manutenção é simples e económica.</p></div>
+      </div>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
+        <h3 class="font-heading font-semibold text-foreground mb-2">Indicação de preço</h3>
+        <p class="font-body text-muted-foreground mb-3">Elevadores pneumáticos residenciais custam tipicamente entre <strong class="text-foreground">€15.000 e €35.000</strong> — o premium da inovação e design.</p>
+        <a href="/equipamentos/elevadores/preco/" class="text-primary font-body font-medium hover:underline text-sm">Ver guia completo de preços →</a>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          ["Como funciona um elevador pneumático?", "Funciona por diferença de pressão de ar. Para subir, cria-se uma zona de baixa pressão acima da cabina — a pressão atmosférica abaixo empurra a cabina para cima. Para descer, a pressão é equalizada e a cabina desce por gravidade controlada. Não há cabos, pistões hidráulicos nem casa de máquinas."],
+          ["O tubo transparente é obrigatório ou existe em opaco?", "Os primeiros modelos eram todos em tubo transparente, mas hoje existem versões com painéis opacos ou semi-opacos para quem prefere maior privacidade ou uma integração mais discreta no interior da habitação."],
+          ["Um elevador pneumático é mais caro de manter?", "Pelo contrário — a manutenção tende a ser mais simples e económica. Tem muito menos componentes mecânicos do que sistemas tradicionais. Não há óleo hidráulico para substituir, não há cabos de tracção para verificar. O principal elemento a manter são as vedações do tubo."],
+          ["O elevador pneumático faz muito barulho?", "Faz um som característico de aspiração ao subir — comparável a um aspirador doméstico a funcionar, mas mais distante. Ao descer é praticamente silencioso. O som é diferente dos outros sistemas, mas a grande maioria dos utilizadores habitua-se rapidamente e deixa de o notar."]
+        ].map(([q, a]) => (
+          <div class="faq-item border border-border rounded-xl bg-card">
+            <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+              <span>{q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body"><p>{a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamento para elevador pneumático" subheading="Descubra se um elevador pneumático é a solução ideal para a sua moradia." />
+    </div>
+  </section>
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

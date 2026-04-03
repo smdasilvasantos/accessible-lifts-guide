@@ -1,0 +1,204 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Uma plataforma elevatória serve para utilizadores de cadeira de rodas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim, é exactamente para isso que a plataforma elevatória foi concebida. A plataforma tem dimensões suficientes para acomodar uma cadeira de rodas (manual ou eléctrica) e o respectivo utilizador, permitindo subir e descer escadas com segurança e autonomia." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre plataforma elevatória e elevador de escadas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "O elevador de escadas (cadeira elevatória) transporta uma pessoa sentada num assento fixo ao carril. A plataforma elevatória transporta uma plataforma horizontal onde o utilizador permanece na sua cadeira de rodas. A plataforma é essencial para quem não consegue sentar-se num assento de cadeira elevatória ou utiliza cadeira de rodas." }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de obras para instalar uma plataforma elevatória?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Geralmente as obras são mínimas. O carril é fixado à parede ou nos degraus da escada. Pode ser necessária uma pequena abertura no piso para o mecanismo de rebate. Em edifícios históricos ou com restrições arquitectónicas, o instalador adapta a solução ao contexto." }
+    },
+    {
+      "@type": "Question",
+      "name": "As plataformas elevatórias são seguras para uso diário?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. As plataformas elevatórias comercializadas em Portugal cumprem a norma europeia EN 81-41, que regula a segurança destes equipamentos. Incluem bordas de segurança, sensores de obstáculo, paragem de emergência e bateria de backup para cortes de corrente." }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Plataformas Elevatórias em Portugal",
+  "description": "Fornecimento e instalação de plataformas elevatórias para cadeira de rodas em Portugal. Soluções para escadas retas, curvas e exteriores.",
+  "provider": { "@type": "Organization", "name": "Vida Acessível", "url": "https://vidaacessivel.pt" },
+  "areaServed": { "@type": "Country", "name": "Portugal" },
+  "serviceType": "Instalação de Plataformas Elevatórias"
+};
+---
+
+<Layout
+  title="Plataformas Elevatórias Portugal — Soluções para Cadeira de Rodas | Vida Acessível"
+  description="Plataformas elevatórias para cadeira de rodas em escadas retas, curvas e exteriores. Compare orçamentos gratuitos de instaladores certificados em Portugal."
+  canonical="https://vidaacessivel.pt/equipamentos/plataformas-elevatorias/"
+  schema={[faqSchema, serviceSchema]}
+>
+
+  <section class="bg-primary text-white py-20 md:py-24">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <p class="font-body text-sm uppercase tracking-widest text-white/70 mb-3">Equipamentos de Acessibilidade</p>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl leading-tight mb-5">
+        Plataformas Elevatórias: Acessibilidade Total para Cadeira de Rodas
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/85 mb-8 max-w-2xl mx-auto">
+        Soluções para escadas em casa ou condomínio — retas, curvas e exteriores. Compare orçamentos gratuitos de instaladores certificados.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/pedir-orcamento/" class="inline-flex items-center justify-center px-8 py-3 bg-cta text-white font-heading font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-heading font-bold rounded-full hover:bg-white hover:text-primary transition-all">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <QuoteForm heading="Peça orçamentos para plataforma elevatória" subheading="Receba até 3 propostas de instaladores certificados para a sua situação específica." />
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">Tipos de Plataformas Elevatórias</h2>
+        <p class="font-body text-muted-foreground max-w-xl mx-auto">Escolha a solução certa para o tipo de escada e o contexto de utilização.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="/plataformas-elevatorias/escadas-retas/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Plataforma elevatória para cadeira de rodas instalada numa escada reta interior, plataforma rebatida, carril metálico junto à parede">
+            <span class="text-muted-foreground text-sm">Imagem: plataforma escadas retas</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Retas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Instalação mais simples e económica. Carril standard para escadas sem curvas.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/plataformas-elevatorias/escadas-curvas/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Plataforma elevatória com carril curvado à medida para escada com patamar, demonstrando como o sistema navega curvas">
+            <span class="text-muted-foreground text-sm">Imagem: plataforma escadas curvas</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Escadas Curvas</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Carril fabricado à medida para escadas com curvas, patamares ou ângulos.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+        <a href="/plataformas-elevatorias/exteriores/" class="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[160px] flex items-center justify-center mb-4" data-image-description="Plataforma elevatória exterior resistente a intempéries instalada na entrada de um edifício, utilizador em cadeira de rodas a utilizar o equipamento">
+            <span class="text-muted-foreground text-sm">Imagem: plataforma exterior</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">Exteriores</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">Proteção IP65. Resistente a chuva, sol e temperaturas extremas para uso exterior.</p>
+          <span class="text-primary font-body text-sm font-medium">Ver mais →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-6">Quem beneficia de uma plataforma elevatória?</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <p class="font-body text-muted-foreground mb-4">A plataforma elevatória é a solução indicada para utilizadores de cadeira de rodas — manual ou eléctrica — que necessitam de superar uma ou mais escadas em casa, num condomínio ou em espaço público. Ao contrário do elevador de escadas, não é necessário sair da cadeira de rodas para utilizar a plataforma: o utilizador entra na plataforma com a cadeira e é transportado com total segurança.</p>
+          <p class="font-body text-muted-foreground mb-4">As plataformas são também utilizadas por pessoas com mobilidade muito reduzida que não conseguem manter a posição sentada necessária para um elevador de escadas, bem como por cuidadores que acompanham o utilizador no equipamento.</p>
+          <p class="font-body text-muted-foreground">Em condomínios, a plataforma elevatória pode resolver o problema de acessibilidade às áreas comuns cumprindo com o Decreto-Lei 163/2006 sobre acessibilidade em edifícios.</p>
+        </div>
+        <div>
+          <div class="img-placeholder bg-secondary rounded-2xl w-full h-[280px] flex items-center justify-center" data-image-description="Utilizador de cadeira de rodas eléctrica a utilizar plataforma elevatória numa escada interior, expressão tranquila e confiante, ambiente doméstico português acolhedor">
+            <span class="text-muted-foreground text-sm">Imagem: utilizador em plataforma elevatória</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-primary/5 border-y border-border">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Quanto custa uma plataforma elevatória?</h2>
+      <p class="font-body text-muted-foreground mb-4 max-w-xl mx-auto">O preço depende do tipo de escada, do modelo e se é para interior ou exterior. Como referência:</p>
+      <div class="inline-block bg-card border border-border rounded-2xl px-8 py-6 mb-6">
+        <p class="font-heading font-extrabold text-4xl text-primary mb-1">€5.000 – €20.000</p>
+        <p class="font-body text-sm text-muted-foreground">Preço médio instalado (IVA incluído)</p>
+      </div>
+      <div class="block">
+        <a href="/equipamentos/plataformas-elevatorias/preco/" class="inline-flex items-center gap-2 text-primary font-body font-medium hover:underline">
+          Ver guia completo de preços e fatores de custo
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8 text-center">Perguntas Frequentes sobre Plataformas Elevatórias</h2>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Uma plataforma elevatória serve para utilizadores de cadeira de rodas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Sim, é exactamente para isso que a plataforma elevatória foi concebida. A plataforma tem dimensões suficientes para acomodar uma cadeira de rodas manual ou eléctrica e o respectivo utilizador, permitindo subir e descer escadas com segurança e total autonomia — sem necessidade de sair da cadeira.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Qual a diferença entre plataforma elevatória e elevador de escadas?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>O elevador de escadas (cadeira elevatória) transporta uma pessoa sentada num assento fixo ao carril — a pessoa tem de sentar-se e levantar-se do equipamento. A plataforma elevatória transporta uma plataforma horizontal onde o utilizador permanece na sua cadeira de rodas. Se o utilizador usa cadeira de rodas ou não consegue sentar-se confortavelmente num assento, a plataforma é a solução correcta.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>Preciso de obras para instalar uma plataforma elevatória?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Geralmente as obras necessárias são mínimas. O carril é fixado à parede ou aos degraus. Pode ser necessária uma pequena abertura no piso para o mecanismo de paragem e rebate da plataforma. Em edifícios históricos ou com características arquitectónicas especiais, o instalador adapta a solução ao contexto existente.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-border rounded-xl mb-3">
+        <button class="faq-btn w-full text-left px-6 py-4 font-heading font-semibold text-foreground flex justify-between items-center" aria-expanded="false">
+          <span>As plataformas elevatórias são seguras para uso diário?</span>
+          <svg class="faq-chevron w-5 h-5 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4 text-muted-foreground font-body">
+          <p>Sim. As plataformas elevatórias certificadas em Portugal cumprem a norma europeia EN 81-41, que regula especificamente a segurança de inclinados e plataformas para escadas. Incluem obrigatoriamente bordas de segurança com sensores de obstáculo, paragem de emergência, cintos de segurança e bateria de backup que garante funcionamento durante cortes de corrente eléctrica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Receba o catálogo de plataformas elevatórias</h2>
+      <p class="font-body text-muted-foreground mb-6 max-w-lg mx-auto">Modelos, especificações técnicas e preços indicativos para plataformas elevatórias disponíveis em Portugal.</p>
+      <a href="/catalogo-gratis/" class="inline-flex items-center px-8 py-3 border-2 border-primary text-primary font-heading font-bold rounded-full hover:bg-primary hover:text-white transition-all">Pedir Catálogo Gratuito</a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden');
+    (btn.querySelector('.faq-chevron') as HTMLElement).style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>

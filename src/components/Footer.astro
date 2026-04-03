@@ -1,0 +1,84 @@
+---
+const equipamentosLinks = [
+  { label: 'Elevadores de Escadas', href: '/equipamentos/elevadores-de-escadas/' },
+  { label: 'Elevadores Residenciais', href: '/equipamentos/elevadores/' },
+  { label: 'Plataformas Elevatórias', href: '/equipamentos/plataformas-elevatorias/' },
+];
+
+const informacaoLinks = [
+  { label: 'Sobre nós', href: '/sobre/' },
+  { label: 'Recursos', href: '/recursos/' },
+  { label: 'Contacto', href: '/contacto/' },
+  { label: 'Política de Privacidade', href: '/politica-de-privacidade/' },
+];
+---
+
+<footer class="bg-foreground py-12" aria-label="Rodapé">
+  <div class="mx-auto max-w-7xl px-4 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between gap-10">
+
+      <!-- Brand / About column -->
+      <div class="max-w-xs">
+        <p class="font-heading font-bold text-lg text-background mb-2">
+          Vida Acessível
+        </p>
+        <p class="font-body text-sm text-background/60 leading-relaxed">
+          Ajudamos a encontrar soluções e parceiros de confiança para tornar habitações mais acessíveis em Portugal.
+        </p>
+      </div>
+
+      <!-- Link columns -->
+      <div class="flex gap-12 flex-wrap">
+
+        <!-- Equipamentos -->
+        <div>
+          <p class="font-heading font-bold text-xs uppercase tracking-widest text-background/40 mb-3">
+            Equipamentos
+          </p>
+          <ul class="space-y-2" role="list">
+            {equipamentosLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="font-body text-sm text-background/60 hover:text-background transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Informação -->
+        <div>
+          <p class="font-heading font-bold text-xs uppercase tracking-widest text-background/40 mb-3">
+            Informação
+          </p>
+          <ul class="space-y-2" role="list">
+            {informacaoLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="font-body text-sm text-background/60 hover:text-background transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-6 border-t border-background/10">
+      <p class="font-body text-xs text-background/40">
+        &copy; 2025 Vida Acessível &middot;
+        <a href="/politica-de-privacidade/" class="hover:text-background/60 transition-colors underline underline-offset-2">
+          Política de Privacidade
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

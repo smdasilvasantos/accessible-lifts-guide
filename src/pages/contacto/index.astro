@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contacto — Vida Acessível"
+  description="Contacte a Vida Acessível para questões sobre equipamentos de acessibilidade, orçamentos ou parcerias em Portugal."
+  canonical="https://vidaacessivel.pt/contacto/"
+>
+  <section class="py-16 md:py-20 bg-secondary">
+    <div class="max-w-[880px] mx-auto px-6">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Contacte-nos — Estamos Aqui para Ajudar</h1>
+      <p class="font-body text-muted-foreground text-lg max-w-xl">Tem questões sobre equipamentos, preços ou quer simplesmente falar com alguém antes de pedir orçamento? Contacte-nos — respondemos em 24 horas úteis.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-background">
+    <div class="max-w-[880px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="font-heading font-bold text-xl text-foreground mb-6">Como podemos ajudar</h2>
+          <div class="space-y-4">
+            <div class="flex gap-3 items-start">
+              <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div>
+                <p class="font-heading font-semibold text-foreground text-sm">Email</p>
+                <p class="font-body text-sm text-muted-foreground">info@vidaacessivel.pt</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 bg-primary/5 border border-primary/20 rounded-xl p-5">
+            <p class="font-body text-sm text-muted-foreground">Para pedir orçamentos gratuitos, use o formulário dedicado em <a href="/pedir-orcamento/" class="text-primary hover:underline">/pedir-orcamento/</a> — é mais rápido e garante que o seu pedido chega a instaladores certificados na sua região.</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="font-heading font-bold text-xl text-foreground mb-6">Envie-nos uma mensagem</h2>
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="nome" class="block font-body text-sm font-medium text-foreground mb-1">Nome *</label>
+              <input type="text" id="nome" name="nome" required class="w-full rounded-lg border border-border bg-background px-4 py-2.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
+            </div>
+            <div>
+              <label for="email" class="block font-body text-sm font-medium text-foreground mb-1">Email *</label>
+              <input type="email" id="email" name="email" required class="w-full rounded-lg border border-border bg-background px-4 py-2.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
+            </div>
+            <div>
+              <label for="mensagem" class="block font-body text-sm font-medium text-foreground mb-1">Mensagem *</label>
+              <textarea id="mensagem" name="mensagem" rows="5" required class="w-full rounded-lg border border-border bg-background px-4 py-2.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
+            </div>
+            <div id="contact-success" class="hidden rounded-xl bg-primary/10 border border-primary/20 p-4 text-center" role="alert">
+              <p class="font-body text-sm text-foreground font-medium">Mensagem enviada! Respondemos em 24 horas úteis.</p>
+            </div>
+            <div id="contact-error" class="hidden rounded-xl bg-destructive/10 border border-destructive/20 p-4" role="alert">
+              <p class="font-body text-sm text-destructive">Erro ao enviar. Tente novamente ou contacte-nos por email.</p>
+            </div>
+            <button type="submit" class="w-full px-8 py-3 bg-primary text-white font-heading font-bold rounded-full hover:bg-primary/90 transition-colors">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+const form = document.getElementById('contact-form') as HTMLFormElement;
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  try {
+    const res = await fetch('/api/contacto', { method: 'POST', body: fd });
+    if (res.ok) {
+      document.getElementById('contact-success')?.classList.remove('hidden');
+      form.reset();
+    } else { document.getElementById('contact-error')?.classList.remove('hidden'); }
+  } catch { document.getElementById('contact-error')?.classList.remove('hidden'); }
+});
+</script>
