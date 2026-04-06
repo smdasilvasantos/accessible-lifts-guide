@@ -5,58 +5,433 @@ import Footer from '../components/Footer.astro';
 import FaqSection from '../components/FaqSection.astro';
 
 const faqs = [
-  { question: 'A cadeira elevatória é segura para pessoas idosas?', answer: 'Sim. Os modelos modernos têm cinto de segurança, sensores de obstáculos, travões automáticos e baterias que funcionam em caso de corte de corrente. São certificados pela norma europeia EN 81-40 e testados extensamente em condições de uso real.' },
-  { question: 'Que apoios existem do Estado?', answer: 'Em Portugal, os equipamentos de acessibilidade beneficiam de IVA a 6%. O SAPA comparticiona equipamentos para pessoas com deficiência reconhecida. Algumas câmaras têm apoios adicionais.' },
-  { question: 'Quanto tempo demora a instalar?', answer: 'Para elevadores de escadas: 1 dia. Para plataformas elevatórias em escadas retas: 1 dia. Para elevadores residenciais ou plataformas em escadas curvas: 3 a 6 semanas (inclui produção de calha à medida).' },
-  { question: 'Posso receber orçamentos gratuitos?', answer: 'Sim. Através do Vida Acessível, pode receber até 3 orçamentos gratuitos de instaladores certificados em Portugal, sem qualquer compromisso.' },
+  {
+    question: 'A cadeira elevatória é segura para uma pessoa idosa usar sozinha?',
+    answer: 'Sim. Os modelos modernos foram especificamente concebidos para uso autónomo por pessoas idosas. O assento giratório facilita a entrada e saída, o cinto de segurança é simples de apertar, e os comandos são grandes e intuitivos. Em caso de dúvida, o instalador faz uma sessão de formação no próprio dia da instalação.',
+  },
+  {
+    question: 'O que acontece se houver um corte de corrente?',
+    answer: 'Todos os modelos têm baterias integradas que carregam automaticamente. Em caso de corte de corrente, a cadeira continua a funcionar normalmente — o utilizador não fica preso a meio da escada em nenhuma circunstância.',
+  },
+  {
+    question: 'A escada fica bloqueada para o resto da família?',
+    answer: 'Não. Quando não está em uso, a cadeira dobra-se completamente encostada à parede ou ao corrimão, deixando a passagem livre para todos os outros. A instalação não interfere com o uso normal da escada.',
+  },
+  {
+    question: 'Quanto tempo demora a instalar e há obras?',
+    answer: 'A instalação demora normalmente entre 3 e 6 horas, num único dia. Não são necessárias obras — a calha fixa-se nos próprios degraus ou na parede. No final do dia, o equipamento está pronto a usar.',
+  },
 ];
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
+const safetyFeatures = [
+  {
+    icon: '🔄',
+    title: 'Assento giratório',
+    desc: 'O assento roda 90° no topo e no fundo das escadas, permitindo sentar e levantar sem torcer o corpo — fundamental para quem tem dores nas costas ou nos joelhos.',
+  },
+  {
+    icon: '🔒',
+    title: 'Cinto de segurança',
+    desc: 'Cinto retrátil de fácil apertar, semelhante ao do carro. Mantém o utilizador seguro durante todo o percurso sem causar desconforto.',
+  },
+  {
+    icon: '🛑',
+    title: 'Sensores de obstáculos',
+    desc: 'Sensores na base da cadeira detetam objetos ou pessoas na escada e param o equipamento automaticamente antes de qualquer colisão.',
+  },
+  {
+    icon: '🔋',
+    title: 'Bateria de emergência',
+    desc: 'Funciona mesmo sem corrente elétrica. A bateria carrega continuamente e garante várias subidas e descidas em caso de falha de energia.',
+  },
+  {
+    icon: '🎛️',
+    title: 'Comandos intuitivos',
+    desc: 'Botões grandes e simples no braço da cadeira e um telecomando adicional. Fácil de usar mesmo com mobilidade reduzida nas mãos.',
+  },
+  {
+    icon: '🪝',
+    title: 'Travão automático',
+    desc: 'Se o utilizador soltar os comandos, a cadeira para imediatamente. Retoma o movimento apenas quando o botão é pressionado de novo.',
+  },
+];
 ---
+
 <Layout
-  title="Cadeiras Elevatórias para Idosos — Guia Completo | Vida Acessível"
-  description="Quando subir escadas se torna um risco para um familiar idoso, a cadeira elevatória é muitas vezes a solução mais rápida, económica e eficaz. Sem obras, sem complicações. Compare orçamentos gratuitos de instaladores certificados em Portugal."
+  title="Cadeiras Elevatórias para Idosos — Segurança e Independência em Casa | Vida Acessível"
+  description="Cadeiras elevatórias para idosos: assento giratório, cinto de segurança, bateria de emergência. Instalação num dia, sem obras. Compare orçamentos gratuitos em Portugal."
   canonical="/cadeiras-elevatorias-para-idosos/"
   schemas={[faqSchema]}
-  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Cadeiras Elevatórias para Idosos — Guia Completo', url: '/cadeiras-elevatorias-para-idosos/' }]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Cadeiras Elevatórias para Idosos', url: '/cadeiras-elevatorias-para-idosos/' }]}
 >
   <Nav />
 
-  <section class="bg-secondary section-spacing">
-    <div class="content-width">
-      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Cadeiras Elevatórias para Idosos: Segurança e Independência em Casa</h1>
-      <p class="font-body text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">Quando subir escadas se torna um risco para um familiar idoso, a cadeira elevatória é muitas vezes a solução mais rápida, económica e eficaz. Sem obras, sem complicações.</p>
-      <div class="flex gap-3 flex-wrap">
-        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
-        <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">Catálogo Grátis</a>
+  <!-- ① HERO — problema primeiro, solução depois -->
+  <section class="bg-secondary overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center min-h-[580px] py-14">
+        <div class="order-2 md:order-1">
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">
+            Para idosos e familiares
+          </span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-[2.75rem] text-foreground leading-tight mb-5">
+            Voltar a subir as escadas de casa — com segurança e sem ajuda
+          </h1>
+          <p class="font-body text-lg text-muted-foreground leading-relaxed mb-4 max-w-lg">
+            Quando subir escadas se torna doloroso ou arriscado, a cadeira elevatória devolve a independência ao seu familiar — e a tranquilidade à família.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-8 max-w-lg">
+            Instalação num dia, sem obras, sem licenças. A partir de <strong class="text-foreground">€2.500</strong> com IVA a 6%.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg shadow-cta/25 hover:bg-cta/90 transition-all">
+              Pedir Orçamento Gratuito
+            </a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border bg-background px-8 py-3.5 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">
+              Ver Catálogo
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero image -->
+        <div class="order-1 md:order-2">
+          <div
+            class="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 h-[360px] md:h-[460px] bg-primary/5 flex items-center justify-center"
+            data-image-description="Portuguese elderly woman, 75 years old, seated comfortably on a modern white stairlift on a warm wooden residential staircase, smiling with dignity and confidence, natural morning light from a nearby window, Sony A7R IV, f/2.8, warm tones, shallow depth of field, WebP"
+          >
+            <div class="text-center p-8">
+              <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <p class="font-heading font-semibold text-primary text-sm">Foto: idosa na cadeira elevatória</p>
+              <p class="font-body text-xs text-muted-foreground mt-1">Imagem real a ser gerada</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing"><div class="content-width">
-    <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Soluções disponíveis</h2>
-    <div class="grid sm:grid-cols-3 gap-5">
-      {[
-        { href: '/equipamentos/elevadores-de-escadas/', title: 'Elevadores de Escadas', desc: 'A solução mais rápida e económica. Instala-se na própria escada, sem obras.' },
-        { href: '/equipamentos/plataformas-elevatorias/', title: 'Plataformas Elevatórias', desc: 'Para utilizadores de cadeira de rodas — transporta a cadeira sem transferências.' },
-        { href: '/equipamentos/elevadores/', title: 'Elevadores Residenciais', desc: 'A solução mais completa e permanente para mobilidade entre pisos.' },
-      ].map(s => (
-        <a href={s.href} class="group bg-card border border-border rounded-2xl p-5 hover:shadow-lg hover:border-primary/30 transition-all">
-          <h3 class="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary">{s.title}</h3>
-          <p class="font-body text-sm text-muted-foreground mb-4">{s.desc}</p>
-          <span class="inline-flex items-center gap-1 font-heading font-semibold text-sm text-primary group-hover:gap-2 transition-all">Saber mais →</span>
-        </a>
-      ))}
+  <!-- ② RECONHECIMENTO DO PROBLEMA — empatia -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-5">
+            "Já não consigo subir as escadas como antes"
+          </h2>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Dores nos joelhos, falta de equilíbrio, cansaço. Para muitos idosos, a escada que percorreram toda a vida torna-se progressivamente num obstáculo — e num risco real de queda.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Para os filhos e familiares, é uma preocupação constante: <em>"E se cair enquanto estou fora?"</em> <em>"Está a deixar de usar o quarto porque tem medo das escadas."</em>
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed">
+            A cadeira elevatória resolve este problema de forma definitiva — sem obrigar ninguém a mudar de casa, sem obras, e normalmente num único dia.
+          </p>
+        </div>
+
+        <!-- Empathy stats / pain points -->
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { stat: '1 em 3', desc: 'idosos cai pelo menos uma vez por ano em Portugal' },
+            { stat: '90%', desc: 'das quedas acontecem em casa, muitas nas escadas' },
+            { stat: '1 dia', desc: 'é tudo o que demora a instalar uma cadeira elevatória' },
+            { stat: '0 obras', desc: 'a escada fica intacta para o resto da família' },
+          ].map((item) => (
+            <div class="bg-secondary rounded-2xl p-5 text-center">
+              <p class="font-heading font-extrabold text-2xl text-primary mb-1">{item.stat}</p>
+              <p class="font-body text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <FaqSection faqs={faqs} />
+  <!-- ③ O PRODUTO — apresentação visual -->
+  <section class="bg-secondary section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+          Como funciona a cadeira elevatória?
+        </h2>
+        <p class="font-body text-base text-muted-foreground max-w-xl mx-auto">
+          Uma cadeira motorizada que desliza suavemente ao longo de uma calha fixada na escada. Silenciosa, segura e fácil de usar.
+        </p>
+      </div>
 
-  <section class="section-spacing"><div class="content-width text-center">
-    <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Não sabe qual a solução certa?</h2>
-    <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Peça orçamentos gratuitos — os instaladores analisam a sua situação e recomendam a melhor solução.</p>
-    <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
-  </div></section>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div class="bg-card border border-border rounded-2xl overflow-hidden">
+          <div
+            class="h-48 bg-primary/5 flex items-center justify-center"
+            data-image-description="Close-up of elderly person's hands gently pressing the large ergonomic control button on the armrest of a white stairlift, warm residential interior, soft focus, WebP"
+          >
+            <div class="text-center p-4">
+              <div class="text-4xl mb-2">🎛️</div>
+              <p class="font-body text-xs text-muted-foreground">Foto: mão no comando</p>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center mb-3">
+              <span class="text-xs font-heading font-bold text-primary-foreground">1</span>
+            </div>
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">Sente-se confortavelmente</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">O assento está ao nível do degrau inferior. Senta-se como numa cadeira normal e aperta o cinto.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-card border border-border rounded-2xl overflow-hidden">
+          <div
+            class="h-48 bg-primary/5 flex items-center justify-center"
+            data-image-description="Side view of a stairlift gliding smoothly along the rail on a straight residential staircase, motion blur on the rail to suggest movement, elderly person seated calmly, bright Portuguese home, WebP"
+          >
+            <div class="text-center p-4">
+              <div class="text-4xl mb-2">⬆️</div>
+              <p class="font-body text-xs text-muted-foreground">Foto: cadeira em movimento</p>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center mb-3">
+              <span class="text-xs font-heading font-bold text-primary-foreground">2</span>
+            </div>
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">Sobe ou desce sem esforço</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">Prima o botão e a cadeira move-se suavemente. Velocidade controlada, sem solavancos, silenciosa.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-card border border-border rounded-2xl overflow-hidden">
+          <div
+            class="h-48 bg-primary/5 flex items-center justify-center"
+            data-image-description="Elderly Portuguese woman standing up from a stairlift at the top of the stairs, the seat rotated 90 degrees toward her, she's smiling, holding the handrail for extra confidence, warm home interior, WebP"
+          >
+            <div class="text-center p-4">
+              <div class="text-4xl mb-2">🔄</div>
+              <p class="font-body text-xs text-muted-foreground">Foto: assento giratório</p>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center mb-3">
+              <span class="text-xs font-heading font-bold text-primary-foreground">3</span>
+            </div>
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">Levanta-se com segurança</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">O assento gira 90° para que possa levantar-se de frente, sem precisar de torcer o corpo ou virar-se.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ FUNCIONALIDADES DE SEGURANÇA -->
+  <section class="section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+          Segurança pensada ao detalhe
+        </h2>
+        <p class="font-body text-base text-muted-foreground max-w-xl mx-auto">
+          Cada funcionalidade foi desenvolvida especificamente para dar confiança a quem usa — e tranquilidade a quem fica em casa.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {safetyFeatures.map((f) => (
+          <div class="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all">
+            <div class="text-3xl mb-4">{f.icon}</div>
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">{f.title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Safety image placeholder -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div
+          class="rounded-2xl h-56 bg-secondary flex items-center justify-center border border-border"
+          data-image-description="Close-up detail shot of a stairlift safety seatbelt being buckled by elderly hands, the bright orange seatbelt clasp in focus against the cream-colored seat fabric, warm light, product photography style, WebP"
+        >
+          <div class="text-center p-6">
+            <div class="text-4xl mb-2">🔒</div>
+            <p class="font-heading font-semibold text-primary text-sm">Foto: cinto de segurança</p>
+            <p class="font-body text-xs text-muted-foreground mt-1">Detalhe do equipamento</p>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl h-56 bg-secondary flex items-center justify-center border border-border"
+          data-image-description="Remote control handset for a stairlift placed on a side table next to an armchair in a cozy Portuguese living room, the remote has large simple buttons, warm ambient light, lifestyle photography, WebP"
+        >
+          <div class="text-center p-6">
+            <div class="text-4xl mb-2">📱</div>
+            <p class="font-heading font-semibold text-primary text-sm">Foto: telecomando</p>
+            <p class="font-body text-xs text-muted-foreground mt-1">Chamada à cadeira de outro piso</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ TRANQUILIDADE PARA OS FAMILIARES -->
+  <section class="bg-primary section-spacing">
+    <div class="content-width">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-5">
+            Tranquilidade para toda a família
+          </h2>
+          <p class="font-body text-base text-white/80 leading-relaxed mb-4">
+            Saber que o seu pai ou a sua mãe consegue circular em casa sem risco é um peso que deixa de carregar. A cadeira elevatória não é só para quem a usa — é também para quem se preocupa.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {[
+              'O familiar mantém a independência — sem precisar de pedir ajuda',
+              'Risco de queda nas escadas praticamente eliminado',
+              'Pode chamar a cadeira a qualquer piso com o telecomando',
+              'O equipamento funciona mesmo quando está sozinho em casa',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cta flex-shrink-0 mt-0.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="font-body text-sm text-white/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+              Pedir Orçamento Gratuito
+            </a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full bg-white/10 text-white px-7 py-3 text-base font-heading font-semibold hover:bg-white/20 transition-all">
+              Ver Catálogo
+            </a>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl h-72 md:h-80 bg-white/10 flex items-center justify-center"
+          data-image-description="Portuguese adult daughter hugging her elderly mother warmly in a bright home hallway, the stairlift visible in the background on the staircase, both women smiling, emotional and heartwarming scene, warm natural light, Sony A7R IV, WebP"
+        >
+          <div class="text-center p-8">
+            <div class="text-5xl mb-3">👩‍👩‍</div>
+            <p class="font-heading font-semibold text-white/80 text-sm">Foto: família em paz em casa</p>
+            <p class="font-body text-xs text-white/50 mt-1">Imagem a ser gerada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ TIPOS DE CADEIRA ELEVATÓRIA -->
+  <section class="section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+          Existe uma solução para cada escada
+        </h2>
+        <p class="font-body text-base text-muted-foreground max-w-xl mx-auto">
+          Reta, curva, interior ou exterior — há um modelo adaptado à sua casa.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          {
+            href: '/elevadores-de-escadas/escadas-retas/',
+            title: 'Escadas Retas',
+            price: 'A partir de €2.500',
+            desc: 'A opção mais económica. Instalação num dia.',
+            imgDesc: 'Modern stairlift on a straight staircase, clean residential interior, white chair design, WebP',
+          },
+          {
+            href: '/elevadores-de-escadas/escadas-curvas/',
+            title: 'Escadas Curvas',
+            price: 'A partir de €5.000',
+            desc: 'Calha feita à medida para escadas em L ou U.',
+            imgDesc: 'Stairlift navigating a curved staircase in a traditional Portuguese home, warm tones, WebP',
+          },
+          {
+            href: '/elevadores-de-escadas/escadas-exteriores/',
+            title: 'Exterior',
+            price: 'A partir de €3.500',
+            desc: 'Resistente à chuva e ao sol. Para entradas de casa.',
+            imgDesc: 'Outdoor stairlift on exterior stone steps of a Portuguese house, waterproof model, WebP',
+          },
+          {
+            href: '/elevadores-de-escadas/escadas-estreitas/',
+            title: 'Escadas Estreitas',
+            price: 'A partir de €2.800',
+            desc: 'Modelos slim para escadas com pouco espaço.',
+            imgDesc: 'Slim stairlift model on a very narrow staircase, compact design, folded position visible, WebP',
+          },
+        ].map((model) => (
+          <a href={model.href} class="group bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all">
+            <div
+              class="h-40 bg-secondary flex items-center justify-center"
+              data-image-description={model.imgDesc}
+            >
+              <div class="text-center p-3">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                </div>
+                <p class="font-body text-xs text-muted-foreground">Imagem a ser gerada</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-heading font-bold text-sm text-foreground mb-1 group-hover:text-primary transition-colors">{model.title}</h3>
+              <p class="font-heading font-semibold text-primary text-sm mb-1">{model.price}</p>
+              <p class="font-body text-xs text-muted-foreground">{model.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ FAQs -->
+  <FaqSection faqs={faqs} title="Dúvidas frequentes" />
+
+  <!-- ⑧ CTA FINAL -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <div class="bg-secondary rounded-3xl p-8 md:p-12 text-center">
+        <h2 class="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-3">
+          Dê o primeiro passo hoje
+        </h2>
+        <p class="font-body text-base text-muted-foreground mb-8 max-w-lg mx-auto">
+          Peça orçamentos gratuitos de instaladores certificados em Portugal. Sem compromisso — compare as propostas e escolha no seu tempo.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-10 py-4 text-base font-heading font-bold shadow-lg shadow-cta/25 hover:bg-cta/90 transition-all">
+            Pedir Orçamento Gratuito
+          </a>
+          <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border bg-background px-10 py-4 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">
+            Receber Catálogo Grátis
+          </a>
+        </div>
+        <p class="font-body text-xs text-muted-foreground mt-5">✓ Gratuito &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Até 3 propostas comparativas</p>
+      </div>
+    </div>
+  </section>
 
   <Footer />
 </Layout>
-<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+  .text-cta { color: hsl(16 76% 60%); }
+  .shadow-cta\/25 { box-shadow: 0 10px 15px -3px hsl(16 76% 60% / 0.25); }
+</style>
