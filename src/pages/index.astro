@@ -68,16 +68,16 @@ const articles = [
             </p>
             <div class="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="/equipamentos/elevadores-de-escadas/preco/"
-                class="inline-flex items-center rounded-lg bg-[#1D6954] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#155a46]"
-              >
-                Ver preços →
-              </a>
-              <a
                 href="/pedir-orcamento/"
-                class="inline-flex items-center rounded-lg border border-[#1D6954] px-6 py-3 text-base font-semibold text-[#1D6954] transition-colors hover:bg-[#1D6954]/5"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90"
               >
                 Pedir orçamento gratuito
+              </a>
+              <a
+                href="/equipamentos/elevadores-de-escadas/preco/"
+                class="inline-flex items-center rounded-full border border-cta px-7 py-3 text-base font-semibold text-cta transition-colors hover:bg-cta/5"
+              >
+                Ver preços →
               </a>
             </div>
           </div>
@@ -185,10 +185,10 @@ const articles = [
               <p class="text-sm text-foreground/60 leading-relaxed mb-4">
                 Suba e desça escadas sentado, sem obras complicadas. Cabe na maioria das escadas.
               </p>
-              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 2.500€</p>
+              <p class="text-sm font-semibold text-cta mb-5">desde 2.500€</p>
               <a
                 href="/equipamentos/elevadores-de-escadas/"
-                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+                class="inline-flex items-center text-sm font-semibold text-cta hover:underline"
               >
                 Saber mais →
               </a>
@@ -212,10 +212,10 @@ const articles = [
               <p class="text-sm text-foreground/60 leading-relaxed mb-4">
                 Ligue todos os pisos da sua casa com um elevador discreto. Sem casa de máquinas.
               </p>
-              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 8.500€</p>
+              <p class="text-sm font-semibold text-cta mb-5">desde 8.500€</p>
               <a
                 href="/equipamentos/elevadores/"
-                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+                class="inline-flex items-center text-sm font-semibold text-cta hover:underline"
               >
                 Saber mais →
               </a>
@@ -239,10 +239,10 @@ const articles = [
               <p class="text-sm text-foreground/60 leading-relaxed mb-4">
                 Acesso seguro em cadeira de rodas, interior ou exterior. O utilizador não sai da cadeira.
               </p>
-              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 4.000€</p>
+              <p class="text-sm font-semibold text-cta mb-5">desde 4.000€</p>
               <a
                 href="/equipamentos/plataformas-elevatorias/"
-                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+                class="inline-flex items-center text-sm font-semibold text-cta hover:underline"
               >
                 Saber mais →
               </a>
@@ -337,7 +337,7 @@ const articles = [
           {["Lisboa", "Porto", "Braga", "Aveiro", "Coimbra", "Setúbal", "Faro", "Leiria", "Viseu", "Évora", "Guimarães", "Funchal"].map((city) => (
             <a
               href="#"
-              class="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:border-[#1D6954] hover:text-[#1D6954]"
+              class="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:border-cta hover:text-cta"
             >
               {city}
             </a>
@@ -358,7 +358,7 @@ const articles = [
           </div>
           <a
             href="/recursos/"
-            class="hidden md:inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+            class="hidden md:inline-flex items-center text-sm font-semibold text-cta hover:underline"
           >
             Ver todos os artigos →
           </a>
@@ -387,7 +387,7 @@ const articles = [
                 <p class="text-sm text-foreground/60 leading-relaxed mb-4">{article.excerpt}</p>
                 <a
                   href={`/recursos/${article.slug}`}
-                  class="text-sm font-semibold text-[#1D6954] hover:underline"
+                  class="text-sm font-semibold text-cta hover:underline"
                 >
                   Continuar a ler →
                 </a>
@@ -397,7 +397,7 @@ const articles = [
         </div>
 
         <div class="mt-8 text-center md:hidden">
-          <a href="/recursos/" class="text-sm font-semibold text-[#1D6954] hover:underline">
+          <a href="/recursos/" class="text-sm font-semibold text-cta hover:underline">
             Ver todos os artigos →
           </a>
         </div>
@@ -418,7 +418,7 @@ const articles = [
         <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="/pedir-orcamento/"
-            class="inline-flex items-center rounded-lg bg-white px-8 py-3.5 text-base font-bold text-[#1D6954] transition-colors hover:bg-white/90"
+            class="inline-flex items-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-[#1D6954] transition-colors hover:bg-white/90"
           >
             Pedir orçamento agora
           </a>

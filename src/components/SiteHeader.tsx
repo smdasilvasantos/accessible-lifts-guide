@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const equipamentosLinks = [
   { label: "Elevadores de Escadas", href: "/equipamentos/elevadores-de-escadas/" },
@@ -88,8 +89,8 @@ const SiteHeader = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0 font-heading font-bold text-xl text-foreground">
-          Vida Acessível
+        <a href="/" className="flex-shrink-0">
+          <img src={(logo as unknown as { src: string }).src ?? (logo as unknown as string)} alt="Vida Acessível" className="h-9 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -115,7 +116,7 @@ const SiteHeader = () => {
         <div className="hidden md:block">
           <a
             href="/pedir-orcamento/"
-            className="inline-flex items-center rounded-lg bg-[#1D6954] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#155a46]"
+            className="inline-flex items-center rounded-full bg-cta px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
             Pedir Orçamento — Grátis
           </a>
@@ -205,7 +206,7 @@ const SiteHeader = () => {
             <div className="mt-3">
               <a
                 href="/pedir-orcamento/"
-                className="block w-full rounded-lg bg-[#1D6954] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[#155a46]"
+                className="block w-full rounded-full bg-cta px-4 py-3 text-center text-base font-semibold text-white hover:opacity-90"
               >
                 Pedir Orçamento — Grátis
               </a>
