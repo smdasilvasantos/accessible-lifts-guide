@@ -1,11 +1,437 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import IndexPage from '../_react_pages/Index';
+import SiteHeader from '../components/SiteHeader';
+import SiteFooter from '../components/SiteFooter';
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vida Acessível",
+  "url": "https://www.vidaacessivel.pt",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.vidaacessivel.pt/recursos/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const articles = [
+  {
+    slug: "guia-de-compra-elevadores-de-escadas",
+    category: "Guias de Compra",
+    title: "Guia de Compra de Elevadores de Escadas: Tudo o Que Precisa de Saber",
+    excerpt: "Antes de pedir orçamentos, leia este guia. Tipos de elevadores, o que afecta o preço, como avaliar instaladores e o que perguntar antes de assinar.",
+  },
+  {
+    slug: "apoios-aquisicao-equipamentos-mobilidade",
+    category: "Apoios e Legislação",
+    title: "Apoios para a Aquisição de Equipamentos de Mobilidade em Portugal",
+    excerpt: "Conheça o SAPA, o IVA reduzido a 6% e outras formas de financiamento que podem tornar a compra mais acessível.",
+  },
+  {
+    slug: "como-funciona-elevador-de-escadas",
+    category: "Elevadores de Escadas",
+    title: "Como Funciona um Elevador de Escadas?",
+    excerpt: "Explicação simples de como funciona: a calha, o carrinho, o motor e a bateria de emergência. Sem jargão técnico.",
+  },
+];
 ---
 
 <Layout
-  title="Preços Elevadores de Escadas — Vida Acessível"
-  description="Saiba quanto custa um elevador de escadas em Portugal. Compare orçamentos gratuitos de instaladores certificados."
+  title="Vida Acessível | Elevadores de Escadas e Soluções de Acessibilidade em Portugal"
+  description="Compare elevadores de escadas, elevadores residenciais e plataformas elevatórias. Receba até 3 orçamentos gratuitos de instaladores certificados em Portugal."
+  schema={websiteSchema}
 >
-  <IndexPage client:only="react" />
+  <SiteHeader client:load />
+
+  <main>
+    <!-- =========================================================
+         1. HERO
+    ========================================================= -->
+    <section class="relative overflow-hidden bg-background py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+
+          <!-- Text -->
+          <div class="order-2 md:order-1">
+            <p class="mb-4 inline-block rounded-full bg-[#1D6954]/10 px-3 py-1 text-sm font-medium text-[#1D6954]">
+              Uma casa sem obstáculos
+            </p>
+            <h1 class="font-heading text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-[3.25rem]">
+              Soluções para viver em casa com liberdade e independência
+            </h1>
+            <p class="mt-5 text-lg text-foreground/70 leading-relaxed max-w-lg">
+              Comparamos equipamentos e ligamos-o a instaladores certificados — de forma simples, gratuita e sem compromisso.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="/equipamentos/elevadores-de-escadas/preco/"
+                class="inline-flex items-center rounded-lg bg-[#1D6954] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#155a46]"
+              >
+                Ver preços →
+              </a>
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-lg border border-[#1D6954] px-6 py-3 text-base font-semibold text-[#1D6954] transition-colors hover:bg-[#1D6954]/5"
+              >
+                Pedir orçamento gratuito
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero image placeholder -->
+          <div class="order-1 md:order-2">
+            <div
+              class="img-placeholder"
+              style="background:#f0f0ec; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2; border-radius:12px;"
+              data-image-description="Elderly Portuguese woman, late 60s, sitting comfortably on a stairlift in a traditional Portuguese home with stone walls and warm interior light. She looks relaxed and independent. An adult family member is visible in the background, smiling warmly. The staircase has wooden banisters and ceramic tile flooring. Sony A7R IV, 35mm f/2.0, natural light, warm tones. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#999;">📷 Imagem</span>
+              <span style="font-size:13px; color:#aaa; text-align:center; padding:1rem;">
+                Mulher idosa a usar cadeira elevatória em casa portuguesa tradicional
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. COMO FUNCIONA — 3 steps
+    ========================================================= -->
+    <section class="bg-muted/40 py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground">Como funciona</h2>
+          <p class="mt-3 text-foreground/60 max-w-md mx-auto">Três passos simples. Sem compromisso, sem custo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <div class="mb-1.5 text-xs font-semibold uppercase tracking-widest text-[#1D6954]">Passo 1</div>
+            <h3 class="font-heading text-lg font-semibold text-foreground mb-2">Indique o que procura</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Diga-nos o tipo de equipamento de que precisa. Leva menos de 2 minutos.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="mb-1.5 text-xs font-semibold uppercase tracking-widest text-[#1D6954]">Passo 2</div>
+            <h3 class="font-heading text-lg font-semibold text-foreground mb-2">Receba até 3 propostas gratuitas</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Instaladores certificados enviam propostas personalizadas para o seu caso.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="mb-1.5 text-xs font-semibold uppercase tracking-widest text-[#1D6954]">Passo 3</div>
+            <h3 class="font-heading text-lg font-semibold text-foreground mb-2">Compare e escolha com calma</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Analise as propostas sem pressão. Decida quando estiver pronto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. SOLUÇÕES — 3 product cards
+    ========================================================= -->
+    <section class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground">Que equipamento precisa?</h2>
+          <p class="mt-3 text-foreground/60 max-w-lg mx-auto">
+            Cada situação é diferente. Veja as três principais soluções e encontre a que se adapta à sua casa.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Card 1: Elevadores de Escadas -->
+          <div class="rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#f0f0ec; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A compact stairlift chair on a straight wooden staircase inside a traditional Portuguese home. The chair is folded neatly against the wall. Warm cream-coloured walls, ceramic tile floor visible at the base. Natural light from a window. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#999;">📷 Imagem</span>
+              <span style="font-size:13px; color:#aaa; text-align:center; padding:1rem;">
+                Elevador de escadas numa escada reta em casa portuguesa
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold text-foreground mb-2">Elevadores de Escadas</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Suba e desça escadas sentado, sem obras complicadas. Cabe na maioria das escadas.
+              </p>
+              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 2.500€</p>
+              <a
+                href="/equipamentos/elevadores-de-escadas/"
+                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+              >
+                Saber mais →
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Elevadores Residenciais -->
+          <div class="rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#f0f0ec; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A small modern home lift (homelift) inside a contemporary Portuguese villa. Glass panels, warm interior lighting, visible through an open doorway. The lift connects two floors. An older couple stands nearby, looking pleased. Sony A7R IV, 35mm f/2.0, natural interior light. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#999;">📷 Imagem</span>
+              <span style="font-size:13px; color:#aaa; text-align:center; padding:1rem;">
+                Elevador residencial compacto em moradia portuguesa
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold text-foreground mb-2">Elevadores Residenciais</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Ligue todos os pisos da sua casa com um elevador discreto. Sem casa de máquinas.
+              </p>
+              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 8.500€</p>
+              <a
+                href="/equipamentos/elevadores/"
+                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+              >
+                Saber mais →
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Plataformas Elevatórias -->
+          <div class="rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#f0f0ec; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A wheelchair platform lift on a straight staircase inside a Portuguese apartment building common area. The platform is at the bottom of the stairs, slightly raised. Tiled floors and light walls. An older man in a wheelchair is about to use the platform. Sony A7R IV, 35mm f/2.0, natural light. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#999;">📷 Imagem</span>
+              <span style="font-size:13px; color:#aaa; text-align:center; padding:1rem;">
+                Plataforma elevatória para cadeira de rodas em edifício português
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold text-foreground mb-2">Plataformas Elevatórias</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Acesso seguro em cadeira de rodas, interior ou exterior. O utilizador não sai da cadeira.
+              </p>
+              <p class="text-sm font-semibold text-[#1D6954] mb-5">desde 4.000€</p>
+              <a
+                href="/equipamentos/plataformas-elevatorias/"
+                class="inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+              >
+                Saber mais →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. PORQUÊ VIDA ACESSÍVEL — 4 USPs
+    ========================================================= -->
+    <section class="bg-muted/40 py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground">Porquê o Vida Acessível?</h2>
+          <p class="mt-3 text-foreground/60 max-w-md mx-auto">
+            Não vendemos. Informamos, comparamos e ligamos-o às melhores opções.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- USP 1 -->
+          <div class="rounded-xl bg-background p-6 border border-border">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-base font-semibold text-foreground mb-1.5">Até 3 orçamentos gratuitos</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Receba propostas de vários instaladores e compare sem custo nem compromisso.
+            </p>
+          </div>
+
+          <!-- USP 2 -->
+          <div class="rounded-xl bg-background p-6 border border-border">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-base font-semibold text-foreground mb-1.5">Instaladores certificados</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Trabalhamos apenas com empresas verificadas e com experiência comprovada.
+            </p>
+          </div>
+
+          <!-- USP 3 -->
+          <div class="rounded-xl bg-background p-6 border border-border">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-base font-semibold text-foreground mb-1.5">Processo simples e rápido</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Preenche um formulário em 2 minutos. Nós tratamos do resto.
+            </p>
+          </div>
+
+          <!-- USP 4 -->
+          <div class="rounded-xl bg-background p-6 border border-border">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D6954]/10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#1D6954]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-base font-semibold text-foreground mb-1.5">Cobertura nacional</h3>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Parceiros em todo o Portugal continental e ilhas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. CIDADES — city chips
+    ========================================================= -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-10">
+          <h2 class="font-heading text-2xl font-bold text-foreground">Instaladores certificados em todo o Portugal</h2>
+          <p class="mt-3 text-foreground/60 max-w-lg mx-auto">
+            A nossa rede cobre todo o país. Encontre o instalador certo para a sua zona.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3">
+          {/* TODO: wire city links to local pages when built */}
+          {["Lisboa", "Porto", "Braga", "Aveiro", "Coimbra", "Setúbal", "Faro", "Leiria", "Viseu", "Évora", "Guimarães", "Funchal"].map((city) => (
+            <a
+              href="#"
+              class="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:border-[#1D6954] hover:text-[#1D6954]"
+            >
+              {city}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. ARTIGOS RECENTES
+    ========================================================= -->
+    <section class="bg-muted/40 py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <h2 class="font-heading text-3xl font-bold text-foreground">Guias e recursos úteis</h2>
+            <p class="mt-2 text-foreground/60">Informação clara para tomar a melhor decisão.</p>
+          </div>
+          <a
+            href="/recursos/"
+            class="hidden md:inline-flex items-center text-sm font-semibold text-[#1D6954] hover:underline"
+          >
+            Ver todos os artigos →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {articles.map((article) => (
+            <article class="rounded-xl border border-border bg-background overflow-hidden hover:shadow-md transition-shadow">
+              <div
+                class="img-placeholder"
+                style="background:#f0f0ec; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:16/9;"
+                data-image-description={`Editorial illustration for an article titled "${article.title}". Portuguese residential context, warm tones, calm and informative mood. Sony A7R IV style, natural light. WebP format.`}
+              >
+                <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#999;">📷 Imagem</span>
+                <span style="font-size:12px; color:#aaa; text-align:center; padding:1rem;">
+                  {article.title}
+                </span>
+              </div>
+              <div class="p-5">
+                <span class="inline-block rounded-full bg-[#1D6954]/10 px-2.5 py-0.5 text-xs font-medium text-[#1D6954] mb-3">
+                  {article.category}
+                </span>
+                <h3 class="font-heading text-base font-semibold text-foreground leading-snug mb-2">
+                  {article.title}
+                </h3>
+                <p class="text-sm text-foreground/60 leading-relaxed mb-4">{article.excerpt}</p>
+                <a
+                  href={`/recursos/${article.slug}`}
+                  class="text-sm font-semibold text-[#1D6954] hover:underline"
+                >
+                  Continuar a ler →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-8 text-center md:hidden">
+          <a href="/recursos/" class="text-sm font-semibold text-[#1D6954] hover:underline">
+            Ver todos os artigos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. CTA BANNER
+    ========================================================= -->
+    <section class="bg-[#1D6954] py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
+        <h2 class="font-heading text-3xl font-bold text-white md:text-4xl">
+          Receba até 3 orçamentos gratuitos
+        </h2>
+        <p class="mt-4 text-lg text-white/80 leading-relaxed">
+          Preencha o formulário em menos de 2 minutos. Instaladores certificados contactam-no com propostas personalizadas e gratuitas.
+        </p>
+        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <a
+            href="/pedir-orcamento/"
+            class="inline-flex items-center rounded-lg bg-white px-8 py-3.5 text-base font-bold text-[#1D6954] transition-colors hover:bg-white/90"
+          >
+            Pedir orçamento agora
+          </a>
+          <a
+            href="/catalogo-gratis/"
+            class="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            Prefere primeiro o catálogo? Peça aqui →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter client:load />
 </Layout>
