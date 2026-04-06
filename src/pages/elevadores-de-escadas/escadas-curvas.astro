@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Por que as escadas curvas custam mais?', answer: 'As escadas curvas requerem uma calha fabricada à medida, de acordo com a geometria exata da escada. Este processo de medição e produção personalizada aumenta o custo, tipicamente entre €5.000 e €9.000.' },
+  { question: 'Quanto tempo demora a instalar numa escada curva?', answer: 'Após a visita técnica e produção da calha (que demora geralmente 2 a 4 semanas), a instalação em si demora 4 a 8 horas num único dia.' },
+  { question: 'O elevador para escadas curvas funciona em escadas em L ou U?', answer: 'Sim. A calha pode adaptar-se a curvas de qualquer ângulo, escadas em L, em U, com patamares intermédios ou qualquer combinação. A visita técnica determina exatamente a geometria necessária.' },
+  { question: 'Posso depois usar o equipamento noutra casa se mudar?', answer: 'Tecnicamente possível, mas como a calha é feita à medida para a escada específica, só funciona naquela escada. A cadeira (o assento motorizado) pode ser reutilizada com uma nova calha, mas isso raramente compensa financeiramente.' },
+];
+
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+
+<Layout
+  title="Elevador de Escadas Curvas — Calha Feita à Medida | Vida Acessível"
+  description="Elevadores para escadas curvas, em L, U ou com patamares. Calha fabricada à medida. Preços de €5.000 a €9.000. Compare orçamentos gratuitos."
+  canonical="/elevadores-de-escadas/escadas-curvas/"
+  schemas={[faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Elevadores de Escadas', url: '/equipamentos/elevadores-de-escadas/' }, { name: 'Escadas Curvas', url: '/elevadores-de-escadas/escadas-curvas/' }]}
+>
+  <Nav />
+  <nav aria-label="Breadcrumb" class="py-4 border-b border-border"><div class="max-w-6xl mx-auto px-6"><ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"><li><a href="/" class="hover:text-foreground">Início</a></li><li aria-hidden="true">›</li><li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground">Elevadores de Escadas</a></li><li aria-hidden="true">›</li><li><span class="text-foreground font-medium">Escadas Curvas</span></li></ol></div></nav>
+
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador para escadas curvas: a solução feita à medida</h1>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">Tem escadas com curva, em L, em U ou com patamares? A calha do elevador é fabricada à medida da geometria exata da sua escada — por isso esta solução adapta-se a praticamente qualquer configuração.</p>
+      <div class="grid grid-cols-3 gap-4 mb-8 max-w-lg">
+        {[{ label: 'Preço', value: '€5.000–€9.000' }, { label: 'Produção', value: '2–4 semanas' }, { label: 'Instalação', value: '1 dia' }].map(s => (<div class="text-center bg-card border border-border rounded-xl p-3"><p class="font-heading font-bold text-primary text-lg">{s.value}</p><p class="font-body text-xs text-muted-foreground">{s.label}</p></div>))}
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">Ver preços</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-5">Por que as escadas curvas são mais complexas?</h2>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">Ao contrário das escadas retas, onde se usa uma calha standard, nas escadas curvas a calha tem de ser desenhada e produzida especificamente para os ângulos, raios e comprimentos exatos da escada. Este processo envolve uma visita técnica de medição e várias semanas de produção.</p>
+      <p class="font-body text-base text-muted-foreground leading-relaxed">O resultado é um equipamento que se encaixa perfeitamente na escada, funcionando com total segurança e sem qualquer comprometimento da estética do espaço.</p>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} />
+
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-xl text-foreground mb-5">Veja também</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[{ href: '/elevadores-de-escadas/escadas-retas/', title: 'Escadas Retas', desc: 'Solução mais económica para lances retos' }, { href: '/elevadores-de-escadas/escadas-exteriores/', title: 'Exteriores', desc: 'Para uso ao ar livre' }, { href: '/plataformas-elevatorias/escadas-curvas/', title: 'Plataformas curvas', desc: 'Para utilizadores de cadeira de rodas' }].map(r => (<a href={r.href} class="group bg-secondary border border-border rounded-2xl p-4 hover:border-primary/30 transition-all"><h3 class="font-heading font-semibold text-sm text-foreground mb-1 group-hover:text-primary">{r.title}</h3><p class="font-body text-xs text-muted-foreground">{r.desc}</p></a>))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>

@@ -1,0 +1,182 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  equipmentType?: string;
+  compact?: boolean;
+}
+const {
+  title = 'Peça orçamentos gratuitos',
+  subtitle = 'Preencha o formulário e receba até 3 orçamentos de instaladores certificados, sem compromisso.',
+  equipmentType = '',
+  compact = false,
+} = Astro.props;
+---
+
+<div class={compact ? '' : 'bg-secondary rounded-2xl p-6 md:p-10'}>
+  {!compact && (
+    <div class="mb-8 text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-2">{title}</h2>
+      <p class="font-body text-base text-muted-foreground max-w-md mx-auto">{subtitle}</p>
+    </div>
+  )}
+
+  <form
+    id="quote-form"
+    class="space-y-4 max-w-lg mx-auto"
+    novalidate
+  >
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label for="nome" class="block font-body text-sm font-semibold text-foreground mb-1.5">Nome *</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          placeholder="O seu nome"
+          class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+        />
+      </div>
+      <div>
+        <label for="telefone" class="block font-body text-sm font-semibold text-foreground mb-1.5">Telefone *</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          required
+          placeholder="9XX XXX XXX"
+          class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="email" class="block font-body text-sm font-semibold text-foreground mb-1.5">Email *</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="o.seu@email.pt"
+        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+      />
+    </div>
+
+    <div>
+      <label for="equipamento" class="block font-body text-sm font-semibold text-foreground mb-1.5">Tipo de equipamento</label>
+      <select
+        id="equipamento"
+        name="equipamento"
+        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+      >
+        <option value={equipmentType || ''} selected={!!equipmentType}>{equipmentType || 'Selecione...'}</option>
+        {!equipmentType && (
+          <>
+            <option value="elevador-escadas">Elevador de Escadas</option>
+            <option value="elevador-residencial">Elevador Residencial</option>
+            <option value="plataforma-elevatoria">Plataforma Elevatória</option>
+            <option value="nao-sei">Não sei ainda</option>
+          </>
+        )}
+      </select>
+    </div>
+
+    <div>
+      <label for="mensagem" class="block font-body text-sm font-semibold text-foreground mb-1.5">Mensagem (opcional)</label>
+      <textarea
+        id="mensagem"
+        name="mensagem"
+        rows="3"
+        placeholder="Descreva brevemente a sua situação ou dúvidas..."
+        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow resize-none"
+      ></textarea>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <input
+        type="checkbox"
+        id="privacidade"
+        name="privacidade"
+        required
+        class="mt-0.5 h-4 w-4 rounded border-border text-primary focus:ring-primary/40"
+      />
+      <label for="privacidade" class="font-body text-xs text-muted-foreground leading-relaxed">
+        Li e aceito a <a href="/politica-de-privacidade/" class="text-primary hover:underline">Política de Privacidade</a>. Concordo com o tratamento dos meus dados para efeitos de orçamento. *
+      </label>
+    </div>
+
+    <div id="form-error" class="hidden text-sm text-destructive font-body"></div>
+    <div id="form-success" class="hidden bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 text-sm text-primary font-body font-medium"></div>
+
+    <button
+      type="submit"
+      id="quote-submit"
+      class="w-full rounded-full bg-cta text-cta-foreground px-6 py-3 text-base font-heading font-bold shadow-lg shadow-cta/25 hover:bg-cta/90 transition-all disabled:opacity-60"
+    >
+      Pedir Orçamentos Gratuitos
+    </button>
+
+    <p class="text-center font-body text-xs text-muted-foreground">
+      ✓ Gratuito &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Até 3 propostas
+    </p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('quote-submit') as HTMLButtonElement;
+  const errorEl = document.getElementById('form-error') as HTMLElement;
+  const successEl = document.getElementById('form-success') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.add('hidden');
+    successEl.classList.add('hidden');
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Basic validation
+    if (!data.nome || !data.email || !data.telefone) {
+      errorEl.textContent = 'Por favor preencha todos os campos obrigatórios.';
+      errorEl.classList.remove('hidden');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email as string)) {
+      errorEl.textContent = 'Por favor introduza um email válido.';
+      errorEl.classList.remove('hidden');
+      return;
+    }
+    if (!data.privacidade) {
+      errorEl.textContent = 'Deve aceitar a Política de Privacidade para continuar.';
+      errorEl.classList.remove('hidden');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'A enviar...';
+
+    try {
+      const res = await fetch('/api/orcamento', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        successEl.textContent = 'Pedido enviado com sucesso! Receberá em breve as propostas por email.';
+        successEl.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      errorEl.textContent = 'Ocorreu um erro. Por favor tente novamente ou contacte-nos diretamente.';
+      errorEl.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Pedir Orçamentos Gratuitos';
+    }
+  });
+</script>

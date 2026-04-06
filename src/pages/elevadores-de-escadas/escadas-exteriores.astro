@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'O elevador exterior aguenta a chuva e o sol?', answer: 'Sim. Os modelos exteriores são construídos com materiais resistentes à corrosão, proteção UV e vedações impermeáveis. Os componentes elétricos são protegidos contra humidade. São testados para temperaturas entre -20°C e +50°C.' },
+  { question: 'Preciso cobrir o elevador exterior quando não uso?', answer: 'Recomenda-se guardar a cadeira numa posição protegida (no topo ou fundo das escadas, coberta). Muitos modelos têm uma capa de proteção incluída. A maioria dos fabricantes recomenda manutenção anual para equipamentos exteriores.' },
+  { question: 'O elevador exterior tem o mesmo preço que o interior?', answer: 'Não. Os modelos exteriores custam geralmente €500 a €2.000 a mais que os equivalentes interiores, devido ao custo adicional dos materiais resistentes às intempéries.' },
+  { question: 'Posso instalar num terraço ou jardim com desnível?', answer: 'Sim, desde que haja uma escada física onde instalar a calha. O elevador percorre a escada existente, não cria um percurso novo. Para desníveis sem escada, uma plataforma elevatória vertical pode ser mais adequada.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Elevador de Escadas Exteriores — Resistente às Intempéries | Vida Acessível"
+  description="Elevadores de escadas para exterior: resistentes à chuva, UV e temperatura. Preços de €3.500 a €6.500. Ideal para entrada de casa e jardins. Orçamentos gratuitos."
+  canonical="/elevadores-de-escadas/escadas-exteriores/"
+  schemas={[faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Elevadores de Escadas', url: '/equipamentos/elevadores-de-escadas/' }, { name: 'Escadas Exteriores', url: '/elevadores-de-escadas/escadas-exteriores/' }]}
+>
+  <Nav />
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <nav aria-label="Breadcrumb" class="mb-5"><ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"><li><a href="/" class="hover:text-foreground">Início</a></li><li>›</li><li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground">Elevadores de Escadas</a></li><li>›</li><li><span class="text-foreground font-medium">Exteriores</span></li></ol></nav>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador de escadas exteriores: acesso seguro ao ar livre</h1>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">Para escadas de entrada de casa, jardins ou terraços. Os modelos exteriores são especialmente concebidos para resistir à chuva, vento, sol e variações de temperatura extremas.</p>
+      <div class="grid grid-cols-3 gap-4 mb-8 max-w-lg">
+        {[{ label: 'Preço', value: '€3.500–€6.500' }, { label: 'Resistência', value: 'IP55+' }, { label: 'Obras', value: 'Nenhuma' }].map(s => (<div class="text-center bg-card border border-border rounded-xl p-3"><p class="font-heading font-bold text-primary text-lg">{s.value}</p><p class="font-body text-xs text-muted-foreground">{s.label}</p></div>))}
+      </div>
+      <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+    </div>
+  </section>
+  <section class="section-spacing"><div class="content-width"><h2 class="font-heading font-bold text-2xl text-foreground mb-5">Características dos modelos exteriores</h2><div class="grid sm:grid-cols-3 gap-5">{[{ title: 'À prova de chuva', desc: 'Vedações e revestimentos impermeáveis protegem todos os componentes elétricos.' }, { title: 'Resistente a UV', desc: 'Materiais tratados para não desbotarem nem degradarem com a exposição solar.' }, { title: 'Temperatura extrema', desc: 'Funcionamento garantido entre -20°C e +50°C, cobrindo todas as estações.' }].map(b => (<div class="bg-secondary rounded-2xl p-5"><h3 class="font-heading font-bold text-base text-foreground mb-2">{b.title}</h3><p class="font-body text-sm text-muted-foreground">{b.desc}</p></div>))}</div></div></section>
+  <FaqSection faqs={faqs} />
+  <section class="section-spacing"><div class="content-width"><h2 class="font-heading font-bold text-xl text-foreground mb-5">Veja também</h2><div class="grid sm:grid-cols-3 gap-4">{[{ href: '/elevadores-de-escadas/escadas-retas/', title: 'Escadas Retas', desc: 'Para interiores — solução mais económica' }, { href: '/plataformas-elevatorias/exteriores/', title: 'Plataformas Exteriores', desc: 'Para cadeiras de rodas ao ar livre' }, { href: '/equipamentos/elevadores-de-escadas/', title: 'Todos os tipos', desc: 'Comparar todos os modelos' }].map(r => (<a href={r.href} class="group bg-secondary border border-border rounded-2xl p-4 hover:border-primary/30"><h3 class="font-heading font-semibold text-sm text-foreground mb-1 group-hover:text-primary">{r.title}</h3><p class="font-body text-xs text-muted-foreground">{r.desc}</p></a>))}</div></div></section>
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

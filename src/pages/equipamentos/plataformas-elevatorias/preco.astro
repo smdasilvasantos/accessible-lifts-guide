@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Qual é o preço mínimo de uma plataforma elevatória?', answer: 'O preço mínimo para uma plataforma elevatória para escadas retas é de cerca de €3.500, incluindo instalação. Os modelos para escadas curvas ou exterior têm preços superiores.' },
+  { question: 'A plataforma elevatória beneficia de IVA a 6%?', answer: 'Sim. As plataformas elevatórias para pessoas com mobilidade reduzida beneficiam de IVA a 6% em Portugal. Confirme sempre com o instalador.' },
+  { question: 'O condomínio comparticipa no custo?', answer: 'Em condomínios, quando a plataforma é instalada em espaços comuns, pode ser o condomínio a suportar o custo total ou parcial, dependendo das deliberações da assembleia. Consulte o administrador.' },
+  { question: 'A plataforma é mais cara que o elevador de escadas?', answer: 'Geralmente sim. Uma plataforma elevatória para escadas retas custa entre €3.500 e €7.000, enquanto um elevador de escadas reta custa €2.500 a €4.500. O custo adicional justifica-se pela possibilidade de transportar a cadeira de rodas sem transferência.' },
+];
+const offerSchema = { '@context': 'https://schema.org', '@type': 'AggregateOffer', name: 'Plataformas Elevatórias', priceCurrency: 'EUR', lowPrice: '3500', highPrice: '12000', description: 'Preços de plataformas elevatórias em Portugal' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Quanto Custa uma Plataforma Elevatória em Portugal? Preços 2025 | Vida Acessível"
+  description="Preços reais de plataformas elevatórias em Portugal (2025): €3.500 a €12.000. Tipos, fatores de custo, IVA 6% e como obter orçamentos gratuitos."
+  canonical="/equipamentos/plataformas-elevatorias/preco/"
+  schemas={[offerSchema, faqSchema]}
+>
+  <Nav />
+  <section class="bg-secondary section-spacing"><div class="content-width">
+    <nav aria-label="Breadcrumb" class="mb-5"><ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"><li><a href="/" class="hover:text-foreground">Início</a></li><li>›</li><li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-foreground">Plataformas Elevatórias</a></li><li>›</li><li><span class="text-foreground font-medium">Preço</span></li></ol></nav>
+    <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Quanto custa uma plataforma elevatória em Portugal?</h1>
+    <p class="font-body text-lg text-muted-foreground leading-relaxed">Preços completos e atualizados (2025) para todos os tipos de plataformas elevatórias, com fatores de custo e apoios disponíveis.</p>
+  </div></section>
+  <section class="section-spacing"><div class="content-width">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Preços por tipo de plataforma</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border border-border rounded-xl overflow-hidden">
+        <thead><tr class="bg-secondary"><th class="text-left px-5 py-3 font-heading font-bold text-sm text-foreground">Tipo</th><th class="text-left px-5 py-3 font-heading font-bold text-sm text-foreground">Preço (c/ instalação)</th></tr></thead>
+        <tbody class="divide-y divide-border">
+          {[{ type: 'Plataforma para escadas retas', price: '€3.500 – €7.000' }, { type: 'Plataforma para escadas curvas', price: '€6.000 – €12.000' }, { type: 'Plataforma para exterior', price: '€4.500 – €9.000' }, { type: 'Micro-elevador vertical', price: '€4.000 – €10.000' }].map(row => (<tr class="hover:bg-secondary/50"><td class="px-5 py-3 font-body text-sm text-foreground">{row.type}</td><td class="px-5 py-3 font-heading font-bold text-primary">{row.price}</td></tr>))}
+        </tbody>
+      </table>
+    </div>
+  </div></section>
+  <section class="bg-primary/5 section-spacing border-y border-primary/10"><div class="content-width">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-5">Apoios do Estado</h2>
+    <div class="grid sm:grid-cols-3 gap-5">
+      {[{ title: 'IVA a 6%', desc: 'Aplicável a plataformas para pessoas com mobilidade reduzida.' }, { title: 'SAPA', desc: 'Comparticipação para pessoas com deficiência reconhecida.' }, { title: 'Câmaras Municipais', desc: 'Alguns municípios têm programas de apoio específicos para acessibilidade.' }].map(s => (<div class="bg-card border border-primary/20 rounded-xl p-5"><h3 class="font-heading font-bold text-base text-primary mb-2">{s.title}</h3><p class="font-body text-sm text-muted-foreground">{s.desc}</p></div>))}
+    </div>
+  </div></section>
+  <section class="section-spacing"><div class="content-width text-center">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Compare orçamentos gratuitos</h2>
+    <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Receba propostas de instaladores certificados e escolha a melhor para a sua situação.</p>
+    <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamentos Gratuitos</a>
+  </div></section>
+  <FaqSection faqs={faqs} title="Perguntas sobre preços" />
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

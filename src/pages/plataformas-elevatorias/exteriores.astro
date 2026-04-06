@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Qual é o grau de proteção necessário para exterior?', answer: 'Os modelos exteriores devem ter grau de proteção IP54 ou superior (resistente a salpicos e poeira). Os melhores modelos têm IP65, completamente protegidos contra jatos de água.' },
+  { question: 'Qual é a largura mínima de escada?', answer: 'Para plataformas elevatórias, recomenda-se uma largura mínima de escada de 80 cm. Com a plataforma dobrada em repouso, fica ocupados apenas 35-40 cm.' },
+  { question: 'É necessário aprovação do condomínio?', answer: 'Em espaços comuns de condomínio, sim. Precisa de aprovação em assembleia de condóminos. O instalador pode ajudar com documentação técnica e apoio no processo.' },
+  { question: 'Que manutenção é necessária?', answer: 'Revisão anual recomendada. Os modelos exteriores requerem atenção adicional às vedações e lubrificação das peças móveis.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Plataformas Elevatórias Exteriores — Preço e Instalação em Portugal | Vida Acessível"
+  description="Para acesso a entrada de casa, terraços ou jardins com desnível em escadas. Construídas com materiais resistentes às intempéries e tratamento anti-corrosão. Preços de €4.500–€9.000. Compare orçamentos gratuitos de instaladores certificados."
+  canonical="/plataformas-elevatorias/exteriores/"
+  schemas={[faqSchema]}
+>
+  <Nav />
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <nav aria-label="Breadcrumb" class="mb-5"><ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"><li><a href="/" class="hover:text-foreground">Início</a></li><li>›</li><li><a href="/equipamentos/plataformas-elevatorias/" class="hover:text-foreground">Plataformas Elevatórias</a></li><li>›</li><li><span class="text-foreground font-medium">Plataformas Elevatórias Exteriores</span></li></ol></nav>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Plataformas Elevatórias Exteriores — Resistentes para Uso ao Ar Livre</h1>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">Para acesso a entrada de casa, terraços ou jardins com desnível em escadas. Construídas com materiais resistentes às intempéries e tratamento anti-corrosão.</p>
+      <div class="bg-card border border-border rounded-xl inline-flex px-5 py-3 mb-8">
+        <p class="font-heading font-bold text-primary text-lg mr-3">€4.500–€9.000</p>
+        <p class="font-body text-sm text-muted-foreground self-center">Preço indicativo</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} />
+  <section class="section-spacing"><div class="content-width text-center">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Compare orçamentos gratuitos</h2>
+    <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Receba até 3 propostas de instaladores certificados e escolha com confiança.</p>
+    <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+  </div></section>
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

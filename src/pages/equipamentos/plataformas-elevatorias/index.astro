@@ -1,0 +1,190 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+
+const faqs = [
+  {
+    question: 'Qual é a diferença entre plataforma elevatória e elevador de escadas?',
+    answer: 'A plataforma elevatória suporta uma cadeira de rodas com o utilizador, sem necessidade de transferência. O elevador de escadas (cadeira de escadas) exige que o utilizador se sente na cadeira do equipamento, sendo mais adequado para quem ainda consegue fazer essa transferência. A plataforma é ideal para utilizadores de cadeira de rodas ou pessoas que não podem sentar-se numa cadeira de escadas.',
+  },
+  {
+    question: 'Quanto custa uma plataforma elevatória em Portugal?',
+    answer: 'O preço de uma plataforma elevatória para escadas varia entre €3.500 e €10.000 para modelos de escadas retas. Plataformas para escadas curvas ou para instalação exterior custam mais. As plataformas verticais (tipo elevador) para pequenas alturas têm preços a partir de €4.000.',
+  },
+  {
+    question: 'A plataforma elevatória ocupa muito espaço na escada?',
+    answer: 'Quando em uso, a plataforma ocupa a largura total da escada. Quando dobrada (em repouso), ocupa apenas 30 a 40 cm de largura lateral, deixando a escada acessível para outros utilizadores. Existe uma largura mínima de escada recomendada de cerca de 70-80 cm para instalação.',
+  },
+  {
+    question: 'É possível instalar uma plataforma elevatória num condomínio?',
+    answer: 'Sim, mas requer aprovação em assembleia de condóminos por maioria qualificada. Em espaços públicos e condomínios, as plataformas elevatórias são muitas vezes a solução mais indicada para cumprir requisitos de acessibilidade. O instalador pode ajudar com a documentação técnica para a assembleia.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Plataformas Elevatórias',
+  description: 'Instalação de plataformas elevatórias em Portugal para cadeiras de rodas e mobilidade reduzida.',
+  provider: { '@type': 'Organization', name: 'Vida Acessível' },
+  areaServed: { '@type': 'Country', name: 'Portugal' },
+  serviceType: 'Acessibilidade Residencial',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Plataformas Elevatórias — Preços, Tipos e Instalação em Portugal | Vida Acessível"
+  description="Guia completo de plataformas elevatórias em Portugal: tipos, preços (€3.500–€10.000), instalação para cadeiras de rodas e como obter orçamentos gratuitos."
+  canonical="/equipamentos/plataformas-elevatorias/"
+  schemas={[serviceSchema, faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Equipamentos', url: '/equipamentos/plataformas-elevatorias/' }, { name: 'Plataformas Elevatórias', url: '/equipamentos/plataformas-elevatorias/' }]}
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="bg-secondary overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center min-h-[520px] py-12">
+        <div class="order-2 md:order-1">
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Equipamentos</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-5">
+            Plataformas elevatórias: mobilidade total sem transferências
+          </h1>
+          <p class="font-body text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
+            A solução ideal para utilizadores de cadeira de rodas. Suba e desça escadas com a cadeira, sem qualquer esforço ou transferência.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+              Pedir Orçamento Gratuito
+            </a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border bg-background px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">
+              Catálogo Grátis
+            </a>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div
+            class="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 h-[320px] md:h-[400px] bg-primary/5 flex items-center justify-center"
+            data-image-description="Wheelchair platform lift installed on a staircase in a modern Portuguese condominium, person in wheelchair on platform, accessible design, natural light, WebP"
+          >
+            <div class="text-center p-8">
+              <div class="text-5xl mb-3">♿</div>
+              <p class="font-heading font-semibold text-primary text-sm">Plataforma elevatória</p>
+              <p class="font-body text-xs text-muted-foreground mt-1">Imagem a ser gerada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-TYPE CARDS -->
+  <section class="section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">Tipos de plataformas elevatórias</h2>
+      <p class="font-body text-base text-muted-foreground mb-10 max-w-2xl">Existem modelos para diferentes tipos de escada e contexto de utilização.</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { href: '/plataformas-elevatorias/escadas-retas/', title: 'Escadas Retas', desc: 'Plataforma que percorre escadas retas em segurança. Instalação rápida e sem obras.' },
+          { href: '/plataformas-elevatorias/escadas-curvas/', title: 'Escadas Curvas', desc: 'Calha feita à medida para escadas com curvas ou patamares.' },
+          { href: '/plataformas-elevatorias/exteriores/', title: 'Exteriores', desc: 'Modelos resistentes à chuva e variações de temperatura para uso ao ar livre.' },
+        ].map((sub) => (
+          <a href={sub.href} class="group bg-card border border-border rounded-2xl p-5 hover:shadow-lg hover:border-primary/30 transition-all">
+            <h3 class="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary transition-colors">{sub.title}</h3>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{sub.desc}</p>
+            <span class="inline-flex items-center gap-1 font-heading font-semibold text-sm text-primary group-hover:gap-2 transition-all">
+              Saber mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATIONAL CONTENT -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-5">O que é uma plataforma elevatória?</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Uma plataforma elevatória é um equipamento que permite a pessoas em cadeira de rodas — ou com grande dificuldade de mobilidade — subir e descer escadas sem necessidade de se transferirem da cadeira.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            O utilizador permanece na cadeira de rodas, que é colocada na plataforma. O equipamento desliza ao longo de uma calha instalada na escada, com total segurança.
+          </p>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-3 mt-6">Principais diferenças para o elevador de escadas</h3>
+          <div class="space-y-3">
+            {[
+              { item: 'Não é necessário transferir da cadeira de rodas', value: 'Plataforma ✓' },
+              { item: 'Pode transportar ajudas técnicas volumosas', value: 'Plataforma ✓' },
+              { item: 'Dimensão maior na escada quando em uso', value: 'Plataforma' },
+              { item: 'Custo geralmente superior', value: 'Plataforma' },
+            ].map((row) => (
+              <div class="flex justify-between items-center py-2 border-b border-border last:border-0">
+                <span class="font-body text-sm text-muted-foreground">{row.item}</span>
+                <span class="font-body text-xs text-primary font-semibold">{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-foreground mb-4">Preço das plataformas elevatórias</h3>
+          <div class="space-y-3 mb-6">
+            {[
+              { type: 'Escadas retas (residencial)', range: '€3.500 – €7.000' },
+              { type: 'Escadas curvas (feita à medida)', range: '€6.000 – €12.000' },
+              { type: 'Exterior (residencial)', range: '€4.500 – €9.000' },
+              { type: 'Plataforma vertical (micro-elevador)', range: '€4.000 – €10.000' },
+            ].map((item) => (
+              <div class="flex items-center justify-between bg-card border border-border rounded-xl px-5 py-3">
+                <span class="font-body text-sm text-foreground">{item.type}</span>
+                <span class="font-heading font-bold text-primary text-sm">{item.range}</span>
+              </div>
+            ))}
+          </div>
+          <a href="/equipamentos/plataformas-elevatorias/preco/" class="inline-flex items-center gap-2 font-heading font-semibold text-sm text-primary hover:gap-3 transition-all">
+            Ver guia completo de preços <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title="Perguntas frequentes sobre plataformas elevatórias" />
+
+  <!-- CTA -->
+  <section class="section-spacing">
+    <div class="content-width text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">Pronto para encontrar a solução certa?</h2>
+      <p class="font-body text-base text-muted-foreground mb-8 max-w-md mx-auto">Receba até 3 orçamentos gratuitos de instaladores certificados de plataformas elevatórias em Portugal.</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+          Pedir Orçamento Gratuito
+        </a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border px-8 py-3.5 text-base font-heading font-semibold text-foreground hover:bg-secondary transition-colors">
+          Catálogo Grátis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>

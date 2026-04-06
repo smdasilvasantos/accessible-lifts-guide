@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Como funciona um elevador pneumático?', answer: 'O elevador pneumático funciona por diferença de pressão de ar — a cabine sobe quando o ar é removido acima dela (criando vácuo) e desce quando o ar é restaurado. Não precisa de poço, cabos nem casa de máquinas.' },
+  { question: 'Quanto tempo demora a instalar?', answer: 'O tempo de instalação varia conforme o tipo de equipamento e as condições do espaço, mas geralmente fica concluído em 1 a 3 dias.' },
+  { question: 'Existe apoio do Estado para este equipamento?', answer: 'Sim. Em Portugal, os equipamentos de acessibilidade beneficiam de IVA reduzido a 6%. Se tiver incapacidade reconhecida, pode candidatar-se ao SAPA. Fale com o instalador para saber quais os apoios disponíveis.' },
+  { question: 'Que manutenção é necessária?', answer: 'Recomenda-se uma revisão anual por um técnico certificado. A manutenção regular garante o funcionamento seguro do equipamento e prolonga a sua vida útil.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Elevadores Pneumáticos (Vácuo) — Preço e Instalação em Portugal | Vida Acessível"
+  description="Os elevadores pneumáticos (vacuum elevators) são a solução mais inovadora do mercado. Funcionam por diferença de pressão de ar, não precisam de poço nem casa de máquinas e têm um design de tubo de vidro muito elegante. Preços de €10.000–€20.000. Compare orçamentos gratuitos de instaladores certificados."
+  canonical="/elevadores-residenciais/pneumaticos/"
+  schemas={[faqSchema]}
+>
+  <Nav />
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevadores Pneumáticos — Design Moderno Sem Poço Nem Casa de Máquinas</h1>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">Os elevadores pneumáticos (vacuum elevators) são a solução mais inovadora do mercado. Funcionam por diferença de pressão de ar, não precisam de poço nem casa de máquinas e têm um design de tubo de vidro muito elegante.</p>
+      <div class="flex items-center gap-4 mb-8">
+        <div class="bg-card border border-border rounded-xl px-5 py-3 text-center">
+          <p class="font-heading font-bold text-primary text-lg">€10.000–€20.000</p>
+          <p class="font-body text-xs text-muted-foreground">Preço indicativo</p>
+        </div>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} />
+  <section class="section-spacing"><div class="content-width text-center">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Pronto para começar?</h2>
+    <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Receba até 3 propostas gratuitas de instaladores certificados e compare com toda a tranquilidade.</p>
+    <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+  </div></section>
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

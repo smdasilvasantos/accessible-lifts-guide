@@ -1,0 +1,45 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  faqs: FAQ[];
+  title?: string;
+}
+
+const { faqs, title = 'Perguntas Frequentes' } = Astro.props;
+---
+
+<section class="section-spacing">
+  <div class="content-width">
+    <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-8">{title}</h2>
+    <div class="space-y-4">
+      {faqs.map((faq, i) => (
+        <details class="group bg-card border border-border rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+            <h3 class="font-heading font-semibold text-base text-foreground pr-4">{faq.question}</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0 text-primary transition-transform group-open:rotate-180"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 pt-0">
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

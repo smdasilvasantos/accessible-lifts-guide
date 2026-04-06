@@ -1,0 +1,256 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+
+const faqs = [
+  {
+    question: 'Quanto custa instalar um elevador residencial em Portugal?',
+    answer: 'O preço de um elevador residencial varia entre €8.000 e €30.000 ou mais, dependendo do tipo (pneumático, hidráulico, elétrico), número de andares, capacidade de carga e acabamentos escolhidos. Os elevadores sem poço e pneumáticos tendem a ser mais económicos; os hidráulicos e elétricos com mais andares são os mais caros.',
+  },
+  {
+    question: 'É preciso licença para instalar um elevador em casa?',
+    answer: 'Em Portugal, a instalação de um elevador residencial privado numa moradia normalmente não requer licença camarária, mas é obrigatória a certificação pela ANSR e o registo do equipamento. O instalador certificado trata de toda esta documentação. Em apartamentos ou condomínios, é necessário aprovação em assembleia de condóminos.',
+  },
+  {
+    question: 'O elevador residencial ocupa muito espaço?',
+    answer: 'Existem modelos muito compactos, especialmente os pneumáticos (tubo de vidro), que precisam apenas de um diâmetro de 70 a 100 cm e não requerem poço nem casa de máquinas. Os modelos elétricos e hidráulicos são mais tradicionais e requerem uma cabine, poço e casa de máquinas, mas existem versões compactas para espaços limitados.',
+  },
+  {
+    question: 'Qual é a diferença entre elevador hidráulico e pneumático?',
+    answer: 'O elevador hidráulico usa um sistema de óleo e pistões, é mais robusto e adequado para vários andares. O elevador pneumático (vacuum elevator) funciona por diferença de pressão de ar, tem design de tubo transparente muito elegante, é mais fácil de instalar e não precisa de poço, mas normalmente serve apenas 2-3 andares e tem menor capacidade de carga.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Elevadores Residenciais',
+  description: 'Instalação de elevadores residenciais em Portugal. Modelos hidráulicos, pneumáticos, sem poço e compactos.',
+  provider: { '@type': 'Organization', name: 'Vida Acessível' },
+  areaServed: { '@type': 'Country', name: 'Portugal' },
+  serviceType: 'Acessibilidade Residencial',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Elevadores Residenciais — Preços, Tipos e Instalação em Portugal | Vida Acessível"
+  description="Guia completo de elevadores residenciais em Portugal: tipos (hidráulico, pneumático, sem poço), preços (€8.000–€30.000+) e como obter orçamentos gratuitos."
+  canonical="/equipamentos/elevadores/"
+  schemas={[serviceSchema, faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Equipamentos', url: '/equipamentos/elevadores/' }, { name: 'Elevadores Residenciais', url: '/equipamentos/elevadores/' }]}
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="bg-secondary overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center min-h-[520px] py-12">
+        <div class="order-2 md:order-1">
+          <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Equipamentos</span>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-5">
+            Elevadores residenciais: conforto e independência em casa
+          </h1>
+          <p class="font-body text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
+            A solução definitiva para circular entre pisos de forma independente. Compactos, elegantes e adaptados ao seu espaço.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+              Pedir Orçamento Gratuito
+            </a>
+            <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border bg-background px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">
+              Catálogo Grátis
+            </a>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div
+            class="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 h-[320px] md:h-[400px] bg-primary/5 flex items-center justify-center"
+            data-image-description="Elegant small residential home lift with glass cabin installed in a modern Portuguese home, clean minimalist design, bright natural light, teal accent colors, WebP"
+          >
+            <div class="text-center p-8">
+              <div class="text-5xl mb-3">🛗</div>
+              <p class="font-heading font-semibold text-primary text-sm">Elevador residencial</p>
+              <p class="font-body text-xs text-muted-foreground mt-1">Imagem a ser gerada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INLINE FORM -->
+  <section class="section-spacing bg-primary/5 border-y border-primary/10">
+    <div class="content-width">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Peça orçamentos gratuitos</h2>
+          <p class="font-body text-base text-muted-foreground mb-4">Compare até 3 propostas de instaladores certificados. Gratuito e sem compromisso.</p>
+        </div>
+        <form id="hub-form-elev" class="space-y-3" novalidate>
+          <div class="grid grid-cols-2 gap-3">
+            <input type="text" name="nome" required placeholder="Nome *" class="rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+            <input type="tel" name="telefone" required placeholder="Telefone *" class="rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+          </div>
+          <input type="email" name="email" required placeholder="Email *" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+          <input type="hidden" name="equipamento" value="elevador-residencial" />
+          <div class="flex items-start gap-2">
+            <input type="checkbox" id="priv-elev" name="privacidade" required class="mt-0.5 h-4 w-4 rounded border-border" />
+            <label for="priv-elev" class="font-body text-xs text-muted-foreground">Aceito a <a href="/politica-de-privacidade/" class="text-primary hover:underline">Política de Privacidade</a> *</label>
+          </div>
+          <div id="hub-elev-error" class="hidden text-xs text-destructive"></div>
+          <div id="hub-elev-success" class="hidden bg-primary/10 border border-primary/20 rounded-xl px-3 py-2 text-xs text-primary font-medium"></div>
+          <button type="submit" class="w-full rounded-full bg-cta text-cta-foreground px-6 py-3 text-sm font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+            Pedir Orçamento Gratuito
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-TYPE CARDS -->
+  <section class="section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">Tipos de elevadores residenciais</h2>
+      <p class="font-body text-base text-muted-foreground mb-10 max-w-2xl">Existe uma solução para cada casa e orçamento. Conheça os diferentes tipos disponíveis.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { href: '/elevadores-residenciais/1-andar/', title: 'Para 1 Andar', desc: 'Solução económica e compacta para moradia com um único piso adicional.' },
+          { href: '/elevadores-residenciais/sem-poco/', title: 'Sem Poço', desc: 'Instala-se sem obras de construção. Ideal para casa já construídas.' },
+          { href: '/elevadores-residenciais/compactos/', title: 'Compactos', desc: 'Modelos de pequenas dimensões para espaços interiores limitados.' },
+          { href: '/elevadores-residenciais/hidraulicos/', title: 'Hidráulicos', desc: 'Robustos e fiáveis. A solução mais comum para 2 a 4 andares.' },
+          { href: '/elevadores-residenciais/pneumaticos/', title: 'Pneumáticos (Vácuo)', desc: 'Design de tubo de vidro. Sem poço, sem casa de máquinas. Elegante.' },
+        ].map((sub) => (
+          <a href={sub.href} class="group bg-card border border-border rounded-2xl p-5 hover:shadow-lg hover:border-primary/30 transition-all">
+            <h3 class="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary transition-colors">{sub.title}</h3>
+            <p class="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{sub.desc}</p>
+            <span class="inline-flex items-center gap-1 font-heading font-semibold text-sm text-primary group-hover:gap-2 transition-all">
+              Saber mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATIONAL CONTENT -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-5">O que é um elevador residencial?</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Um elevador residencial é um elevador de dimensões reduzidas instalado no interior de uma moradia ou apartamento. Permite circular entre pisos de forma completamente independente, sem esforço físico.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Ao contrário dos elevadores de escadas, que percorrem a escada, os elevadores residenciais percorrem uma abertura vertical (poço) e permitem transportar cadeiras de rodas e outros equipamentos de mobilidade.
+          </p>
+          <h3 class="font-heading font-bold text-lg text-foreground mb-3 mt-6">Para quem é indicado?</h3>
+          <ul class="space-y-2">
+            {[
+              'Pessoas com mobilidade muito reduzida ou em cadeira de rodas',
+              'Moradias com 2 ou mais andares onde outros equipamentos são insuficientes',
+              'Quem procura uma solução permanente e valoriza a habitação',
+              'Condomínios que pretendem garantir acessibilidade',
+            ].map((item) => (
+              <li class="flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="font-body text-sm text-foreground">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-foreground mb-4">Vantagens do elevador residencial</h3>
+          <div class="space-y-4">
+            {[
+              { title: 'Totalmente acessível', desc: 'Permite o acesso de cadeiras de rodas, andadores e outras ajudas técnicas.' },
+              { title: 'Valoriza o imóvel', desc: 'Um elevador aumenta o valor da habitação e a sua atratividade no mercado.' },
+              { title: 'Solução definitiva', desc: 'Ao contrário da cadeira de escadas, é uma solução arquitetónica permanente.' },
+              { title: 'Conforto diário', desc: 'Mesmo sem mobilidade reduzida, facilita o transporte de cargas entre pisos.' },
+            ].map((adv) => (
+              <div class="bg-card border border-border rounded-xl p-4">
+                <p class="font-heading font-semibold text-sm text-foreground mb-1">{adv.title}</p>
+                <p class="font-body text-sm text-muted-foreground">{adv.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="preco" class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-5">Preço dos elevadores residenciais</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          { type: 'Elevador pneumático (1 andar)', range: '€8.000 – €15.000' },
+          { type: 'Elevador sem poço (2 andares)', range: '€12.000 – €20.000' },
+          { type: 'Elevador hidráulico (2-3 andares)', range: '€15.000 – €25.000' },
+          { type: 'Elevador elétrico com calha (3+ andares)', range: '€18.000 – €35.000' },
+        ].map((item) => (
+          <div class="flex items-center justify-between bg-secondary rounded-xl px-5 py-4">
+            <span class="font-body text-sm text-foreground">{item.type}</span>
+            <span class="font-heading font-bold text-primary">{item.range}</span>
+          </div>
+        ))}
+      </div>
+      <a href="/equipamentos/elevadores/preco/" class="inline-flex items-center gap-2 font-heading font-semibold text-sm text-primary hover:gap-3 transition-all">
+        Ver guia completo de preços <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title="Perguntas frequentes sobre elevadores residenciais" />
+
+  <section class="bg-primary/5 section-spacing border-y border-primary/10">
+    <div class="content-width text-center">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-3">Receba o catálogo gratuito</h2>
+      <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Compare modelos e especificações técnicas dos principais elevadores residenciais disponíveis em Portugal.</p>
+      <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-primary text-primary px-8 py-3 text-base font-heading font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
+        Pedir Catálogo Gratuito
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>
+
+<script>
+  const form = document.getElementById('hub-form-elev') as HTMLFormElement;
+  const errorEl = document.getElementById('hub-elev-error') as HTMLElement;
+  const successEl = document.getElementById('hub-elev-success') as HTMLElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.add('hidden'); successEl.classList.add('hidden');
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    if (!data.nome || !data.email || !data.telefone || !data.privacidade) {
+      errorEl.textContent = 'Por favor preencha todos os campos obrigatórios.';
+      errorEl.classList.remove('hidden'); return;
+    }
+    try {
+      const res = await fetch('/api/orcamento', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      if (res.ok) { successEl.textContent = 'Pedido enviado! Receberá as propostas em breve.'; successEl.classList.remove('hidden'); form.reset(); }
+      else { throw new Error(); }
+    } catch { errorEl.textContent = 'Erro ao enviar. Por favor tente novamente.'; errorEl.classList.remove('hidden'); }
+  });
+</script>

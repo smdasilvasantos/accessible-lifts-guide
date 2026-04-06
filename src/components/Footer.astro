@@ -1,0 +1,62 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-foreground py-14">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <p class="font-heading font-extrabold text-xl text-background mb-3">Vida Acessível</p>
+        <p class="font-body text-sm text-background/60 leading-relaxed max-w-xs">
+          Ajudamos a encontrar soluções e instaladores de confiança para tornar habitações mais acessíveis em Portugal.
+        </p>
+      </div>
+
+      <!-- Equipamentos -->
+      <div>
+        <p class="font-heading font-bold text-xs uppercase tracking-widest text-background/40 mb-4">Equipamentos</p>
+        <ul class="space-y-2.5">
+          <li><a href="/equipamentos/elevadores-de-escadas/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Elevadores de Escadas</a></li>
+          <li><a href="/equipamentos/elevadores/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Elevadores Residenciais</a></li>
+          <li><a href="/equipamentos/plataformas-elevatorias/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Plataformas Elevatórias</a></li>
+        </ul>
+      </div>
+
+      <!-- Soluções -->
+      <div>
+        <p class="font-heading font-bold text-xs uppercase tracking-widest text-background/40 mb-4">Soluções</p>
+        <ul class="space-y-2.5">
+          <li><a href="/solucoes-para-subir-escadas/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Soluções para Escadas</a></li>
+          <li><a href="/cadeiras-elevatorias-para-idosos/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Cadeiras para Idosos</a></li>
+          <li><a href="/solucoes-para-cadeiras-de-rodas/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Cadeiras de Rodas</a></li>
+          <li><a href="/adaptar-casa-mobilidade-reduzida/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Adaptar Casa</a></li>
+          <li><a href="/acessibilidade-condominios/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Acessibilidade Condomínios</a></li>
+        </ul>
+      </div>
+
+      <!-- Informação -->
+      <div>
+        <p class="font-heading font-bold text-xs uppercase tracking-widest text-background/40 mb-4">Informação</p>
+        <ul class="space-y-2.5">
+          <li><a href="/recursos/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Recursos & Artigos</a></li>
+          <li><a href="/sobre/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Sobre nós</a></li>
+          <li><a href="/contacto/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Contacto</a></li>
+          <li><a href="/pedir-orcamento/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Pedir Orçamento</a></li>
+          <li><a href="/catalogo-gratis/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Catálogo Gratuito</a></li>
+          <li><a href="/politica-de-privacidade/" class="font-body text-sm text-background/60 hover:text-background transition-colors">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-body text-xs text-background/40">
+        © {currentYear} Vida Acessível · Todos os direitos reservados
+      </p>
+      <p class="font-body text-xs text-background/40">
+        Serviço gratuito e sem compromisso · Parceiros certificados em Portugal
+      </p>
+    </div>
+  </div>
+</footer>

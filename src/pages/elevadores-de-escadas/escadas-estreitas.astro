@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Qual é a largura mínima para instalar um elevador de escadas?', answer: 'A largura mínima de escada recomendada é de cerca de 60-65 cm para modelos slim. Com a cadeira dobrada, o equipamento ocupa apenas 25-30 cm de largura, deixando espaço para outros utilizadores.' },
+  { question: 'E se a minha escada tiver apenas 55 cm?', answer: 'Algumas marcas oferecem modelos especialmente desenvolvidos para escadas muito estreitas. A calha pode ser fixada na parede lateral em vez dos degraus, libertando ainda mais espaço. Uma visita técnica determina com exatidão se é viável.' },
+  { question: 'Vai bloquear totalmente a escada para a família?', answer: 'Não. Mesmo nas escadas estreitas, o assento dobra-se automaticamente em repouso, libertando a maior parte da largura. A norma europeia EN 81-40 estabelece requisitos mínimos de espaço livre.' },
+  { question: 'O elevador para escada estreita custa mais?', answer: 'Os modelos slim têm preços similares aos standard. A diferença de custo é mínima — o que varia é a disponibilidade de marcas que fabricam modelos para esta largura.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Elevador para Escadas Estreitas — Modelos Slim | Vida Acessível"
+  description="Soluções compactas para escadas estreitas (mínimo 60 cm). Elevadores slim que se adaptam a espaços reduzidos sem bloquear a passagem. Orçamentos gratuitos."
+  canonical="/elevadores-de-escadas/escadas-estreitas/"
+  schemas={[faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Elevadores de Escadas', url: '/equipamentos/elevadores-de-escadas/' }, { name: 'Escadas Estreitas', url: '/elevadores-de-escadas/escadas-estreitas/' }]}
+>
+  <Nav />
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <nav aria-label="Breadcrumb" class="mb-5"><ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"><li><a href="/" class="hover:text-foreground">Início</a></li><li>›</li><li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground">Elevadores de Escadas</a></li><li>›</li><li><span class="text-foreground font-medium">Escadas Estreitas</span></li></ol></nav>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Elevador para escadas estreitas: a solução cabe onde pensa que não cabe</h1>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">Muitas pessoas pensam que a sua escada é demasiado estreita para um elevador. Na maioria dos casos não é verdade — existem modelos slim especificamente desenvolvidos para escadas com largura mínima, a partir de 60 cm.</p>
+      <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+    </div>
+  </section>
+  <section class="section-spacing"><div class="content-width"><h2 class="font-heading font-bold text-2xl text-foreground mb-5">O que são modelos slim?</h2><p class="font-body text-base text-muted-foreground leading-relaxed mb-4">Os modelos slim são elevadores de escadas com dimensões reduzidas, especialmente desenvolvidos para escadas estreitas. A calha é mais fina, o assento é mais compacto e o mecanismo de dobragem é mais eficiente — tudo para ocupar o mínimo de espaço possível.</p><p class="font-body text-base text-muted-foreground leading-relaxed">Em repouso, o assento dobra-se completamente, deixando a escada acessível para os restantes membros da família.</p></div></section>
+  <FaqSection faqs={faqs} />
+  <section class="section-spacing"><div class="content-width text-center"><h2 class="font-heading font-bold text-2xl text-foreground mb-4">Não tem a certeza se cabe?</h2><p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Peça uma visita técnica gratuita. O especialista mede a escada e diz-lhe exatamente o que é possível instalar.</p><a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Visita Técnica Gratuita</a></div></section>
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

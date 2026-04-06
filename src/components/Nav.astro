@@ -1,0 +1,214 @@
+---
+const currentPath = Astro.url.pathname;
+
+const equipamentos = [
+  { label: 'Elevadores de Escadas', href: '/equipamentos/elevadores-de-escadas/' },
+  { label: 'Elevadores Residenciais', href: '/equipamentos/elevadores/' },
+  { label: 'Plataformas Elevatórias', href: '/equipamentos/plataformas-elevatorias/' },
+];
+
+const solucoes = [
+  { label: 'Soluções para Subir Escadas', href: '/solucoes-para-subir-escadas/' },
+  { label: 'Cadeiras Elevatórias para Idosos', href: '/cadeiras-elevatorias-para-idosos/' },
+  { label: 'Soluções para Cadeiras de Rodas', href: '/solucoes-para-cadeiras-de-rodas/' },
+  { label: 'Adaptar Casa: Mobilidade Reduzida', href: '/adaptar-casa-mobilidade-reduzida/' },
+  { label: 'Acessibilidade em Condomínios', href: '/acessibilidade-condominios/' },
+];
+
+const precos = [
+  { label: 'Preços: Elevadores de Escadas', href: '/equipamentos/elevadores-de-escadas/preco/' },
+  { label: 'Preços: Elevadores Residenciais', href: '/equipamentos/elevadores/preco/' },
+  { label: 'Preços: Plataformas Elevatórias', href: '/equipamentos/plataformas-elevatorias/preco/' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
+    <!-- Logo -->
+    <a href="/" class="flex-shrink-0 flex items-center gap-2">
+      <span class="font-heading font-extrabold text-xl text-primary">Vida Acessível</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 md:flex" role="navigation" aria-label="Navegação principal">
+      <!-- Equipamentos dropdown -->
+      <div class="relative group">
+        <button
+          class="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Equipamentos
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full hidden group-hover:block pt-2 min-w-[240px] z-50">
+          <div class="bg-card border border-border rounded-xl shadow-xl p-2">
+            {equipamentos.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2.5 text-sm font-medium text-foreground/80 rounded-lg hover:bg-secondary hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Soluções dropdown -->
+      <div class="relative group">
+        <button
+          class="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+          aria-haspopup="true"
+        >
+          Soluções
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full hidden group-hover:block pt-2 min-w-[280px] z-50">
+          <div class="bg-card border border-border rounded-xl shadow-xl p-2">
+            {solucoes.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2.5 text-sm font-medium text-foreground/80 rounded-lg hover:bg-secondary hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Preços dropdown -->
+      <div class="relative group">
+        <button
+          class="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+          aria-haspopup="true"
+        >
+          Preços
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full hidden group-hover:block pt-2 min-w-[280px] z-50">
+          <div class="bg-card border border-border rounded-xl shadow-xl p-2">
+            {precos.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2.5 text-sm font-medium text-foreground/80 rounded-lg hover:bg-secondary hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <a href="/recursos/" class="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground">Recursos</a>
+      <a href="/sobre/" class="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground">Sobre nós</a>
+    </nav>
+
+    <!-- Desktop CTAs -->
+    <div class="hidden md:flex items-center gap-2">
+      <a href="/catalogo-gratis/" class="rounded-full border border-border px-4 py-2 text-sm font-heading font-semibold text-foreground/80 hover:bg-secondary transition-colors">
+        Catálogo Grátis
+      </a>
+      <a href="/pedir-orcamento/" class="rounded-full bg-cta text-cta-foreground px-5 py-2 text-sm font-heading font-bold shadow-lg shadow-cta/25 hover:bg-cta/90 transition-all">
+        Pedir Orçamento
+      </a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <button id="mobile-menu-toggle" class="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-accent md:hidden" aria-label="Abrir menu">
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-border bg-background px-4 pb-6 pt-4 md:hidden">
+    <nav class="flex flex-col gap-1">
+      <p class="px-3 py-1 text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground">Equipamentos</p>
+      {equipamentos.map((item) => (
+        <a href={item.href} class="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-accent">
+          {item.label}
+        </a>
+      ))}
+      <p class="mt-3 px-3 py-1 text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground">Soluções</p>
+      {solucoes.map((item) => (
+        <a href={item.href} class="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-accent">
+          {item.label}
+        </a>
+      ))}
+      <p class="mt-3 px-3 py-1 text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground">Preços</p>
+      {precos.map((item) => (
+        <a href={item.href} class="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-accent">
+          {item.label}
+        </a>
+      ))}
+      <div class="mt-3 border-t border-border pt-3 flex flex-col gap-2">
+        <a href="/recursos/" class="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-accent">Recursos</a>
+        <a href="/sobre/" class="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-accent">Sobre nós</a>
+      </div>
+      <div class="mt-4 flex flex-col gap-2">
+        <a href="/catalogo-gratis/" class="block text-center rounded-full border border-border px-4 py-2.5 text-sm font-heading font-semibold text-foreground hover:bg-secondary">
+          Catálogo Grátis
+        </a>
+        <a href="/pedir-orcamento/" class="block text-center rounded-full bg-cta text-cta-foreground px-4 py-2.5 text-sm font-heading font-bold shadow-lg shadow-cta/25">
+          Pedir Orçamento
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile sticky CTA -->
+<div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background px-4 py-3 translate-y-full opacity-0 transition-all duration-300 md:hidden">
+  <a href="/pedir-orcamento/" class="block w-full text-center rounded-full bg-cta text-cta-foreground px-4 py-3 text-base font-heading font-bold shadow-lg">
+    Orçamento Gratuito
+  </a>
+</div>
+
+<style>
+  :root {
+    --cta: 16 76% 60%;
+    --cta-foreground: 0 0% 100%;
+  }
+  .bg-cta { background-color: hsl(var(--cta)); }
+  .text-cta-foreground { color: hsl(var(--cta-foreground)); }
+  .shadow-cta\/25 { box-shadow: 0 10px 15px -3px hsl(var(--cta) / 0.25); }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    iconMenu?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  });
+
+  // Mobile sticky CTA on scroll
+  const stickyCta = document.getElementById('mobile-sticky-cta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      stickyCta?.classList.remove('translate-y-full', 'opacity-0');
+    } else {
+      stickyCta?.classList.add('translate-y-full', 'opacity-0');
+    }
+  }, { passive: true });
+</script>

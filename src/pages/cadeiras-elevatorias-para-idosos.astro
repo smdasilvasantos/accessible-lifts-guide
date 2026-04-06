@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import FaqSection from '../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'A cadeira elevatória é segura para pessoas idosas?', answer: 'Sim. Os modelos modernos têm cinto de segurança, sensores de obstáculos, travões automáticos e baterias que funcionam em caso de corte de corrente. São certificados pela norma europeia EN 81-40 e testados extensamente em condições de uso real.' },
+  { question: 'Que apoios existem do Estado?', answer: 'Em Portugal, os equipamentos de acessibilidade beneficiam de IVA a 6%. O SAPA comparticiona equipamentos para pessoas com deficiência reconhecida. Algumas câmaras têm apoios adicionais.' },
+  { question: 'Quanto tempo demora a instalar?', answer: 'Para elevadores de escadas: 1 dia. Para plataformas elevatórias em escadas retas: 1 dia. Para elevadores residenciais ou plataformas em escadas curvas: 3 a 6 semanas (inclui produção de calha à medida).' },
+  { question: 'Posso receber orçamentos gratuitos?', answer: 'Sim. Através do Vida Acessível, pode receber até 3 orçamentos gratuitos de instaladores certificados em Portugal, sem qualquer compromisso.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
+---
+<Layout
+  title="Cadeiras Elevatórias para Idosos — Guia Completo | Vida Acessível"
+  description="Quando subir escadas se torna um risco para um familiar idoso, a cadeira elevatória é muitas vezes a solução mais rápida, económica e eficaz. Sem obras, sem complicações. Compare orçamentos gratuitos de instaladores certificados em Portugal."
+  canonical="/cadeiras-elevatorias-para-idosos/"
+  schemas={[faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Cadeiras Elevatórias para Idosos — Guia Completo', url: '/cadeiras-elevatorias-para-idosos/' }]}
+>
+  <Nav />
+
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Cadeiras Elevatórias para Idosos: Segurança e Independência em Casa</h1>
+      <p class="font-body text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">Quando subir escadas se torna um risco para um familiar idoso, a cadeira elevatória é muitas vezes a solução mais rápida, económica e eficaz. Sem obras, sem complicações.</p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+        <a href="/catalogo-gratis/" class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-heading font-semibold text-foreground hover:bg-accent transition-colors">Catálogo Grátis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing"><div class="content-width">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Soluções disponíveis</h2>
+    <div class="grid sm:grid-cols-3 gap-5">
+      {[
+        { href: '/equipamentos/elevadores-de-escadas/', title: 'Elevadores de Escadas', desc: 'A solução mais rápida e económica. Instala-se na própria escada, sem obras.' },
+        { href: '/equipamentos/plataformas-elevatorias/', title: 'Plataformas Elevatórias', desc: 'Para utilizadores de cadeira de rodas — transporta a cadeira sem transferências.' },
+        { href: '/equipamentos/elevadores/', title: 'Elevadores Residenciais', desc: 'A solução mais completa e permanente para mobilidade entre pisos.' },
+      ].map(s => (
+        <a href={s.href} class="group bg-card border border-border rounded-2xl p-5 hover:shadow-lg hover:border-primary/30 transition-all">
+          <h3 class="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary">{s.title}</h3>
+          <p class="font-body text-sm text-muted-foreground mb-4">{s.desc}</p>
+          <span class="inline-flex items-center gap-1 font-heading font-semibold text-sm text-primary group-hover:gap-2 transition-all">Saber mais →</span>
+        </a>
+      ))}
+    </div>
+  </div></section>
+
+  <FaqSection faqs={faqs} />
+
+  <section class="section-spacing"><div class="content-width text-center">
+    <h2 class="font-heading font-bold text-2xl text-foreground mb-4">Não sabe qual a solução certa?</h2>
+    <p class="font-body text-base text-muted-foreground mb-6 max-w-md mx-auto">Peça orçamentos gratuitos — os instaladores analisam a sua situação e recomendam a melhor solução.</p>
+    <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">Pedir Orçamento Gratuito</a>
+  </div></section>
+
+  <Footer />
+</Layout>
+<style>.bg-cta { background-color: hsl(16 76% 60%); }.text-cta-foreground { color: hsl(0 0% 100%); }</style>

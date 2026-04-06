@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'Quanto custa um elevador para escadas retas?', answer: 'Um elevador de escadas para escadas retas custa geralmente entre €2.500 e €4.500 com instalação incluída. É a opção mais económica porque a calha é produzida em série, ao contrário das escadas curvas que requerem calhas feitas à medida.' },
+  { question: 'Quanto tempo demora a instalar?', answer: 'A instalação de um elevador para escadas retas demora geralmente entre 3 a 5 horas. Num único dia, o equipamento fica totalmente operacional. Não há necessidade de obras, pinturas ou acabamentos posteriores.' },
+  { question: 'A escada fica bloqueada para os outros depois de instalar?', answer: 'Não. A calha é fixada nos degraus ou na parede, deixando espaço suficiente para os outros membros da família subirem e descerem normalmente. Quando a cadeira está no topo ou no fundo das escadas, a calha fica completamente ao longo da parede.' },
+  { question: 'O que acontece se houver um corte de corrente?', answer: 'Os elevadores de escadas modernos têm baterias integradas que garantem o funcionamento mesmo sem energia elétrica. A bateria carrega automaticamente quando o equipamento está ligado à corrente. Em caso de emergência, há sempre uma forma de colocar a cadeira num patamar seguro.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Elevador de Escadas Retas — Preço e Instalação em Portugal | Vida Acessível"
+  description="O elevador para escadas retas é a solução mais económica: €2.500 a €4.500 com instalação. Instalação num dia sem obras. Compare orçamentos gratuitos."
+  canonical="/elevadores-de-escadas/escadas-retas/"
+  schemas={[faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Elevadores de Escadas', url: '/equipamentos/elevadores-de-escadas/' }, { name: 'Escadas Retas', url: '/elevadores-de-escadas/escadas-retas/' }]}
+>
+  <Nav />
+
+  <!-- BREADCRUMB -->
+  <nav aria-label="Breadcrumb" class="py-4 border-b border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
+        <li><a href="/" class="hover:text-foreground">Início</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground">Elevadores de Escadas</a></li>
+        <li aria-hidden="true">›</li>
+        <li><span class="text-foreground font-medium">Escadas Retas</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-secondary section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">
+            Elevador de escadas para escadas retas
+          </h1>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-6">
+            Tem uma escada reta em casa e quer recuperar a sua mobilidade entre pisos? O elevador para escadas retas é a solução mais rápida, económica e eficaz — com instalação num único dia.
+          </p>
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            {[{ label: 'Preço', value: '€2.500–€4.500' }, { label: 'Instalação', value: '1 dia' }, { label: 'Obras', value: 'Nenhuma' }].map((stat) => (
+              <div class="text-center bg-card border border-border rounded-xl p-3">
+                <p class="font-heading font-bold text-primary text-lg">{stat.value}</p>
+                <p class="font-body text-xs text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-7 py-3 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+            Pedir Orçamento Gratuito
+          </a>
+        </div>
+        <div
+          class="h-72 md:h-96 rounded-2xl bg-primary/10 flex items-center justify-center"
+          data-image-description="Stairlift on a straight residential staircase, clean white/cream design, polished wooden handrail, bright Portuguese home interior, warm natural light, WebP"
+        >
+          <div class="text-center p-8">
+            <div class="text-5xl mb-3">↑</div>
+            <p class="font-heading font-semibold text-primary text-sm">Escadas retas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY BENEFITS -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Vantagens do elevador para escadas retas</h2>
+      <div class="grid sm:grid-cols-3 gap-5">
+        {[
+          { title: 'Custo mais baixo', desc: 'A calha reta é produzida em série, tornando este o modelo mais económico — geralmente €1.000 a €3.000 mais barato que modelos curvos.' },
+          { title: 'Instalação em 1 dia', desc: 'Sem burocracia nem esperas. A instalação é rápida e a escada fica funcional para toda a família no mesmo dia.' },
+          { title: 'Sem obras', desc: 'A calha fixa-se nos degraus com suportes — não é necessário fazer furos em paredes, alterar revestimentos ou solicitar licenças.' },
+        ].map((b) => (
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">{b.title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-5">Para quem é este equipamento?</h2>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+        O elevador de escadas retas é ideal para quem vive numa moradia ou apartamento com uma escada reta de um único lance — a tipologia mais comum em Portugal.
+      </p>
+      <p class="font-body text-base text-muted-foreground leading-relaxed">
+        É especialmente recomendado para pessoas idosas com dificuldade em subir escadas, pessoas em fase de recuperação, ou qualquer pessoa com condição que afete a mobilidade nos membros inferiores.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICE + LINK -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-5">Preço e requisitos de instalação</h2>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+        O preço varia entre <strong class="text-foreground">€2.500 e €4.500</strong>, incluindo instalação. Fatores que influenciam o custo: marca, modelo, comprimento da escada e opções como controlo remoto ou dobra automática.
+      </p>
+      <a href="/equipamentos/elevadores-de-escadas/preco/" class="inline-flex items-center gap-2 font-heading font-semibold text-sm text-primary hover:gap-3 transition-all">
+        Ver guia completo de preços e apoios do Estado <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} />
+
+  <!-- FORM -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-2 text-center">Peça orçamentos gratuitos</h2>
+      <p class="font-body text-base text-muted-foreground mb-8 text-center">Compare propostas de instaladores certificados e escolha com confiança.</p>
+      <form id="sub-form" class="max-w-lg mx-auto space-y-3" novalidate>
+        <div class="grid grid-cols-2 gap-3">
+          <input type="text" name="nome" required placeholder="Nome *" class="rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+          <input type="tel" name="telefone" required placeholder="Telefone *" class="rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        </div>
+        <input type="email" name="email" required placeholder="Email *" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        <input type="hidden" name="equipamento" value="elevador-escadas" />
+        <div class="flex items-start gap-2">
+          <input type="checkbox" id="priv-sub" name="privacidade" required class="mt-0.5 h-4 w-4 rounded border-border" />
+          <label for="priv-sub" class="font-body text-xs text-muted-foreground">Aceito a <a href="/politica-de-privacidade/" class="text-primary hover:underline">Política de Privacidade</a> *</label>
+        </div>
+        <div id="sub-error" class="hidden text-xs text-destructive"></div>
+        <div id="sub-success" class="hidden bg-primary/10 border border-primary/20 rounded-xl px-3 py-2 text-xs text-primary font-medium"></div>
+        <button type="submit" class="w-full rounded-full bg-cta text-cta-foreground px-6 py-3 text-sm font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+          Pedir Orçamento Gratuito
+        </button>
+        <p class="text-center font-body text-xs text-muted-foreground">✓ Gratuito · ✓ Sem compromisso · ✓ Até 3 propostas</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-xl text-foreground mb-5">Veja também</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { href: '/elevadores-de-escadas/escadas-curvas/', title: 'Escadas Curvas', desc: 'Para escadas com curvas ou patamares' },
+          { href: '/elevadores-de-escadas/escadas-exteriores/', title: 'Escadas Exteriores', desc: 'Modelos para uso ao ar livre' },
+          { href: '/elevadores-de-escadas/escadas-estreitas/', title: 'Escadas Estreitas', desc: 'Soluções para espaços reduzidos' },
+        ].map((r) => (
+          <a href={r.href} class="group bg-secondary border border-border rounded-2xl p-4 hover:border-primary/30 transition-all">
+            <h3 class="font-heading font-semibold text-sm text-foreground mb-1 group-hover:text-primary">{r.title}</h3>
+            <p class="font-body text-xs text-muted-foreground">{r.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>
+
+<script>
+  const form = document.getElementById('sub-form') as HTMLFormElement;
+  const errorEl = document.getElementById('sub-error') as HTMLElement;
+  const successEl = document.getElementById('sub-success') as HTMLElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.add('hidden'); successEl.classList.add('hidden');
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    if (!data.nome || !data.email || !data.telefone || !data.privacidade) {
+      errorEl.textContent = 'Por favor preencha todos os campos.'; errorEl.classList.remove('hidden'); return;
+    }
+    try {
+      const res = await fetch('/api/orcamento', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      if (res.ok) { successEl.textContent = 'Pedido enviado!'; successEl.classList.remove('hidden'); form.reset(); }
+      else { throw new Error(); }
+    } catch { errorEl.textContent = 'Erro ao enviar. Por favor tente novamente.'; errorEl.classList.remove('hidden'); }
+  });
+</script>

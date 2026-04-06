@@ -2,28 +2,133 @@
 import '../styles/global.css';
 
 export interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  schemas?: object[];
+  breadcrumbs?: { name: string; url: string }[];
+  articleMeta?: {
+    publishedDate: string;
+    modifiedDate?: string;
+    author?: string;
+    category?: string;
+  };
 }
 
+const siteUrl = 'https://vidaacessivel.pt';
+const defaultOgImage = `${siteUrl}/og-default.webp`;
+
 const {
-  title = 'Vida Acessível — Soluções de Acessibilidade em Portugal',
-  description = 'Compare orçamentos gratuitos de elevadores de escadas, elevadores residenciais e plataformas elevatórias em Portugal.',
+  title,
+  description,
+  canonical = Astro.url.pathname,
+  ogImage = defaultOgImage,
+  ogType = 'website',
+  noindex = false,
+  schemas = [],
+  breadcrumbs = [],
+  articleMeta,
 } = Astro.props;
+
+const canonicalUrl = `${siteUrl}${canonical.endsWith('/') ? canonical : canonical + '/'}`;
+
+// Organization schema (site-wide)
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Vida Acessível',
+  url: siteUrl,
+  logo: `${siteUrl}/logo.webp`,
+  description: 'Plataforma portuguesa que ajuda a encontrar soluções e instaladores certificados de acessibilidade residencial — elevadores de escadas, elevadores residenciais e plataformas elevatórias.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    availableLanguage: 'Portuguese',
+    email: 'info@vidaacessivel.pt',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Portugal',
+  },
+  sameAs: [],
+};
+
+// BreadcrumbList schema
+const breadcrumbSchema = breadcrumbs.length > 1 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: `${siteUrl}${crumb.url}`,
+  })),
+} : null;
+
+const allSchemas = [orgSchema, ...(breadcrumbSchema ? [breadcrumbSchema] : []), ...schemas];
 ---
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta -->
     <title>{title}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="pt-PT" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_PT" />
+    <meta property="og:site_name" content="Vida Acessível" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {articleMeta && (
+      <>
+        <meta property="article:published_time" content={articleMeta.publishedDate} />
+        {articleMeta.modifiedDate && <meta property="article:modified_time" content={articleMeta.modifiedDate} />}
+        {articleMeta.author && <meta property="article:author" content={articleMeta.author} />}
+        {articleMeta.category && <meta property="article:section" content={articleMeta.category} />}
+      </>
+    )}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Sitemaps -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Structured Data -->
+    {allSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
     <slot />

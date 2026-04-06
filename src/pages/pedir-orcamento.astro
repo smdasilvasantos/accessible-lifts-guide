@@ -1,17 +1,175 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader';
-import OrcamentoForm from '../components/OrcamentoForm';
-import SiteFooter from '../components/SiteFooter';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Pedir Orçamento Gratuito — Vida Acessível"
+  title="Pedir Orçamento Gratuito — Vida Acessível | Elevadores e Plataformas"
   description="Peça até 3 orçamentos gratuitos de instaladores certificados de elevadores de escadas, elevadores residenciais e plataformas elevatórias em Portugal."
+  canonical="/pedir-orcamento/"
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Pedir Orçamento', url: '/pedir-orcamento/' }]}
 >
-  <div class="min-h-screen bg-background">
-    <SiteHeader client:load />
-    <OrcamentoForm client:only="react" />
-    <SiteFooter client:only="react" />
-  </div>
+  <Nav />
+
+  <section class="bg-secondary py-10">
+    <div class="content-width text-center">
+      <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
+        100% Gratuito · Sem Compromisso
+      </span>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground mb-3">
+        Receba até 3 orçamentos gratuitos
+      </h1>
+      <p class="font-body text-lg text-muted-foreground max-w-xl mx-auto">
+        Preencha o formulário e receba propostas de instaladores certificados perto de si. Sem custos, sem compromisso.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="grid md:grid-cols-5 gap-8">
+        <!-- Trust signals -->
+        <div class="md:col-span-2 space-y-6">
+          <div>
+            <h2 class="font-heading font-bold text-lg text-foreground mb-4">Porquê pedir pelo Vida Acessível?</h2>
+            <div class="space-y-4">
+              {[
+                { icon: '✓', title: 'Gratuito para si', desc: 'O serviço de comparação é completamente gratuito.' },
+                { icon: '✓', title: 'Parceiros certificados', desc: 'Todos os instaladores são verificados e experientes.' },
+                { icon: '✓', title: 'Até 3 propostas', desc: 'Compare ofertas e escolha a mais adequada.' },
+                { icon: '✓', title: 'Sem pressão', desc: 'Não há qualquer obrigação de aceitar nenhuma proposta.' },
+              ].map((t) => (
+                <div class="flex gap-3 items-start">
+                  <span class="text-primary font-bold text-base mt-0.5">{t.icon}</span>
+                  <div>
+                    <p class="font-heading font-semibold text-sm text-foreground">{t.title}</p>
+                    <p class="font-body text-sm text-muted-foreground">{t.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="font-heading font-bold text-sm text-foreground mb-3">Como funciona?</h3>
+            <div class="space-y-3">
+              {[
+                { n: '1', text: 'Preencha o formulário' },
+                { n: '2', text: 'Receba propostas em 48h' },
+                { n: '3', text: 'Compare e escolha' },
+              ].map((s) => (
+                <div class="flex gap-3 items-center">
+                  <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <span class="text-xs font-heading font-bold text-primary-foreground">{s.n}</span>
+                  </div>
+                  <p class="font-body text-sm text-foreground">{s.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="md:col-span-3 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
+          <form id="orcamento-form" class="space-y-4" novalidate>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="nome" class="block font-body text-sm font-semibold text-foreground mb-1.5">Nome *</label>
+                <input type="text" id="nome" name="nome" required placeholder="O seu nome" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40" />
+              </div>
+              <div>
+                <label for="telefone" class="block font-body text-sm font-semibold text-foreground mb-1.5">Telefone *</label>
+                <input type="tel" id="telefone" name="telefone" required placeholder="9XX XXX XXX" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40" />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="block font-body text-sm font-semibold text-foreground mb-1.5">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="o.seu@email.pt" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40" />
+            </div>
+            <div>
+              <label for="equipamento" class="block font-body text-sm font-semibold text-foreground mb-1.5">Tipo de equipamento</label>
+              <select id="equipamento" name="equipamento" class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40">
+                <option value="">Selecione...</option>
+                <option value="elevador-escadas">Elevador de Escadas</option>
+                <option value="elevador-residencial">Elevador Residencial</option>
+                <option value="plataforma-elevatoria">Plataforma Elevatória</option>
+                <option value="nao-sei">Não sei ainda</option>
+              </select>
+            </div>
+            <div>
+              <label for="mensagem" class="block font-body text-sm font-semibold text-foreground mb-1.5">Mensagem (opcional)</label>
+              <textarea id="mensagem" name="mensagem" rows="3" placeholder="Descreva brevemente a sua situação..." class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"></textarea>
+            </div>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="privacidade" name="privacidade" required class="mt-0.5 h-4 w-4 rounded border-border text-primary" />
+              <label for="privacidade" class="font-body text-xs text-muted-foreground leading-relaxed">
+                Li e aceito a <a href="/politica-de-privacidade/" class="text-primary hover:underline">Política de Privacidade</a>. Concordo com o tratamento dos meus dados para efeitos de orçamento. *
+              </label>
+            </div>
+            <div id="orcamento-error" class="hidden text-sm text-destructive font-body"></div>
+            <div id="orcamento-success" class="hidden bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 text-sm text-primary font-body font-medium"></div>
+            <button type="submit" id="orcamento-submit" class="w-full rounded-full bg-cta text-cta-foreground px-6 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+              Pedir Orçamentos Gratuitos
+            </button>
+            <p class="text-center font-body text-xs text-muted-foreground">✓ Gratuito &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Até 3 propostas</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>
+
+<script>
+  const form = document.getElementById('orcamento-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('orcamento-submit') as HTMLButtonElement;
+  const errorEl = document.getElementById('orcamento-error') as HTMLElement;
+  const successEl = document.getElementById('orcamento-success') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.add('hidden');
+    successEl.classList.add('hidden');
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    if (!data.nome || !data.email || !data.telefone) {
+      errorEl.textContent = 'Por favor preencha todos os campos obrigatórios.';
+      errorEl.classList.remove('hidden'); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email as string)) {
+      errorEl.textContent = 'Por favor introduza um email válido.';
+      errorEl.classList.remove('hidden'); return;
+    }
+    if (!data.privacidade) {
+      errorEl.textContent = 'Deve aceitar a Política de Privacidade para continuar.';
+      errorEl.classList.remove('hidden'); return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'A enviar...';
+    try {
+      const res = await fetch('/api/orcamento', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        successEl.textContent = 'Pedido enviado com sucesso! Receberá em breve as propostas por email.';
+        successEl.classList.remove('hidden');
+        form.reset();
+      } else { throw new Error(); }
+    } catch {
+      errorEl.textContent = 'Ocorreu um erro. Por favor tente novamente ou contacte-nos diretamente.';
+      errorEl.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Pedir Orçamentos Gratuitos';
+    }
+  });
+</script>

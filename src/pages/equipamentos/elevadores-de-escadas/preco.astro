@@ -1,0 +1,162 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+
+const faqs = [
+  { question: 'O preço inclui instalação?', answer: 'Na grande maioria dos casos, sim. Os instaladores certificados em Portugal cobram um preço total que inclui o equipamento, a calha, todos os acessórios e a instalação completa. Peça sempre confirmação de que o IVA e instalação estão incluídos no orçamento.' },
+  { question: 'Posso beneficiar de IVA a 6%?', answer: 'Sim. Os elevadores de escadas são considerados equipamentos de apoio a pessoas com mobilidade reduzida e beneficiam de IVA a 6% (em vez de 23%). Confirme com o seu instalador para garantir que a fatura é emitida com a taxa correta.' },
+  { question: 'O que é o SAPA e como me candidato?', answer: 'O SAPA (Sistema de Atribuição de Produtos de Apoio) é um programa do Estado português que permite a comparticipação na compra de equipamentos de apoio para pessoas com deficiência ou incapacidade reconhecida. A candidatura faz-se através do centro de saúde ou hospital, com prescrição médica.' },
+  { question: 'Vale a pena comprar um elevador em segunda mão?', answer: 'Pode ser uma opção, mas com riscos. Equipamentos usados podem não ter garantia, e a instalação pode sair cara se a calha não se adaptar à escada. Para escadas curvas, a calha usada dificilmente serve. Para escadas retas, pode ser viável, mas compare sempre com o preço de novo.' },
+];
+
+const offerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AggregateOffer',
+  name: 'Elevadores de Escadas',
+  priceCurrency: 'EUR',
+  lowPrice: '2500',
+  highPrice: '9000',
+  offerCount: '10+',
+  description: 'Preços de elevadores de escadas em Portugal, incluindo instalação',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),
+};
+---
+
+<Layout
+  title="Quanto Custa um Elevador de Escadas em Portugal? Preços 2025 | Vida Acessível"
+  description="Preços reais de elevadores de escadas em Portugal (2025): €2.500 a €9.000. Fatores de custo, IVA 6%, SAPA e como comparar orçamentos gratuitos."
+  canonical="/equipamentos/elevadores-de-escadas/preco/"
+  schemas={[offerSchema, faqSchema]}
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Elevadores de Escadas', url: '/equipamentos/elevadores-de-escadas/' }, { name: 'Preço', url: '/equipamentos/elevadores-de-escadas/preco/' }]}
+>
+  <Nav />
+
+  <nav aria-label="Breadcrumb" class="py-4 border-b border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
+        <li><a href="/" class="hover:text-foreground">Início</a></li><li>›</li>
+        <li><a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground">Elevadores de Escadas</a></li><li>›</li>
+        <li><span class="text-foreground font-medium">Preço</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl text-foreground leading-tight mb-5">Quanto custa um elevador de escadas em Portugal?</h1>
+      <p class="font-body text-lg text-muted-foreground leading-relaxed mb-6">Preços reais e atualizados (2025) para todos os tipos de elevadores de escadas, incluindo fatores de custo, apoios do Estado e dicas para obter o melhor orçamento.</p>
+    </div>
+  </section>
+
+  <!-- PRICE TABLE -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Tabela de preços por tipo de escada</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border border-border rounded-xl overflow-hidden">
+          <thead>
+            <tr class="bg-secondary">
+              <th class="text-left px-5 py-3 font-heading font-bold text-sm text-foreground">Tipo de escada</th>
+              <th class="text-left px-5 py-3 font-heading font-bold text-sm text-foreground">Preço (c/ instalação)</th>
+              <th class="text-left px-5 py-3 font-heading font-bold text-sm text-foreground">Prazo de entrega</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            {[
+              { type: 'Escada reta (1 lance)', price: '€2.500 – €4.500', time: '2–5 dias úteis' },
+              { type: 'Escada reta (comprimento longo)', price: '€3.500 – €5.500', time: '2–5 dias úteis' },
+              { type: 'Escada curva ou em L', price: '€5.000 – €8.000', time: '3–5 semanas' },
+              { type: 'Escada em U ou com múltiplos patamares', price: '€6.000 – €9.000', time: '4–6 semanas' },
+              { type: 'Escada exterior (reta)', price: '€3.500 – €6.000', time: '1–2 semanas' },
+              { type: 'Escada estreita (slim)', price: '€2.800 – €5.000', time: '2–5 dias úteis' },
+            ].map((row) => (
+              <tr class="hover:bg-secondary/50">
+                <td class="px-5 py-3 font-body text-sm text-foreground">{row.type}</td>
+                <td class="px-5 py-3 font-heading font-bold text-primary">{row.price}</td>
+                <td class="px-5 py-3 font-body text-sm text-muted-foreground">{row.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="font-body text-xs text-muted-foreground mt-3">* IVA 6% incluído. Preços indicativos — solicite orçamento personalizado para valores exatos.</p>
+    </div>
+  </section>
+
+  <!-- FACTORS -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Fatores que influenciam o preço</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          { title: '1. Tipo de escada', desc: 'Escadas retas são mais baratas (calha standard). Curvas e com patamares requerem calha feita à medida — o fator de custo mais determinante.' },
+          { title: '2. Comprimento da escada', desc: 'O comprimento da calha afeta o preço. Escadas mais longas ou com múltiplos andares requerem mais material.' },
+          { title: '3. Marca e modelo', desc: 'Marcas premium têm preços mais elevados mas geralmente melhor garantia e durabilidade. Compare sempre pelo menos 2-3 marcas.' },
+          { title: '4. Funcionalidades opcionais', desc: 'Controlo remoto extra, dobra automática, assento giratório, carregadores adicionais — cada opção adiciona custo.' },
+          { title: '5. Interior vs exterior', desc: 'Modelos exteriores custam €500–€2.000 a mais pela proteção adicional às intempéries.' },
+          { title: '6. Empresa instaladora', desc: 'Os preços variam entre instaladores. Um mesmo equipamento pode custar €500–€1.000 mais noutra empresa. Vale a pena comparar.' },
+        ].map((f) => (
+          <div class="bg-card border border-border rounded-xl p-5">
+            <h3 class="font-heading font-bold text-sm text-foreground mb-2">{f.title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATION COST -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-5">Custo de instalação vs. equipamento</h2>
+      <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">Na grande maioria dos casos, o preço apresentado pelos instaladores é um valor total que inclui o equipamento, acessórios e instalação. A instalação não é geralmente cobrada separadamente.</p>
+      <p class="font-body text-base text-muted-foreground leading-relaxed">Peça sempre um orçamento que especifique claramente o que está incluído: equipamento, calha, instalação, IVA e garantia.</p>
+    </div>
+  </section>
+
+  <!-- STATE SUPPORT -->
+  <section class="bg-primary/5 section-spacing border-y border-primary/10">
+    <div class="content-width">
+      <h2 class="font-heading font-bold text-2xl text-foreground mb-6">Apoios do Estado disponíveis</h2>
+      <div class="grid sm:grid-cols-3 gap-5">
+        {[
+          { title: 'IVA a 6%', desc: 'Elevadores de escadas beneficiam de taxa reduzida de IVA (6% em vez de 23%). Aplicável automaticamente — confirme com o instalador.' },
+          { title: 'SAPA', desc: 'Sistema de Atribuição de Produtos de Apoio. Comparticipação estatal para pessoas com deficiência. Requer prescrição médica e reconhecimento de incapacidade.' },
+          { title: 'Financiamento', desc: 'Alguns instaladores oferecem planos de pagamento. Algumas seguradoras e câmaras municipais têm também apoios específicos.' },
+        ].map((s) => (
+          <div class="bg-card border border-primary/20 rounded-xl p-5">
+            <h3 class="font-heading font-bold text-base text-primary mb-2">{s.title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-spacing">
+    <div class="content-width text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">Receba orçamentos para comparar — grátis</h2>
+      <p class="font-body text-base text-muted-foreground mb-8 max-w-md mx-auto">A melhor forma de saber o preço exato para a sua situação é receber orçamentos personalizados. Compare e escolha com confiança.</p>
+      <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg hover:bg-cta/90 transition-all">
+        Pedir Orçamentos Gratuitos
+      </a>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title="Perguntas frequentes sobre o preço" />
+
+  <Footer />
+</Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+</style>

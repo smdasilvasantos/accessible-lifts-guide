@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Sobre Nós — Vida Acessível | Plataforma de Acessibilidade em Portugal"
+  description="Conheça o Vida Acessível: a plataforma independente que ajuda famílias portuguesas a encontrar soluções de acessibilidade e instaladores certificados."
+  canonical="/sobre/"
+  breadcrumbs={[{ name: 'Início', url: '/' }, { name: 'Sobre nós', url: '/sobre/' }]}
+>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="bg-secondary section-spacing">
+    <div class="content-width text-center">
+      <span class="inline-block bg-primary/10 text-primary font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">
+        Quem somos
+      </span>
+      <h1 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-5">
+        Uma plataforma ao serviço das famílias portuguesas
+      </h1>
+      <p class="font-body text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+        O Vida Acessível nasceu de uma convicção simples: toda a pessoa deve poder viver em sua casa com dignidade, conforto e independência — independentemente da idade ou mobilidade.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section-spacing">
+    <div class="content-width">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-5">A nossa missão</h2>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            Sabemos que encontrar a solução certa de acessibilidade pode ser confuso e stressante. Há muitas marcas, muitos modelos, e nem sempre é claro qual a melhor opção para cada caso.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed mb-4">
+            O Vida Acessível simplifica esse processo. Somos uma plataforma independente — não vendemos equipamentos nem representamos marcas. O nosso trabalho é ajudá-lo a comparar opções, perceber os custos reais e encontrar o instalador certo para a sua situação.
+          </p>
+          <p class="font-body text-base text-muted-foreground leading-relaxed">
+            O serviço é completamente gratuito para o utilizador. Trabalhamos com uma rede de instaladores certificados em todo Portugal, que competem para lhe dar a melhor proposta.
+          </p>
+        </div>
+        <div class="bg-secondary rounded-2xl p-8 md:p-10">
+          <div class="space-y-6">
+            {[
+              { num: '500+', label: 'Famílias ajudadas', desc: 'Orçamentos enviados e soluções encontradas' },
+              { num: '100%', label: 'Gratuito', desc: 'Sem custo para o utilizador, sem compromisso' },
+              { num: '3', label: 'Propostas por pedido', desc: 'Compare e escolha com confiança' },
+            ].map((stat) => (
+              <div class="flex gap-4 items-start">
+                <div class="text-3xl font-heading font-extrabold text-primary min-w-[80px]">{stat.num}</div>
+                <div>
+                  <p class="font-heading font-bold text-foreground">{stat.label}</p>
+                  <p class="font-body text-sm text-muted-foreground">{stat.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-secondary section-spacing">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-10 text-center">Os nossos valores</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: '🏛️', title: 'Independência', desc: 'Não somos afiliados a nenhuma marca. As nossas recomendações são imparciais e baseadas nas necessidades de cada cliente.' },
+          { icon: '🔎', title: 'Transparência', desc: 'Explicamos os custos reais, as vantagens e limitações de cada solução. Não há letras pequenas nem surpresas.' },
+          { icon: '🤝', title: 'Confiança', desc: 'Todos os instaladores da nossa rede são verificados. Trabalhamos apenas com profissionais certificados e experientes.' },
+          { icon: '💙', title: 'Empatia', desc: 'Entendemos que por trás de cada pedido está uma pessoa real com necessidades reais. Tratamos cada caso com cuidado e atenção.' },
+          { icon: '📚', title: 'Informação', desc: 'Criamos conteúdo educativo e honesto para que tome as melhores decisões, sempre informado.' },
+          { icon: '🌍', title: 'Acessibilidade universal', desc: 'Acreditamos que a acessibilidade é um direito, não um luxo. Trabalhamos para tornar soluções acessíveis a todos.' },
+        ].map((val) => (
+          <div class="bg-card border border-border rounded-2xl p-6">
+            <div class="text-3xl mb-3">{val.icon}</div>
+            <h3 class="font-heading font-bold text-base text-foreground mb-2">{val.title}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{val.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-spacing">
+    <div class="content-width text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">Pronto para começar?</h2>
+      <p class="font-body text-base text-muted-foreground mb-8 max-w-md mx-auto">
+        Peça orçamentos gratuitos hoje e encontre a solução certa para a sua casa.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/pedir-orcamento/" class="inline-flex items-center rounded-full bg-cta text-cta-foreground px-8 py-3.5 text-base font-heading font-bold shadow-lg shadow-cta/25 hover:bg-cta/90 transition-all">
+          Pedir Orçamento Gratuito
+        </a>
+        <a href="/contacto/" class="inline-flex items-center rounded-full border border-border px-8 py-3.5 text-base font-heading font-semibold text-foreground hover:bg-secondary transition-colors">
+          Contacte-nos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .bg-cta { background-color: hsl(16 76% 60%); }
+  .text-cta-foreground { color: hsl(0 0% 100%); }
+  .shadow-cta\/25 { box-shadow: 0 10px 15px -3px hsl(16 76% 60% / 0.25); }
+</style>
