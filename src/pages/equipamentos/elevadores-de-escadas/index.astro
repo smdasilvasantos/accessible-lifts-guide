@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import SiteHeader from '../../../components/SiteHeader';
 import SiteFooter from '../../../components/SiteFooter';
+import catalogoImg from '../../../assets/catalogo-gratis.png';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -203,10 +204,10 @@ const faqs = [
           <div>
             <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-[#1D6954]">O que é</p>
             <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
-              Uma cadeira motorizada que percorre a calha da sua escada
+              Uma cadeira elevatória que percorre a calha da sua escada
             </h2>
             <p class="text-base text-foreground/65 leading-relaxed mb-5">
-              Um elevador de escadas é um equipamento compacto instalado ao longo da escada da sua casa. A cadeira desliza suavemente sobre uma calha, transportando-o de um piso para outro — sem esforço, sem risco de queda.
+              Um elevador de escadas — também chamado cadeira elétrica de subir escadas ou cadeira elevatória — é um equipamento compacto instalado ao longo da escada da sua casa. A cadeira desliza suavemente sobre uma calha, transportando-o de um piso para outro sem esforço e sem risco de queda.
             </p>
             <p class="text-base text-foreground/65 leading-relaxed mb-8">
               Não requer obras estruturais. A instalação é feita na própria escada ou na parede e demora normalmente um dia. Funciona em escadas retas, curvas e exteriores.
@@ -227,8 +228,67 @@ const faqs = [
             >
               <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
               <span style="font-size:13px; color:#bbb; text-align:center; padding:1rem;">
-                Cadeira e calha de elevador de escadas dobrado
+                Cadeira elevatória e calha de elevador de escadas dobrado
               </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Emotional triggers -->
+        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+
+          <!-- Trigger 1: quedas nas escadas -->
+          <div class="rounded-2xl overflow-hidden">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="An older Portuguese woman, late 60s, holding the stair handrail tightly with both hands, looking cautiously at the steps below her. She appears hesitant and slightly fearful. Warm interior light, traditional Portuguese home, wooden staircase. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Mulher idosa a segurar o corrimão com cautela</span>
+            </div>
+            <div class="pt-5">
+              <p class="font-heading text-base font-bold text-foreground mb-2">Medo de cair nas escadas</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                As quedas em casa são uma das principais causas de lesões graves em pessoas acima dos 65 anos. Uma cadeira elevatória elimina esse risco completamente — e devolve a confiança de circular livremente na própria casa.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trigger 2: dores nos joelhos -->
+          <div class="rounded-2xl overflow-hidden">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="An older Portuguese man sitting on the bottom step of a staircase, holding his knee with both hands, expression showing mild pain. Warm home interior, soft light. He is resting after attempting to climb. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Homem idoso com dor nos joelhos nas escadas</span>
+            </div>
+            <div class="pt-5">
+              <p class="font-heading text-base font-bold text-foreground mb-2">Dores nos joelhos ao subir escadas</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                A artrite, as próteses e a fragilidade articular tornam as escadas num obstáculo diário. Subir e descer deixa de ser uma tarefa simples — e passa a ser uma fonte de dor e desgaste. A cadeira elétrica de subir escadas resolve isso de forma definitiva.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trigger 3: ficar na própria casa -->
+          <div class="rounded-2xl overflow-hidden">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="A warm scene of an older Portuguese couple sitting comfortably in their living room, surrounded by family photos and familiar furniture. Through the window, a familiar neighborhood view. They look content, relaxed, at home. Sony A7R IV, 35mm f/2.0, soft afternoon light. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Casal idoso em casa, confortável e independente</span>
+            </div>
+            <div class="pt-5">
+              <p class="font-heading text-base font-bold text-foreground mb-2">Ficar em casa — sem ter de mudar</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                Mudar de casa ou entrar num lar não devia ser a única alternativa quando as escadas se tornam difíceis. Com um elevador de escadas, é possível continuar a viver na casa de sempre, com segurança, independência e no conforto do que é familiar.
+              </p>
             </div>
           </div>
 
@@ -242,9 +302,9 @@ const faqs = [
     <section class="bg-[#fdfcf8] py-16 md:py-24">
       <div class="mx-auto max-w-7xl px-4 md:px-8">
         <div class="text-center mb-12">
-          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Escolha o tipo certo para a sua escada</h2>
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Escolha o modelo certo para a sua escada</h2>
           <p class="mt-4 text-base text-foreground/55 max-w-xl mx-auto leading-relaxed">
-            Cada casa é diferente. Conheça as três opções e perceba qual se adapta melhor à sua situação.
+            Cada casa é diferente. Conheça os três modelos disponíveis e perceba qual se adapta melhor à sua situação.
           </p>
         </div>
 
@@ -361,7 +421,46 @@ const faqs = [
     </section>
 
     <!-- =========================================================
-         4. PREÇOS — price anchor
+         4. CATÁLOGO GRATUITO
+    ========================================================= -->
+    <section class="bg-white py-14 md:py-18">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="rounded-2xl bg-[#1D6954]/5 border border-[#1D6954]/15 px-8 py-10 md:px-12 md:py-14 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+          <!-- Catalog image -->
+          <div class="shrink-0">
+            <img
+              src={(catalogoImg as unknown as { src: string }).src ?? (catalogoImg as unknown as string)}
+              alt="Catálogo gratuito de elevadores de escadas — Vida Acessível"
+              class="w-40 md:w-52 drop-shadow-lg"
+              width="208"
+              height="270"
+            />
+          </div>
+
+          <!-- Text -->
+          <div class="text-center md:text-left">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-[#1D6954]">Grátis</p>
+            <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl mb-3">
+              Receba o catálogo completo de elevadores de escadas
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-7 max-w-md">
+              Modelos, características, preços orientativos e guias de instalação — tudo reunido num documento que pode ler com calma, ao seu ritmo.
+            </p>
+            <a
+              href="/catalogo-gratis/"
+              class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              Pedir catálogo gratuito
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PREÇOS — price anchor
     ========================================================= -->
     <section class="bg-white py-16 md:py-20">
       <div class="mx-auto max-w-7xl px-4 md:px-8">
@@ -444,7 +543,7 @@ const faqs = [
     </section>
 
     <!-- =========================================================
-         5. PEDIDO DE ORÇAMENTO — CTA section (after hero → explanation → options → price anchor)
+         6. PEDIDO DE ORÇAMENTO — CTA section (after hero → explanation → options → price anchor)
     ========================================================= -->
     <section class="bg-[#f5f1eb] py-16 md:py-24">
       <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
@@ -493,7 +592,7 @@ const faqs = [
     </section>
 
     <!-- =========================================================
-         6. FAQ
+         7. FAQ
     ========================================================= -->
     <section class="bg-white py-16 md:py-20">
       <div class="mx-auto max-w-3xl px-4 md:px-8">
@@ -524,7 +623,7 @@ const faqs = [
     </section>
 
     <!-- =========================================================
-         7. ARTIGOS RELACIONADOS
+         8. ARTIGOS RELACIONADOS
     ========================================================= -->
     <section class="bg-[#f5f1eb] py-16 md:py-24">
       <div class="mx-auto max-w-7xl px-4 md:px-8">
