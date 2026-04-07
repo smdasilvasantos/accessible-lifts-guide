@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import mapImage from '../assets/home/portugal-map.jpg';
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -405,29 +406,67 @@ const articles = [
     </section>
 
     <!-- =========================================================
-         7. CTA BANNER
+         7. PARCEIROS — partnerships section
     ========================================================= -->
-    <section class="bg-[#1D6954] py-16 md:py-20">
-      <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
-        <h2 class="font-heading text-3xl font-bold text-white md:text-4xl">
-          Receba até 3 orçamentos gratuitos
-        </h2>
-        <p class="mt-4 text-lg text-white/80 leading-relaxed">
-          Preencha o formulário em menos de 2 minutos. Instaladores certificados contactam-no com propostas personalizadas e gratuitas.
-        </p>
-        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="/pedir-orcamento/"
-            class="inline-flex items-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-[#1D6954] transition-colors hover:bg-white/90"
-          >
-            Pedir orçamento agora
-          </a>
-          <a
-            href="/catalogo-gratis/"
-            class="text-sm font-medium text-white/80 hover:text-white transition-colors"
-          >
-            Prefere primeiro o catálogo? Peça aqui →
-          </a>
+    <section class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+
+          <!-- Text -->
+          <div>
+            <p class="mb-4 inline-block rounded-full bg-[#1D6954]/10 px-3 py-1 text-sm font-semibold text-[#1D6954] uppercase tracking-wider">
+              Instalações
+            </p>
+            <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">
+              Parceiros de confiança em todo o país
+            </h2>
+            <p class="mt-5 text-base text-foreground/60 leading-relaxed max-w-lg">
+              Trabalhamos com instaladores experientes e certificados em todas as regiões de Portugal. Onde quer que esteja, há um parceiro qualificado perto de si — pronto para avaliar o seu caso e apresentar uma proposta personalizada.
+            </p>
+
+            <!-- Stats row -->
+            <div class="mt-8 flex flex-wrap gap-8">
+              <div>
+                <p class="font-heading text-3xl font-bold text-cta">3</p>
+                <p class="mt-1 text-sm text-foreground/60">propostas por pedido</p>
+              </div>
+              <div>
+                <p class="font-heading text-3xl font-bold text-cta">100%</p>
+                <p class="mt-1 text-sm text-foreground/60">gratuito e sem compromisso</p>
+              </div>
+              <div>
+                <p class="font-heading text-3xl font-bold text-cta">PT</p>
+                <p class="mt-1 text-sm text-foreground/60">cobertura nacional</p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Pedir orçamentos gratuitos
+              </a>
+              <a
+                href="/sobre/"
+                class="inline-flex items-center rounded-full border border-border px-7 py-3 text-base font-semibold text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
+              >
+                Saber mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="flex justify-center">
+            <img
+              src={mapImage.src}
+              alt="Mapa de Portugal com localizações dos parceiros instaladores"
+              class="w-64 md:w-80 rounded-2xl shadow-lg"
+              loading="lazy"
+              width={mapImage.width}
+              height={mapImage.height}
+            />
+          </div>
         </div>
       </div>
     </section>
