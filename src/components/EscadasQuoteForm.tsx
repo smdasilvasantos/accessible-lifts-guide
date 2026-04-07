@@ -24,16 +24,105 @@ const initialData: FormData = {
   localidade: "",
 };
 
-const stairOptions: { value: StairType; label: string; desc: string }[] = [
-  { value: "reta", label: "Escada Reta", desc: "Sem curvas nem patamares intermédios" },
-  { value: "curva", label: "Escada Curva", desc: "Com curva, patamar ou troço em ângulo" },
-  { value: "caracol", label: "Escada em Caracol", desc: "Escada helicoidal ou em espiral" },
+/* ── Icons ─────────────────────────────────────────────────── */
+
+const IconStairStraight = () => (
+  <svg viewBox="0 0 96 84" fill="none" className="w-full h-full">
+    <rect x="20" y="18" width="68" height="60" rx="14" fill="#edf0e8" />
+    {/* steps profile */}
+    <path
+      d="M8 76 L8 64 L22 64 L22 52 L38 52 L38 40 L54 40 L54 28 L70 28 L70 16 L84 16"
+      stroke="#4B5D5A" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"
+    />
+    {/* handrail diagonal */}
+    <line x1="5" y1="79" x2="87" y2="13" stroke="#4B5D5A" strokeWidth="3.5" strokeLinecap="round" />
+  </svg>
+);
+
+const IconStairCurved = () => (
+  <svg viewBox="0 0 96 84" fill="none" className="w-full h-full">
+    <rect x="6" y="14" width="68" height="60" rx="14" fill="#edf0e8" />
+    {/* lower stairs - dark */}
+    <path
+      d="M14 76 L14 62 L28 62 L28 50 L44 50 L44 38"
+      stroke="#4B5D5A" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"
+    />
+    {/* lower handrail */}
+    <line x1="11" y1="79" x2="47" y2="34" stroke="#4B5D5A" strokeWidth="3.5" strokeLinecap="round" />
+    {/* upper / turned section - sage green */}
+    <path
+      d="M44 38 L58 38 L58 26 L74 26 L74 14 L88 14"
+      stroke="#7A9E87" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"
+    />
+    {/* upper handrail - sage */}
+    <line x1="41" y1="41" x2="91" y2="11" stroke="#7A9E87" strokeWidth="3.5" strokeLinecap="round" />
+  </svg>
+);
+
+const IconStairSpiral = () => (
+  <svg viewBox="0 0 72 108" fill="none" className="w-full h-full">
+    <rect x="18" y="14" width="42" height="86" rx="16" fill="#edf0e8" />
+    {/* central pole */}
+    <line x1="36" y1="10" x2="36" y2="100" stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" />
+    {/* spiral steps — arcs going around the pole */}
+    <path d="M36 22 Q60 22 60 36 Q60 50 36 50" stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+    <line x1="36" y1="22" x2="36" y2="50" stroke="#4B5D5A" strokeWidth="2" />
+    <path d="M36 42 Q12 42 12 56 Q12 70 36 70" stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+    <line x1="36" y1="42" x2="36" y2="70" stroke="#4B5D5A" strokeWidth="2" />
+    <path d="M36 62 Q60 62 60 76 Q60 90 36 90" stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+    <line x1="36" y1="62" x2="36" y2="90" stroke="#4B5D5A" strokeWidth="2" />
+  </svg>
+);
+
+const IconHouse = () => (
+  <svg viewBox="0 0 96 90" fill="none" className="w-full h-full">
+    <rect x="10" y="16" width="72" height="66" rx="14" fill="#edf0e8" />
+    {/* walls */}
+    <path
+      d="M18 82 L18 46 L48 18 L78 46 L78 82 Z"
+      stroke="#4B5D5A" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+    />
+    {/* chimney */}
+    <rect x="28" y="24" width="10" height="14" rx="2" stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+    {/* door - sage green accent */}
+    <rect x="40" y="60" width="16" height="22" rx="3" stroke="#7A9E87" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const IconTree = () => (
+  <svg viewBox="0 0 96 96" fill="none" className="w-full h-full">
+    <ellipse cx="50" cy="44" rx="38" ry="36" fill="#edf0e8" />
+    {/* tree crown outline */}
+    <path
+      d="M16 56 Q10 40 24 30 Q20 12 42 12 Q52 4 64 16 Q80 14 82 32 Q94 42 84 56 Q80 68 66 66 L48 66 Q26 68 16 56 Z"
+      stroke="#4B5D5A" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round"
+    />
+    {/* trunk - sage green */}
+    <path
+      d="M48 66 L44 86 M48 66 L52 86"
+      stroke="#7A9E87" strokeWidth="5" strokeLinecap="round"
+    />
+    <path
+      d="M40 76 Q44 70 48 66 Q52 70 56 76"
+      stroke="#7A9E87" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"
+    />
+  </svg>
+);
+
+/* ── Options ───────────────────────────────────────────────── */
+
+const stairOptions: { value: StairType; label: string; desc: string; Icon: () => JSX.Element }[] = [
+  { value: "reta",    label: "Reta",         desc: "Sem curvas nem patamares", Icon: IconStairStraight },
+  { value: "curva",   label: "Curva",         desc: "Com curva ou patamar",     Icon: IconStairCurved },
+  { value: "caracol", label: "Em Caracol",    desc: "Escada helicoidal",         Icon: IconStairSpiral },
 ];
 
-const locationOptions: { value: Location; label: string; desc: string }[] = [
-  { value: "interior", label: "Interior", desc: "Dentro de casa, ambiente protegido" },
-  { value: "exterior", label: "Exterior", desc: "Fora de casa, exposta ao clima" },
+const locationOptions: { value: Location; label: string; desc: string; Icon: () => JSX.Element }[] = [
+  { value: "interior", label: "Interior", desc: "Dentro de casa, ambiente protegido", Icon: IconHouse },
+  { value: "exterior", label: "Exterior", desc: "Fora de casa, exposta ao clima",     Icon: IconTree },
 ];
+
+/* ── Component ─────────────────────────────────────────────── */
 
 export default function EscadasQuoteForm() {
   const [step, setStep] = useState(1);
@@ -59,15 +148,11 @@ export default function EscadasQuoteForm() {
   const handleSubmit = async () => {
     setSubmitting(true);
     const stairLabels: Record<string, string> = {
-      reta: "Escada Reta",
-      curva: "Escada Curva",
-      caracol: "Escada em Caracol",
+      reta: "Escada Reta", curva: "Escada Curva", caracol: "Escada em Caracol",
     };
     const locationLabels: Record<string, string> = {
-      interior: "Interior",
-      exterior: "Exterior",
+      interior: "Interior", exterior: "Exterior",
     };
-
     const body =
       `Novo pedido de orçamento — Elevador de Escadas\n\n` +
       `Tipo de escada: ${stairLabels[data.stairType!]}\n` +
@@ -137,33 +222,34 @@ export default function EscadasQuoteForm() {
           {/* Step 1: Stair type */}
           {step === 1 && (
             <div>
-              <p className="font-heading text-lg font-semibold text-foreground mb-5">
+              <p className="font-heading text-lg font-semibold text-foreground mb-6 text-center">
                 Qual é o tipo de escada?
               </p>
-              <div className="grid grid-cols-1 gap-3">
-                {stairOptions.map((opt) => (
-                  <button
-                    key={opt.value}
-                    onClick={() => setData({ ...data, stairType: opt.value })}
-                    className={`flex items-start gap-4 rounded-xl border-2 px-5 py-4 text-left transition-all ${
-                      data.stairType === opt.value
-                        ? "border-[#1D6954] bg-[#1D6954]/5"
-                        : "border-border hover:border-foreground/30"
-                    }`}
-                  >
-                    <div className={`mt-0.5 h-4 w-4 flex-shrink-0 rounded-full border-2 flex items-center justify-center ${
-                      data.stairType === opt.value ? "border-[#1D6954]" : "border-foreground/30"
-                    }`}>
-                      {data.stairType === opt.value && (
-                        <div className="h-2 w-2 rounded-full bg-[#1D6954]" />
-                      )}
-                    </div>
-                    <div>
-                      <p className="font-heading font-semibold text-foreground">{opt.label}</p>
-                      <p className="text-sm text-foreground/55 mt-0.5">{opt.desc}</p>
-                    </div>
-                  </button>
-                ))}
+              <div className="grid grid-cols-3 gap-3">
+                {stairOptions.map(({ value, label, desc, Icon }) => {
+                  const selected = data.stairType === value;
+                  return (
+                    <button
+                      key={value}
+                      onClick={() => setData({ ...data, stairType: value })}
+                      className={`flex flex-col items-center gap-3 rounded-2xl border-2 px-3 py-5 text-center transition-all ${
+                        selected
+                          ? "border-[#1D6954] bg-[#1D6954]/5"
+                          : "border-border hover:border-foreground/30 bg-[#fdfcf8]"
+                      }`}
+                    >
+                      <div className="w-14 h-14">
+                        <Icon />
+                      </div>
+                      <div>
+                        <p className={`font-heading text-sm font-bold leading-tight ${selected ? "text-[#1D6954]" : "text-foreground"}`}>
+                          {label}
+                        </p>
+                        <p className="text-xs text-foreground/45 mt-0.5 leading-snug">{desc}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -171,24 +257,34 @@ export default function EscadasQuoteForm() {
           {/* Step 2: Interior / Exterior */}
           {step === 2 && (
             <div>
-              <p className="font-heading text-lg font-semibold text-foreground mb-5">
+              <p className="font-heading text-lg font-semibold text-foreground mb-6 text-center">
                 A escada é interior ou exterior?
               </p>
-              <div className="grid grid-cols-2 gap-3">
-                {locationOptions.map((opt) => (
-                  <button
-                    key={opt.value}
-                    onClick={() => setData({ ...data, location: opt.value })}
-                    className={`flex flex-col gap-2 rounded-xl border-2 px-5 py-5 text-left transition-all ${
-                      data.location === opt.value
-                        ? "border-[#1D6954] bg-[#1D6954]/5"
-                        : "border-border hover:border-foreground/30"
-                    }`}
-                  >
-                    <p className="font-heading font-semibold text-foreground">{opt.label}</p>
-                    <p className="text-sm text-foreground/55 leading-snug">{opt.desc}</p>
-                  </button>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                {locationOptions.map(({ value, label, desc, Icon }) => {
+                  const selected = data.location === value;
+                  return (
+                    <button
+                      key={value}
+                      onClick={() => setData({ ...data, location: value })}
+                      className={`flex flex-col items-center gap-3 rounded-2xl border-2 px-4 py-6 text-center transition-all ${
+                        selected
+                          ? "border-[#1D6954] bg-[#1D6954]/5"
+                          : "border-border hover:border-foreground/30 bg-[#fdfcf8]"
+                      }`}
+                    >
+                      <div className="w-16 h-16">
+                        <Icon />
+                      </div>
+                      <div>
+                        <p className={`font-heading text-base font-bold ${selected ? "text-[#1D6954]" : "text-foreground"}`}>
+                          {label}
+                        </p>
+                        <p className="text-sm text-foreground/45 mt-0.5 leading-snug">{desc}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
