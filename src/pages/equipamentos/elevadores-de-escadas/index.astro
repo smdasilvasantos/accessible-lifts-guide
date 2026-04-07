@@ -1,0 +1,575 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader';
+import SiteFooter from '../../../components/SiteFooter';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto custa um elevador de escadas em Portugal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um elevador de escadas reto custa entre 2.500€ e 5.000€, instalação incluída. Para escadas curvas, o preço varia entre 6.000€ e 12.000€, pois a calha é fabricada à medida. Para uso exterior, os preços rondam os 4.000€ a 8.000€. Peça orçamentos gratuitos para saber o valor exato para a sua escada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É necessário fazer obras para instalar um elevador de escadas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A instalação de um elevador de escadas não requer obras de construção civil. A calha é fixada diretamente na escada ou na parede sem necessidade de alterações estruturais. A instalação típica de um modelo reto demora entre 4 a 6 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo demora a instalação de um elevador de escadas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para escadas retas, a instalação demora normalmente 4 a 6 horas. Para escadas curvas, pode demorar 1 a 2 dias, pois a calha é fabricada à medida e requer maior ajuste no local."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Os elevadores de escadas são seguros para idosos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Os modelos modernos incluem cinto de segurança, sensores de obstáculos que param o equipamento automaticamente, controlo por joystick ou telecomando, e assentos ergonómicos. São certificados segundo as normas europeias de segurança (EN 81-40)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso instalar um elevador de escadas numa casa arrendada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, na maioria dos casos. Como a instalação não implica obras permanentes, o equipamento pode ser removido quando necessário. Recomendamos confirmar com o proprietário antes da instalação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Existem apoios financeiros para comprar um elevador de escadas em Portugal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O programa de Produtos de Apoio da Segurança Social comparticipa parte do custo de equipamentos de mobilidade para pessoas com deficiência ou mobilidade reduzida. Algumas autarquias também têm apoios locais. Consulte a Segurança Social para verificar a elegibilidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Um elevador de escadas funciona em caso de corte de eletricidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A maioria dos elevadores de escadas modernos funciona com baterias recarregáveis. Mesmo em caso de corte de energia elétrica, as baterias permitem completar pelo menos uma viagem para colocar o utilizador num lugar seguro."
+      }
+    }
+  ]
+};
+
+const articles = [
+  {
+    slug: "guia-de-compra-elevadores-de-escadas",
+    category: "Guias de Compra",
+    title: "Guia de Compra de Elevadores de Escadas: Tudo o Que Precisa de Saber",
+    imageDesc: "Close-up of a person's hands holding a printed guide booklet about stairlifts, sitting at a warm wooden kitchen table in a Portuguese home. Soft natural light. Sony A7R IV, 35mm f/2.0. WebP format.",
+    imageCaption: "Guia impresso sobre elevadores de escadas",
+  },
+  {
+    slug: "apoios-aquisicao-equipamentos-mobilidade",
+    category: "Apoios e Legislação",
+    title: "Apoios para a Aquisição de Equipamentos de Mobilidade em Portugal",
+    imageDesc: "An older Portuguese couple reviewing paperwork at a kitchen table, looking relieved and hopeful. Warm natural light, ceramic tiles on the wall. Sony A7R IV, 35mm f/2.0. WebP format.",
+    imageCaption: "Casal a analisar apoios financeiros para equipamentos de mobilidade",
+  },
+  {
+    slug: "como-funciona-elevador-de-escadas",
+    category: "Elevadores de Escadas",
+    title: "Como Funciona um Elevador de Escadas?",
+    imageDesc: "Detail shot of a stairlift rail mechanism on a wooden staircase in a traditional Portuguese home. Warm interior lighting, terracotta accents, natural wood grain. Sony A7R IV, 35mm f/2.0. WebP format.",
+    imageCaption: "Mecanismo de calha de elevador de escadas",
+  },
+];
+
+const faqs = [
+  {
+    q: "Quanto custa um elevador de escadas em Portugal?",
+    a: "Um elevador de escadas reto custa entre 2.500€ e 5.000€, instalação incluída. Para escadas curvas, o preço varia entre 6.000€ e 12.000€, pois a calha é fabricada à medida. Para uso exterior, os preços rondam os 4.000€ a 8.000€. Peça orçamentos gratuitos para saber o valor exato para a sua escada.",
+  },
+  {
+    q: "É necessário fazer obras para instalar um elevador de escadas?",
+    a: "Não. A instalação não requer obras de construção civil. A calha é fixada diretamente na escada ou na parede sem alterações estruturais. A instalação típica de um modelo reto demora 4 a 6 horas.",
+  },
+  {
+    q: "Quanto tempo demora a instalação?",
+    a: "Para escadas retas, normalmente 4 a 6 horas. Para escadas curvas, pode demorar 1 a 2 dias, pois a calha é fabricada à medida e requer maior ajuste.",
+  },
+  {
+    q: "Os elevadores de escadas são seguros para idosos?",
+    a: "Sim. Os modelos modernos incluem cinto de segurança, sensores de obstáculos, controlo por joystick ou telecomando e assentos ergonómicos. São certificados segundo normas europeias de segurança (EN 81-40).",
+  },
+  {
+    q: "Posso instalar num andar arrendado?",
+    a: "Sim, na maioria dos casos. Como a instalação não implica obras permanentes, o equipamento pode ser removido. Recomendamos confirmar com o proprietário antes de avançar.",
+  },
+  {
+    q: "Existem apoios financeiros para comprar um elevador de escadas?",
+    a: "Sim. O programa de Produtos de Apoio da Segurança Social comparticipa parte do custo para pessoas com deficiência ou mobilidade reduzida. Algumas autarquias também têm apoios locais. Consulte a Segurança Social para verificar elegibilidade.",
+  },
+  {
+    q: "Funciona em caso de corte de eletricidade?",
+    a: "A maioria dos modelos modernos funciona com baterias recarregáveis. Em caso de corte de energia, as baterias permitem completar pelo menos uma viagem para colocar o utilizador num lugar seguro.",
+  },
+];
+---
+
+<Layout
+  title="Elevadores de Escadas em Portugal — Modelos, Preços e Orçamentos Gratuitos"
+  description="Compare elevadores de escadas retos, curvos e para exterior. Receba até 3 orçamentos gratuitos de instaladores certificados em Portugal. Sem obras, sem compromisso."
+  schema={faqSchema}
+>
+  <SiteHeader client:load />
+
+  <main>
+
+    <!-- =========================================================
+         1. HERO
+    ========================================================= -->
+    <section class="bg-[#fdfcf8] py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm text-foreground/40" aria-label="Navegação de localização">
+          <a href="/" class="hover:text-foreground/70 transition-colors">Início</a>
+          <span class="mx-2">/</span>
+          <span class="text-foreground/60">Elevadores de Escadas</span>
+        </nav>
+
+        <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+
+          <!-- Text -->
+          <div>
+            <p class="mb-5 inline-block rounded-full bg-[#1D6954]/10 px-3 py-1 text-sm font-medium text-[#1D6954]">
+              Elevadores de Escadas
+            </p>
+            <h1 class="font-heading text-4xl font-bold text-foreground md:text-5xl lg:text-[3.25rem]" style="line-height:1.18;">
+              Suba e desça com segurança — sem obras, sem complicações
+            </h1>
+            <p class="mt-6 text-lg text-foreground/65 leading-relaxed max-w-lg">
+              Compare modelos, perceba os preços e receba orçamentos gratuitos de instaladores certificados perto de si. Rápido, simples, sem pressão.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Pedir orçamento gratuito
+              </a>
+              <a
+                href="/equipamentos/elevadores-de-escadas/precos/"
+                class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                Ver preços →
+              </a>
+            </div>
+            <p class="mt-6 text-sm text-foreground/40">
+              Sem compromisso · Grátis · Instaladores verificados
+            </p>
+          </div>
+
+          <!-- Hero image -->
+          <div>
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2; border-radius:16px;"
+              data-image-description="Elderly Portuguese man, early 70s, sitting comfortably on a stairlift chair attached to a wooden staircase inside a traditional Portuguese home. Warm interior light, ceramic tile flooring, stone walls. He looks relaxed and confident. Family member visible in background, smiling. Sony A7R IV, 35mm f/2.0, natural warm tones. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:13px; color:#bbb; text-align:center; padding:1rem;">
+                Homem idoso a usar elevador de escadas em casa portuguesa
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. O QUE É — explanation
+    ========================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
+
+          <div>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-[#1D6954]">O que é</p>
+            <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+              Uma cadeira motorizada que percorre a calha da sua escada
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-5">
+              Um elevador de escadas é um equipamento compacto instalado ao longo da escada da sua casa. A cadeira desliza suavemente sobre uma calha, transportando-o de um piso para outro — sem esforço, sem risco de queda.
+            </p>
+            <p class="text-base text-foreground/65 leading-relaxed mb-8">
+              Não requer obras estruturais. A instalação é feita na própria escada ou na parede e demora normalmente um dia. Funciona em escadas retas, curvas e exteriores.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="rounded-full bg-[#1D6954]/10 px-4 py-2 text-sm font-medium text-[#1D6954]">Instalação sem obras</span>
+              <span class="rounded-full bg-[#1D6954]/10 px-4 py-2 text-sm font-medium text-[#1D6954]">Funciona com bateria</span>
+              <span class="rounded-full bg-[#1D6954]/10 px-4 py-2 text-sm font-medium text-[#1D6954]">Certificado CE</span>
+              <span class="rounded-full bg-[#1D6954]/10 px-4 py-2 text-sm font-medium text-[#1D6954]">Capacidade até 160 kg</span>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3; border-radius:16px;"
+              data-image-description="Close-up detail of a stairlift: the folded chair seat and slender rail attached to a wooden staircase. Warm golden interior light. Terracotta tile floor visible in the background. The rail is slim and unobtrusive. Sony A7R IV, 50mm f/1.8, warm tones. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:13px; color:#bbb; text-align:center; padding:1rem;">
+                Cadeira e calha de elevador de escadas dobrado
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. TIPOS — 3 model cards
+    ========================================================= -->
+    <section class="bg-[#fdfcf8] py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Escolha o tipo certo para a sua escada</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-xl mx-auto leading-relaxed">
+            Cada casa é diferente. Conheça as três opções e perceba qual se adapta melhor à sua situação.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+          <!-- Reta -->
+          <div class="rounded-2xl bg-white overflow-hidden shadow-sm">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A straight stairlift rail installed on a simple straight wooden staircase inside a bright Portuguese home. The chair is neatly folded at the bottom. Clean white walls, warm natural light. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Elevador para escada reta</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#1D6954] mb-1">Mais popular</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Escada Reta</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                A solução mais rápida e económica. Para escadas sem curvas ou patamares. Instalação em um dia, calha standard.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Instalação em 4–6 horas
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Preço mais acessível
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Dobra contra a parede
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€2.500</span></p>
+            </div>
+          </div>
+
+          <!-- Curva -->
+          <div class="rounded-2xl bg-white overflow-hidden shadow-sm">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A curved stairlift rail gracefully following the curve of an elegant staircase in a traditional Portuguese villa. Ornate wooden banisters, ceramic tile risers. An older woman sits confidently in the lift chair at the top. Warm amber interior light. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Elevador para escada curva</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#1D6954] mb-1">Feito à medida</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Escada Curva</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Para escadas com curvas, patamares ou troços em ângulo. A calha é fabricada especificamente para a sua escada.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Adaptado a qualquer geometria
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Instalação em 1–2 dias
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Dobra no patamar
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€6.000</span></p>
+            </div>
+          </div>
+
+          <!-- Exterior -->
+          <div class="rounded-2xl bg-white overflow-hidden shadow-sm">
+            <div
+              class="img-placeholder"
+              style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="An outdoor stairlift installed on the exterior stone steps of a traditional Portuguese house. Stainless steel rail, weather-resistant cream chair cover. Blue sky, climbing plants on white wall. An older man descends confidently. Sony A7R IV, 35mm f/2.0, natural daylight. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Elevador exterior para escadas ao ar livre</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#1D6954] mb-1">Para uso exterior</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Escada Exterior</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Para escadas de entrada, jardim ou acesso exterior. Materiais resistentes à chuva, vento e variações de temperatura.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Resistente a condições climatéricas
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Capa de proteção incluída
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-[#1D6954] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Disponível reto ou curvo
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€4.000</span></p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="mt-8 text-center text-sm text-foreground/40">
+          * Preços indicativos. O valor final depende do modelo, da escada e da instalação. Peça orçamento para saber o custo exato.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. PREÇOS — price anchor
+    ========================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 items-start">
+
+          <!-- Left: copy -->
+          <div>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-[#1D6954]">Preços</p>
+            <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+              Quanto custa um elevador de escadas?
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-6">
+              O preço depende do tipo de escada, do modelo escolhido e da instalação. A diferença entre uma escada reta e curva é significativa, pois a calha curva é fabricada à medida.
+            </p>
+            <p class="text-base text-foreground/65 leading-relaxed mb-8">
+              Ao pedir orçamentos através do Vida Acessível, recebe até 3 propostas de instaladores certificados — sem custo, sem compromisso — e pode comparar com calma.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Pedir orçamento gratuito
+              </a>
+              <a
+                href="/equipamentos/elevadores-de-escadas/precos/"
+                class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                Ver guia de preços →
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: price table -->
+          <div class="space-y-4">
+            <div class="rounded-2xl bg-[#fdfcf8] px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Escada Reta</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Instalação standard, calha reta</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€2.500 – €5.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-[#fdfcf8] px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Escada Curva</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Calha fabricada à medida</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€6.000 – €12.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-[#fdfcf8] px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Escada Exterior</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Materiais resistentes ao exterior</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€4.000 – €8.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-dashed border-foreground/15 px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Usado / Recondicionado</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Para escadas retas, sujeito a disponibilidade</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-foreground/50">€1.200 – €2.500</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PEDIDO DE ORÇAMENTO — CTA section (after hero → explanation → options → price anchor)
+    ========================================================= -->
+    <section class="bg-[#f5f1eb] py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
+        <p class="mb-4 inline-block rounded-full bg-[#1D6954]/10 px-3 py-1 text-sm font-medium text-[#1D6954]">
+          Grátis e sem compromisso
+        </p>
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Receba até 3 orçamentos de instaladores certificados
+        </h2>
+        <p class="text-base text-foreground/65 leading-relaxed mb-10 max-w-xl mx-auto">
+          Preencha um formulário simples em menos de 2 minutos. Instaladores da sua região analisam o pedido e enviam uma proposta personalizada. Compare com calma e decida ao seu ritmo.
+        </p>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3 mb-10 text-left">
+          <div class="rounded-2xl bg-white px-6 py-6 shadow-sm">
+            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-cta/10">
+              <span class="font-heading text-base font-bold text-cta">1</span>
+            </div>
+            <p class="font-heading text-sm font-semibold text-foreground mb-1">Preencha o formulário</p>
+            <p class="text-sm text-foreground/55 leading-relaxed">Tipo de escada, localização e contacto. Menos de 2 minutos.</p>
+          </div>
+          <div class="rounded-2xl bg-white px-6 py-6 shadow-sm">
+            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-cta/10">
+              <span class="font-heading text-base font-bold text-cta">2</span>
+            </div>
+            <p class="font-heading text-sm font-semibold text-foreground mb-1">Receba propostas</p>
+            <p class="text-sm text-foreground/55 leading-relaxed">Até 3 instaladores certificados contactam-no com uma proposta.</p>
+          </div>
+          <div class="rounded-2xl bg-white px-6 py-6 shadow-sm">
+            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-cta/10">
+              <span class="font-heading text-base font-bold text-cta">3</span>
+            </div>
+            <p class="font-heading text-sm font-semibold text-foreground mb-1">Compare e decida</p>
+            <p class="text-sm text-foreground/55 leading-relaxed">Sem pressão. Decide quando estiver pronto. Sem custos.</p>
+          </div>
+        </div>
+
+        <a
+          href="/pedir-orcamento/"
+          class="inline-flex items-center rounded-full bg-cta px-8 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+        >
+          Pedir orçamento gratuito agora
+        </a>
+        <p class="mt-4 text-sm text-foreground/40">Sem compromisso · 100% Gratuito · Instaladores verificados</p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. FAQ
+    ========================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Perguntas frequentes</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-md mx-auto leading-relaxed">
+            Respostas às dúvidas mais comuns sobre elevadores de escadas em Portugal.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group rounded-2xl border border-border bg-[#fdfcf8] px-6 py-5 open:bg-white open:shadow-sm transition-all">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 list-none">
+                <span class="font-heading text-base font-semibold text-foreground">{faq.q}</span>
+                <svg
+                  class="h-5 w-5 flex-shrink-0 text-foreground/40 transition-transform group-open:rotate-180"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <p class="mt-4 text-base text-foreground/65 leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. ARTIGOS RELACIONADOS
+    ========================================================= -->
+    <section class="bg-[#f5f1eb] py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Guias e recursos úteis</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-md mx-auto leading-relaxed">
+            Informação clara e prática para tomar a melhor decisão, ao seu ritmo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {articles.map((article) => (
+            <article>
+              <a href={`/recursos/${article.slug}`} class="group block">
+                <div
+                  class="img-placeholder rounded-2xl overflow-hidden mb-4"
+                  style="background:#ede9e0; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+                  data-image-description={article.imageDesc}
+                >
+                  <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">📷 Imagem</span>
+                  <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">
+                    {article.imageCaption}
+                  </span>
+                </div>
+                <p class="text-sm font-bold text-foreground mb-1">{article.category}</p>
+                <p class="text-base text-foreground/70 leading-snug group-hover:text-foreground transition-colors">
+                  {article.title}
+                </p>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="/recursos/"
+            class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3 text-sm font-semibold text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+          >
+            Ver todos os artigos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <SiteFooter client:load />
+</Layout>
