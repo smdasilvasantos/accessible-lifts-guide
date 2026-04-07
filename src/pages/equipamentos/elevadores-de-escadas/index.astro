@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import SiteHeader from '../../../components/SiteHeader';
 import SiteFooter from '../../../components/SiteFooter';
 import catalogoImg from '../../../assets/catalogo-gratis.png';
+import OrcamentoForm from '../../../components/OrcamentoForm';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -559,30 +560,13 @@ const faqs = [
     </section>
 
     <!-- =========================================================
-         6. PEDIDO DE ORÇAMENTO — CTA section (after hero → explanation → options → price anchor)
+         6. PEDIDO DE ORÇAMENTO — embedded multi-step form
     ========================================================= -->
-    <section class="bg-[#f5f1eb] py-16 md:py-24">
-      <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
-        <p class="mb-4 inline-block rounded-full bg-[#1D6954]/10 px-3 py-1 text-sm font-medium text-[#1D6954]">
-          Grátis e sem compromisso
-        </p>
-        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
-          Receba até 3 orçamentos de instaladores certificados
-        </h2>
-        <p class="text-base text-foreground/65 leading-relaxed mb-8 max-w-xl mx-auto">
-          Preencha um formulário simples em menos de 2 minutos. Instaladores da sua região analisam o pedido e enviam uma proposta adaptada à sua escada. Compare com calma e decida ao seu ritmo — sem pressão, sem custos.
-        </p>
-
-        <a
-          href="/pedir-orcamento/"
-          class="inline-flex items-center rounded-full bg-cta px-8 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-        >
-          Pedir orçamento gratuito agora
-        </a>
-        <p class="mt-5 text-sm font-semibold text-[#1D6954]">Mais de 2.500 famílias ajudadas em Portugal</p>
-        <p class="mt-2 text-sm text-foreground/40">Sem compromisso · 100% Gratuito · Instaladores verificados</p>
-      </div>
-    </section>
+    <OrcamentoForm client:load />
+    <div class="bg-secondary py-5 text-center border-t border-foreground/8">
+      <p class="text-sm font-semibold text-[#1D6954]">Mais de 2.500 famílias ajudadas em Portugal</p>
+      <p class="mt-1 text-xs text-foreground/40">Sem compromisso · 100% Gratuito · Instaladores verificados</p>
+    </div>
 
     <!-- =========================================================
          7. FAQ
