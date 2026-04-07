@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import SiteHeader from '../../../components/SiteHeader';
 import SiteFooter from '../../../components/SiteFooter';
 import catalogoImg from '../../../assets/catalogo-gratis.png';
-import OrcamentoForm from '../../../components/OrcamentoForm';
+import EscadasQuoteForm from '../../../components/EscadasQuoteForm';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -562,7 +562,7 @@ const faqs = [
     <!-- =========================================================
          6. PEDIDO DE ORÇAMENTO — embedded multi-step form
     ========================================================= -->
-    <OrcamentoForm client:load />
+    <EscadasQuoteForm client:load />
     <div class="bg-secondary py-5 text-center border-t border-foreground/8">
       <p class="text-sm font-semibold text-[#1D6954]">Mais de 2.500 famílias ajudadas em Portugal</p>
       <p class="mt-1 text-xs text-foreground/40">Sem compromisso · 100% Gratuito · Instaladores verificados</p>
