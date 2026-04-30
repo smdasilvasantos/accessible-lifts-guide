@@ -66,6 +66,13 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      boxShadow: {
+        'cta':        'var(--shadow-cta)',
+        'card':       'var(--shadow-sm)',
+        'card-hover': 'var(--shadow-md)',
+        'panel':      'var(--shadow-lg)',
+        'hero':       'var(--shadow-xl)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

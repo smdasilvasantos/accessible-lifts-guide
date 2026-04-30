@@ -41,6 +41,14 @@
 
     --radius: 0.75rem;
 
+    /* Shadow scale */
+    --shadow-xs:  0 1px 2px hsl(210 15% 20% / 0.04);
+    --shadow-sm:  0 1px 3px hsl(210 15% 20% / 0.06), 0 1px 2px hsl(210 15% 20% / 0.04);
+    --shadow-md:  0 4px 12px hsl(210 15% 20% / 0.08);
+    --shadow-lg:  0 12px 32px hsl(210 15% 20% / 0.12);
+    --shadow-xl:  0 24px 48px hsl(187 100% 14% / 0.12);
+    --shadow-cta: 0 10px 24px hsl(16 76% 55% / 0.35);
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
