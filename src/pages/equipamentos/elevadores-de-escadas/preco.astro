@@ -1,0 +1,398 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader';
+import SiteFooter from '../../../components/SiteFooter';
+import heroImg from '../../../assets/precos-escadas/hero-stairlift-price.jpg';
+import imgReta from '../../../assets/stairlift-straight.jpg';
+import imgCurva from '../../../assets/stairlift-curved.jpg';
+import imgExterior from '../../../assets/stairlift-outdoor.jpg';
+
+const getImgSrc = (img: unknown) =>
+  (img as { src: string }).src ?? (img as string);
+---
+
+<Layout
+  title="Preços de Elevadores de Escadas em Portugal 2025 — Vida Acessível"
+  description="Quanto custa um elevador de escadas em Portugal? Guia completo de preços: escadas retas (€2.500–€5.000), curvas (€5.000–€9.000) e exteriores. Compare orçamentos gratuitos."
+>
+  <SiteHeader client:load />
+
+  <main>
+
+    <!-- =======================================================
+         1. HERO
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <nav class="mb-8 text-sm text-foreground/40" aria-label="Navegação de localização">
+          <a href="/" class="hover:text-foreground/70 transition-colors">Início</a>
+          <span class="mx-2">/</span>
+          <a href="/equipamentos/elevadores-de-escadas/" class="hover:text-foreground/70 transition-colors">Elevadores de Escadas</a>
+          <span class="mx-2">/</span>
+          <span class="text-foreground/60">Guia de Preços</span>
+        </nav>
+
+        <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <div class="order-2 md:order-1">
+            <p class="mb-5 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[.08em] text-primary">
+              Guia de Preços
+            </p>
+            <h1 class="font-heading text-4xl font-extrabold text-foreground md:text-5xl lg:text-[3.25rem]" style="line-height:1.12; letter-spacing:-0.01em;">
+              Quanto custa um elevador de escadas em Portugal?
+            </h1>
+            <p class="mt-6 text-lg text-foreground/65 leading-relaxed max-w-lg" style="line-height:1.6;">
+              Guia completo de preços para 2025: por tipo de escada, fatores que influenciam o custo e como obter o melhor orçamento sem compromisso.
+            </p>
+            <div class="mt-4 flex items-center gap-5 text-sm text-foreground/40">
+              <span>Sérgio Santos</span>
+              <span>·</span>
+              <span>Janeiro 2025</span>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-bold text-white shadow-cta transition-opacity hover:opacity-90"
+              >
+                Pedir orçamento gratuito
+              </a>
+              <a
+                href="/catalogo-gratis/"
+                class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                Pedir catálogo grátis
+              </a>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2">
+            <div class="overflow-hidden shadow-hero" style="border-radius:20px;">
+              <img
+                src={getImgSrc(heroImg)}
+                alt="Cadeira elevatória de escadas instalada numa escada de madeira"
+                class="w-full h-[340px] md:h-[440px] object-cover block"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         2. VISÃO GERAL DE PREÇOS
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Preços de elevadores de escadas em Portugal
+        </h2>
+        <p class="text-lg text-foreground/80 leading-relaxed mb-5" style="line-height:1.65;">
+          O preço médio de um elevador de escadas em Portugal varia entre
+          <strong class="text-primary font-bold">€2.500</strong> e
+          <strong class="text-primary font-bold">€9.000</strong>, dependendo da marca, do modelo e do tipo de escada —
+          sendo mais económicos os modelos para escadas retas face aos modelos para escadas com curvas ou patamares.
+        </p>
+        <p class="text-base text-foreground/60 leading-relaxed mb-5" style="line-height:1.65;">
+          O preço final depende sempre da avaliação feita pela empresa instaladora. É por isso que recomendamos pedir
+          pelo menos dois ou três orçamentos — as diferenças entre empresas podem ser significativas para o mesmo equipamento.
+        </p>
+        <p class="text-base text-foreground/60 leading-relaxed mb-12" style="line-height:1.65;">
+          No Vida Acessível pode solicitar até três orçamentos gratuitos de instaladores certificados, facilitando a
+          comparação e a escolha da melhor opção para a sua casa.
+        </p>
+
+        <!-- Price bar cards -->
+        <div class="grid grid-cols-3 gap-4 md:gap-6">
+          {[
+            { label: "Escadas retas",  min: "€2.500", max: "€5.000", pct: 40 },
+            { label: "Escadas curvas", min: "€5.000", max: "€9.000", pct: 72 },
+            { label: "Segunda mão",   min: "€1.500", max: "€3.000", pct: 24 },
+          ].map(item => (
+            <div class="rounded-2xl border border-border bg-secondary p-5 md:p-6 flex flex-col items-center text-center shadow-card">
+              <p class="font-heading font-semibold text-sm text-foreground mb-3">{item.label}</p>
+              <div class="w-full h-28 md:h-36 bg-foreground/5 rounded-xl relative overflow-hidden my-2">
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-primary/15 border-t-2 border-primary rounded-b-xl"
+                  style={`height:${item.pct}%`}
+                />
+              </div>
+              <p class="font-heading font-bold text-xl text-primary mt-3">{item.min}</p>
+              <p class="text-xs text-foreground/40 mt-0.5">até {item.max}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         3. PREÇOS POR MODELO
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-3" style="line-height:1.2;">
+          Preços por tipo de escada
+        </h2>
+        <p class="text-base text-foreground/60 leading-relaxed mb-10">
+          As escadas retas e curvas têm preços muito diferentes. Perceba porquê e o que pode esperar para cada situação.
+        </p>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[
+            {
+              img: getImgSrc(imgReta),
+              alt: "Elevador para escada reta",
+              title: "Escadas retas",
+              price: "€2.500 – €5.000",
+              desc: "Os modelos para escadas retas são os mais económicos. A calha vem em comprimentos standard adaptáveis, tornando a instalação mais rápida e simples.",
+            },
+            {
+              img: getImgSrc(imgCurva),
+              alt: "Elevador para escada curva",
+              title: "Escadas curvas",
+              price: "€5.000 – €9.000",
+              desc: "Os elevadores para escadas curvas são mais caros porque a calha é fabricada à medida para a geometria exata da escada, com curvas e patamares.",
+            },
+            {
+              img: getImgSrc(imgExterior),
+              alt: "Elevador para escada exterior",
+              title: "Escadas exteriores",
+              price: "€3.500 – €8.000",
+              desc: "Modelos concebidos para resistir à chuva e variações de temperatura, com materiais e acabamentos específicos para uso no exterior.",
+            },
+          ].map(item => (
+            <div class="rounded-2xl bg-white overflow-hidden border border-border shadow-card">
+              <img
+                src={item.img}
+                alt={item.alt}
+                class="w-full h-48 object-cover block"
+                loading="lazy"
+              />
+              <div class="p-6">
+                <h3 class="font-heading font-bold text-base text-foreground mb-1">{item.title}</h3>
+                <p class="font-heading font-bold text-lg text-primary mb-3">{item.price}</p>
+                <p class="text-sm text-foreground/60 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         4. FATORES QUE INFLUENCIAM O PREÇO
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-12" style="line-height:1.2;">
+          Outros fatores que influenciam o preço
+        </h2>
+
+        <div class="relative pl-8 md:pl-10">
+          <!-- Plumb line -->
+          <div class="absolute left-0 top-2 bottom-2 w-[2px] bg-primary/20 rounded-full">
+            <div class="absolute top-0 left-[-5px] w-3 h-3 rounded-full bg-cta"></div>
+          </div>
+
+          <div class="space-y-14">
+
+            <div class="relative">
+              <div class="absolute left-[-41px] md:left-[-49px] top-1 w-3 h-3 rounded-full bg-primary"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                <h3 class="font-heading font-bold text-lg text-foreground">A marca</h3>
+              </div>
+              <p class="text-base text-foreground/60 leading-relaxed mb-3" style="line-height:1.65;">
+                A escolha da marca é um fator determinante no preço. Em Portugal, as marcas mais presentes são Stannah, TK Elevator (ThyssenKrupp), Handicare e Acorn. Os preços variam significativamente entre fabricantes — daí a importância de pedir orçamentos a várias empresas.
+              </p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute left-[-41px] md:left-[-49px] top-1 w-3 h-3 rounded-full bg-primary"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <h3 class="font-heading font-bold text-lg text-foreground">O tipo de escadas</h3>
+              </div>
+              <p class="text-base text-foreground/60 leading-relaxed mb-3" style="line-height:1.65;">
+                As características das escadas — retas ou curvas, largura, comprimento e número de patamares — influenciam diretamente o preço. Escadas mais largas ou com geometria complexa requerem calhas mais longas ou fabricadas à medida, o que aumenta o custo.
+              </p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute left-[-41px] md:left-[-49px] top-1 w-3 h-3 rounded-full bg-primary"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                <h3 class="font-heading font-bold text-lg text-foreground">O modelo e os extras</h3>
+              </div>
+              <p class="text-base text-foreground/60 leading-relaxed" style="line-height:1.65;">
+                Funcionalidades adicionais como assento giratório, dimensões para utilizadores com excesso de peso, revestimento do assento ou telecomando extra também afetam o preço final. Defina bem o que precisa antes de pedir orçamentos para garantir comparações justas.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         5. INSTALAÇÃO
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Quanto custa a instalação?
+        </h2>
+        <p class="text-base text-foreground/60 leading-relaxed mb-8" style="line-height:1.65;">
+          Na grande maioria dos casos, os custos de instalação estão incluídos no preço final do equipamento. Ainda assim,
+          é importante confirmar este detalhe antes de assinar qualquer contrato.
+        </p>
+
+        <div class="rounded-2xl bg-white border border-border shadow-card p-6 mb-6">
+          <div class="flex items-start gap-3 mb-3">
+            <svg class="w-5 h-5 text-cta flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p class="text-sm text-foreground leading-relaxed" style="line-height:1.6;">
+              Ao discutir o preço final, confirme se o orçamento inclui a instalação <em>e</em> a deslocação dos técnicos até à sua morada. Evita surpresas no final.
+            </p>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {[
+            "Instalação geralmente incluída no preço total",
+            "Confirme a deslocação dos técnicos à sua morada",
+            "Peça o orçamento detalhado por escrito antes de avançar",
+          ].map(item => (
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm text-foreground">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         6. SEGUNDA MÃO
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Elevadores de escadas em segunda mão
+        </h2>
+        <p class="text-base text-foreground/60 leading-relaxed mb-5" style="line-height:1.65;">
+          Comprar um elevador de escadas usado é uma opção válida para poupar. Pode encontrá-los em anúncios
+          classificados, em empresas especializadas em reacondicionamento ou através de instaladores que revendem equipamentos recolhidos.
+        </p>
+        <p class="text-base text-foreground/60 leading-relaxed mb-8" style="line-height:1.65;">
+          Tenha em atenção que os modelos usados são quase sempre para escadas retas — é muito difícil encontrar
+          calhas curvas em segunda mão, porque são fabricadas à medida de uma escada específica.
+        </p>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-8">
+          <div class="rounded-2xl bg-secondary border border-border shadow-card p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h3 class="font-heading font-bold text-base text-foreground">Compre com garantia</h3>
+            </div>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Compre apenas se o equipamento vier com garantia do vendedor. Certifica que está em boas condições de funcionamento e que terá suporte em caso de avaria.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-secondary border border-border shadow-card p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-9 h-9 rounded-xl bg-cta/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-cta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              </div>
+              <h3 class="font-heading font-bold text-base text-foreground">Verifique a segurança</h3>
+            </div>
+            <p class="text-sm text-foreground/60 leading-relaxed">
+              Confirme o funcionamento do cinto de segurança, do botão de paragem de emergência e dos sensores de obstáculos antes de aceitar o equipamento.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-primary/5 border border-primary/15 p-6 text-center">
+          <p class="text-sm text-foreground/50 mb-1">Preços típicos em segunda mão</p>
+          <p class="font-heading font-bold text-3xl text-primary">€1.500 – €3.000</p>
+          <p class="text-xs text-foreground/40 mt-1">Apenas escadas retas · Sujeito a disponibilidade</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         7. COMO CONSEGUIR O MELHOR PREÇO
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Como conseguir o melhor preço
+        </h2>
+        <p class="text-base text-foreground/60 leading-relaxed mb-5" style="line-height:1.65;">
+          A forma mais eficaz de garantir um bom preço é pedir vários orçamentos. As diferenças entre instaladores
+          para o mesmo equipamento podem atingir os 20–30%, pelo que comparar propostas compensa sempre.
+        </p>
+        <p class="text-base text-foreground/60 leading-relaxed mb-8" style="line-height:1.65;">
+          No Vida Acessível, ligamos particulares às principais empresas instaladoras certificadas em Portugal. Ao
+          pedir orçamento aqui, recebe até 3 propostas personalizadas — sem custo e sem compromisso.
+        </p>
+
+        <ul class="space-y-3 mb-10">
+          {[
+            "Solicite vários orçamentos para comparar preços e serviços",
+            "Compare modelos de diferentes marcas líderes de mercado",
+            "Verifique se a instalação está incluída no preço",
+            "Confirme as condições de garantia e manutenção pós-venda",
+          ].map(tip => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm text-foreground">{tip}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         8. FINAL CTA
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+          Descubra o preço exato para a sua escada
+        </h2>
+        <p class="text-base text-foreground/60 leading-relaxed mb-8" style="line-height:1.65;">
+          Apenas uma visita técnica permite determinar o custo exato. O instalador avalia as características
+          específicas da sua escada e apresenta um orçamento detalhado, sem obrigação de compra.
+        </p>
+
+        <div class="rounded-2xl bg-primary/5 border border-primary/15 p-8 md:p-10 text-center">
+          <h3 class="font-heading font-bold text-xl text-foreground mb-2">
+            Receba até 3 orçamentos gratuitos e compare
+          </h3>
+          <p class="text-sm text-foreground/55 mb-7 max-w-sm mx-auto leading-relaxed">
+            Instaladores certificados analisam o seu caso e enviam uma proposta adaptada. Grátis, sem compromisso.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/pedir-orcamento/"
+              class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-bold text-white shadow-cta transition-opacity hover:opacity-90"
+            >
+              Pedir orçamento gratuito
+            </a>
+            <a
+              href="/equipamentos/elevadores-de-escadas/"
+              class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+            >
+              Ver todos os modelos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <SiteFooter client:load />
+</Layout>
