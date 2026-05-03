@@ -1,0 +1,638 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader';
+import SiteFooter from '../../../components/SiteFooter';
+import catalogoImg from '../../../assets/catalogo-gratis.png';
+import ElevadoresQuoteForm from '../../../components/ElevadoresQuoteForm';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto custa instalar um elevador residencial em Portugal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O preço de um elevador residencial varia entre 8.000€ e 40.000€ ou mais, dependendo do tipo (pneumático, plataforma, cabine), número de andares e acabamentos. Os modelos de plataforma entre pisos são os mais económicos (a partir de 8.000€); os elevadores em cabine com poço novo são os mais completos (18.000€–40.000€). Peça orçamentos gratuitos para saber o valor exato para a sua casa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É preciso fazer obras para instalar um elevador em casa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do modelo. A plataforma entre pisos requer apenas um furo no teto — é a solução com menos obra. Um elevador em cabine precisa de um poço, que pode ser construído de raiz ou aproveitar um espaço existente. O elevador exterior não requer obras internas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo demora a instalação de um elevador residencial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma plataforma entre pisos instala-se em 1 a 2 dias. Um elevador em cabine demora entre 3 a 7 dias, dependendo da obra necessária. O elevador exterior pode demorar 2 a 4 dias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a capacidade de carga de um elevador residencial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A maioria dos elevadores residenciais suporta entre 200 kg e 400 kg, o equivalente a 2 a 4 pessoas. Os modelos de cabine mais espaçosa acomodam cadeiras de rodas e utilizadores com conforto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É necessária licença para instalar um elevador em casa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numa moradia privada, a instalação normalmente não requer licença camarária, mas é obrigatória a certificação e registo do equipamento. O instalador certificado trata de toda esta documentação. Em apartamentos ou condomínios, pode ser necessária aprovação em assembleia de condóminos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Existem apoios financeiros para instalar um elevador em casa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O programa de Produtos de Apoio da Segurança Social pode comparticipar parte do custo para pessoas com deficiência ou mobilidade reduzida. Algumas câmaras municipais também têm apoios para adaptação de habitações. Consulte a Segurança Social para verificar elegibilidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso instalar um elevador num apartamento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, embora mais condicionado. Num apartamento, a instalação depende da autorização do condomínio e da existência de espaço adequado. Os modelos de plataforma entre pisos são os mais viáveis, por requererem menos espaço e obra."
+      }
+    }
+  ]
+};
+
+const faqs = faqSchema["mainEntity"].map(e => ({ q: e.name, a: e.acceptedAnswer.text }));
+
+const articles = [
+  {
+    slug: "guia-compra-elevadores-residenciais",
+    category: "Guias de Compra",
+    title: "Guia de Compra de Elevadores Residenciais: Tudo o Que Precisa de Saber",
+    imageDesc: "Person reading a printed guide about home elevators at a warm wooden kitchen table in a Portuguese home. Soft natural light. Sony A7R IV, 35mm f/2.0. WebP format.",
+    imageCaption: "Guia de compra de elevadores residenciais",
+  },
+  {
+    slug: "apoios-financeiros-elevadores-casa",
+    category: "Apoios e Financiamento",
+    title: "Apoios Financeiros para Instalar um Elevador em Casa em Portugal",
+    imageDesc: "Older Portuguese woman reviewing documents about financial support programs at home. Warm light, cozy interior. Sony A7R IV, 35mm f/2.0. WebP format.",
+    imageCaption: "Apoios financeiros para elevadores residenciais",
+  },
+  {
+    slug: "plataforma-entre-pisos-vs-elevador-cabine",
+    category: "Comparações",
+    title: "Plataforma Entre Pisos ou Elevador em Cabine: Qual Escolher?",
+    imageDesc: "Split comparison image of a through-floor platform lift and a traditional cabin elevator in a modern Portuguese home interior. Clean editorial style. WebP format.",
+    imageCaption: "Plataforma entre pisos vs elevador em cabine",
+  },
+];
+---
+
+<Layout
+  title="Elevadores Residenciais em Portugal — Modelos, Preços e Orçamentos Gratuitos"
+  description="Compare elevadores residenciais: plataformas entre pisos, cabines e exteriores. Receba até 3 orçamentos gratuitos de instaladores certificados em Portugal."
+  schema={faqSchema}
+>
+  <SiteHeader client:load />
+
+  <main>
+
+    <!-- =======================================================
+         1. HERO
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm text-foreground/40" aria-label="Navegação de localização">
+          <a href="/" class="hover:text-foreground/70 transition-colors">Início</a>
+          <span class="mx-2">/</span>
+          <a href="/equipamentos/" class="hover:text-foreground/70 transition-colors">Equipamentos</a>
+          <span class="mx-2">/</span>
+          <span class="text-foreground/60">Elevadores Residenciais</span>
+        </nav>
+
+        <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+
+          <!-- Text -->
+          <div>
+            <p class="mb-5 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[.08em] text-primary">
+              Elevadores Residenciais
+            </p>
+            <h1 class="font-heading text-4xl font-extrabold text-foreground md:text-5xl lg:text-[3.25rem]" style="line-height:1.12; letter-spacing:-0.01em;">
+              Aceda a todos os andares — com conforto e independência
+            </h1>
+            <p class="mt-6 text-lg text-foreground/65 leading-relaxed max-w-lg" style="line-height:1.6;">
+              Compare modelos, perceba os preços e receba orçamentos gratuitos de instaladores certificados perto de si. Sem obras desnecessárias, sem pressão.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-bold text-white shadow-cta transition-opacity hover:opacity-90"
+              >
+                Pedir orçamento gratuito
+              </a>
+              <a
+                href="#modelos"
+                class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                Ver modelos
+              </a>
+            </div>
+            <p class="mt-6 text-sm text-foreground/40">
+              Sem compromisso · Grátis · Instaladores verificados
+            </p>
+          </div>
+
+          <!-- Hero image -->
+          <div>
+            <div
+              class="img-placeholder overflow-hidden shadow-hero"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2; border-radius:20px;"
+              data-image-description="Modern compact residential home lift with a glass and steel cabin installed inside a bright contemporary Portuguese home. Warm natural light, light wood floors, white walls. An older woman steps out of the lift at the upper floor landing, looking relaxed and independent. Sony A7R IV, 35mm f/2.0, warm tones. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:13px; color:#bbb; text-align:center; padding:1rem;">
+                Elevador residencial moderno numa casa portuguesa
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         2. EMOTIONAL TRIGGERS
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-10">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-4" style="line-height:1.2;">
+            Quando as escadas deixam de ser uma opção
+          </h2>
+          <p class="text-base text-foreground/60 leading-relaxed max-w-2xl mx-auto">
+            Há situações em que subir e descer escadas deixa de ser simples. Um elevador residencial é a resposta definitiva — uma solução que devolve a independência e mantém a vida como sempre foi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+          <div class="rounded-2xl overflow-hidden bg-white border border-border shadow-card">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="An older Portuguese man standing at the bottom of a staircase inside his home, looking up at the upper floor with a tired, pensive expression. He holds the handrail for support. Warm interior light, traditional Portuguese tiles visible. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Homem idoso a olhar para as escadas com dificuldade</span>
+            </div>
+            <div class="px-5 pt-5 pb-6">
+              <p class="font-heading text-base font-bold text-foreground mb-2">O quarto no andar de cima</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                Para dormir bem, guardar roupa ou simplesmente estar no sítio de sempre — o andar de cima tem de estar acessível. Sempre.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden bg-white border border-border shadow-card">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="An older Portuguese woman sitting on a chair at the bottom of stairs, rubbing her knee with a pained expression. She is resting after a difficult climb. Warm domestic interior, soft afternoon light. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Mulher idosa com dificuldade nas escadas</span>
+            </div>
+            <div class="px-5 pt-5 pb-6">
+              <p class="font-heading text-base font-bold text-foreground mb-2">Cada subida é um esforço a mais</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                Com o passar dos anos, o que parecia simples torna-se cansativo e doloroso. Um elevador elimina esse esforço, sem precisar de mudar de casa.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden bg-white border border-border shadow-card">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:3/2;"
+              data-image-description="A warm scene of an older Portuguese couple sitting comfortably in their living room, surrounded by family photos and familiar furniture. They look content, at home, fully settled in their own space. Sony A7R IV, 35mm f/2.0, soft afternoon light. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Casal idoso em casa, independente e confortável</span>
+            </div>
+            <div class="px-5 pt-5 pb-6">
+              <p class="font-heading text-base font-bold text-foreground mb-2">Independência sem abrir mão de nada</p>
+              <p class="text-sm text-foreground/60 leading-relaxed">
+                Manter a casa, os hábitos e a vida como sempre foram. Sem depender de ninguém para ir ao andar de baixo buscar um copo de água.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         3. O QUE É
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
+
+          <div>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[.08em] text-primary">O que é</p>
+            <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+              Um elevador compacto que se instala na sua casa
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-5" style="line-height:1.65;">
+              Um elevador residencial — também chamado elevador doméstico ou elevador para moradia — é um equipamento compacto instalado dentro ou na fachada da sua habitação. Permite circular entre pisos de forma completamente independente, sem esforço e com total segurança.
+            </p>
+            <p class="text-base text-foreground/65 leading-relaxed mb-8" style="line-height:1.65;">
+              Ao contrário de um elevador de escadas, o elevador residencial percorre uma abertura vertical e pode transportar cadeiras de rodas, andarilhos e outros equipamentos de mobilidade. Existem modelos com pouco impacto na construção existente.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Até 400 kg de capacidade</span>
+              <span class="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Cabine personalizável</span>
+              <span class="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Elétrico ou hidráulico</span>
+              <span class="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Instalação em 1–3 dias</span>
+              <span class="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Manutenção simples</span>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="img-placeholder overflow-hidden shadow-hero"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3; border-radius:20px;"
+              data-image-description="Close-up detail of a residential home lift interior: brushed steel walls, soft LED ceiling light, control panel with floor buttons, wooden handrail. Clean, modern, domestic feel. Shallow depth of field. Sony A7R IV, 50mm f/1.8. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:13px; color:#bbb; text-align:center; padding:1rem;">
+                Interior de cabine de elevador residencial
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         4. MODELOS
+    ======================================================= -->
+    <section id="modelos" class="bg-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Escolha o modelo certo para a sua casa</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-xl mx-auto leading-relaxed">
+            Cada habitação é diferente. Conheça os três modelos disponíveis e perceba qual se adapta melhor à sua situação.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+          <!-- Plataforma entre pisos -->
+          <div class="rounded-2xl bg-white overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A through-floor platform lift installed in a Portuguese home, showing the platform rising through a neat circular opening in the floor between two levels. Minimal footprint, modern design, warm interior light. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Plataforma entre pisos</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-[.06em] text-primary mb-1">Menos obra</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Plataforma Entre Pisos</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Atravessa o teto de um andar para o outro. Compacta, silenciosa e com pouca obra. Ideal para moradias de 2 andares.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Instalação em 1–2 dias
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Mínima obra estrutural
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Acomoda cadeira de rodas
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€8.000</span></p>
+            </div>
+          </div>
+
+          <!-- Elevador em cabine -->
+          <div class="rounded-2xl bg-white overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="A sleek cabin home elevator with glass and wood paneling installed in the hallway of a modern Portuguese villa. Sliding doors open to reveal the cabin interior. Warm ambient lighting, marble floor tiles. Sony A7R IV, 35mm f/2.0. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Elevador em cabine com portas automáticas</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-[.06em] text-primary mb-1">Mais conforto</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Elevador em Cabine</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Cabine fechada com porta automática, instalada num poço existente ou construído de raiz. O mais confortável, com maior capacidade.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Porta automática incluída
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Até 3 ou mais andares
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Valoriza o imóvel
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€18.000</span></p>
+            </div>
+          </div>
+
+          <!-- Elevador exterior -->
+          <div class="rounded-2xl bg-white overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-shadow">
+            <div
+              class="img-placeholder"
+              style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+              data-image-description="An external residential lift attached to the exterior facade of a traditional Portuguese house. The steel and glass structure rises alongside the white wall. Blue sky, terracotta roof tiles visible above. Sony A7R IV, 35mm f/2.0, natural daylight. WebP format."
+            >
+              <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+              <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">Elevador exterior fixado na fachada</span>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-[.06em] text-primary mb-1">Sem obras internas</p>
+              <h3 class="font-heading text-xl font-bold text-foreground mb-3">Elevador Exterior</h3>
+              <p class="text-sm text-foreground/60 leading-relaxed mb-4">
+                Instalado na fachada da habitação, sem obras no interior. Ideal quando o espaço interno é limitado ou se pretende preservar a divisão existente.
+              </p>
+              <ul class="space-y-1.5 text-sm text-foreground/60 mb-5">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Interior da casa preservado
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Resistente a condições climatéricas
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Instalação em 2–4 dias
+                </li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground/80">A partir de <span class="text-cta font-bold">€15.000</span></p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="mt-8 text-center text-sm text-foreground/40">
+          * Preços indicativos. O valor final depende do modelo, da habitação e da instalação. Peça orçamento para saber o custo exato.
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         5. CATÁLOGO GRATUITO
+    ======================================================= -->
+    <section class="bg-secondary py-14 md:py-18">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="rounded-2xl bg-primary/5 border border-primary/15 px-8 py-10 md:px-12 md:py-14 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+          <div class="shrink-0">
+            <img
+              src={(catalogoImg as unknown as { src: string }).src ?? (catalogoImg as unknown as string)}
+              alt="Catálogo gratuito de elevadores residenciais — Vida Acessível"
+              class="w-40 md:w-52 drop-shadow-lg"
+              width="208"
+              height="270"
+            />
+          </div>
+
+          <div class="text-center md:text-left">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[.08em] text-primary">Grátis</p>
+            <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl mb-3">
+              Receba o catálogo completo de elevadores residenciais
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-7 max-w-md" style="line-height:1.65;">
+              Modelos, especificações técnicas, preços orientativos e guias de instalação — num documento que pode ler com calma, ao seu ritmo.
+            </p>
+            <a
+              href="/catalogo-gratis/"
+              class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-bold text-white shadow-cta transition-opacity hover:opacity-90"
+            >
+              Pedir catálogo gratuito
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         6. PREÇOS
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 items-start">
+
+          <div>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[.08em] text-primary">Preços</p>
+            <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl mb-6" style="line-height:1.2;">
+              Quanto custa um elevador residencial?
+            </h2>
+            <p class="text-base text-foreground/65 leading-relaxed mb-6" style="line-height:1.65;">
+              O preço depende do tipo de modelo, do número de andares, da obra necessária e dos acabamentos escolhidos. A diferença entre uma plataforma simples e um elevador em cabine com poço novo é significativa.
+            </p>
+            <p class="text-base text-foreground/65 leading-relaxed mb-8" style="line-height:1.65;">
+              Ao pedir orçamentos através do Vida Acessível, recebe até 3 propostas de instaladores certificados — sem custo, sem compromisso — e pode comparar com calma.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="/pedir-orcamento/"
+                class="inline-flex items-center rounded-full bg-cta px-7 py-3.5 text-base font-bold text-white shadow-cta transition-opacity hover:opacity-90"
+              >
+                Pedir orçamento gratuito
+              </a>
+              <a
+                href="/equipamentos/elevadores-residenciais/preco/"
+                class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                Ver guia de preços
+              </a>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl bg-secondary px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Plataforma entre pisos</p>
+                <p class="text-sm text-foreground/50 mt-0.5">1–2 andares, mínima obra</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€8.000 – €20.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-secondary px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Elevador em cabine (poço existente)</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Aproveitamento de espaço existente</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€12.000 – €25.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-secondary px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Elevador em cabine (poço novo)</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Construção de raiz, maior capacidade</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€18.000 – €40.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-dashed border-foreground/15 px-6 py-5 flex items-center justify-between">
+              <div>
+                <p class="font-heading text-base font-semibold text-foreground">Elevador exterior</p>
+                <p class="text-sm text-foreground/50 mt-0.5">Fixado na fachada, sem obra interna</p>
+              </div>
+              <div class="text-right">
+                <p class="font-heading text-lg font-bold text-cta">€15.000 – €35.000</p>
+                <p class="text-xs text-foreground/40">incl. instalação</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         7. FORMULÁRIO DE ORÇAMENTO
+    ======================================================= -->
+    <ElevadoresQuoteForm client:load />
+    <div class="bg-secondary py-5 text-center border-t border-foreground/8">
+      <p class="text-sm font-semibold text-primary">Mais de 2.500 famílias ajudadas em Portugal</p>
+      <p class="mt-1 text-xs text-foreground/40">Sem compromisso · 100% Gratuito · Instaladores verificados</p>
+    </div>
+
+    <!-- =======================================================
+         8. FAQ
+    ======================================================= -->
+    <section class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Perguntas frequentes</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-md mx-auto leading-relaxed">
+            Respostas às dúvidas mais comuns sobre elevadores residenciais em Portugal.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group rounded-2xl border border-border bg-secondary px-6 py-5 open:bg-white open:shadow-card transition-all">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 list-none">
+                <span class="font-heading text-base font-semibold text-foreground">{faq.q}</span>
+                <svg
+                  class="h-5 w-5 flex-shrink-0 text-foreground/40 transition-transform group-open:rotate-180"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <p class="mt-4 text-base text-foreground/65 leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         9. FINAL CTA
+    ======================================================= -->
+    <section class="bg-[#1D6954] py-14 md:py-18">
+      <div class="mx-auto max-w-3xl px-4 md:px-8 text-center">
+        <h2 class="font-heading text-2xl font-bold text-white md:text-3xl mb-4">
+          Pronto para ter um elevador em casa?
+        </h2>
+        <p class="text-base leading-relaxed mb-7 max-w-lg mx-auto" style="color: rgba(255,255,255,0.75);">
+          Não precisa de decidir agora. Peça orçamentos, compare propostas e decida quando se sentir pronto. É gratuito e sem qualquer compromisso.
+        </p>
+        <a
+          href="/pedir-orcamento/"
+          class="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-base font-bold text-[#1D6954] transition-opacity hover:opacity-90"
+        >
+          Pedir orçamento gratuito
+        </a>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         10. ARTIGOS RELACIONADOS
+    ======================================================= -->
+    <section class="bg-secondary py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl">Guias e recursos úteis</h2>
+          <p class="mt-4 text-base text-foreground/55 max-w-md mx-auto leading-relaxed">
+            Informação clara e prática para tomar a melhor decisão, ao seu ritmo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {articles.map((article) => (
+            <article>
+              <a href={`/recursos/${article.slug}`} class="group block">
+                <div
+                  class="img-placeholder rounded-2xl overflow-hidden mb-4 shadow-card group-hover:shadow-card-hover transition-shadow"
+                  style="background:#e8f0ee; display:flex; align-items:center; justify-content:center; position:relative; width:100%; aspect-ratio:4/3;"
+                  data-image-description={article.imageDesc}
+                >
+                  <span style="position:absolute; top:8px; left:8px; font-size:11px; color:#bbb;">Imagem</span>
+                  <span style="font-size:12px; color:#bbb; text-align:center; padding:1rem;">
+                    {article.imageCaption}
+                  </span>
+                </div>
+                <p class="text-xs font-bold uppercase tracking-[.06em] text-primary mb-1">{article.category}</p>
+                <p class="text-base font-medium text-foreground/70 leading-snug group-hover:text-foreground transition-colors">
+                  {article.title}
+                </p>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="/recursos/"
+            class="inline-flex items-center rounded-full border border-foreground/25 px-7 py-3 text-sm font-semibold text-foreground/70 transition-colors hover:border-foreground/50 hover:text-foreground"
+          >
+            Ver todos os artigos
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <SiteFooter client:load />
+</Layout>
