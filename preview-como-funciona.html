@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como Funciona — Vida Acessível</title>
+  <meta name="description" content="Saiba como o Vida Acessível simplifica a procura de soluções de acessibilidade, ligando-o a instaladores certificados em Portugal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      hsl(187,100%,22%);
+      --primary-fg:   hsl(0,0%,100%);
+      --secondary:    hsl(195,30%,95%);
+      --foreground:   hsl(210,20%,16%);
+      --fg60:         hsl(210,20%,16%,0.6);
+      --fg40:         hsl(210,20%,16%,0.4);
+      --border:       hsl(210,15%,90%);
+      --cta:          hsl(16,76%,60%);
+      --dark-green:   #1D6954;
+      --shadow-card:  0 1px 3px hsl(210,15%,20%,0.06),0 1px 2px hsl(210,15%,20%,0.04);
+      --shadow-cta:   0 10px 24px hsl(16,76%,55%,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--foreground); background: #fff; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 800; font-size: 1.125rem; color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--fg60); transition: color .2s; }
+    .nav-links a:hover { color: var(--foreground); }
+    .btn-cta-nav {
+      display: inline-flex; align-items: center;
+      background: var(--cta); color: #fff;
+      padding: .625rem 1.5rem; border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 700; font-size: .875rem;
+      box-shadow: var(--shadow-cta); transition: opacity .2s;
+    }
+    .btn-cta-nav:hover { opacity: .9; }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 5rem 1.5rem; }
+    @media(min-width:768px) { .section { padding: 6rem 2rem; } }
+    .section-secondary { background: var(--secondary); }
+    .section-dark { background: var(--primary); }
+
+    .container { max-width: 880px; margin: 0 auto; }
+    .container-wide { max-width: 1280px; margin: 0 auto; }
+
+    /* ─── EYEBROW ─── */
+    .eyebrow {
+      display: inline-block;
+      background: hsl(187,100%,22%,.1); color: var(--primary);
+      padding: .25rem .75rem; border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans',sans-serif;
+      font-size: .75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow-light {
+      display: inline-block;
+      background: rgba(255,255,255,.15); color: #fff;
+      padding: .25rem .75rem; border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans',sans-serif;
+      font-size: .75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow-cta {
+      display: inline-block;
+      background: hsl(16,76%,60%,.12); color: var(--cta);
+      padding: .25rem .75rem; border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans',sans-serif;
+      font-size: .75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ─── HERO (dark) ─── */
+    .hero-dark { text-align: center; }
+    .hero-dark h1 {
+      font-weight: 800; font-size: clamp(2rem,5vw,3.25rem);
+      line-height: 1.12; letter-spacing: -.01em; color: #fff;
+      max-width: 42rem; margin: 0 auto 1.25rem;
+    }
+    .hero-dark p { font-size: 1.125rem; color: rgba(255,255,255,.8); line-height: 1.6; max-width: 38rem; margin: 0 auto; }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-size: clamp(1.5rem,3vw,1.875rem); font-weight: 700; margin-bottom: .75rem; }
+    .section-header p { font-size: 1rem; color: var(--fg60); max-width: 34rem; margin: 0 auto; line-height: 1.65; }
+
+    /* ─── CARDS ─── */
+    .cards-3 { display: grid; gap: 1.5rem; }
+    @media(min-width:768px) { .cards-3 { grid-template-columns: repeat(3,1fr); } }
+
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 1rem; padding: 1.5rem;
+      box-shadow: var(--shadow-card);
+    }
+    .card-icon {
+      width: 3rem; height: 3rem; border-radius: 50%;
+      background: hsl(187,100%,22%,.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .card-icon-cta {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      background: hsl(16,76%,60%,.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .card-icon svg, .card-icon-cta svg { width: 1.25rem; height: 1.25rem; fill: none; }
+    .card-icon svg { stroke: var(--primary); }
+    .card-icon-cta svg { stroke: var(--cta); }
+    .card h3 { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 700; font-size: 1.0625rem; margin-bottom: .5rem; }
+    .card p { font-size: .875rem; color: var(--fg60); line-height: 1.65; }
+
+    /* ─── STEPS ─── */
+    .steps-grid { display: grid; gap: 2.5rem; }
+    @media(min-width:768px) { .steps-grid { grid-template-columns: repeat(3,1fr); } }
+    .step { text-align: center; }
+    .step-num {
+      width: 3.5rem; height: 3.5rem; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 800; font-size: 1.25rem;
+      margin: 0 auto 1.25rem;
+    }
+    .step h3 { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 700; font-size: 1.0625rem; margin-bottom: .5rem; }
+    .step p { font-size: .875rem; color: var(--fg60); line-height: 1.65; }
+
+    /* ─── HIGHLIGHT BAND ─── */
+    .highlight-grid { display: grid; gap: 2.5rem; align-items: center; }
+    @media(min-width:768px) { .highlight-grid { grid-template-columns: 1fr 1fr; } }
+    .highlight-grid h2 { font-size: clamp(1.375rem,3vw,1.875rem); font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .highlight-grid p { font-size: 1.0625rem; color: rgba(255,255,255,.8); line-height: 1.65; }
+    .highlight-list { display: flex; flex-direction: column; gap: .75rem; }
+    .highlight-item {
+      display: flex; align-items: center; gap: .75rem;
+      background: rgba(255,255,255,.12); border-radius: .75rem;
+      padding: 1rem 1.25rem;
+    }
+    .highlight-item svg { width: 1.25rem; height: 1.25rem; stroke: #fff; fill: none; flex-shrink: 0; }
+    .highlight-item span { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 600; font-size: .9375rem; color: #fff; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta { text-align: center; }
+    .final-cta h2 { font-size: clamp(1.375rem,3vw,1.875rem); font-weight: 700; margin-bottom: .75rem; }
+    .final-cta p { font-size: 1rem; color: var(--fg60); margin-bottom: 2rem; max-width: 28rem; margin-left: auto; margin-right: auto; line-height: 1.65; }
+    .btn-primary {
+      display: inline-flex; align-items: center;
+      background: var(--cta); color: #fff;
+      padding: .875rem 1.75rem; border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-cta); transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .9; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--secondary); border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    footer .footer-logo { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 800; color: var(--primary); font-size: 1rem; display: block; margin-bottom: .5rem; }
+    footer p { font-size: .875rem; color: var(--fg40); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Vida Acessível</a>
+    <div class="nav-links">
+      <a href="/equipamentos/elevadores-de-escadas/">Elevadores de Escadas</a>
+      <a href="/equipamentos/elevadores-residenciais/">Elevadores Residenciais</a>
+      <a href="/sobre/">Sobre nós</a>
+      <a href="/pedir-orcamento/" class="btn-cta-nav">Pedir Orçamento</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="section section-dark hero-dark">
+    <div class="container">
+      <span class="eyebrow-light">Como Ajudamos</span>
+      <h1>Simplificamos a decisão, não apenas a informação</h1>
+      <p>O Vida Acessível centraliza pedidos, facilita o contacto com empresas especializadas e dá-lhe uma base sólida para comparar antes de avançar.</p>
+    </div>
+  </section>
+
+  <!-- O NOSSO PAPEL -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>O nosso papel no processo</h2>
+        <p>Não vendemos nem instalamos. Tornamos o processo mais simples, ligando-o a quem o faz de forma profissional.</p>
+      </div>
+      <div class="cards-3">
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"/></svg>
+          </div>
+          <h3>Organizamos a informação</h3>
+          <p>Reunimos e simplificamos toda a informação sobre soluções de acessibilidade para que possa tomar decisões informadas sem perder tempo.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"/></svg>
+          </div>
+          <h3>Ligamos a empresas especializadas</h3>
+          <p>O seu pedido é encaminhado a instaladores certificados perto de si, sem que tenha de procurar empresa a empresa.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c-.99.143-1.99.317-2.999.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L2.25 5.491z"/></svg>
+          </div>
+          <h3>Facilitamos a comparação</h3>
+          <p>Receba até 3 propostas gratuitas e compare preços, modelos e condições lado a lado. Ganha controlo sobre a decisão.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PREOCUPAÇÕES -->
+  <section class="section section-secondary">
+    <div class="container">
+      <div class="section-header">
+        <h2>Respondemos às preocupações mais comuns</h2>
+        <p>Comparar orçamentos dá-lhe controlo. Não fica dependente de uma única empresa — pode avaliar opções com mais segurança.</p>
+      </div>
+      <div class="cards-3">
+
+        <div class="card">
+          <div class="card-icon-cta">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>
+          </div>
+          <h3>Não sei qual é o preço justo</h3>
+          <p>Ao receber várias propostas, percebe rapidamente a faixa de preços praticada e identifica valores justos para a sua situação.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-cta">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+          </div>
+          <h3>Não conheço as diferenças entre soluções</h3>
+          <p>Os nossos guias e a comparação direta de propostas ajudam-no a entender as vantagens de cada opção — tipo de escada, modelo, marca e funcionalidades.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-cta">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <h3>Tenho receio de escolher mal</h3>
+          <p>Não fica dependente de uma única empresa. Pode avaliar múltiplas opções, esclarecer dúvidas e avançar apenas quando se sentir confiante.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 PASSOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Orçamentos</span>
+        <h2>Como funciona?</h2>
+        <p>Encontre de forma rápida, fácil e segura soluções de acessibilidade e empresas instaladoras em Portugal.</p>
+      </div>
+      <div class="steps-grid">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Indique o que procura</h3>
+          <p>Diga que tipo de equipamento ou solução precisa, como um elevador de escadas, uma plataforma ou um elevador residencial.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Receba até 3 propostas gratuitas</h3>
+          <p>O seu pedido é enviado a instaladores certificados perto de si. Recebe propostas ajustadas ao seu espaço, sem custos nem compromisso.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Compare e escolha com confiança</h3>
+          <p>Analise as opções, esclareça dúvidas e escolha a que melhor se adapta às suas necessidades e orçamento.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT BAND -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" style="margin-bottom:1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+          <h2>O Vida Acessível não simplifica apenas a informação</h2>
+          <p>Simplifica a decisão. Centraliza pedidos, facilita o contacto e dá ao utilizador uma base sólida para comparar antes de avançar.</p>
+        </div>
+        <div class="highlight-list">
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            <span>Receba propostas sem compromisso</span>
+          </div>
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            <span>Compare preços e condições</span>
+          </div>
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            <span>Escolha com confiança</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section final-cta">
+    <div class="container">
+      <span class="eyebrow-cta">100% Gratuito</span>
+      <h2>Pronto para comparar soluções?</h2>
+      <p>Peça orçamentos gratuitos e receba propostas de instaladores certificados, sem compromisso.</p>
+      <a href="/pedir-orcamento/" class="btn-primary">Pedir orçamento gratuito</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="footer-logo">Vida Acessível</span>
+  <p>© 2025 Vida Acessível. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
